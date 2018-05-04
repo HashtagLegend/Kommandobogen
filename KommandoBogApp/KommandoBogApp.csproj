@@ -100,6 +100,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Admin.cs" />
+    <Compile Include="Model\Afdeling.cs" />
     <Compile Include="Model\Leader.cs" />
     <Compile Include="Model\Regular.cs" />
     <Compile Include="Model\User.cs" />
@@ -152,11 +153,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Handler\" />
     <Folder Include="Persistency\" />
-    <Folder Include="Singleton\" />
-    <Folder Include="ViewModel\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

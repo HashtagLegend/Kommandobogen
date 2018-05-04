@@ -20,6 +20,7 @@ namespace KommandoBogApp.ViewModel
         public string ViewAdresse { get; set; }
         public string ViewEmail { get; set; }
         public string Type { get; set; }
+        public string Afdeling { get; set; }
 
 
         public UserHandler Handler { get; set; }

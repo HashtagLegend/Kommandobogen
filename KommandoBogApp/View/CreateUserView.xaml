@@ -16,7 +16,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBox x:Name="MA_Nummer" HorizontalAlignment="Left" Margin="147,183,0,0" Text="{Binding ViewMaNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="41" Width="286" PlaceholderText="MA-nummer"/>
         <TextBox x:Name="Telefon_Nummer" HorizontalAlignment="Left" Margin="147,320,0,0" Text="{Binding ViewTlf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Tlf_nummer"/>
-        <TextBox x:Name="Afdeling" HorizontalAlignment="Left" Margin="147,462,0,0" Text="" VerticalAlignment="Top" Height="32" Width="286" PlaceholderText="Afdeling"/>
+        <TextBox x:Name="Afdeling" HorizontalAlignment="Left" Margin="147,462,0,0" Text="{Binding Afdeling, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="32" Width="286" PlaceholderText="Afdeling"/>
         <TextBox x:Name="Email" HorizontalAlignment="Left" Margin="147,531,0,0" Text="{Binding ViewEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Email"/>
         <TextBox x:Name="Navn" HorizontalAlignment="Left" Margin="147,254,0,0" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Navn"/>
         <TextBox x:Name="Adresse" HorizontalAlignment="Left" Margin="147,396,0,0" Text="{Binding ViewAdresse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Adresse"/>
