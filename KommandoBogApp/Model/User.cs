@@ -35,5 +35,9 @@ namespace KommandoBogApp.Model
 
         }
 
+        public override string ToString()
+        {
+            return $"{nameof(MaNummer)}: {MaNummer}, {nameof(Navn)}: {Navn}, {nameof(Tlf)}: {Tlf}, {nameof(Adresse)}: {Adresse}, {nameof(Email)}: {Email}";
+        }
     }
 }

@@ -24,14 +24,13 @@ namespace KommandoBogApp.ViewModel
 
         public UserHandler Handler { get; set; }
 
-
-
-
        
         public UserViewModel()
         {
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             Handler = new UserHandler(this);
         }
+
+        
     }
 }
