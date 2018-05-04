@@ -114,6 +114,9 @@
     <Compile Include="Singleton\UserCatalogSingleton.cs" />
     <Compile Include="ViewModel\ActivityViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="View\CreateActivityView.xaml.cs">
+      <DependentUpon>CreateActivityView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CreateUserView.xaml.cs">
       <DependentUpon>CreateUserView.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CreateActivityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CreateUserView.xaml">
       <SubType>Designer</SubType>

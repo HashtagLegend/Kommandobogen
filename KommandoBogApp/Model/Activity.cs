@@ -24,5 +24,9 @@ namespace KommandoBogApp.Model
             Color = color;
         }
 
+        public override string ToString()
+        {
+            return $"{nameof(DateFrom)}: {DateFrom}, {nameof(DateTo)}: {DateTo}, {nameof(Kommentar)}: {Kommentar}, {nameof(Navn)}: {Navn}, {nameof(Color)}: {Color}";
+        }
     }
 }
