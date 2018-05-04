@@ -1,0 +1,29 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KommandoBogApp.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Microsoft.Xaml.Interactivity" xmlns:Custom1="using:Microsoft.Xaml.Interactions.Core"
+    x:Class="KommandoBogApp.View.CreateUserView"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox x:Name="MA_Nummer" HorizontalAlignment="Left" Margin="147,183,0,0" Text="" VerticalAlignment="Top" Height="41" Width="286" PlaceholderText="MA-nummer"/>
+        <TextBox x:Name="Telefon_Nummer" HorizontalAlignment="Left" Margin="147,320,0,0" Text="" VerticalAlignment="Top" Width="286" PlaceholderText="Tlf_nummer"/>
+        <TextBox x:Name="Afdeling" HorizontalAlignment="Left" Margin="147,462,0,0" Text="" VerticalAlignment="Top" Height="32" Width="286" PlaceholderText="Afdeling"/>
+        <TextBox x:Name="Email" HorizontalAlignment="Left" Margin="147,531,0,0" Text="" VerticalAlignment="Top" Width="286" PlaceholderText="Email"/>
+        <TextBox x:Name="Navn" HorizontalAlignment="Left" Margin="147,254,0,0" Text="" VerticalAlignment="Top" Width="286" PlaceholderText="Navn"/>
+        <TextBox x:Name="Adresse" HorizontalAlignment="Left" Margin="147,396,0,0" Text="" VerticalAlignment="Top" Width="286" PlaceholderText="Adresse"/>
+        <TextBox x:Name="UserClassID" HorizontalAlignment="Left" Margin="147,593,0,0" Text="" VerticalAlignment="Top" Width="286" PlaceholderText="Bruger Type"/>
+        <TextBlock HorizontalAlignment="Left" Margin="147,54,0,0" Text="Opret Bruger " TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="287" FontSize="36" TextDecorations="Underline"/>
+        <Button x:Name="Opret_bruger_knap" Content="Opret Bruger" HorizontalAlignment="Left" Margin="724,547,0,0" VerticalAlignment="Top" Height="79" Width="132">
+            <Custom:Interaction.Behaviors>
+                <Custom1:EventTriggerBehavior EventName="Click">
+                    <Custom1:CallMethodAction/>
+                </Custom1:EventTriggerBehavior>
+            </Custom:Interaction.Behaviors>
+        </Button>
+
+    </Grid>
+</Page>
