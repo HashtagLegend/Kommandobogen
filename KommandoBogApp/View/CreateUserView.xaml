@@ -5,8 +5,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Custom="using:Microsoft.Xaml.Interactivity" xmlns:Custom1="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:ViewModel="using:KommandoBogApp.ViewModel"
     x:Class="KommandoBogApp.View.CreateUserView"
     mc:Ignorable="d">
+
+    <Page.DataContext>
+        <ViewModel:UserViewModel/>
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBox x:Name="MA_Nummer" HorizontalAlignment="Left" Margin="147,183,0,0" Text="" VerticalAlignment="Top" Height="41" Width="286" PlaceholderText="MA-nummer"/>
