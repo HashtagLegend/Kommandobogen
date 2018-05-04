@@ -95,13 +95,20 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Handler\UserHandler.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Admin.cs" />
+    <Compile Include="Model\Leader.cs" />
+    <Compile Include="Model\Regular.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\Activity.cs" />
     <Compile Include="Model\Ferie.cs" />
     <Compile Include="Model\Kursus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Singleton\UserCatalogSingleton.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -137,8 +144,6 @@
   <ItemGroup>
     <Folder Include="Handler\" />
     <Folder Include="Persistency\" />
-    <Folder Include="Singleton\" />
-    <Folder Include="ViewModel\" />
     <Folder Include="View\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
