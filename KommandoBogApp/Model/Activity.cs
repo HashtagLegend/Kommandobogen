@@ -7,7 +7,7 @@ using Windows.UI;
 
 namespace KommandoBogApp.Model
 {
-    public abstract class Activity
+    public class Activity
     {
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
@@ -15,7 +15,7 @@ namespace KommandoBogApp.Model
         public string Navn { get; set; }
         public Color Color { get; set; }
 
-        protected Activity(DateTime dateFrom, DateTime dateTo, string kommentar, string navn, Color color)
+        public Activity(DateTime dateFrom, DateTime dateTo, string kommentar, string navn, Color color)
         {
             DateFrom = dateFrom;
             DateTo = dateTo;
