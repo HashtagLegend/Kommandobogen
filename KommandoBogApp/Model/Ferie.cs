@@ -10,7 +10,7 @@ namespace KommandoBogApp.Model
     class Ferie : Activity
     {
         
-        public Ferie(DateTime dateFrom, DateTime dateTo, string kommentar, string navn, Color color) : base(dateFrom, dateTo, kommentar, navn, color)
+        public Ferie(List<DateTime> dates, string kommentar, string navn, Color color) : base(dates, kommentar, navn, color)
         {
             navn = "Ferie";
             color = Colors.Orange;

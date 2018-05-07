@@ -10,7 +10,7 @@ namespace KommandoBogApp.Model
     class Fri : Activity
     {
 
-        public Fri(DateTime dateFrom, DateTime dateTo, string kommentar, string navn, Color color) : base(dateFrom, dateTo, kommentar, navn, color)
+        public Fri(List<DateTime> dates, string kommentar, string navn, Color color) : base(dates, kommentar, navn, color)
         {
             navn = "fri";
             color = Colors.Firebrick;

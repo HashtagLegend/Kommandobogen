@@ -11,8 +11,7 @@ namespace KommandoBogApp.ViewModel
 {
     class ActivityViewModel
     {
-        public DateTime ViewDateFrom { get; set; }
-        public DateTime ViewDateTo { get; set; }
+        public List<DateTime> Dates { get; set; }
         public string ViewKommentar { get; set; }
         public string ViewNavn { get; set; }
         public Color ViewColor { get; set; }

@@ -20,7 +20,7 @@ namespace KommandoBogApp.Handler
 
         public void CreateActivity()
         {
-            Activity activity = new Activity(ActivityViewModel.ViewDateFrom, ActivityViewModel.ViewDateTo, ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ActivityViewModel.ViewColor);
+            Activity activity = new Activity(ActivityViewModel.Dates, ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ActivityViewModel.ViewColor);
             ActivityViewModel.ActivityList.AddUser(activity);
         }
     }

@@ -11,7 +11,7 @@ namespace KommandoBogApp.Model
     {
         
 
-        public Kursus(DateTime dateFrom, DateTime dateTo, string kommentar, string navn, Color color) : base(dateFrom, dateTo, kommentar, navn, color)
+        public Kursus(List<DateTime> dates, string kommentar, string navn, Color color) : base(dates, kommentar, navn, color)
         {
             navn = "Kursus";
             color = Colors.DarkGreen;

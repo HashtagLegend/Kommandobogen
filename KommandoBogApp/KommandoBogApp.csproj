@@ -113,7 +113,11 @@
     <Compile Include="Singleton\ActivitySingleton.cs" />
     <Compile Include="Singleton\UserCatalogSingleton.cs" />
     <Compile Include="ViewModel\ActivityViewModel.cs" />
+    <Compile Include="ViewModel\CalendarViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="View\CalendarViewView.xaml.cs">
+      <DependentUpon>CalendarViewView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CreateActivityView.xaml.cs">
       <DependentUpon>CreateActivityView.xaml</DependentUpon>
     </Compile>
@@ -143,6 +147,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CalendarViewView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

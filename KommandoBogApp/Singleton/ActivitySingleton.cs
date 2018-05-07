@@ -8,7 +8,7 @@ using KommandoBogApp.Model;
 
 namespace KommandoBogApp.Singleton
 {
-    class ActivitySingleton
+    public class ActivitySingleton
     {
         private static ActivitySingleton _instance = new ActivitySingleton();
 
