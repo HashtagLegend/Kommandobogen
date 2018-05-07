@@ -10,17 +10,28 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid HorizontalAlignment="Left" Height="122" Margin="10,10,0,0" VerticalAlignment="Top" Width="1490">
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="122" VerticalAlignment="Top" Width="1490">
-                <TextBlock TextWrapping="Wrap" Text="Kommandobogen" FontSize="72" Margin="-1,9,-25,-9" HorizontalAlignment="Left" Width="1494"/>
+                <TextBlock TextWrapping="Wrap" Text="Kommandobogen" FontSize="72" Margin="-1,-1,-5,1" HorizontalAlignment="Left" Width="1494"/>
             </Border>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="868" Margin="10,132,0,0" VerticalAlignment="Top" Width="244">
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="868" VerticalAlignment="Top" Width="244"/>
+            <TextBlock x:Name="Bruger" HorizontalAlignment="Left" Text="Bruger" TextWrapping="Wrap" VerticalAlignment="Top" Margin="9,-1,0,0"/>
+            <Button x:Name="Arbejdstid" Content="Arbejdstid" HorizontalAlignment="Left" Margin="0,86,0,0" VerticalAlignment="Top" Height="62" Width="234" Background="#33F4F0F0" FontSize="36"/>
+            <Button x:Name="Hjem" Content="Hjem" HorizontalAlignment="Left" Margin="0,24,0,0" VerticalAlignment="Top" Height="62" Width="234" Background="#33F4F0F0" FontSize="36"/>
+            <Button x:Name="Overblik" Content="Overblik" HorizontalAlignment="Left" Margin="0,148,0,0" VerticalAlignment="Top" Height="62" Width="234" Background="#33FDF6F6" FontSize="36"/>
+            <Button x:Name="OverblikAlle" Content="-Alle" HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="234" Background="#33FDF6F6" FontSize="24" Margin="0,215,0,0"/>
+            <Button x:Name="OverblikAfdeling" Content="-Afdeling" HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="234" Background="#33FDF6F6" FontSize="24" Margin="0,261,0,0"/>
+            <Button x:Name="Hjælp" Content="Hjælp" HorizontalAlignment="Left" Margin="0,307,0,0" VerticalAlignment="Top" Height="62" Width="234" Background="#33FDF6F6" FontSize="36"/>
+            <TextBlock x:Name="Leder" HorizontalAlignment="Left" Text="Leder" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,374,0,0" RenderTransformOrigin="0.514,2.775"/>
+            <Button x:Name="Medarbejder" Content="Medarbejder" HorizontalAlignment="Left" Margin="0,399,0,0" VerticalAlignment="Top" Height="62" Width="234" Background="#33F4F0F0" FontSize="36"/>
+            <Button x:Name="Statistik" Content="Statistik" HorizontalAlignment="Left" Margin="0,461,0,0" VerticalAlignment="Top" Height="62" Width="234" Background="#33F4F0F0" FontSize="36"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="100" Margin="259,137,0,0" VerticalAlignment="Top" Width="1241">
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="1247" Margin="-6,-6,0,0"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="768" Margin="254,232,0,0" VerticalAlignment="Top" Width="1241">
-            <Grid HorizontalAlignment="Left" Height="607" Margin="70,82,0,0" VerticalAlignment="Top" Width="154"/>
+            <Grid HorizontalAlignment="Left" Height="607" Margin="70,82,0,0" VerticalAlignment="Top" Width="208"/>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="368" Margin="-244,-100,0,0" VerticalAlignment="Top" Width="244"/>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="153" Margin="-244,268,0,0" VerticalAlignment="Top" Width="244"/>
         </Grid>
 
     </Grid>
