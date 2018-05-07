@@ -34,13 +34,13 @@ namespace KommandoBogApp.Singleton
             ActivityList.Remove(activity);
         }
 
-        public DateTimeOffset GetActivityDates(DateModel dateModel)
-        {
-            foreach (var VARIABLE in ActivityList)
-            {
+        //public DateTimeOffset GetActivityDates(DateModel dateModel)
+        //{
+        //    foreach (var VARIABLE in ActivityList)
+        //    {
                 
-            }
-        }
+        //    }
+        //}
 
     }
 }

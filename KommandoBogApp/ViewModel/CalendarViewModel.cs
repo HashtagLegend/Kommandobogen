@@ -29,7 +29,7 @@ namespace KommandoBogApp.ViewModel
             foreach (var VARIABLE in CalendarViewSelectedDates)
             {
                 //List<DateTime> dates, string kommentar, string navn, Color color
-                PlaceHolderActivitySingleton.AddActivty();
+                //PlaceHolderActivitySingleton.AddActivty();
             }
         }
 

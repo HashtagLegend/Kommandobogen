@@ -54,7 +54,7 @@ namespace KommandoBogApp.View
             }
             else if (args.Phase == 2)
             {
-                var CurrentActivities = PlaceHolderActivitySingleton.ActivityList.GetActivityDate
+                //var CurrentActivities = PlaceHolderActivitySingleton.ActivityList.GetActivityDate
                     
             }
 
