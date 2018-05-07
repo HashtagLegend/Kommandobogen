@@ -9,11 +9,12 @@ namespace KommandoBogApp.Model
 {
     class Vagt : Activity
     {
-
-        public Vagt(DateTime dateFrom, DateTime dateTo, string kommentar, string navn, Color color) : base(dateFrom, dateTo, kommentar, navn, color)
+       
+        public Vagt(DateTime dateFrom, DateTime dateTo, string kommentar, string navn, Color color, string activityType) : base(dateFrom, dateTo, kommentar, navn, color, activityType)
         {
             navn = "Vagt";
             color = Colors.Blue;
         }
+        
     }
 }

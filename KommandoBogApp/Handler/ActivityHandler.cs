@@ -11,17 +11,33 @@ namespace KommandoBogApp.Handler
 {
     class ActivityHandler
     {
-        public ActivityViewModel ActivityViewModel { get; set; }
+        public ActivityViewModel ActivityVM { get; set; }
 
-        public ActivityHandler(ActivityViewModel activityViewModel)
+        public ActivityHandler(ActivityViewModel activityVm)
         {
-            ActivityViewModel = activityViewModel;
+            ActivityVM = activityVm;
         }
 
         public void CreateActivity()
         {
-            Activity activity = new Activity(ActivityViewModel.ViewDateFrom, ActivityViewModel.ViewDateTo, ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ActivityViewModel.ViewColor);
-            ActivityViewModel.ActivityList.AddUser(activity);
+            if (ActivityVM.ViewActivityType == "Ferie")
+            {
+                ActivityVM.ActivityList.AddActivity(new Ferie(ActivityVM.ViewDateFrom, ActivityVM.ViewDateTo, ActivityVM.ViewKommentar, ActivityVM.ViewNavn, ActivityVM.ViewColor, ActivityVM.ViewActivityType));
+            }
+            else if (ActivityVM.ViewActivityType == "Kursus")
+            {
+                ActivityVM.ActivityList.AddActivity(new Kursus(ActivityVM.ViewDateFrom, ActivityVM.ViewDateTo, ActivityVM.ViewKommentar, ActivityVM.ViewNavn, ActivityVM.ViewColor, ActivityVM.ViewActivityType));
+            }
+            else if (ActivityVM.ViewActivityType == "Fri")
+            {
+                ActivityVM.ActivityList.AddActivity(new Fri(ActivityVM.ViewDateFrom, ActivityVM.ViewDateTo, ActivityVM.ViewKommentar, ActivityVM.ViewNavn, ActivityVM.ViewColor, ActivityVM.ViewActivityType));
+            }
+            else if (ActivityVM.ViewActivityType == "Vagt")
+            {
+                ActivityVM.ActivityList.AddActivity(new Vagt(ActivityVM.ViewDateFrom, ActivityVM.ViewDateTo, ActivityVM.ViewKommentar, ActivityVM.ViewNavn, ActivityVM.ViewColor, ActivityVM.ViewActivityType));
+            }
+
+
         }
     }
 }

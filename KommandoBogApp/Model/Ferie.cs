@@ -8,12 +8,16 @@ using Windows.UI;
 namespace KommandoBogApp.Model
 {
     class Ferie : Activity
+
     {
         
-        public Ferie(DateTime dateFrom, DateTime dateTo, string kommentar, string navn, Color color) : base(dateFrom, dateTo, kommentar, navn, color)
+
+
+        public Ferie(DateTime dateFrom, DateTime dateTo, string kommentar, string navn, Color color, string activityType) : base(dateFrom, dateTo, kommentar, navn, color, activityType)
         {
             navn = "Ferie";
             color = Colors.Orange;
+            
         }
     }
 }

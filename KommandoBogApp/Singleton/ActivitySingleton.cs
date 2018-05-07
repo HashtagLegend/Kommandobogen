@@ -24,12 +24,12 @@ namespace KommandoBogApp.Singleton
             ActivityList = new ObservableCollection<Activity>();
         }
 
-        public void AddUser(Activity activity)
+        public void AddActivity(Activity activity)
         {
             ActivityList.Add(activity);
         }
 
-        public void RemoveUser(Activity activity)
+        public void RemoveActivity(Activity activity)
         {
             ActivityList.Remove(activity);
         }

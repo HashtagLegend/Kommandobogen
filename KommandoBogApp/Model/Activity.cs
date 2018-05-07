@@ -14,14 +14,17 @@ namespace KommandoBogApp.Model
         public string Kommentar { get; set; }
         public string Navn { get; set; }
         public Color Color { get; set; }
+        public string ActivityType { get; set; }
 
-        public Activity(DateTime dateFrom, DateTime dateTo, string kommentar, string navn, Color color)
+
+        public Activity(DateTime dateFrom, DateTime dateTo, string kommentar, string navn, Color color, string activityType)
         {
             DateFrom = dateFrom;
             DateTo = dateTo;
             Kommentar = kommentar;
             Navn = navn;
             Color = color;
+            ActivityType = activityType;
         }
 
     }
