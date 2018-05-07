@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
 using KommandoBogApp.Handler;
+using KommandoBogApp.Model;
 using KommandoBogApp.Singleton;
 
 namespace KommandoBogApp.ViewModel
 {
-    class ActivityViewModel
+    public class ActivityViewModel
     {
         public List<DateTime> Dates { get; set; }
         public string ViewKommentar { get; set; }
@@ -23,6 +24,16 @@ namespace KommandoBogApp.ViewModel
             ActivityList = ActivitySingleton.Instance;
             Handler=new ActivityHandler(this);
             
+        }
+
+        public void CreateActivity()
+        {
+            Handler.CreateActivity();
+        }
+
+        public List<Activity> CycleThroughActivitiesForDates(DateTimeOffset dateTimeOffset)
+        {
+            return Handler.CycleThroughActivities(dateTimeOffset);
         }
     }
 }

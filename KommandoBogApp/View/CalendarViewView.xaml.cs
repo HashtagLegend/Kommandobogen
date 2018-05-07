@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -12,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using KommandoBogApp.Handler;
 using KommandoBogApp.Singleton;
 using KommandoBogApp.ViewModel;
 
@@ -26,23 +28,26 @@ namespace KommandoBogApp.View
     {
         public ActivitySingleton ActivitiySingleton { get; set; }
 
+        public ActivityViewModel ActivityViewModel { get; set; }
+
         public CalendarViewView()
         {
             this.InitializeComponent();
             ActivitiySingleton = ActivitySingleton.Instance;
+            ActivityViewModel = new ActivityViewModel();
         }
 
         public static List<DateTimeOffset> DateSelected { get; set; }
 
         private void CalendarView_OnSelectedDatesChanged(object sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
-            CalendarViewModel.CalendarViewSelectedDates = CalendarView1.SelectedDates;
+            ActivityHandler.CalendarViewSelectedDates = CalendarView1.SelectedDates;
 
         }
 
         public void CalenderViewViewUpdate()
         {
-            CalendarViewModel.CalendarViewSelectedDates = CalendarView1.SelectedDates;
+            ActivityHandler.CalendarViewSelectedDates = CalendarView1.SelectedDates;
         }
 
         public void CalendarView_CalendarViewDayItemChanging(CalendarView sender,
@@ -55,8 +60,22 @@ namespace KommandoBogApp.View
             }
             else if (args.Phase == 2)
             {
-                //var CurrentActivities = PlaceHolderActivitySingleton.ActivityList.GetActivityDate
+                var currentActivities = ActivityViewModel.CycleThroughActivitiesForDates(args.Item.Date);
 
+                List<Color> densityColors = new List<Color>();
+
+                foreach (var Activity in currentActivities)
+                {
+                    if (Activity.IsConfirmed == true)
+                    {
+                        densityColors.Add(Colors.LawnGreen);
+                    }
+                    else
+                    {
+                        densityColors.Add(Colors.Red);
+                    }
+                }
+                args.Item.SetDensityColors(densityColors);
             }
 
         }

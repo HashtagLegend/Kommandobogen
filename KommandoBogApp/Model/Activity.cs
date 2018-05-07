@@ -14,6 +14,7 @@ namespace KommandoBogApp.Model
         public string Navn { get; set; }
         public Color Color { get; set; }
         public List<DateTime> Dates { get; set; }
+        public bool IsConfirmed { get; set; }
 
         public Activity(List<DateTime> dates, string kommentar, string navn, Color color)
         {
@@ -21,8 +22,8 @@ namespace KommandoBogApp.Model
             Kommentar = kommentar;
             Navn = navn;
             Color = color;
-            dates = Dates;
-
+            Dates = dates;
+            IsConfirmed = false;
         }
 
         public override string ToString()
