@@ -14,7 +14,7 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBox x:Name="MA_Nummer" HorizontalAlignment="Left" Margin="147,183,0,0" Text="" VerticalAlignment="Top" Height="41" Width="286" PlaceholderText="MA-nummer"/>
+        <TextBox x:Name="MA_Nummer" HorizontalAlignment="Left" Margin="147,208,0,0" Text="" VerticalAlignment="Top" Height="41" Width="286" PlaceholderText="MA-nummer"/>
         <TextBox x:Name="Telefon_Nummer" HorizontalAlignment="Left" Margin="147,320,0,0" Text="" VerticalAlignment="Top" Width="286" PlaceholderText="Tlf_nummer"/>
         <TextBox x:Name="Afdeling" HorizontalAlignment="Left" Margin="147,462,0,0" Text="" VerticalAlignment="Top" Height="32" Width="286" PlaceholderText="Afdeling"/>
         <TextBox x:Name="Email" HorizontalAlignment="Left" Margin="147,531,0,0" Text="" VerticalAlignment="Top" Width="286" PlaceholderText="Email"/>
