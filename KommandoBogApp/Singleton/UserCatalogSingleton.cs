@@ -20,15 +20,21 @@ namespace KommandoBogApp.Singleton
 
         public ObservableCollection<User> UserList { get; set; }
 
+        public ObservableCollection<Afdeling> AfdelingList { get; set; }
+
         private UserCatalogSingleton()
         {
             UserList = new ObservableCollection<User>();
+            AfdelingList = new ObservableCollection<Afdeling>();
+            AfdelingList.Add(new Afdeling("Q"));
+            AfdelingList.Add(new Afdeling("J"));
         }
 
         public void AddUser(User user)
         {
             UserList.Add(user);
         }
+
 
         public void RemoveUser(User user)
         {

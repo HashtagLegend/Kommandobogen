@@ -102,6 +102,7 @@
     </Compile>
     <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\Fri.cs" />
+    <Compile Include="Model\Afdeling.cs" />
     <Compile Include="Model\Leader.cs" />
     <Compile Include="Model\Regular.cs" />
     <Compile Include="Model\User.cs" />

@@ -13,7 +13,7 @@ namespace KommandoBogApp.Model
         public string Navn { get; set; }
         public string Tlf { get; set; }
         public string Adresse { get; set; }
-        //public Afdeling Afdeling_ { get; set; }
+        public Afdeling Afd { get; set; }
         public string Email { get; set; }
 
         public User(string maNummer, string navn, string tlf, string adresse, string email)
@@ -35,5 +35,9 @@ namespace KommandoBogApp.Model
 
         }
 
+        public override string ToString()
+        {
+            return $"{nameof(MaNummer)}: {MaNummer},{nameof(Afd)}: {Afd}, {nameof(Navn)}: {Navn}, {nameof(Tlf)}: {Tlf}, {nameof(Adresse)}: {Adresse}, {nameof(Email)}: {Email}";
+        }
     }
 }

@@ -17,21 +17,40 @@ namespace KommandoBogApp.Handler
             UserVM = uSW;
         }
 
-        public void CreateUser(string maNummer,string navn, string tlf, string adresse, string email)
+        public void CreateUser()
         {
             if (UserVM.Type == "Admin")
             {
-                UserVM.UserCatalogSingleton.AddUser(new Admin(maNummer,navn,tlf,adresse,email));
+                Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail);
+                UserVM.UserCatalogSingleton.AddUser(admin);
+                Afdeling afd = AddUserToAfdeling(UserVM.Afdeling);
+                afd.AddUserToList(admin);
+                admin.Afd = afd;
             }
             else if (UserVM.Type == "Leader")
             {
-                UserVM.UserCatalogSingleton.AddUser(new Leader(maNummer,navn,tlf,adresse,email));
+                UserVM.UserCatalogSingleton.AddUser(new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail));
             }
             else if (UserVM.Type == "Regular")
             {
-                UserVM.UserCatalogSingleton.AddUser(new Regular(maNummer,navn,tlf,adresse,email));
+                UserVM.UserCatalogSingleton.AddUser(new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail));
             }
-            
+
+        }
+
+        public Afdeling AddUserToAfdeling(string navn)
+        {
+            foreach (Afdeling afd in UserVM.UserCatalogSingleton.AfdelingList)
+            {
+                if (afd.Navn == navn)
+                {
+                    return afd;
+                }
+
+                return null;
+            }
+
+            return null;
         }
     }
 }
