@@ -5,37 +5,98 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI;
 using KommandoBogApp.Model;
+using KommandoBogApp.Singleton;
 using KommandoBogApp.ViewModel;
 
 namespace KommandoBogApp.Handler
 {
     public class ActivityHandler
     {
+        public TimeSpan UseAfterTimeStart { get; set; }
+        public TimeSpan UseAfterTimeEnd { get; set; }
+
         public ActivityViewModel ActivityViewModel { get; set; }
 
         public static IList<DateTimeOffset> CalendarViewSelectedDates { get; set; }
+
+        public enum Color { DarkGreen, Orange, Firebrick, Blue }
 
         public ActivityHandler(ActivityViewModel activityViewModel)
         {
             ActivityViewModel = activityViewModel;
         }
 
-        public void CreateActivity()
+        public Color ColorOfActivity(Color color)
         {
-            Activity activity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ActivityViewModel.ViewColor, ActivityViewModel.ViewHour, ActivityViewModel.ViewMinutes);
-            ActivityViewModel.ActivityList.AddUser(activity);
-            Debug.WriteLine(ActivityViewModel.Time);
+            Color c = color;
+            switch (c)
+            {
+                case Color.Blue:
+                    return Color.Blue;
+
+                case Color.DarkGreen:
+                    return Color.DarkGreen;
+
+                case Color.Firebrick:
+                    return Color.Firebrick;
+
+                case Color.Orange:
+                    return Color.Orange;
+
+                default:
+                    return c;
+            }
+        }
+
+        public void CreateActivity(Color color)
+        {
+            Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ColorOfActivity(color));
+            newActivity.TimeEnd = UseAfterTimeEnd;
+            newActivity.TimeStart = UseAfterTimeStart;
+            ActivityViewModel.ActivityList.AddUser(newActivity);
+            ActivityViewModel.ViewKommentar = null;
+            ActivityViewModel.ViewNavn = null;
+            UseAfterTimeEnd.Subtract(UseAfterTimeEnd);
+            UseAfterTimeStart.Subtract(UseAfterTimeStart);
         }
 
         public List<DateTimeOffset> CurrentDatesToActivity()
         {
+            UseAfterTimeStart = ActivityViewModel.TimeStart;
+            UseAfterTimeEnd = ActivityViewModel.TimeEnd;
             var CurrentDatesToActivityList = new List<DateTimeOffset>();
-
-            foreach (var VARIABLE in CalendarViewSelectedDates)
+            if (CalendarViewSelectedDates.Count == 1)
             {
-                CurrentDatesToActivityList.Add(new DateTimeOffset(VARIABLE.Year, VARIABLE.Month, VARIABLE.Day, VARIABLE.Hour, VARIABLE.Minute, VARIABLE.Second, TimeSpan.Zero));
+                CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(new DateTime(CalendarViewSelectedDates[0].Year, CalendarViewSelectedDates[0].Month, CalendarViewSelectedDates[0].Day, ActivityViewModel.TimeStart.Hours,
+                        ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds), DateTimeKind.Utc)));
             }
+
+            else if (CalendarViewSelectedDates != null)
+            {
+                foreach (var VARIABLE in CalendarViewSelectedDates)
+                {
+                    CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(
+                        new DateTime(VARIABLE.Year, VARIABLE.Month, VARIABLE.Day, ActivityViewModel.TimeStart.Hours,
+                            ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds), DateTimeKind.Utc)));
+                }
+
+                var lasttime = CurrentDatesToActivityList[CurrentDatesToActivityList.Count - 1];
+
+                var lastSelectedtime = CalendarViewSelectedDates[CalendarViewSelectedDates.Count - 1];
+
+                CurrentDatesToActivityList.Remove(lasttime);
+
+                CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(
+                        new DateTime(lastSelectedtime.Year, lastSelectedtime.Month, lastSelectedtime.Day, ActivityViewModel.TimeEnd.Hours,
+                            ActivityViewModel.TimeEnd.Minutes, ActivityViewModel.TimeEnd.Seconds), DateTimeKind.Utc)));
+
+            }
+            
+
+            ActivityViewModel.TimeStart.Subtract(ActivityViewModel.TimeStart);
+            ActivityViewModel.TimeEnd.Subtract(ActivityViewModel.TimeEnd);
             return CurrentDatesToActivityList;
         }
 
@@ -57,5 +118,26 @@ namespace KommandoBogApp.Handler
             }
             return ActivityList;
         }
+
+        public void ShowFilteredList()
+        {
+            ActivityViewModel.CalendarOverviewSingleton.ActiveActivityList.Clear();
+            foreach (var Activity in ActivityViewModel.ActivityList.ActivityList)
+            {
+                foreach (var VARIABLE in CalendarViewSelectedDates)
+                {
+                    foreach (var ActivityDates in Activity.Dates)
+                    {
+                        if (ActivityDates.Date == VARIABLE.Date)
+                        {
+                            ActivityViewModel.CalendarOverviewSingleton.ActiveActivityList.Add(Activity);
+                        }
+                    }
+
+                }
+                Activity.ToStringDate();
+            }
+        }
+
     }
 }

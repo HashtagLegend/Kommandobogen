@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
+using KommandoBogApp.Handler;
 
 namespace KommandoBogApp.Model
 {
@@ -11,10 +12,10 @@ namespace KommandoBogApp.Model
     {
         
 
-        public Kursus(List<DateTimeOffset> dates, string kommentar, string navn, Color color, int hour, int minutes) : base(dates, kommentar, navn, color, hour, minutes)
+        public Kursus(List<DateTimeOffset> dates, string kommentar, string navn, ActivityHandler.Color color) : base(dates, kommentar, navn, color)
         {
             navn = "Kursus";
-            color = Colors.DarkGreen;
+            color = ActivityHandler.Color.DarkGreen;
         }
     }
 }

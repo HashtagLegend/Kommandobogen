@@ -111,6 +111,7 @@
     <Compile Include="Model\Vagt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singleton\ActivitySingleton.cs" />
+    <Compile Include="Singleton\CalendarOverviewSingleton.cs" />
     <Compile Include="Singleton\UserCatalogSingleton.cs" />
     <Compile Include="ViewModel\ActivityViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />

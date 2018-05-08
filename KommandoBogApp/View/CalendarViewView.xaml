@@ -15,27 +15,12 @@
         <ViewModel:ActivityViewModel/>
     </Page.DataContext>
 
-    <!--<Page.Resources>
-        <ResourceDictionary>
-            <Style x:Key="CalendarViewItemDates"  TargetType="CalendarViewDayItem" >
-                <Setter Property="MinWidth" Value="40"/>
-                <Setter Property="MinHeight" Value="40"/>
-                <Setter Property="Margin" Value="1"/>
-                <Setter Property="Padding" Value="0, 0, 0, 4"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="CalendarViewDayItem"/>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </ResourceDictionary>
-    </Page.Resources>-->
-
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <CalendarView  Name="CalendarView1" HorizontalAlignment="Left" Margin="667,0,0,0" VerticalAlignment="Top" SelectionMode="Multiple" SelectedDatesChanged="CalendarView_OnSelectedDatesChanged" Height="806" Width="1253" CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging" FirstDayOfWeek="Monday" HorizontalDayItemAlignment="Left" VerticalDayItemAlignment="Top" AutomationProperties.AccessibilityView="Content" />
-        
-            <ListView Name="ListView1" ItemsSource="{Binding ActivityList.ActivityList}" Margin="0,0,1258,520">
+        <CalendarView  Name="CalendarView1" HorizontalAlignment="Left" Margin="667,0,0,0" VerticalAlignment="Top" SelectionMode="Single" SelectedDatesChanged="CalendarView_OnSelectedDatesChanged" Height="806" Width="1253" CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging" FirstDayOfWeek="Monday" HorizontalDayItemAlignment="Left" VerticalDayItemAlignment="Top" KeyDown="CalendarView1_OnKeyDown" KeyUp="CalendarView1_OnKeyUp" >
+        </CalendarView>
+
+
+        <ListView Name="ListView1" ItemsSource="{Binding ActivityList.ActivityList}" Margin="667,806,453,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -48,21 +33,60 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Content="Create Activity" HorizontalAlignment="Left" Margin="10,774,0,0" VerticalAlignment="Top" >
+        <Button Name="FriButton" Content="Create Fri" HorizontalAlignment="Left" Margin="1540,964,0,0" VerticalAlignment="Top" Width="120" Click="FriButton_OnClick" >
             <interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
-                    <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="CreateActivity"/>
+                    <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.CalendarViewView"/>
                 </Core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
         </Button>
-        <Button Content="Create Activity" HorizontalAlignment="Left" Margin="150,774,0,0" VerticalAlignment="Top" >
+        <Button Name="FerieButton"  Content="Create Ferie" HorizontalAlignment="Left" Margin="1540,920,0,0" VerticalAlignment="Top" Width="120" Click="FerieButton_OnClick" >
+            <interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.CalendarViewView"/>
+                </Core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+        </Button>
+        <Button Name="KursusButton" Content="Create Kursus" HorizontalAlignment="Left" Margin="1400,920,0,0" VerticalAlignment="Top" Width="120" Click="KursusButton_OnClick">
+            <interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.CalendarViewView"/>
+                </Core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+        </Button>
+        <Button Name="VagtButton" Content="Create Vagt" HorizontalAlignment="Left" Margin="1400,964,0,0" VerticalAlignment="Top" Width="120" Click="VagtButton_OnClick" >
+            <interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.CalendarViewView"/>
+                </Core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+        </Button>
+        <Button Content="Go to Create Activity" HorizontalAlignment="Left" Margin="1680,964,0,0" VerticalAlignment="Top" >
             <interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
                     <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.CreateActivityView"/>
                 </Core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
         </Button>
-        <TimePicker HorizontalAlignment="Left" Margin="10,621,0,0" VerticalAlignment="Top" Time="{Binding Time, Mode=TwoWay}"/>
+        <TextBox Text="Start Tid" Margin="680,585,0,0" Width="100" Height="30" IsReadOnly="True" FontWeight="Bold"/>
+        <TimePicker HorizontalAlignment="Left" Margin="1250,850,0,0" VerticalAlignment="Top" Time="{Binding TimeStart, Mode=TwoWay}" ClockIdentifier="24HourClock" />
+        <TextBox Text="Slut Tid" Margin="1260,585,0,0" Width="100" Height="30" IsReadOnly="True" FontWeight="Bold"/>
+        <TimePicker HorizontalAlignment="Left" Margin="1540,850,0,0" VerticalAlignment="Top" Time="{Binding TimeEnd, Mode=TwoWay}" ClockIdentifier="24HourClock" />
+        <ListView HorizontalAlignment="Left" Height="806" VerticalAlignment="Top" Width="667" ItemsSource="{Binding CalendarOverviewSingleton.ActiveActivityList}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Grid BorderThickness="2" BorderBrush="Black">
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="166" Margin="0,0,0,0" Text="{Binding Navn}"/>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="166" Margin="166,0,0,0" Text="{Binding Kommentar}"/>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="166" Margin="332,0,0,0" Text="{Binding DatesFromAndTo}"/>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBox HorizontalAlignment="Left" Margin="225,936,0,0" TextWrapping="Wrap" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="131" PlaceholderText="Navn"/>
+        <TextBox HorizontalAlignment="Left" Margin="365,936,0,0" TextWrapping="Wrap" Text="{Binding ViewKommentar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="131" PlaceholderText="Kommentar"/>
 
     </Grid>
 </Page>

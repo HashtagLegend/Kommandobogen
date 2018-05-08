@@ -32,16 +32,12 @@ namespace KommandoBogApp.View
 
         public ActivityViewModel ActivityViewModel { get; set; }
 
-        public List<Color> densityColors { get; set; }
-
-        
 
         public CalendarViewView()
         {
             this.InitializeComponent();
             ActivitiySingleton = ActivitySingleton.Instance;
             ActivityViewModel = new ActivityViewModel();
-            densityColors = new List<Color>();
         }
 
         public static List<DateTimeOffset> DateSelected { get; set; }
@@ -49,7 +45,7 @@ namespace KommandoBogApp.View
         private void CalendarView_OnSelectedDatesChanged(object sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
             ActivityHandler.CalendarViewSelectedDates = CalendarView1.SelectedDates;
-
+            ActivityViewModel.ShowFilteredList();
         }
 
         public void CalenderViewViewUpdate()
@@ -60,47 +56,123 @@ namespace KommandoBogApp.View
         public void CalendarView_CalendarViewDayItemChanging(CalendarView sender,
             CalendarViewDayItemChangingEventArgs args)
         {
-            if (args.Phase == 0)
-            {
-
-                args.RegisterUpdateCallback(CalendarView_CalendarViewDayItemChanging);
-            }
-
-            else if (args.Phase == 1)
-            {
-                args.RegisterUpdateCallback(CalendarView_CalendarViewDayItemChanging);
-            }
-
-            else if (args.Phase == 2)
-            {
                 var currentActivities = new List<Activity>();
-                var DatetimeToDatetimeOffset = new List<DateTimeOffset>();
+                var stringdatesVagt = new List<string>();
+                var stringdatesKursus = new List<string>();
+                var stringdatesFri = new List<string>();
+                var stringdatesFerie = new List<string>();
+
                 foreach (var dates in ActivityViewModel.ActivityList.ActivityList)          
                 {
-                    if (dates.Dates.Contains(args.Item.Date.DateTime))
-                    {
-                        Debug.WriteLine("Args Date = " + $"{args.Item.Date.Date}");
-                        currentActivities.Add(dates);
-
-                    }
-                    
-
+                        foreach (var VARIABLE in dates.Dates)
+                        {
+                            if (VARIABLE.DateTime.Date == args.Item.Date.DateTime.Date)
+                            {
+                            currentActivities.Add(dates);
+                            }
+                            Debug.WriteLine("Args Date = " + $"{args.Item.Date.DateTime.Date}");
+                            Debug.WriteLine(VARIABLE.DateTime.Date);
+                        }
+                        
                 }
+                var CalendarTime = args.Item.Date.DateTime.ToString("yyyy-MM-dd");
 
-                foreach (var activity in currentActivities)
+                foreach (var VARIABLE in currentActivities)
                 {
-                    if (activity.IsConfirmed == true)
+                    foreach (var Dates in VARIABLE.Dates)
                     {
-                        densityColors.Add(Colors.LawnGreen);
-                    }
-                    else if (activity.IsConfirmed == false)
-                    {
-                        densityColors.Add(Colors.Red);
-                        Debug.WriteLine("Poop");
+                        ActivityHandler.Color c = VARIABLE.Color;
+                        switch (c)
+                        {
+                            case ActivityHandler.Color.Blue:
+                                stringdatesVagt.Add(Dates.DateTime.ToString("yyyy-MM-dd"));
+                                break;
+
+                            case ActivityHandler.Color.DarkGreen:
+                                stringdatesKursus.Add(Dates.DateTime.ToString("yyyy-MM-dd"));
+                                break;
+
+                            case ActivityHandler.Color.Firebrick:
+                                stringdatesFri.Add(Dates.DateTime.ToString("yyyy-MM-dd"));
+                                break;
+
+                            case ActivityHandler.Color.Orange:
+                                stringdatesFerie.Add(Dates.DateTime.ToString("yyyy-MM-dd"));
+                                break;
+                        }
+                              
+                        
                     }
                 }
+
+                var densityColors = new List<Color>();
+
+                if (stringdatesVagt.Distinct().Contains(CalendarTime))
+                {
+                       Debug.WriteLine(CalendarTime);
+                       //args.Item.Background = new SolidColorBrush(Colors.Red);
+                       densityColors.Add(Colors.Blue);
+                       args.Item.SetDensityColors(densityColors);
+                      
+                }
+
+                if (stringdatesKursus.Distinct().Contains(CalendarTime))
+                {
+                Debug.WriteLine(CalendarTime);
+                //args.Item.Background = new SolidColorBrush(Colors.Red);
+                densityColors.Add(Colors.DarkGreen);
                 args.Item.SetDensityColors(densityColors);
-            }
+
+                }
+
+                if (stringdatesFri.Distinct().Contains(CalendarTime))
+                {
+                Debug.WriteLine(CalendarTime);
+                //args.Item.Background = new SolidColorBrush(Colors.Red);
+                densityColors.Add(Colors.Firebrick);
+                args.Item.SetDensityColors(densityColors);
+
+                }
+
+                 if (stringdatesFerie.Distinct().Contains(CalendarTime))
+                 {
+                Debug.WriteLine(CalendarTime);
+                //args.Item.Background = new SolidColorBrush(Colors.Red);
+                densityColors.Add(Colors.Orange);
+                args.Item.SetDensityColors(densityColors);
+
+                 }
+
+        }
+
+        private void CalendarView1_OnKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            CalendarView1.SelectionMode = CalendarViewSelectionMode.Multiple;
+        }
+
+        private void CalendarView1_OnKeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            CalendarView1.SelectionMode = CalendarViewSelectionMode.Single;
+        }
+
+        private void FriButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Firebrick);
+        }
+
+        private void FerieButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Orange);
+        }
+
+        private void KursusButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.DarkGreen);
+        }
+
+        private void VagtButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Blue);
         }
     }
 }

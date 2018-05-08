@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
+using KommandoBogApp.Handler;
 
 namespace KommandoBogApp.Model
 {
     class Vagt : Activity
     {
 
-        public Vagt(List<DateTimeOffset> dates, string kommentar, string navn, Color color, int hour, int minutes) : base(dates, kommentar, navn, color, hour, minutes)
+        public Vagt(List<DateTimeOffset> dates, string kommentar, string navn, ActivityHandler.Color color) : base(dates, kommentar, navn, color)
         {
             navn = "Vagt";
-            color = Colors.Blue;
+            color = ActivityHandler.Color.Blue;
         }
     }
 }
