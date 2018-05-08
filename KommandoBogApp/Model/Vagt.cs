@@ -10,7 +10,7 @@ namespace KommandoBogApp.Model
     class Vagt : Activity
     {
 
-        public Vagt(List<DateTime> dates, string kommentar, string navn, Color color) : base(dates, kommentar, navn, color)
+        public Vagt(List<DateTimeOffset> dates, string kommentar, string navn, Color color, int hour, int minutes) : base(dates, kommentar, navn, color, hour, minutes)
         {
             navn = "Vagt";
             color = Colors.Blue;

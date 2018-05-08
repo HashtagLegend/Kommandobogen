@@ -15,7 +15,7 @@
         <ViewModel:ActivityViewModel/>
     </Page.DataContext>
 
-    <Page.Resources>
+    <!--<Page.Resources>
         <ResourceDictionary>
             <Style x:Key="CalendarViewItemDates"  TargetType="CalendarViewDayItem" >
                 <Setter Property="MinWidth" Value="40"/>
@@ -29,11 +29,12 @@
                 </Setter>
             </Style>
         </ResourceDictionary>
-    </Page.Resources>
+    </Page.Resources>-->
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <CalendarView  Name="CalendarView1" HorizontalAlignment="Left" Margin="667,0,0,0" VerticalAlignment="Top" SelectionMode="Multiple" SelectedDatesChanged="CalendarView_OnSelectedDatesChanged" Height="806" Width="1253" CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging" FirstDayOfWeek="Monday" HorizontalDayItemAlignment="Left" VerticalDayItemAlignment="Top" CalendarViewDayItemStyle="{StaticResource CalendarViewItemDates}" />
+        <CalendarView  Name="CalendarView1" HorizontalAlignment="Left" Margin="667,0,0,0" VerticalAlignment="Top" SelectionMode="Multiple" SelectedDatesChanged="CalendarView_OnSelectedDatesChanged" Height="806" Width="1253" CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging" FirstDayOfWeek="Monday" HorizontalDayItemAlignment="Left" VerticalDayItemAlignment="Top" AutomationProperties.AccessibilityView="Content" />
+        
             <ListView Name="ListView1" ItemsSource="{Binding ActivityList.ActivityList}" Margin="0,0,1258,520">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -47,12 +48,21 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="10,774,0,0" VerticalAlignment="Top" >
+        <Button Content="Create Activity" HorizontalAlignment="Left" Margin="10,774,0,0" VerticalAlignment="Top" >
             <interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
                     <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="CreateActivity"/>
                 </Core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
         </Button>
+        <Button Content="Create Activity" HorizontalAlignment="Left" Margin="150,774,0,0" VerticalAlignment="Top" >
+            <interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.CreateActivityView"/>
+                </Core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+        </Button>
+        <TimePicker HorizontalAlignment="Left" Margin="10,621,0,0" VerticalAlignment="Top" Time="{Binding Time, Mode=TwoWay}"/>
+
     </Grid>
 </Page>

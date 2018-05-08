@@ -23,22 +23,23 @@ namespace KommandoBogApp.Handler
 
         public void CreateActivity()
         {
-            Activity activity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ActivityViewModel.ViewColor);
+            Activity activity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ActivityViewModel.ViewColor, ActivityViewModel.ViewHour, ActivityViewModel.ViewMinutes);
             ActivityViewModel.ActivityList.AddUser(activity);
+            Debug.WriteLine(ActivityViewModel.Time);
         }
 
-        public List<DateTime> CurrentDatesToActivity()
+        public List<DateTimeOffset> CurrentDatesToActivity()
         {
-            var CurrentDatesToActivityList = new List<DateTime>();
+            var CurrentDatesToActivityList = new List<DateTimeOffset>();
 
             foreach (var VARIABLE in CalendarViewSelectedDates)
             {
-                CurrentDatesToActivityList.Add(new DateTime(VARIABLE.Year, VARIABLE.Month, VARIABLE.Day));
+                CurrentDatesToActivityList.Add(new DateTimeOffset(VARIABLE.Year, VARIABLE.Month, VARIABLE.Day, VARIABLE.Hour, VARIABLE.Minute, VARIABLE.Second, TimeSpan.Zero));
             }
             return CurrentDatesToActivityList;
         }
 
-        public List<Activity> CycleThroughActivities(DateTimeOffset dateTimeOffset)
+        public List<Activity> CycleThroughActivities(DateTime dateTime)
         {
             List<Activity> ActivityList = new List<Activity>();
 
@@ -47,9 +48,8 @@ namespace KommandoBogApp.Handler
 
                 foreach (var DatesOfActivity in Activity.Dates )
                 {
-                    DateTimeOffset DatesOfActivityOffset = DateTime.SpecifyKind(DatesOfActivity, DateTimeKind.Utc);
 
-                    if (DatesOfActivityOffset == dateTimeOffset)
+                    if (DatesOfActivity == dateTime)
                     {
                        ActivityList.Add(Activity); 
                     }

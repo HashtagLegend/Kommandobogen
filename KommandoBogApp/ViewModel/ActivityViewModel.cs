@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,12 @@ namespace KommandoBogApp.ViewModel
     public class ActivityViewModel
     {
         public List<DateTime> Dates { get; set; }
+        public TimeSpan Time { get; set; }
         public string ViewKommentar { get; set; }
         public string ViewNavn { get; set; }
+        public int ViewHour { get; set; }
+        public int ViewMinutes { get; set; }
+        public DateTime ViewDateTime { get; set; }
         public Color ViewColor { get; set; }
         public ActivitySingleton ActivityList { get; set; }
         public ActivityHandler Handler { get; set; }
@@ -31,9 +36,9 @@ namespace KommandoBogApp.ViewModel
             Handler.CreateActivity();
         }
 
-        public List<Activity> CycleThroughActivitiesForDates(DateTimeOffset dateTimeOffset)
+        public List<Activity> CycleThroughActivitiesForDates(DateTime dateTime)
         {
-            return Handler.CycleThroughActivities(dateTimeOffset);
+            return Handler.CycleThroughActivities(dateTime);
         }
     }
 }

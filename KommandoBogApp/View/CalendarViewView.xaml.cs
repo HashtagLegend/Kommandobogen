@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -14,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using KommandoBogApp.Handler;
+using KommandoBogApp.Model;
 using KommandoBogApp.Singleton;
 using KommandoBogApp.ViewModel;
 
@@ -30,11 +32,16 @@ namespace KommandoBogApp.View
 
         public ActivityViewModel ActivityViewModel { get; set; }
 
+        public List<Color> densityColors { get; set; }
+
+        
+
         public CalendarViewView()
         {
             this.InitializeComponent();
             ActivitiySingleton = ActivitySingleton.Instance;
             ActivityViewModel = new ActivityViewModel();
+            densityColors = new List<Color>();
         }
 
         public static List<DateTimeOffset> DateSelected { get; set; }
@@ -58,28 +65,42 @@ namespace KommandoBogApp.View
 
                 args.RegisterUpdateCallback(CalendarView_CalendarViewDayItemChanging);
             }
+
+            else if (args.Phase == 1)
+            {
+                args.RegisterUpdateCallback(CalendarView_CalendarViewDayItemChanging);
+            }
+
             else if (args.Phase == 2)
             {
-                var currentActivities = ActivityViewModel.CycleThroughActivitiesForDates(args.Item.Date);
-
-                List<Color> densityColors = new List<Color>();
-
-                foreach (var Activity in currentActivities)
+                var currentActivities = new List<Activity>();
+                var DatetimeToDatetimeOffset = new List<DateTimeOffset>();
+                foreach (var dates in ActivityViewModel.ActivityList.ActivityList)          
                 {
-                    if (Activity.IsConfirmed == true)
+                    if (dates.Dates.Contains(args.Item.Date.DateTime))
+                    {
+                        Debug.WriteLine("Args Date = " + $"{args.Item.Date.Date}");
+                        currentActivities.Add(dates);
+
+                    }
+                    
+
+                }
+
+                foreach (var activity in currentActivities)
+                {
+                    if (activity.IsConfirmed == true)
                     {
                         densityColors.Add(Colors.LawnGreen);
                     }
-                    else
+                    else if (activity.IsConfirmed == false)
                     {
                         densityColors.Add(Colors.Red);
+                        Debug.WriteLine("Poop");
                     }
                 }
                 args.Item.SetDensityColors(densityColors);
             }
-
         }
-
-
     }
 }
