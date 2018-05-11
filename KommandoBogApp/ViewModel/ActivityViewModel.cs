@@ -55,6 +55,6 @@ namespace KommandoBogApp.ViewModel
         {
             Handler.ShowFilteredList();
         }
-        #endregion
+        
     }
 }

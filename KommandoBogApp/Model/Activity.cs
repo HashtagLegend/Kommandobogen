@@ -22,7 +22,7 @@ namespace KommandoBogApp.Model
         public string DatesFromAndTo { get; set; }
         public TimeSpan TimeStart { get; set; }
         public TimeSpan TimeEnd { get; set; }
-        public Color Color { get; set; }
+     
         public ActivityType ActivityTypeName { get; set; }
 
         public Activity(List<DateTimeOffset> dates, string kommentar, string navn, ActivityHandler.Color color)

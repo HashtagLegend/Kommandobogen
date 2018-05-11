@@ -40,6 +40,13 @@
         </ComboBox>
         <ComboBox HorizontalAlignment="Left" Height="57" Margin="148,568,0,0" VerticalAlignment="Top" Width="285" SelectedItem="{Binding Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding UserCatalogSingleton.UserTypeList}">
         </ComboBox>
+        <AppBarButton HorizontalAlignment="Left" Icon="Home" Label="Home" Margin="1695,109,0,0" VerticalAlignment="Top">
+            <Custom:Interaction.Behaviors>
+                <Custom1:EventTriggerBehavior EventName="Click">
+                    <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.CalendarViewView"/>
+                </Custom1:EventTriggerBehavior>
+            </Custom:Interaction.Behaviors>
+        </AppBarButton>
 
     </Grid>
 </Page>

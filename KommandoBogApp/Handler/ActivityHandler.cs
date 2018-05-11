@@ -18,7 +18,7 @@ namespace KommandoBogApp.Handler
         public TimeSpan UseAfterTimeStart { get; set; }
         public TimeSpan UseAfterTimeEnd { get; set; }
 
-        public ActivityViewModel ActivityViewModel { get; set; }
+        public ActivityViewModel ActivityVM { get; set; }
 
         public static IList<DateTimeOffset> CalendarViewSelectedDates { get; set; }
 
@@ -26,7 +26,7 @@ namespace KommandoBogApp.Handler
 
         public ActivityHandler(ActivityViewModel activityViewModel)
         {
-            ActivityVM = activityVm;
+            ActivityVM = activityViewModel;
         }
 
         public Color ColorOfActivity(Color color)
@@ -56,7 +56,7 @@ namespace KommandoBogApp.Handler
             Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ColorOfActivity(color));
             newActivity.TimeEnd = UseAfterTimeEnd;
             newActivity.TimeStart = UseAfterTimeStart;
-            ActivityViewModel.ActivityList.AddUser(newActivity);
+            ActivityVM.ActivityList.AddActivity(newActivity);
             ActivityViewModel.ViewKommentar = null;
             ActivityViewModel.ViewNavn = null;
             UseAfterTimeEnd.Subtract(UseAfterTimeEnd);
@@ -105,7 +105,7 @@ namespace KommandoBogApp.Handler
         {
             List<Activity> ActivityList = new List<Activity>();
 
-            foreach (var Activity in ActivityViewModel.ActivityList.ActivityList)
+            foreach (var Activity in ActivityVM.ActivityList.ActivityList)
             {
 
                 foreach (var DatesOfActivity in Activity.Dates )
@@ -122,8 +122,8 @@ namespace KommandoBogApp.Handler
 
         public void ShowFilteredList()
         {
-            ActivityViewModel.CalendarOverviewSingleton.ActiveActivityList.Clear();
-            foreach (var Activity in ActivityViewModel.ActivityList.ActivityList)
+            ActivityVM.CalendarOverviewSingleton.ActiveActivityList.Clear();
+            foreach (var Activity in ActivityVM.ActivityList.ActivityList)
             {
                 foreach (var VARIABLE in CalendarViewSelectedDates)
                 {
@@ -131,22 +131,22 @@ namespace KommandoBogApp.Handler
                     {
                         if (ActivityDates.Date == VARIABLE.Date)
                         {
-                            ActivityViewModel.CalendarOverviewSingleton.ActiveActivityList.Add(Activity);
+                            ActivityVM.CalendarOverviewSingleton.ActiveActivityList.Add(Activity);
                         }
                     }
 
                 }
                 Activity.ToStringDate();
             }
-        public void CreateActivity()
-        {
-            Activity newActivity = new Activity(DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateFrom, ActivityVM.ViewTimeFrom), 
-                                                DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateTo, ActivityVM.ViewTimeTo), 
-                                                ActivityVM.ViewKommentar, 
-                                                ActivityVM.ViewNavn, 
-                                                ActivityVM.ViewColor, 
-                                                ActivityVM.ViewActivityType);
-            ActivityVM.ActivityList.AddActivity(newActivity);
+        //public void CreateActivity()
+        //{
+        //    Activity newActivity = new Activity(DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateFrom, ActivityVM.ViewTimeFrom), 
+        //                                        DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateTo, ActivityVM.ViewTimeTo), 
+        //                                        ActivityVM.ViewKommentar, 
+        //                                        ActivityVM.ViewNavn, 
+        //                                        ActivityVM.ViewColor, 
+        //                                        ActivityVM.ViewActivityType);
+        //    ActivityVM.ActivityList.AddActivity(newActivity);
 
 
             //ActivityVM.ActivityList.AddActivity(new Activity(DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateFrom, ActivityVM.ViewTimeFrom), DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateTo, ActivityVM.ViewTimeTo), ActivityVM.ViewKommentar, ActivityVM.ViewNavn, ActivityVM.ViewColor, ActivityVM.ViewActivityType));
