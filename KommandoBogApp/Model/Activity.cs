@@ -35,6 +35,8 @@ namespace KommandoBogApp.Model
             ID++;
         }
 
+        #region ToStrings
+
         public void ToStringDate()
         {
             DateTimeOffset HighestDate = Dates.First();
@@ -72,5 +74,7 @@ namespace KommandoBogApp.Model
         {
             return $"{nameof(Kommentar)}: {Kommentar}, {nameof(Navn)}: {Navn}, {nameof(Color)}: {Color}";
         }
+
+        #endregion
     }
 }

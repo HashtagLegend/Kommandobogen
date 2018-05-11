@@ -37,8 +37,6 @@ namespace KommandoBogApp.Singleton
             UserTypeList.Add("Leader");
             UserTypeList.Add("Admin");
 
-
-
         }
 
         public void AddUser(User user)
