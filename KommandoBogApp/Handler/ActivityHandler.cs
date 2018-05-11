@@ -55,7 +55,7 @@ namespace KommandoBogApp.Handler
             Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ColorOfActivity(color));
             newActivity.TimeEnd = UseAfterTimeEnd;
             newActivity.TimeStart = UseAfterTimeStart;
-            ActivityViewModel.ActivityList.AddUser(newActivity);
+            ActivityViewModel.ActivityList.
             ActivityViewModel.ViewKommentar = null;
             ActivityViewModel.ViewNavn = null;
             UseAfterTimeEnd.Subtract(UseAfterTimeEnd);
