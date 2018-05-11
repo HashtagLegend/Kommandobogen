@@ -20,21 +20,7 @@
         <TextBox x:Name="Navn" HorizontalAlignment="Left" Margin="147,254,0,0" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Navn"/>
         <TextBox x:Name="Adresse" HorizontalAlignment="Left" Margin="147,396,0,0" Text="{Binding ViewAdresse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Adresse"/>
         <TextBlock HorizontalAlignment="Left" Margin="147,54,0,0" Text="Opret Bruger " TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="287" FontSize="36" TextDecorations="Underline"/>
-        <Button x:Name="Opret_bruger_knap" Content="Opret Bruger" HorizontalAlignment="Left" Margin="547,546,0,0" VerticalAlignment="Top" Height="79" Width="132">
-            <Custom:Interaction.Behaviors>
-                <Custom1:EventTriggerBehavior EventName="Click">
-                    <Custom1:CallMethodAction TargetObject="{Binding Handler }" MethodName="CreateUser"/>
-                </Custom1:EventTriggerBehavior>
-            </Custom:Interaction.Behaviors>
-        </Button>
         <ListView HorizontalAlignment="Left" Height="653" Margin="684,141,0,0" VerticalAlignment="Top" Width="666" ItemsSource="{Binding UserCatalogSingleton.UserList}" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Content="DeleteUser" HorizontalAlignment="Left" Height="80" Margin="547,630,0,0" VerticalAlignment="Top" Width="132">
-            <Custom:Interaction.Behaviors>
-                <Custom1:EventTriggerBehavior EventName="Click">
-                    <Custom1:CallMethodAction TargetObject="{Binding Handler}" MethodName="DeleteUser"/>
-                </Custom1:EventTriggerBehavior>
-            </Custom:Interaction.Behaviors>
-        </Button>
         <ComboBox HorizontalAlignment="Left" Height="40" Margin="148,433,0,0" VerticalAlignment="Top" Width="286" ItemsSource="{Binding UserCatalogSingleton.AfdelingList}" SelectedItem="{Binding Afdeling, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             
         </ComboBox>
@@ -47,6 +33,8 @@
                 </Custom1:EventTriggerBehavior>
             </Custom:Interaction.Behaviors>
         </AppBarButton>
+        <Button Content="CreateUserCommand" HorizontalAlignment="Left" Margin="148,663,0,0" VerticalAlignment="Top" Command="{Binding CreateUserCommand}"/>
+        <Button Content="DeleteUserCommand" HorizontalAlignment="Left" Margin="148,727,0,0" VerticalAlignment="Top" Command="{Binding DeleteUserCommand}"/>
 
     </Grid>
 </Page>
