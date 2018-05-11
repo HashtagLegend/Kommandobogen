@@ -41,11 +41,9 @@ namespace KommandoBogApp.Model
             DateTimeOffset LowestDate = Dates.First();
             if (Dates.Count == 1)
             {
-                Debug.WriteLine("TimeEnd og TimeStart" + TimeEnd + TimeStart);
+
                 HighestDate = new DateTimeOffset(DateTime.SpecifyKind(new DateTime(Dates[0].Year, Dates[0].Month, Dates[0].Day, TimeEnd.Hours, TimeEnd.Minutes, TimeEnd.Seconds), DateTimeKind.Utc));
-                Debug.WriteLine("Highest" + HighestDate.Date);
                 LowestDate = new DateTimeOffset(DateTime.SpecifyKind(new DateTime(Dates[0].Year, Dates[0].Month, Dates[0].Day, TimeStart.Hours, TimeStart.Minutes, TimeStart.Seconds), DateTimeKind.Utc));
-                Debug.WriteLine("Lowest"+ LowestDate.Date);
             }
             if (Dates.Count >= 2)
             {
@@ -54,19 +52,13 @@ namespace KommandoBogApp.Model
                     if (VARIABLE >= HighestDate)
                     {
                         HighestDate = VARIABLE;
-                        Debug.WriteLine("Highest Variable" + VARIABLE.TimeOfDay);
-                        Debug.WriteLine("Highest" + HighestDate.TimeOfDay);
                     }
                     if (VARIABLE <= LowestDate)
                     {
                         LowestDate = VARIABLE;
-                        Debug.WriteLine("Lowest Variable" + VARIABLE.TimeOfDay);
-                        Debug.WriteLine("Lowest" + LowestDate.TimeOfDay);
                     }
                 }
             }
-            Debug.WriteLine("HighestFullyDate" + HighestDate);
-            Debug.WriteLine("LowestFullyDate"+ LowestDate);
             DatesFromAndTo = $"{LowestDate.Day} - {LowestDate.Month} - {LowestDate.Year} kl {LowestDate.TimeOfDay} Til {HighestDate.Day} - {HighestDate.Month} - {HighestDate.Year} kl {HighestDate.TimeOfDay}";
         }
 
