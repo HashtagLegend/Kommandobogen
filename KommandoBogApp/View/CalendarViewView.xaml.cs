@@ -70,8 +70,6 @@ namespace KommandoBogApp.View
                             {
                             currentActivities.Add(dates);
                             }
-                            Debug.WriteLine("Args Date = " + $"{args.Item.Date.DateTime.Date}");
-                            Debug.WriteLine(VARIABLE.DateTime.Date);
                         }
                         
                 }

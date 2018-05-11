@@ -65,7 +65,9 @@ namespace KommandoBogApp.Model
                     }
                 }
             }
-            DatesFromAndTo = $"{LowestDate.ToString("dd/mm/yyyy")} kl {LowestDate.TimeOfDay} Til {HighestDate.ToString("dd/mm/yyyy")} kl {HighestDate.TimeOfDay}";
+            Debug.WriteLine("HighestFullyDate" + HighestDate);
+            Debug.WriteLine("LowestFullyDate"+ LowestDate);
+            DatesFromAndTo = $"{LowestDate.Day} - {LowestDate.Month} - {LowestDate.Year} kl {LowestDate.TimeOfDay} Til {HighestDate.Day} - {HighestDate.Month} - {HighestDate.Year} kl {HighestDate.TimeOfDay}";
         }
 
         public override string ToString()
