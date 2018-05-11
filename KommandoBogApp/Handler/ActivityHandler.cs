@@ -4,7 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using KommandoBogApp.Converter;
 using KommandoBogApp.Model;
+using KommandoBogApp.Singleton;
 using KommandoBogApp.ViewModel;
 
 namespace KommandoBogApp.Handler
@@ -20,23 +22,16 @@ namespace KommandoBogApp.Handler
 
         public void CreateActivity()
         {
-            if (ActivityVM.ViewActivityType == "Ferie")
-            {
-                ActivityVM.ActivityList.AddActivity(new Ferie(ActivityVM.ViewDateFrom, ActivityVM.ViewDateTo, ActivityVM.ViewKommentar, ActivityVM.ViewNavn, ActivityVM.ViewColor, ActivityVM.ViewActivityType));
-            }
-            else if (ActivityVM.ViewActivityType == "Kursus")
-            {
-                ActivityVM.ActivityList.AddActivity(new Kursus(ActivityVM.ViewDateFrom, ActivityVM.ViewDateTo, ActivityVM.ViewKommentar, ActivityVM.ViewNavn, ActivityVM.ViewColor, ActivityVM.ViewActivityType));
-            }
-            else if (ActivityVM.ViewActivityType == "Fri")
-            {
-                ActivityVM.ActivityList.AddActivity(new Fri(ActivityVM.ViewDateFrom, ActivityVM.ViewDateTo, ActivityVM.ViewKommentar, ActivityVM.ViewNavn, ActivityVM.ViewColor, ActivityVM.ViewActivityType));
-            }
-            else if (ActivityVM.ViewActivityType == "Vagt")
-            {
-                ActivityVM.ActivityList.AddActivity(new Vagt(ActivityVM.ViewDateFrom, ActivityVM.ViewDateTo, ActivityVM.ViewKommentar, ActivityVM.ViewNavn, ActivityVM.ViewColor, ActivityVM.ViewActivityType));
-            }
+            Activity newActivity = new Activity(DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateFrom, ActivityVM.ViewTimeFrom), 
+                                                DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateTo, ActivityVM.ViewTimeTo), 
+                                                ActivityVM.ViewKommentar, 
+                                                ActivityVM.ViewNavn, 
+                                                ActivityVM.ViewColor, 
+                                                ActivityVM.ViewActivityType);
+            ActivityVM.ActivityList.AddActivity(newActivity);
 
+
+            //ActivityVM.ActivityList.AddActivity(new Activity(DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateFrom, ActivityVM.ViewTimeFrom), DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateTo, ActivityVM.ViewTimeTo), ActivityVM.ViewKommentar, ActivityVM.ViewNavn, ActivityVM.ViewColor, ActivityVM.ViewActivityType));
 
         }
     }

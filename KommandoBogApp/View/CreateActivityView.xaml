@@ -10,36 +10,14 @@
     mc:Ignorable="d">
     <Page.Resources>
 
-        <MenuFlyout x:Key="ActivityFlyout">
-            <MenuFlyoutItem x:Name="Ferie" Text="Ferie" Width="287">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="PointerPressed">
-                        <Core:CallMethodAction MethodName="ActivityFerie()" TargetObject="{Binding Mode=OneWay}"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </MenuFlyoutItem>
-            <MenuFlyoutItem x:Name="Vagt" Text="Vagt">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="PointerPressed">
-                        <Core:CallMethodAction MethodName="ActivityVagt()" TargetObject="{Binding Mode=OneWay}"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </MenuFlyoutItem>
-            <MenuFlyoutItem x:Name="Kursus" Text="Kursus">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="PointerPressed">
-                        <Core:CallMethodAction MethodName="ActivityKursus()" TargetObject="{Binding Mode=OneWay}"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </MenuFlyoutItem>
-            <MenuFlyoutItem x:Name="Fri" Text="Fri">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="PointerPressed">
-                        <Core:CallMethodAction MethodName="ActivityFri()" TargetObject="{Binding Mode=OneWay}"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </MenuFlyoutItem>
+
+        <MenuFlyout x:Key="FlyoutBase1">
+            <MenuFlyoutItem Text="Ferie" Width="182" Height="37"/>
         </MenuFlyout>
+        <MenuFlyout x:Key="FlyoutBase2">
+            <MenuFlyoutItem Text="Ferie" Width="196"/>
+        </MenuFlyout>
+
 
     </Page.Resources>
 
@@ -55,9 +33,6 @@
         <TextBox HorizontalAlignment="Left" Margin="186,255,0,0" TextWrapping="Wrap" Text="{Binding ViewNavn, Mode=TwoWay}" VerticalAlignment="Top" Width="190"/>
         <TextBlock HorizontalAlignment="Left" Margin="80,312,0,0" TextWrapping="Wrap" Text="Kommentar" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="186,306,0,0" TextWrapping="Wrap" Text="{Binding ViewKommentar, Mode=TwoWay}" VerticalAlignment="Top" Height="145" Width="462"/>
-        <DatePicker HorizontalAlignment="Left" Margin="186,156,0,0" VerticalAlignment="Top" Date="{Binding ViewDateFrom}"/>
-        <DatePicker HorizontalAlignment="Left" Margin="186,206,0,0" VerticalAlignment="Top" Date="{Binding ViewDateTo}"/>
-        <Button Content="{Binding SavedActivity.ActivityType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="188,106,0,0" VerticalAlignment="Top" Width="294" Height="26" Flyout="{StaticResource ActivityFlyout}"/>
         <ListView HorizontalAlignment="Left" Height="374" Margin="191,546,0,0" VerticalAlignment="Top" Width="1299" ItemsSource="{Binding ActivityList.ActivityList}" BorderBrush="#FF111111" BorderThickness="1"/>
         <Button Content="Create Activity" HorizontalAlignment="Left" Margin="191,490,0,0" VerticalAlignment="Top" Width="185">
             <Interactivity:Interaction.Behaviors>
@@ -66,6 +41,11 @@
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
+        <ComboBox HorizontalAlignment="Left" Margin="186,107,0,0" VerticalAlignment="Top" Width="190" ItemsSource="{Binding ActivityList.ActivityTypeList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding ViewActivityType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TimePicker HorizontalAlignment="Left" Margin="455,156,0,0" VerticalAlignment="Top" Time="{Binding ViewTimeFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TimePicker HorizontalAlignment="Left" Margin="455,206,0,0" VerticalAlignment="Top" Time="{Binding ViewTimeTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <CalendarDatePicker HorizontalAlignment="Left" Margin="191,156,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" DateFormat="{}{day.integer} {month.full} {year.full}" PlaceholderText="{Binding ViewDateFrom}" Width="230" IsTodayHighlighted="False"/>
+        <CalendarDatePicker HorizontalAlignment="Left" Margin="191,206,0,0" VerticalAlignment="Top" PlaceholderText="{Binding ViewDateTo, Mode=Twoway, UpdateSourceTrigger=PropertyChanged}"  FirstDayOfWeek="Monday" DateFormat="{}{day.integer} {month.full} {year.full}"/>
 
     </Grid>
 </Page>
