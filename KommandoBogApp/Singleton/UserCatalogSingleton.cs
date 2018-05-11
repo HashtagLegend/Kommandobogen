@@ -50,7 +50,6 @@ namespace KommandoBogApp.Singleton
             UserList.Remove(user);
             user.Afd.AfdelingList.Remove(user);
         }
-
         
     }
 }
