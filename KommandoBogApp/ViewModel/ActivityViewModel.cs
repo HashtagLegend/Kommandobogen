@@ -40,6 +40,14 @@ namespace KommandoBogApp.ViewModel
             Handler=new ActivityHandler(this);
         }
 
+
+        //private ICommand _createActivity;
+    
+        //public ICommand CreateActivityCommand
+        //{
+        //    get { return _createActivity ?? (_createActivity = new RelayCommand(Handler.CreateActivity(ActivityHandler.Color)); }
+        //    set { _createActivity = value; }
+        //}
         public void CreateActivity(ActivityHandler.Color color)
         {
             Handler.CreateActivity(color);

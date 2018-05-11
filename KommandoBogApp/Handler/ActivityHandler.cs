@@ -138,18 +138,6 @@ namespace KommandoBogApp.Handler
                 }
                 Activity.ToStringDate();
             }
-        //public void CreateActivity()
-        //{
-        //    Activity newActivity = new Activity(DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateFrom, ActivityVM.ViewTimeFrom), 
-        //                                        DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateTo, ActivityVM.ViewTimeTo), 
-        //                                        ActivityVM.ViewKommentar, 
-        //                                        ActivityVM.ViewNavn, 
-        //                                        ActivityVM.ViewColor, 
-        //                                        ActivityVM.ViewActivityType);
-        //    ActivityVM.ActivityList.AddActivity(newActivity);
-
-
-            //ActivityVM.ActivityList.AddActivity(new Activity(DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateFrom, ActivityVM.ViewTimeFrom), DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(ActivityVM.ViewDateTo, ActivityVM.ViewTimeTo), ActivityVM.ViewKommentar, ActivityVM.ViewNavn, ActivityVM.ViewColor, ActivityVM.ViewActivityType));
 
         }
 
