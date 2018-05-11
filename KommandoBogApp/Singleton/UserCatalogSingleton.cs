@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,12 +23,22 @@ namespace KommandoBogApp.Singleton
 
         public ObservableCollection<Afdeling> AfdelingList { get; set; }
 
+        public ObservableCollection<string> UserTypeList { get; set; }
+
         private UserCatalogSingleton()
         {
             UserList = new ObservableCollection<User>();
             AfdelingList = new ObservableCollection<Afdeling>();
             AfdelingList.Add(new Afdeling("Q"));
             AfdelingList.Add(new Afdeling("J"));
+            AfdelingList.Add(new Afdeling("Pallemans Combobox"));
+            UserTypeList = new ObservableCollection<string>();
+            UserTypeList.Add("Regular");
+            UserTypeList.Add("Leader");
+            UserTypeList.Add("Admin");
+
+
+
         }
 
         public void AddUser(User user)
@@ -39,6 +50,7 @@ namespace KommandoBogApp.Singleton
         public void RemoveUser(User user)
         {
             UserList.Remove(user);
+            user.Afd.AfdelingList.Remove(user);
         }
 
         

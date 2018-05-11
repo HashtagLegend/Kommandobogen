@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Media.Streaming.Adaptive;
 using KommandoBogApp.Model;
 using KommandoBogApp.ViewModel;
 
@@ -19,38 +21,42 @@ namespace KommandoBogApp.Handler
 
         public void CreateUser()
         {
+          
             if (UserVM.Type == "Admin")
             {
                 Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail);
                 UserVM.UserCatalogSingleton.AddUser(admin);
-                Afdeling afd = AddUserToAfdeling(UserVM.Afdeling);
-                afd.AddUserToList(admin);
-                admin.Afd = afd;
+                AddUserToAfdeling(admin);
+                admin.Afd = UserVM.Afdeling;
+
             }
             else if (UserVM.Type == "Leader")
             {
-                UserVM.UserCatalogSingleton.AddUser(new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail));
+                Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail);
+                UserVM.UserCatalogSingleton.AddUser(leader);
+                AddUserToAfdeling(leader); 
+                leader.Afd = UserVM.Afdeling;
+
+
             }
             else if (UserVM.Type == "Regular")
             {
-                UserVM.UserCatalogSingleton.AddUser(new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail));
+                Regular regular= new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail);
+                UserVM.UserCatalogSingleton.AddUser(regular);
+                AddUserToAfdeling(regular);
+                regular.Afd = UserVM.Afdeling;
             }
 
         }
 
-        public Afdeling AddUserToAfdeling(string navn)
+        public void DeleteUser()
         {
-            foreach (Afdeling afd in UserVM.UserCatalogSingleton.AfdelingList)
-            {
-                if (afd.Navn == navn)
-                {
-                    return afd;
-                }
+            UserVM.UserCatalogSingleton.RemoveUser(UserVM.SelectedUser);
+        }
 
-                return null;
-            }
-
-            return null;
+        public void AddUserToAfdeling(User user)
+        {
+            UserVM.Afdeling.AddUserToList(user);
         }
     }
 }
