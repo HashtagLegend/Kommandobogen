@@ -58,5 +58,20 @@ namespace KommandoBogApp.Handler
         {
             UserVM.Afdeling.AddUserToList(user);
         }
+
+        public bool CheckCredentials(string credentials)
+        {
+            foreach (User user in UserVM.UserCatalogSingleton.UserList)
+            {
+                if (credentials==user.MaNummer)
+                {
+                    UserVM.UserCatalogSingleton.LoginUser = user;
+                    
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

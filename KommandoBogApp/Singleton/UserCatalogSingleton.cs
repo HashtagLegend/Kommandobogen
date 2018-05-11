@@ -25,6 +25,8 @@ namespace KommandoBogApp.Singleton
 
         public ObservableCollection<string> UserTypeList { get; set; }
 
+        public User LoginUser { get; set; }
+
         private UserCatalogSingleton()
         {
             UserList = new ObservableCollection<User>();
@@ -37,6 +39,17 @@ namespace KommandoBogApp.Singleton
             UserTypeList.Add("Leader");
             UserTypeList.Add("Admin");
 
+
+            User f1 = new Admin("123", "Frederik Wulff", "42489902", "Hasselvej 2 2th", "fwpdanmark@hotmail.com");
+            UserList.Add(f1);
+            foreach (Afdeling afd in AfdelingList)
+            {
+                if (afd.Navn == "Q")
+                {
+                    f1.Afd = afd;
+                    afd.AfdelingList.Add(f1);
+                }
+            }
 
 
         }
@@ -53,6 +66,6 @@ namespace KommandoBogApp.Singleton
             user.Afd.AfdelingList.Remove(user);
         }
 
-        
+       
     }
 }

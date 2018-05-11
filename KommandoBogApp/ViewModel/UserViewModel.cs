@@ -23,6 +23,7 @@ namespace KommandoBogApp.ViewModel
         public string Type { get; set; }
         public Afdeling Afdeling { get; set; }
         public User SelectedUser { get; set; }
+        public static string LoginString { get; set; }
 
 
 
