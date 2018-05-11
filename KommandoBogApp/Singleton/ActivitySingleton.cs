@@ -10,7 +10,7 @@ using ActivityType = Windows.Devices.Sensors.ActivityType;
 
 namespace KommandoBogApp.Singleton
 {
-    class ActivitySingleton
+    public class ActivitySingleton
     {
         private static ActivitySingleton _instance = new ActivitySingleton();
 
