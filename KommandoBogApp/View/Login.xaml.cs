@@ -40,8 +40,6 @@ namespace KommandoBogApp.View
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Button is pressed");
-            Debug.WriteLine(UserViewModel.LoginString);
             if (VM.Handler.CheckCredentials(UserViewModel.LoginString))
             {
                 this.Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));

@@ -50,6 +50,17 @@ namespace KommandoBogApp.Singleton
                     afd.AfdelingList.Add(f1);
                 }
             }
+            User f2 = new Regular("444", "Steffen LArsen", "4242", "Hasselvej 2 2th", "fwpdanmark@hotmail.com");
+            UserList.Add(f2);
+            foreach (Afdeling afd in AfdelingList)
+            {
+                if (afd.Navn == "Q")
+                {
+                    f1.Afd = afd;
+                    afd.AfdelingList.Add(f1);
+                }
+            }
+
 
 
         }

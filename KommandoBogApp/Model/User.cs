@@ -9,6 +9,7 @@ namespace KommandoBogApp.Model
    public class User
     {
 
+        public string UserType { get; set; }
         public string MaNummer { get; set; }
         public string Navn { get; set; }
         public string Tlf { get; set; }

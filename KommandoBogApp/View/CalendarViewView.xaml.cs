@@ -32,12 +32,16 @@ namespace KommandoBogApp.View
 
         public ActivityViewModel ActivityViewModel { get; set; }
 
+        public UserCatalogSingleton UserSingleton { get; set; }
+
 
         public CalendarViewView()
         {
             this.InitializeComponent();
             ActivitiySingleton = ActivitySingleton.Instance;
             ActivityViewModel = new ActivityViewModel();
+            UserSingleton = UserCatalogSingleton.Instance;
+            CreateUserButton.Click += CreateUserButton_Click;
         }
 
         public static List<DateTimeOffset> DateSelected { get; set; }
@@ -173,6 +177,14 @@ namespace KommandoBogApp.View
         private void VagtButton_OnClick(object sender, RoutedEventArgs e)
         {
             ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Blue);
+        }
+
+        private void CreateUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserSingleton.LoginUser.UserType=="Admin")
+            {
+                this.Frame.Navigate(typeof(KommandoBogApp.View.CreateUserView));
+            }
         }
     }
 }
