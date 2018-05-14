@@ -35,8 +35,7 @@ namespace KommandoBogApp.ViewModel
         {
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             UserHandler = new UserHandler(this);
-
-
+            
             User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
             UserCatalogSingleton.AddUser(NewUser);
         }

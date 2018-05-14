@@ -56,8 +56,8 @@ namespace KommandoBogApp.Singleton
             {
                 if (afd.Navn == "Q")
                 {
-                    f1.Afd = afd;
-                    afd.AfdelingList.Add(f1);
+                    f2.Afd = afd;
+                    afd.AfdelingList.Add(f2);
                 }
             }
 
