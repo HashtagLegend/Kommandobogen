@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="KommandoBogApp.View.HubTest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KommandoBogApp.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="166" VerticalAlignment="Top" Width="1920" BorderThickness="2" BorderBrush="Black">
+            <TextBlock HorizontalAlignment="Left" Margin="20,20,0,0" TextWrapping="Wrap" Text="KommandoBogen" VerticalAlignment="Top" FontSize="90"/>
+
+            <Grid HorizontalAlignment="Left" Height="166" Margin="1512,-2,0,0" VerticalAlignment="Top" Width="408" BorderThickness="2" BorderBrush="Black">
+
+            </Grid>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="914" Margin="0,166,0,0" VerticalAlignment="Top" Width="372" BorderThickness="2" BorderBrush="Black">
+            <Grid HorizontalAlignment="Left" Height="578" Margin="0,0,0,0" VerticalAlignment="Top" Width="372" BorderThickness="1" BorderBrush="Black">
+
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="202" Margin="0,578,0,0" VerticalAlignment="Top" Width="372" BorderThickness="1" BorderBrush="Black">
+
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="134" Margin="0,779,0,0" VerticalAlignment="Top" Width="372" BorderThickness="1" BorderBrush="Black">
+
+            </Grid>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="108" Margin="372,166,0,0" VerticalAlignment="Top" Width="1552" BorderThickness="2" BorderBrush="Black"/>
+
+        <Grid HorizontalAlignment="Left" Height="807" Margin="372,273,0,0" VerticalAlignment="Top" Width="1548">
+            <Hub Header="Hub">
+                <HubSection Header="HubSection 0">
+                    <DataTemplate>
+                        <Grid/>
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Header="HubSection 1">
+                    <DataTemplate>
+                        <Grid/>
+                    </DataTemplate>
+                </HubSection>
+            </Hub>
+        </Grid>
+
+
+    </Grid>
+</Page>

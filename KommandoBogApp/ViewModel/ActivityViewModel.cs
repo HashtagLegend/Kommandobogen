@@ -12,7 +12,6 @@ using Windows.UI.Xaml.Controls;
 using KommandoBogApp.Handler;
 using KommandoBogApp.Model;
 using KommandoBogApp.RelayCommands;
-using KommandoBogApp.Model;
 using KommandoBogApp.Singleton;
 
 namespace KommandoBogApp.ViewModel
