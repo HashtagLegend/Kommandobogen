@@ -5,8 +5,15 @@
     xmlns:local="using:KommandoBogApp.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:KommandoBogApp.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <viewModel:UserViewModel/>
+    </Page.DataContext>
+
+
 
     <Grid>
         <Grid HorizontalAlignment="Left" Height="166" VerticalAlignment="Top" Width="1920" BorderThickness="2" BorderBrush="Black">
@@ -30,18 +37,33 @@
         <Grid HorizontalAlignment="Left" Height="108" Margin="372,166,0,0" VerticalAlignment="Top" Width="1552" BorderThickness="2" BorderBrush="Black"/>
 
         <Grid HorizontalAlignment="Left" Height="807" Margin="372,273,0,0" VerticalAlignment="Top" Width="1548">
-            <Hub Header="Hub">
-                <HubSection Header="HubSection 0">
+            <ListView HorizontalAlignment="Left" Height="1000" VerticalAlignment="Top" Width="1000" ItemsSource="{Binding UserCatalogSingleton.UserList}">
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid/>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Navn}" Width="200" Height="100"/>
+                                <Grid BorderThickness="2" BorderBrush="Black" Width="500" Height="100">
+                                <ListView HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="700" ItemsSource="{Binding Mode=OneWay}" DataContext="ViewModel:ActivityViewModel">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock/>
+                                                <TextBlock/>
+                                                <Grid BorderThickness="2" BorderBrush="Black" Width="500" Height="100">
+
+                                                </Grid>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                           </StackPanel>
+                        </StackPanel>
                     </DataTemplate>
-                </HubSection>
-                <HubSection Header="HubSection 1">
-                    <DataTemplate>
-                        <Grid/>
-                    </DataTemplate>
-                </HubSection>
-            </Hub>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </Grid>
 
 
