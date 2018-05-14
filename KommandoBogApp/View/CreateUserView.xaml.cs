@@ -42,7 +42,7 @@ namespace KommandoBogApp.View
 
         public void bindingToList()
         {
-            if (UserViewModel.ViewSearch == null)
+            if (UserViewModel.ViewSearch == null || UserViewModel.ViewSearch == "")
             {
                 this.UserListView.ItemsSource = Singleton.UserList;
             }
