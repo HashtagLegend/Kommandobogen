@@ -35,6 +35,10 @@ namespace KommandoBogApp.ViewModel
         {
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             UserHandler = new UserHandler(this);
+
+
+            User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
+            UserCatalogSingleton.AddUser(NewUser);
         }
         public static string LoginString { get; set; }
 
@@ -55,11 +59,10 @@ namespace KommandoBogApp.ViewModel
         {
             get { return _deleteUser ?? (_deleteUser = new RelayCommand(UserHandler.DeleteUser)); }
             set { _deleteUser = value; }
-            UserCatalogSingleton = UserCatalogSingleton.Instance;
-            Handler = new UserHandler(this);
-            User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
-            UserCatalogSingleton.AddUser(NewUser);
+
         }
+
+
 
         #endregion
         
