@@ -13,8 +13,6 @@
         <viewModel:UserViewModel/>
     </Page.DataContext>
 
-
-
     <Grid>
         <Grid HorizontalAlignment="Left" Height="166" VerticalAlignment="Top" Width="1920" BorderThickness="2" BorderBrush="Black">
             <TextBlock HorizontalAlignment="Left" Margin="20,20,0,0" TextWrapping="Wrap" Text="KommandoBogen" VerticalAlignment="Top" FontSize="90"/>
@@ -37,32 +35,48 @@
         <Grid HorizontalAlignment="Left" Height="108" Margin="372,166,0,0" VerticalAlignment="Top" Width="1552" BorderThickness="2" BorderBrush="Black"/>
 
         <Grid HorizontalAlignment="Left" Height="807" Margin="372,273,0,0" VerticalAlignment="Top" Width="1548">
-            <ListView HorizontalAlignment="Left" Height="1000" VerticalAlignment="Top" Width="1000" ItemsSource="{Binding UserCatalogSingleton.UserList}">
+            <Grid HorizontalAlignment="Left" Height="50" Margin="200,0,0,0" VerticalAlignment="Top" Width="1348">
+
+                <GridView HorizontalAlignment="left" ItemsSource="{Binding DatesInMonth}" Width="1300" Height="50">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            
+                            <StackPanel Orientation="Horizontal" Width="30" Height="50" HorizontalAlignment="Left">
+                                <TextBox Width="30" Height="50" Text="{Binding Mode=OneWay}" IsReadOnly="True" HorizontalAlignment="Left" Padding="0" MinWidth="0">
+                                </TextBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                    
+                </GridView>
+            </Grid>
+            <ListView HorizontalAlignment="Left" Margin="200,50,0,0" Height="755" VerticalAlignment="Top" Width="1348" ItemsSource="{Binding UserCatalogSingleton.UserList}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Navn}" Width="200" Height="100"/>
-                                <Grid BorderThickness="2" BorderBrush="Black" Width="500" Height="100">
-                                <ListView HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="700" ItemsSource="{Binding Mode=OneWay}" DataContext="ViewModel:ActivityViewModel">
-                                    <ListView.ItemTemplate>
+                                <Grid Width="1348" Height="100">
+                                <GridView HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="700" ItemsSource="{Binding Activities}">
+                                    <GridView.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock/>
-                                                <TextBlock/>
-                                                <Grid BorderThickness="2" BorderBrush="Black" Width="500" Height="100">
-
-                                                </Grid>
-                                            </StackPanel>
+                                                    <Grid Width="32" Height="100" Margin="-12,0,0,0" BorderThickness="2" BorderBrush="Black" >
+                                                        <Grid.Background>
+                                                            <SolidColorBrush Color="{Binding color}" />
+                                                        </Grid.Background>
+                                                    </Grid>
+                                                </StackPanel>
                                         </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
+                                    </GridView.ItemTemplate>
+                                </GridView>
                             </Grid>
                            </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
 
         </Grid>
 

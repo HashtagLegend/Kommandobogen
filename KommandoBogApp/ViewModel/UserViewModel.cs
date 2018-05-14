@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -23,6 +25,8 @@ namespace KommandoBogApp.ViewModel
         public string Type { get; set; }
         public Afdeling Afdeling { get; set; }
         public User SelectedUser { get; set; }
+        public ActivityViewModel ActivityViewModel { get; set; }
+        public static ObservableCollection<int> DatesInMonth { get; set; }
 
 
 
@@ -31,12 +35,18 @@ namespace KommandoBogApp.ViewModel
        
         public UserViewModel()
         {
+            ActivityViewModel = new ActivityViewModel();
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             Handler = new UserHandler(this);
+            List<DateTimeOffset> Dates = new List<DateTimeOffset>();
+            Dates.Add(DateTimeOffset.Now);
             User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
             UserCatalogSingleton.AddUser(NewUser);
+            
         }
-
-        
     }
 }

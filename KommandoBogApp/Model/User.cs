@@ -15,6 +15,7 @@ namespace KommandoBogApp.Model
         public string Adresse { get; set; }
         public Afdeling Afd { get; set; }
         public string Email { get; set; }
+        public List<Activity> Activities { get; set; }
 
         public User(string maNummer, string navn, string tlf, string adresse, string email)
         {
@@ -23,12 +24,15 @@ namespace KommandoBogApp.Model
             Tlf = tlf;
             Adresse = adresse;
             Email = email;
+            Activities = new List<Activity>();
         }
 
         public void CreateActivity()
         {
 
         }
+
+
 
         public void EditActivity()
         {

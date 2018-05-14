@@ -15,6 +15,7 @@ namespace KommandoBogApp.Model
         public string Kommentar { get; set; }
         public string Navn { get; set; }
         public ActivityHandler.Color Color { get; set; }
+        public Color color { get; set; }
         public List<DateTimeOffset> Dates { get; set; }
         public static int ID { get; set; }
         public int id { get; set; }
@@ -33,6 +34,23 @@ namespace KommandoBogApp.Model
             Dates = dates;
             id = ID;
             ID++;
+            ColorString();
+        }
+
+        public string ColorString()
+        {
+            if (Color == ActivityHandler.Color.DarkGreen)
+                color = Windows.UI.Color.FromArgb(255,0,100,0);
+
+            if (Color == ActivityHandler.Color.Blue)
+                color = Windows.UI.Color.FromArgb(255, 0, 0, 100);
+
+            if (Color == ActivityHandler.Color.Firebrick)
+                color = Windows.UI.Color.FromArgb(255, 178, 38, 38);
+
+            if (Color == ActivityHandler.Color.Orange)
+                color = Windows.UI.Color.FromArgb(255, 255, 165, 0);
+            return null;
         }
 
         public void ToStringDate()
@@ -67,6 +85,8 @@ namespace KommandoBogApp.Model
             }
             DatesFromAndTo = $"{LowestDate.ToString("dd/mm/yyyy")} kl {LowestDate.TimeOfDay} Til {HighestDate.ToString("dd/mm/yyyy")} kl {HighestDate.TimeOfDay}";
         }
+
+       
 
         public override string ToString()
         {
