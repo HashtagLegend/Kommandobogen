@@ -11,7 +11,7 @@ namespace KommandoBogApp.Model
 
         public Leader(string maNummer, string navn, string tlf, string adresse, string email) : base(maNummer, navn, tlf, adresse, email)
         {
-            
+            UserType = "Leader";
         }
 
         public void ApproveWork()

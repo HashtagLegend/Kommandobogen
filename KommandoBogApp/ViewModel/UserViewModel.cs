@@ -36,6 +36,9 @@ namespace KommandoBogApp.ViewModel
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             UserHandler = new UserHandler(this);
         }
+        public static string LoginString { get; set; }
+
+
 
         #region ICommands
 

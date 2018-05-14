@@ -56,6 +56,21 @@
                 </Core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
         </Button>
+        <TextBox Text="Start Tid" Margin="680,585,0,0" Width="100" Height="30" IsReadOnly="True" FontWeight="Bold"/>
+        <TimePicker HorizontalAlignment="Left" Margin="1250,850,0,0" VerticalAlignment="Top" Time="{Binding TimeStart, Mode=TwoWay}" ClockIdentifier="24HourClock" />
+        <TextBox Text="Slut Tid" Margin="1260,585,0,0" Width="100" Height="30" IsReadOnly="True" FontWeight="Bold"/>
+        <TimePicker HorizontalAlignment="Left" Margin="1540,850,0,0" VerticalAlignment="Top" Time="{Binding TimeEnd, Mode=TwoWay}" ClockIdentifier="24HourClock" />
+        <ListView HorizontalAlignment="Left" Height="806" VerticalAlignment="Top" Width="667" />
+        <TextBox HorizontalAlignment="Left" Margin="225,936,0,0" TextWrapping="Wrap" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="131" PlaceholderText="Navn"/>
+        <TextBox HorizontalAlignment="Left" Margin="365,936,0,0" TextWrapping="Wrap" Text="{Binding ViewKommentar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="131" PlaceholderText="Kommentar"/>
+        <AppBarButton HorizontalAlignment="Left" Icon="Accept" Label="CreateActivityView" Margin="118,859,0,0" VerticalAlignment="Top">
+            <interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.CreateActivityView"/>
+                </Core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+        </AppBarButton>
+        <AppBarButton x:Name="CreateUserButton" HorizontalAlignment="Left" Icon="Accept" Label="CreateUserView" Margin="288,859,0,0" VerticalAlignment="Top">
         <TextBox Text="Start Tid" Margin="676,830,0,0" Width="100" Height="30" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TimePicker HorizontalAlignment="Left" Margin="676,870,0,0" VerticalAlignment="Top" Time="{Binding TimeStart, Mode=TwoWay}" ClockIdentifier="24HourClock" />
         <TextBox Text="Slut Tid" Margin="966,830,0,0" Width="100" Height="30" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
@@ -78,9 +93,7 @@
         <TextBox HorizontalAlignment="Left" Margin="820,920,0,0" TextWrapping="Wrap" Text="{Binding ViewKommentar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="131" PlaceholderText="Kommentar"/>
         <AppBarButton HorizontalAlignment="Left" Icon="Accept" Label="Create User" Margin="1741,828,0,0" VerticalAlignment="Top" Width="162">
             <interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.CreateUserView"/>
-                </Core:EventTriggerBehavior>
+               
             </interactivity:Interaction.Behaviors>
         </AppBarButton>
 
