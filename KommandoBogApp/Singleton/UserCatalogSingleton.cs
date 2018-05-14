@@ -21,6 +21,8 @@ namespace KommandoBogApp.Singleton
 
         public ObservableCollection<User> UserList { get; set; }
 
+        public ObservableCollection<User> SearchUserList { get; set; }
+
         public ObservableCollection<Afdeling> AfdelingList { get; set; }
 
         public ObservableCollection<string> UserTypeList { get; set; }
@@ -29,6 +31,7 @@ namespace KommandoBogApp.Singleton
 
         private UserCatalogSingleton()
         {
+            SearchUserList = new ObservableCollection<User>();
             UserList = new ObservableCollection<User>();
             AfdelingList = new ObservableCollection<Afdeling>();
             AfdelingList.Add(new Afdeling("Q"));
@@ -56,8 +59,8 @@ namespace KommandoBogApp.Singleton
             {
                 if (afd.Navn == "Q")
                 {
-                    f1.Afd = afd;
-                    afd.AfdelingList.Add(f1);
+                    f2.Afd = afd;
+                    afd.AfdelingList.Add(f2);
                 }
             }
 

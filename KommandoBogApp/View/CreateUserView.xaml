@@ -20,7 +20,7 @@
         <TextBox x:Name="Navn" HorizontalAlignment="Left" Margin="147,254,0,0" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Navn"/>
         <TextBox x:Name="Adresse" HorizontalAlignment="Left" Margin="147,396,0,0" Text="{Binding ViewAdresse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Adresse"/>
         <TextBlock HorizontalAlignment="Left" Margin="147,54,0,0" Text="Opret Bruger " TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="287" FontSize="36" TextDecorations="Underline"/>
-        <ListView HorizontalAlignment="Left" Height="653" Margin="684,141,0,0" VerticalAlignment="Top" Width="666" ItemsSource="{Binding UserCatalogSingleton.UserList}" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <ListView x:Name="UserListView" HorizontalAlignment="Left" Height="653" Margin="684,141,0,0" VerticalAlignment="Top" Width="930" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <ComboBox HorizontalAlignment="Left" Height="40" Margin="148,433,0,0" VerticalAlignment="Top" Width="286" ItemsSource="{Binding UserCatalogSingleton.AfdelingList}" SelectedItem="{Binding Afdeling, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             
         </ComboBox>
@@ -33,8 +33,13 @@
                 </Custom1:EventTriggerBehavior>
             </Custom:Interaction.Behaviors>
         </AppBarButton>
-        <Button Content="CreateUserCommand" HorizontalAlignment="Left" Margin="148,663,0,0" VerticalAlignment="Top" Command="{Binding CreateUserCommand}"/>
-        <Button Content="DeleteUserCommand" HorizontalAlignment="Left" Margin="148,727,0,0" VerticalAlignment="Top" Command="{Binding DeleteUserCommand}"/>
+        <Button x:Name="CreateButton" Content="CreateUserCommand" HorizontalAlignment="Left" Margin="148,663,0,0" VerticalAlignment="Top" Command="{Binding CreateUserCommand}"/>
+        <Button x:Name="DeleteButton" Content="DeleteUserCommand" HorizontalAlignment="Left" Margin="148,727,0,0" VerticalAlignment="Top" Command="{Binding DeleteUserCommand}"/>
+        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Height="30" Margin="748,54,0,0" TextWrapping="Wrap" Text="{Binding ViewSearch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="124">
+            <Custom:Interaction.Behaviors>
+                <Custom1:EventTriggerBehavior EventName="TextChanged"/>
+            </Custom:Interaction.Behaviors>
+        </TextBox>
 
     </Grid>
 </Page>
