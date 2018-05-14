@@ -12,6 +12,7 @@ using KommandoBogApp.Handler;
 using KommandoBogApp.Model;
 using KommandoBogApp.RelayCommands;
 using KommandoBogApp.Singleton;
+using KommandoBogApp.View;
 
 namespace KommandoBogApp.ViewModel
 {
@@ -28,6 +29,7 @@ namespace KommandoBogApp.ViewModel
         public Afdeling Afdeling { get; set; }
         public User SelectedUser { get; set; }
         public UserHandler UserHandler { get; set; }
+        
         
         public UserViewModel()
         {

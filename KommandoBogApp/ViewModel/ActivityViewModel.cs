@@ -14,6 +14,7 @@ using KommandoBogApp.Model;
 using KommandoBogApp.RelayCommands;
 using KommandoBogApp.Model;
 using KommandoBogApp.Singleton;
+using KommandoBogApp.View;
 
 namespace KommandoBogApp.ViewModel
 {
@@ -29,6 +30,7 @@ namespace KommandoBogApp.ViewModel
         public ActivitySingleton ActivityList { get; }
         public ActivityHandler Handler { get; set; }
         public CalendarOverviewSingleton CalendarOverviewSingleton { get;}
+        public CalendarViewView CWW { get; set; }
 
         public ActivityType ViewActivityType { get; set; }
 
@@ -40,15 +42,15 @@ namespace KommandoBogApp.ViewModel
             Handler=new ActivityHandler(this);
         }
 
+         /*TODO ActivityType Implemantation
+            1. Implementer Activitytype i Handler og VM
+            2. Opdater konstruktør
+            3. Lav Combobox
+         */
 
-        //private ICommand _createActivity;
-    
-        //public ICommand CreateActivityCommand
-        //{
-        //    get { return _createActivity ?? (_createActivity = new RelayCommand(Handler.CreateActivity(ActivityHandler.Color)); }
-        //    set { _createActivity = value; }
-        //}
-        public void CreateActivity(ActivityHandler.Color color)
+        //TODO Create Activity ICommand
+
+public void CreateActivity(ActivityHandler.Color color)
         {
             Handler.CreateActivity(color);
         }

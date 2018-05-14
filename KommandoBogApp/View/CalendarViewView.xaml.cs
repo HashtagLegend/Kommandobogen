@@ -153,7 +153,7 @@ namespace KommandoBogApp.View
             CalendarView1.SelectionMode = CalendarViewSelectionMode.Single;
         }
 
-        private void FriButton_OnClick(object sender, RoutedEventArgs e)
+        public void FriButton_OnClick(object sender, RoutedEventArgs e)
         {
             ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Firebrick);
         }
