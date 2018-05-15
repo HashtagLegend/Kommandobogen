@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Popups;
@@ -29,7 +30,6 @@ namespace KommandoBogApp.View
     {
 
         public UserCatalogSingleton Singleton { get; set; }
-       
 
         public CreateUserView()
         {
@@ -59,7 +59,6 @@ namespace KommandoBogApp.View
                 }
 
                 this.UserListView.ItemsSource = Singleton.SearchUserList;
-                
             }
         }
 
@@ -68,15 +67,18 @@ namespace KommandoBogApp.View
             bindingToList();
         }
 
-        public void CreateButton_Click(object sender, RoutedEventArgs e)
-        { 
+        public async void CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(500);
             bindingToList();
         }
 
-        public void DeleteButton_Click(object sender, RoutedEventArgs e)
+        public async void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
+            await Task.Delay(500);
             bindingToList();
-            
+
         }
+
     }
 }
