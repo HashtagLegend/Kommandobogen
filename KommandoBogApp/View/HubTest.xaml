@@ -34,52 +34,108 @@
         </Grid>
         <Grid HorizontalAlignment="Left" Height="108" Margin="372,166,0,0" VerticalAlignment="Top" Width="1552" BorderThickness="2" BorderBrush="Black"/>
 
-        <Grid HorizontalAlignment="Left" Height="807" Margin="372,273,0,0" VerticalAlignment="Top" Width="1548">
-            <Grid HorizontalAlignment="Left" Height="50" Margin="200,0,0,0" VerticalAlignment="Top" Width="1348">
-
-                <GridView HorizontalAlignment="left" ItemsSource="{Binding DatesInMonth}" Width="1300" Height="50">
-                    <GridView.ItemTemplate>
-                        <DataTemplate>
-                            
-                            <StackPanel Orientation="Horizontal" Width="30" Height="50" HorizontalAlignment="Left">
-                                <TextBox Width="30" Height="50" Text="{Binding Mode=OneWay}" IsReadOnly="True" HorizontalAlignment="Left" Padding="0" MinWidth="0">
-                                </TextBox>
-                            </StackPanel>
-                        </DataTemplate>
-                    </GridView.ItemTemplate>
+        <Grid HorizontalAlignment="Left" Height="700" Margin="372,273,0,0" VerticalAlignment="Top" Width="1548">
+            <Hub Width="1548" Height="700" x:Name="Hub" Header="Overview" Orientation="Horizontal">
+                <HubSection Header="Navn:">
                     
-                </GridView>
-            </Grid>
-            <ListView HorizontalAlignment="Left" Margin="200,50,0,0" Height="755" VerticalAlignment="Top" Width="1348" ItemsSource="{Binding UserCatalogSingleton.UserList}">
-                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Navn}" Width="200" Height="100"/>
-                                <Grid Width="1348" Height="100">
-                                <GridView HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="700" ItemsSource="{Binding Activities}">
+                        <GridView Width="100" Height="auto" ItemsSource="{Binding UserCatalogSingleton.UserList}" Margin="0,59,0,0">
+                            <GridView.ItemTemplate>
+                                <DataTemplate>
+                                   <StackPanel Orientation="Vertical" Width="auto" Height="40">
+                                        <TextBox Text="{Binding Navn}" IsReadOnly="True" Height="40" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                        </GridView>
+                    </DataTemplate>
+                </HubSection>
+
+                <HubSection Header="Dage Samt Aktiviter">
+                    <DataTemplate>
+                        <StackPanel>
+                            <GridView x:Name="Days" Height="auto" Width="auto" ItemsSource="{Binding DatesInMonth}" Margin="0,0,0,0">
+                                <GridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Height="40" Orientation="Horizontal">
+                                            <TextBox Text="{Binding Mode=OneWay}" IsReadOnly="True">
+                                            </TextBox>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+                            </GridView>
+                            <ListView x:Name="Activities" Height="auto" Width="auto" ItemsSource="{Binding UserCatalogSingleton.UserList}" Margin="-12,0,0,0">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                    <GridView Height="50" Width="auto" ItemsSource="{Binding Activities}">
                                     <GridView.ItemTemplate>
                                         <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                    <Grid Width="32" Height="100" Margin="-12,0,0,0" BorderThickness="2" BorderBrush="Black" >
-                                                        <Grid.Background>
-                                                            <SolidColorBrush Color="{Binding color}" />
-                                                        </Grid.Background>
-                                                    </Grid>
-                                                </StackPanel>
+                                            <StackPanel Height="40" Orientation="Horizontal">
+                                                <TextBox Text="{Binding DatesInMonth, Mode=OneWay}" IsReadOnly="True">
+                                                    <TextBox.Background>
+                                                        <SolidColorBrush Color="{Binding color}"/>
+                                                    </TextBox.Background>
+                                                </TextBox>
+                                            </StackPanel>
                                         </DataTemplate>
                                     </GridView.ItemTemplate>
-                                </GridView>
-                            </Grid>
-                           </StackPanel>
+                                    </GridView>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
                         </StackPanel>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            
+                </HubSection>
+            </Hub>
 
+
+            <!--<Grid HorizontalAlignment="Left" Height="50" Margin="250,0,0,0" VerticalAlignment="Top" Width="auto">
+                <ScrollViewer x:Name="ScrollViewerDates" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible">
+                    <GridView HorizontalAlignment="left" ItemsSource="{Binding DatesInMonth}" Width="auto" Height="50" SelectionMode="None" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                              ScrollViewer.HorizontalScrollMode="Auto"
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                              ScrollViewer.VerticalScrollMode="Disabled">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+
+                                <StackPanel Orientation="Horizontal" Width="50" Height="50" HorizontalAlignment="Left">
+                                    <TextBox Width="50" Height="50" Text="{Binding Mode=OneWay}" Margin="0,0,0,0" IsReadOnly="True" HorizontalAlignment="Left" Padding="0" MinWidth="0"/>
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                    </ScrollViewer>
+                </Grid>
+            <ScrollViewer x:Name="ScrollViewerActivities" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible" ViewChanged="SynchronizedScrollerOnViewChanged">
+                <GridView HorizontalAlignment="Left" Margin="50,50,0,0" Height="755" VerticalAlignment="Top" Width="auto" ItemsSource="{Binding UserCatalogSingleton.UserList}" SelectionMode="None" >
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="{Binding Navn}" Width="200" Height="100" BorderBrush="Black" BorderThickness="2" IsReadOnly="True"/>
+                                        <Grid Width="1348" Height="100">
+                                            <GridView HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="1700" ItemsSource="{Binding Activities}">
+                                                <GridView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Grid Width="50" Height="100" Margin="0,0,0,0" >
+                                                                <Grid.Background>
+                                                                    <SolidColorBrush Color="{Binding color}" />
+                                                                </Grid.Background>
+                                                            </Grid>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </GridView.ItemTemplate>
+                                            </GridView>
+
+                                        </Grid>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+             </ScrollViewer>-->
         </Grid>
-
-
     </Grid>
 </Page>

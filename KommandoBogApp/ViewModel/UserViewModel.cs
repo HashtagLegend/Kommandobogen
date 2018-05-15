@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using KommandoBogApp.Handler;
 using KommandoBogApp.Model;
 using KommandoBogApp.Singleton;
+using KommandoBogApp.View;
 
 namespace KommandoBogApp.ViewModel
 {
@@ -45,8 +46,45 @@ namespace KommandoBogApp.ViewModel
             NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
             NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
             NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
+            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
+            User NewUser1 = new User("02", "Henrik", "26891221", "Afrika", "Shit@Hotmail.com");
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
+            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
             UserCatalogSingleton.AddUser(NewUser);
-            
+            UserCatalogSingleton.AddUser(NewUser1);
         }
     }
 }
