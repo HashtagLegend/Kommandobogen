@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Media.Streaming.Adaptive;
+using Windows.UI.Popups;
 using KommandoBogApp.Model;
 using KommandoBogApp.ViewModel;
 
@@ -57,6 +58,7 @@ namespace KommandoBogApp.Handler
         public void AddUserToAfdeling(User user)
         {
             UserVM.Afdeling.AddUserToList(user);
+            
         }
 
         public bool CheckCredentials(string credentials)
