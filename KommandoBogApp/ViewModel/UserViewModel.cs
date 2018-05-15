@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using KommandoBogApp.Handler;
 using KommandoBogApp.Model;
 using KommandoBogApp.Singleton;
@@ -28,12 +29,12 @@ namespace KommandoBogApp.ViewModel
         public User SelectedUser { get; set; }
         public ActivityViewModel ActivityViewModel { get; set; }
         public static ObservableCollection<int> DatesInMonth { get; set; }
-
+        public static string CurrentShownMonth { get; set; }
 
 
         public UserHandler Handler { get; set; }
 
-       
+
         public UserViewModel()
         {
             ActivityViewModel = new ActivityViewModel();
@@ -41,6 +42,7 @@ namespace KommandoBogApp.ViewModel
             Handler = new UserHandler(this);
             List<DateTimeOffset> Dates = new List<DateTimeOffset>();
             Dates.Add(DateTimeOffset.Now);
+            SetCurrentShownMonth();
             User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
             NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
             NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
@@ -85,6 +87,14 @@ namespace KommandoBogApp.ViewModel
             NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
             UserCatalogSingleton.AddUser(NewUser);
             UserCatalogSingleton.AddUser(NewUser1);
+            Handler.FixDaysWithActivities();
         }
+
+        public static void SetCurrentShownMonth()
+        {
+            CurrentShownMonth = HubTest.ShownMonth.Month.ToString();
+        }
+    
+
     }
 }

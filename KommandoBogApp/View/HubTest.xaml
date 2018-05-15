@@ -6,6 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:KommandoBogApp.ViewModel"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -34,7 +36,13 @@
         </Grid>
         <Grid HorizontalAlignment="Left" Height="108" Margin="372,166,0,0" VerticalAlignment="Top" Width="1552" BorderThickness="2" BorderBrush="Black"/>
 
-        <Grid HorizontalAlignment="Left" Height="700" Margin="372,273,0,0" VerticalAlignment="Top" Width="1548">
+        <Grid HorizontalAlignment="Left" Height="700" Margin="372,273,0,0" VerticalAlignment="Top" Width="1548" Background="#cccccc">
+            <Button Width="50" Height="50" Margin="1250,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="MonthMinusOne" Command="{Binding UpdateCurrentShownActivities}">
+            </Button>
+            <TextBox Name="MonthShownTextBox" Text="{Binding CurrentShownMonth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="50" Margin="1300,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="MonthShownTextBox_OnTextChanged"/>
+            <Button Width="50" Height="50" Margin="1400,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="MonthPlusOne" Command="{Binding UpdateCurrentShownActivities}" >
+            </Button>
+
             <Hub Width="1548" Height="700" x:Name="Hub" Header="Overview" Orientation="Horizontal">
                 <HubSection Header="Navn:">
                     
@@ -57,8 +65,8 @@
                             <GridView x:Name="Days" Height="auto" Width="auto" ItemsSource="{Binding DatesInMonth}" Margin="0,0,0,0">
                                 <GridView.ItemTemplate>
                                     <DataTemplate>
-                                        <StackPanel Height="40" Orientation="Horizontal">
-                                            <TextBox Text="{Binding Mode=OneWay}" IsReadOnly="True">
+                                        <StackPanel Height="40" Width="64" Orientation="Horizontal">
+                                            <TextBox Text="{Binding Mode=OneWay}" Width="40" IsReadOnly="True">
                                             </TextBox>
                                         </StackPanel>
                                     </DataTemplate>
@@ -67,15 +75,22 @@
                             <ListView x:Name="Activities" Height="auto" Width="auto" ItemsSource="{Binding UserCatalogSingleton.UserList}" Margin="-12,0,0,0">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                    <GridView Height="50" Width="auto" ItemsSource="{Binding Activities}">
+                                    <GridView Height="50" Width="auto" ItemsSource="{Binding DaysWithActivities}">
                                     <GridView.ItemTemplate>
                                         <DataTemplate>
-                                            <StackPanel Height="40" Orientation="Horizontal">
-                                                <TextBox Text="{Binding DatesInMonth, Mode=OneWay}" IsReadOnly="True">
+                                            <StackPanel Height="40" Width="64" Orientation="Horizontal">
+                                                        <GridView Height="auto" Width="auto" ItemsSource="{Binding Mode=OneWay}" PointerEntered="OnPointEnter" PointerExited="OnPointExit" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled" >
+                                                            <TextBox Width="40">
+                                                                <TextBox.Background>
+                                                                   <SolidColorBrush Color="{Binding color}"/>
+                                                                </TextBox.Background>          
+                                                        </TextBox>
+                                                </GridView>
+                                                <!--<TextBox Text="{Binding DatesInMonth, Mode=OneWay}" IsReadOnly="True">
                                                     <TextBox.Background>
                                                         <SolidColorBrush Color="{Binding color}"/>
                                                     </TextBox.Background>
-                                                </TextBox>
+                                                </TextBox>-->
                                             </StackPanel>
                                         </DataTemplate>
                                     </GridView.ItemTemplate>
@@ -139,3 +154,6 @@
         </Grid>
     </Grid>
 </Page>
+
+
+

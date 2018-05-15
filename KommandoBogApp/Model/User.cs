@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KommandoBogApp.View;
 
 namespace KommandoBogApp.Model
 {
@@ -16,6 +18,7 @@ namespace KommandoBogApp.Model
         public Afdeling Afd { get; set; }
         public string Email { get; set; }
         public List<Activity> Activities { get; set; }
+        public ObservableCollection<Activity> DaysWithActivities { get; set; }
 
         public User(string maNummer, string navn, string tlf, string adresse, string email)
         {
@@ -25,6 +28,8 @@ namespace KommandoBogApp.Model
             Adresse = adresse;
             Email = email;
             Activities = new List<Activity>();
+            DaysWithActivities = new ObservableCollection<Activity>();
+            FillDaysWithActivities();
         }
 
         public void CreateActivity()
@@ -37,6 +42,14 @@ namespace KommandoBogApp.Model
         public void EditActivity()
         {
 
+        }
+
+        public void FillDaysWithActivities()
+        {
+            for (int i = 1; i <= DateTime.DaysInMonth(HubTest.ShownMonth.Year,HubTest.ShownMonth.Month); i++)
+            {
+                DaysWithActivities.Add(null);
+            }
         }
 
         public override string ToString()
