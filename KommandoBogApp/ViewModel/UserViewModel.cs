@@ -30,6 +30,7 @@ namespace KommandoBogApp.ViewModel
         public ActivityViewModel ActivityViewModel { get; set; }
         public static ObservableCollection<int> DatesInMonth { get; set; }
         public static string CurrentShownMonth { get; set; }
+        public static string CurrentShownYear { get; set; }
 
 
         public UserHandler Handler { get; set; }
@@ -41,58 +42,30 @@ namespace KommandoBogApp.ViewModel
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             Handler = new UserHandler(this);
             List<DateTimeOffset> Dates = new List<DateTimeOffset>();
-            Dates.Add(DateTimeOffset.Now);
             SetCurrentShownMonth();
+            Dates.Add(DateTimeOffset.Now);
             User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
             NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
-            NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
             User NewUser1 = new User("02", "Henrik", "26891221", "Afrika", "Shit@Hotmail.com");
             NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Firebrick));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Orange));
-            NewUser1.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
+            User NewUser2 = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
+            NewUser2.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
             UserCatalogSingleton.AddUser(NewUser);
             UserCatalogSingleton.AddUser(NewUser1);
-            Handler.FixDaysWithActivities();
+            UserHandler.FixDaysWithActivities();
+        }
+
+        public void Testdata()
+        {
+            
+
+
         }
 
         public static void SetCurrentShownMonth()
         {
             CurrentShownMonth = HubTest.ShownMonth.Month.ToString();
+            CurrentShownYear = HubTest.ShownYear.Year.ToString();
         }
     
 

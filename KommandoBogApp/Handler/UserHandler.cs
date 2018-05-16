@@ -60,7 +60,7 @@ namespace KommandoBogApp.Handler
             UserVM.Afdeling.AddUserToList(user);
         }
 
-        public void FixDaysWithActivities()
+        public static void FixDaysWithActivities()
         {
             
             foreach (var Users in UserVM.UserCatalogSingleton.UserList)
@@ -71,9 +71,8 @@ namespace KommandoBogApp.Handler
                 {
                     foreach (var Dates in Activities.Dates)
                     {
-                        if (Dates.Month == HubTest.ShownMonth.Month)
+                        if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
                         {
-                            Debug.WriteLine(Dates.Day - 1);
                             Users.DaysWithActivities[Dates.Day - 1] = Activities;
                         }
                     }
