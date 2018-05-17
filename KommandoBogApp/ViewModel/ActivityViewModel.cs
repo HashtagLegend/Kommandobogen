@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using KommandoBogApp.Model;
 using KommandoBogApp.RelayCommands;
 using KommandoBogApp.Singleton;
 using KommandoBogApp.View;
+
 
 namespace KommandoBogApp.ViewModel
 {
@@ -30,6 +32,8 @@ namespace KommandoBogApp.ViewModel
         public ActivityHandler Handler { get; set; }
         public CalendarOverviewSingleton CalendarOverviewSingleton { get;}
         public CalendarViewView CWW { get; set; }
+        public static string UserName;
+
 
         public ActivityType ViewActivityType { get; set; }
 
@@ -39,15 +43,9 @@ namespace KommandoBogApp.ViewModel
             ActivityList = ActivitySingleton.Instance;
             CalendarOverviewSingleton = CalendarOverviewSingleton.Instance;
             Handler=new ActivityHandler(this);
+
         }
-
-         /*TODO ActivityType Implemantation
-            1. Implementer Activitytype i Handler og VM
-            2. Opdater konstruktør
-            3. Lav Combobox
-         */
-
-        //TODO Create Activity ICommand
+        
 
 public void CreateActivity(ActivityHandler.Color color)
         {
