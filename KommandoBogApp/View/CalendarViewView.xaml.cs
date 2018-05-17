@@ -184,5 +184,10 @@ namespace KommandoBogApp.View
                 this.Frame.Navigate(typeof(KommandoBogApp.View.CreateUserView));
             }
         }
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
