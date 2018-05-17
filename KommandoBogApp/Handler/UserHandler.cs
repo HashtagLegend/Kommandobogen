@@ -102,7 +102,7 @@ namespace KommandoBogApp.Handler
                 {
                     foreach (var Dates in Activities.Dates)
                     {
-                        if (Dates.Month == HubTest.ShownMonth.Month)
+                        if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
                         {
                             Debug.WriteLine(Dates.Day - 1);
                             Users.DaysWithActivities[Dates.Day - 1] = Activities;
@@ -110,6 +110,15 @@ namespace KommandoBogApp.Handler
                     }
                 }
             }
+        }
+
+        public string UpdateNameTextBox()
+        {
+            char First;
+            char Last;
+            First = UserVM.ShownUsers.First().Navn[0];
+            Last = UserVM.ShownUsers.Last().Navn[0];
+            return $"{First} Til {Last}";
         }
     }
 }

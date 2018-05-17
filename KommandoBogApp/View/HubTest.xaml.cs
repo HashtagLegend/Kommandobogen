@@ -102,7 +102,7 @@ namespace KommandoBogApp.View
                 {
                     ShownMonth = ShownMonth.AddMonths(-ShownMonth.Month);
                     ShownMonth = ShownMonth.AddMonths(Int32.Parse(MonthShownTextBox.Text));
-                    UserHandler.FixDaysWithActivities();
+                    UserHandler.UserVM.Handler.FixDaysWithActivities();
                     datesInMonth();
                     MonthYearError.Text = "";
                 }
@@ -122,7 +122,7 @@ namespace KommandoBogApp.View
                     {
                         ShownYear = ShownYear.AddYears(-ShownYear.Year+1);
                         ShownYear = ShownYear.AddYears(Int32.Parse(YearShownTextBox.Text)-1);
-                        UserHandler.FixDaysWithActivities();
+                        UserHandler.UserVM.Handler.FixDaysWithActivities();
                         datesInMonth();
                         MonthYearError.Text = "";
                     }
@@ -149,6 +149,11 @@ namespace KommandoBogApp.View
                 UserHandler.NamePage--;
                 UserHandler.ShowUsers();
             }
+        }
+
+        private void UsersShownTextBox_OnTextChanged(Object sender, TextChangedEventArgs e)
+        {
+            NameStartWith.Text = UserHandler.UserVM.Handler.UpdateNameTextBox();
         }
     }
 }

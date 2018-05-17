@@ -25,7 +25,6 @@
         </Grid>
         <Grid HorizontalAlignment="Left" Height="914" Margin="0,166,0,0" VerticalAlignment="Top" Width="372" BorderThickness="2" BorderBrush="Black">
             <Grid HorizontalAlignment="Left" Height="578" Margin="0,0,0,0" VerticalAlignment="Top" Width="372" BorderThickness="1" BorderBrush="Black">
-            <Button Click="ButtonBase_OnClick"/>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="202" Margin="0,578,0,0" VerticalAlignment="Top" Width="372" BorderThickness="1" BorderBrush="Black">
 
@@ -40,6 +39,8 @@
             <Button Width="50" Height="50" Margin="1250,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="MonthMinusOne">
             </Button>
             <TextBox Name="MonthShownTextBox" Text="{Binding CurrentShownMonth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="50" Margin="1300,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="MonthShownTextBox_OnTextChanged"/>
+            <TextBox Name="YearShownTextBox" Text="{Binding CurrentShownYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="50" Margin="1300,-100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="YearShownTextBox_OnTextChanged"/>
+            <TextBlock Name="MonthYearError" Width="350" Height="50" Margin="950,-100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Button Width="50" Height="50" Margin="1400,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="MonthPlusOne" >
             </Button>
 
