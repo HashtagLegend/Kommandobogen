@@ -7,17 +7,19 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.System;
 using KommandoBogApp.Handler;
 using KommandoBogApp.Model;
 using KommandoBogApp.Singleton;
 using KommandoBogApp.View;
+using User = KommandoBogApp.Model.User;
 
 namespace KommandoBogApp.ViewModel
 {
     public class UserViewModel
     {
 
-
+        public string navn { get; set; }
         public UserCatalogSingleton UserCatalogSingleton { get; set; }
         public string ViewMaNr { get; set; }
         public string ViewNavn { get; set; }
@@ -30,6 +32,7 @@ namespace KommandoBogApp.ViewModel
         public ActivityViewModel ActivityViewModel { get; set; }
         public static ObservableCollection<int> DatesInMonth { get; set; }
         public static string CurrentShownMonth { get; set; }
+        public ObservableCollection<User> ShownUsers { get; set; }
 
 
         public UserHandler Handler { get; set; }
@@ -37,10 +40,13 @@ namespace KommandoBogApp.ViewModel
 
         public UserViewModel()
         {
+            navn = KnownUserProperties.FirstName;
+            Debug.WriteLine(navn);
             ActivityViewModel = new ActivityViewModel();
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             Handler = new UserHandler(this);
             List<DateTimeOffset> Dates = new List<DateTimeOffset>();
+            ShownUsers = new ObservableCollection<User>();
             Dates.Add(DateTimeOffset.Now);
             SetCurrentShownMonth();
             User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
@@ -88,6 +94,7 @@ namespace KommandoBogApp.ViewModel
             UserCatalogSingleton.AddUser(NewUser);
             UserCatalogSingleton.AddUser(NewUser1);
             Handler.FixDaysWithActivities();
+            Handler.ShowFirstUsers();
         }
 
         public static void SetCurrentShownMonth()
