@@ -31,6 +31,9 @@ namespace KommandoBogApp.ViewModel
         public UserHandler UserHandler { get; set; }
         public static string ViewSearch { get; set; }
 
+        public string ViewPassword { get; set; }
+
+
         
         
         public UserViewModel()
@@ -43,6 +46,9 @@ namespace KommandoBogApp.ViewModel
             //UserCatalogSingleton.AddUser(NewUser);
         }
         public static string LoginString { get; set; }
+        public static string LoginPassword { get; set; }
+
+
 
 
 

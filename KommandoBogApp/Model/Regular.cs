@@ -10,7 +10,7 @@ namespace KommandoBogApp.Model
     public class Regular : User
     {
 
-        public Regular(string maNummer, string navn, string tlf, string adresse, string email) : base(maNummer, navn, tlf, adresse, email)
+        public Regular(string maNummer, string navn, string tlf, string adresse, string email, string password) : base(maNummer, navn, tlf, adresse, email, password)
         {
             UserType = "Regular";
         }

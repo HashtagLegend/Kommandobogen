@@ -43,7 +43,7 @@ namespace KommandoBogApp.Singleton
             UserTypeList.Add("Admin");
 
 
-            User f1 = new Admin("123", "Frederik Wulff", "42489902", "Hasselvej 2 2th", "fwpdanmark@hotmail.com");
+            User f1 = new Admin("123", "Frederik Wulff", "42489902", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","123");
             UserList.Add(f1);
             foreach (Afdeling afd in AfdelingList)
             {
@@ -53,7 +53,7 @@ namespace KommandoBogApp.Singleton
                     afd.AfdelingList.Add(f1);
                 }
             }
-            User f2 = new Regular("444", "Steffen LArsen", "4242", "Hasselvej 2 2th", "fwpdanmark@hotmail.com");
+            User f2 = new Regular("444", "Steffen LArsen", "4242", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","Hallo");
             UserList.Add(f2);
             foreach (Afdeling afd in AfdelingList)
             {

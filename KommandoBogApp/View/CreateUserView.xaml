@@ -68,6 +68,11 @@
             <TextBox HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="Email-Adresse" VerticalAlignment="Top" Width="198" Background="#66707070" IsReadOnly="True" Margin="493,0,0,0"/>
             <TextBox HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="Telefon NR" VerticalAlignment="Top" Width="104" Background="#66707070" IsReadOnly="True" Margin="691,0,0,0"/>
         </Grid>
+        <Grid HorizontalAlignment="Left" Height="146" Margin="1695,224,0,0" VerticalAlignment="Top" Width="155">
+            <TextBlock HorizontalAlignment="Left" Height="32" Margin="1,30,0,0" TextWrapping="Wrap" Text="{Binding UserCatalogSingleton.LoginUser.Navn}" VerticalAlignment="Top" Width="144"/>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="1696,224,0,0" TextWrapping="Wrap" Text="{Binding UserCatalogSingleton.LoginUser.MaNummer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="154"/>
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="53" Margin="147,473,0,0" VerticalAlignment="Top" Width="287" PasswordChar="*" Password="{Binding ViewPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </Page>

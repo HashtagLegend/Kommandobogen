@@ -17,13 +17,16 @@ namespace KommandoBogApp.Model
         public Afdeling Afd { get; set; }
         public string Email { get; set; }
 
-        public User(string maNummer, string navn, string tlf, string adresse, string email)
+        public string Password { get; set; }
+
+        public User(string maNummer, string navn, string tlf, string adresse, string email, string password)
         {
             MaNummer = maNummer;
             Navn = navn;
             Tlf = tlf;
             Adresse = adresse;
             Email = email;
+            Password = password;
         }
 
         public void CreateActivity()
