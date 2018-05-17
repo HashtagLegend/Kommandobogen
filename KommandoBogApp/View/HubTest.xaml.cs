@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -30,6 +31,9 @@ namespace KommandoBogApp.View
     public sealed partial class HubTest : Page
     {
         public static DateTime ShownMonth {get; set; }
+        public static DateTime ShownYear{ get; set; }
+        public List<int> ListOfPossibleMonths { get; set; }
+        public List<int> ListOfPossibleYears { get; set; }
         public UserCatalogSingleton UserCatalogSingleton { get; set; }
 
         public HubTest()
@@ -37,8 +41,32 @@ namespace KommandoBogApp.View
             UserViewModel.DatesInMonth = new ObservableCollection<int>();
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             ShownMonth = DateTime.Today;
+            ShownYear = DateTime.Today;
             this.InitializeComponent();
             datesInMonth();
+            ListOfPossibleMonths = new List<int>();
+            FillListOfPossibleMonths();
+            ListOfPossibleYears = new List<int>();
+            FillListOfPossibleYears();
+
+
+        }
+
+
+        public void FillListOfPossibleMonths()
+        {
+            for (int i = 1; i <= 12; i++)
+            {
+                ListOfPossibleMonths.Add(i);
+            }
+        }
+
+        public void FillListOfPossibleYears()
+        {
+            for (int i = 2000; i <= 2100; i++)
+            {
+                ListOfPossibleYears.Add(i);
+            }
         }
 
         public void datesInMonth()
@@ -68,24 +96,42 @@ namespace KommandoBogApp.View
 
         private void MonthShownTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            UserHandler.UserVM.Handler.FixDaysWithActivities();
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            for (int i = 0; i < 3; i++)
+            if (MonthShownTextBox.Text != String.Empty)
             {
-                List<DateTimeOffset> Dates = new List<DateTimeOffset>();
-                Dates.Add(DateTimeOffset.Now);
-                User NewUser = new User("02", "Henrik", "26891221", "Afrika", "Shit@Hotmail.com");
-                NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.DarkGreen));
-                UserCatalogSingleton.AddUser(NewUser);  
+                if (ListOfPossibleMonths.Contains(Int32.Parse(MonthShownTextBox.Text)))
+                {
+                    ShownMonth = ShownMonth.AddMonths(-ShownMonth.Month);
+                    ShownMonth = ShownMonth.AddMonths(Int32.Parse(MonthShownTextBox.Text));
+                    UserHandler.FixDaysWithActivities();
+                    datesInMonth();
+                    MonthYearError.Text = "";
+                }
+                else
+                {
+                    MonthYearError.Text = "Måneden er ikke inden for Kalenders rækkevidde";
+                }
             }
         }
-
-        private void UsersShownTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        private void YearShownTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            UserHandler.UserVM.Handler.FixDaysWithActivities();
+            if (YearShownTextBox.Text != String.Empty)
+            {
+                if (Int32.Parse(YearShownTextBox.Text) >= 2000 && Int32.Parse(YearShownTextBox.Text) <= 2100)
+                {
+                    if (ListOfPossibleYears.Contains(Int32.Parse(YearShownTextBox.Text)))
+                    {
+                        ShownYear = ShownYear.AddYears(-ShownYear.Year+1);
+                        ShownYear = ShownYear.AddYears(Int32.Parse(YearShownTextBox.Text)-1);
+                        UserHandler.FixDaysWithActivities();
+                        datesInMonth();
+                        MonthYearError.Text = "";
+                    }
+                }
+                else
+                {
+                    MonthYearError.Text = "Året er ikke inden for Kalenders rækkevidde";
+                }
+            }
         }
 
         private void ForwardInNameList(object sender, RoutedEventArgs e)
