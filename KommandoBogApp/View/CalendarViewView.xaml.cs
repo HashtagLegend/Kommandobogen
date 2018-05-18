@@ -42,6 +42,7 @@ namespace KommandoBogApp.View
             ActivityViewModel = new ActivityViewModel();
             UserSingleton = UserCatalogSingleton.Instance;
             CreateUserButton.Click += CreateUserButton_Click;
+            Opret.Click += Opret_OnClick;
         }
 
         public static List<DateTimeOffset> DateSelected { get; set; }
@@ -184,5 +185,27 @@ namespace KommandoBogApp.View
                 this.Frame.Navigate(typeof(KommandoBogApp.View.CreateUserView));
             }
         }
+
+        private void Opret_OnClick(object sender, RoutedEventArgs e)
+        {
+            
+            if (SetActivity.SelectionBoxItem.Equals("Ferie"))
+            {
+                ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Orange);
+            }
+            else if (SetActivity.SelectionBoxItem.Equals("Vagt"))
+            {
+                ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Blue);
+            }
+            else if (SetActivity.SelectionBoxItem.Equals("Kursus"))
+            {
+                ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.DarkGreen);
+            }
+            else if (SetActivity.SelectionBoxItem.Equals("Fri"))
+            {
+                ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Firebrick);
+            }
+        }
+        
     }
 }

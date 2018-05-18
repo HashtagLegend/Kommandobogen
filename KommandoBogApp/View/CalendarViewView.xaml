@@ -11,20 +11,43 @@
     x:Class="KommandoBogApp.View.CalendarViewView"
     mc:Ignorable="d">
     <Page.Resources>
+
         <Flyout x:Key="CreateActivityFlyout">
-            <Grid Height="489" Width="500
-                  ">
-                <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Fra" VerticalAlignment="Top"/>
+            <Grid RenderTransformOrigin="0.491,0.494" Width="445" Height="532">
+                <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Fra" VerticalAlignment="Top" RenderTransformOrigin="0.9,-1.55"/>
                 <TextBlock HorizontalAlignment="Left" Margin="10,72,0,0" TextWrapping="Wrap" Text="Til" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.6"/>
-                <DatePicker HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top"/>
-                <DatePicker HorizontalAlignment="Left" Margin="0,97,0,0" VerticalAlignment="Top"/>
+                <DatePicker x:Name="StartDate" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="324"/>
+                <DatePicker x:Name="EndDate" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="324"/>
                 <TextBlock HorizontalAlignment="Left" Margin="10,134,0,0" TextWrapping="Wrap" Text="Aktivitet" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.6"/>
-                <ComboBox HorizontalAlignment="Left" Margin="0,159,0,0" VerticalAlignment="Top" Width="159"/>
-                <TextBlock HorizontalAlignment="Left" Margin="10,196,0,0" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.6"/>
-                <TextBox HorizontalAlignment="Left" Margin="0,221,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="159"/>
-                <TextBlock HorizontalAlignment="Left" Margin="10,258,0,0" TextWrapping="Wrap" Text="Kommentar" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.6"/>
-                <TextBox HorizontalAlignment="Left" Margin="0,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="432" Height="162"/>
-                <Button x:Name="Opret" Content="Opret" HorizontalAlignment="Left" Height="29" Margin="352,450,0,0" VerticalAlignment="Top" Width="80"/>
+                <ComboBox x:Name="SetActivity" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="215" PlaceholderText="Vælg en aktivitet!" Height="32" IsDropDownOpen="False">
+                    <ComboBoxItem x:Name="Ferie" Content="Ferie"/>
+                    <ComboBoxItem x:Name="Kursus" Content="Kursus"/>
+                    <ComboBoxItem x:Name="Vagt" Content="Vagt"/>
+                    <ComboBoxItem x:Name="Fri" Content="Fri"/>
+
+
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Margin="10,197,0,0" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.6"/>
+                <TextBox HorizontalAlignment="Left" Margin="10,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,259,0,0" TextWrapping="Wrap" Text="Kommentar" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.6"/>
+                <TextBox HorizontalAlignment="Left" Margin="10,284,0,0" TextWrapping="Wrap" Text="{Binding ViewKommentar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="412" Height="162"/>
+
+                <TimePicker HorizontalAlignment="Left" Margin="270,35,-41,0" VerticalAlignment="Top" Width="122" ClockIdentifier="24HourClock" Padding="80,0" Time="{Binding TimeStart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TimePicker HorizontalAlignment="Left" Margin="270,97,-41,0" VerticalAlignment="Top" ClockIdentifier="24HourClock" Width="173" RenderTransformOrigin="0.638,0.594" Padding="80,0" Time="{Binding TimeEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <AppBarButton x:Name="Opret" HorizontalAlignment="Left" Label="Opret Aktivitet" Margin="215,451,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.551,0.131" Background="#FF7EEE0F" Width="205" Icon="Add" >
+                    <interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.CalendarViewView"/>
+                        </Core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
+                <AppBarButton x:Name="Annuller" HorizontalAlignment="Left" Icon="Delete" Label="Annuller" Margin="10,451,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.199,0.127" Background="#FFF36A6A" Width="205">
+                    <interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.CalendarViewView"/>
+                        </Core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
             </Grid>
         </Flyout>
     </Page.Resources>
@@ -104,7 +127,9 @@
         </ListView>
         <TextBox HorizontalAlignment="Left" Margin="676,920,0,0" TextWrapping="Wrap" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="131" PlaceholderText="Navn"/>
         <TextBox HorizontalAlignment="Left" Margin="820,920,0,0" TextWrapping="Wrap" Text="{Binding ViewKommentar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="131" PlaceholderText="Kommentar"/>
-        <Button x:Name="CreateActivityButton"  Content="Opret Aktivitet" HorizontalAlignment="Left" Margin="1272,830,0,0" VerticalAlignment="Top" Height="32" Width="616" Background="#33FFFFFF" Flyout="{StaticResource CreateActivityFlyout}"/>
+        <Button x:Name="CreateActivityButton" HorizontalAlignment="Left" Margin="1400,830,0,0" VerticalAlignment="Top" Height="32" Width="157" Background="#33FFFFFF" Flyout="{StaticResource CreateActivityFlyout}" Content="Opret Aktivitet">
+
+        </Button>
 
     </Grid>
 </Page>
