@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 using Windows.Media.Streaming.Adaptive;
 using Windows.UI.Popups;
 using KommandoBogApp.Model;
+using KommandoBogApp.View;
 using KommandoBogApp.ViewModel;
 
 namespace KommandoBogApp.Handler
 {
     public class UserHandler
     {
-        public UserViewModel UserVM { get; set; }
+        public static UserViewModel UserVM { get; set; }
 
         public UserHandler(UserViewModel uSW)
         {
@@ -59,6 +60,31 @@ namespace KommandoBogApp.Handler
         {
             UserVM.Afdeling.AddUserToList(user);
             
+        }
+
+        public void FixDaysWithActivities()
+        {
+            foreach (var Users in UserVM.UserCatalogSingleton.UserList)
+            {
+                Users.DaysWithActivities.Clear();
+                Users.FillDaysWithActivities();
+                foreach (var Activities in Users.Activities)
+                {
+                    foreach (var Dates in Activities.Dates)
+                    {
+                        Debug.WriteLine("Month And Year");
+                        Debug.WriteLine(Dates.Month);
+                        Debug.WriteLine(Dates.Year);
+                        Debug.WriteLine(HubTest.ShownMonth.Month);
+                        Debug.WriteLine(HubTest.ShownYear.Year);
+                        if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
+                        {
+                            Debug.WriteLine(Dates.Day - 1);
+                            Users.DaysWithActivities[Dates.Day - 1] = Activities;
+                        }
+                    }
+                }
+            }
         }
 
         public bool CheckCredentials(string credentials)
