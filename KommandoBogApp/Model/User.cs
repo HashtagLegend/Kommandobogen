@@ -30,9 +30,7 @@ namespace KommandoBogApp.Model
             Tlf = tlf;
             Adresse = adresse;
             Email = email;
-<<<<<<<<< Temporary merge branch 1
             Password = password;
-=========
             Activities = new List<Activity>();
             DaysWithActivities = new ObservableCollection<Activity>();
             FillDaysWithActivities();

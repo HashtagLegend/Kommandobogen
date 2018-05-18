@@ -28,7 +28,6 @@ namespace KommandoBogApp.View
     public sealed partial class HubTest : Page
     {
         public static DateTime ShownMonth {get; set; }
-        public static DateTime ShownYear{ get; set; }
         public List<int> ListOfPossibleMonths { get; set; }
         public List<int> ListOfPossibleYears { get; set; }
         public UserCatalogSingleton UserCatalogSingleton { get; set; }
@@ -38,7 +37,6 @@ namespace KommandoBogApp.View
             UserViewModel.DatesInMonth = new ObservableCollection<int>();
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             ShownMonth = DateTime.Today;
-            ShownYear = DateTime.Today;
             this.InitializeComponent();
             datesInMonth();
             ListOfPossibleMonths = new List<int>();
@@ -75,18 +73,29 @@ namespace KommandoBogApp.View
 
         private void MonthPlusOne(object sender, RoutedEventArgs e)
         {
+            if (ShownMonth.Month == 12)
+            {
+                ShownMonth.AddYears(1);
+            }
             ShownMonth = ShownMonth.AddMonths(1);
+            
             datesInMonth();
             UserViewModel.SetCurrentShownMonth();
             MonthShownTextBox.Text = ShownMonth.Month.ToString();
+            YearShownTextBox.Text = ShownMonth.Year.ToString();
         }
 
         private void MonthMinusOne(object sender, RoutedEventArgs e)
         {
+            if (ShownMonth.Year == 1)
+            {
+                ShownMonth.AddYears(-1);
+            }
             ShownMonth = ShownMonth.AddMonths(-1);
             datesInMonth();
             UserViewModel.SetCurrentShownMonth();
             MonthShownTextBox.Text = ShownMonth.Month.ToString();
+            YearShownTextBox.Text = ShownMonth.Year.ToString();
         }
 
         private void MonthShownTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
@@ -115,8 +124,8 @@ namespace KommandoBogApp.View
                 {
                     if (ListOfPossibleYears.Contains(Int32.Parse(YearShownTextBox.Text)))
                     {
-                        ShownYear = ShownYear.AddYears(-ShownYear.Year+1);
-                        ShownYear = ShownYear.AddYears(Int32.Parse(YearShownTextBox.Text)-1);
+                        ShownMonth = ShownMonth.AddYears(-ShownMonth.Year+1);
+                        ShownMonth = ShownMonth.AddYears(Int32.Parse(YearShownTextBox.Text)-1);
                         UserHandler.UserVM.UserHandler.FixDaysWithActivities();
                         datesInMonth();
                         MonthYearError.Text = "";

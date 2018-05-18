@@ -76,8 +76,8 @@ namespace KommandoBogApp.Handler
                         Debug.WriteLine(Dates.Month);
                         Debug.WriteLine(Dates.Year);
                         Debug.WriteLine(HubTest.ShownMonth.Month);
-                        Debug.WriteLine(HubTest.ShownYear.Year);
-                        if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
+                        Debug.WriteLine(HubTest.ShownMonth.Year);
+                        if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownMonth.Year)
                         {
                             Debug.WriteLine(Dates.Day - 1);
                             Users.DaysWithActivities[Dates.Day - 1] = Activities;
