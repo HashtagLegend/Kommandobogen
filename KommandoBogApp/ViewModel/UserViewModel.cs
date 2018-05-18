@@ -34,6 +34,7 @@ namespace KommandoBogApp.ViewModel
         public static string CurrentShownMonth { get; set; }
         public static string CurrentShownYear { get; set; }
         public ObservableCollection<User> ShownUsers { get; set; }
+        public string FirstShownStartingLetters { get; set; }
 
 
         public UserHandler Handler { get; set; }
@@ -46,10 +47,10 @@ namespace KommandoBogApp.ViewModel
             ActivityViewModel = new ActivityViewModel();
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             Handler = new UserHandler(this);
-            List<DateTimeOffset> Dates = new List<DateTimeOffset>();
             ShownUsers = new ObservableCollection<User>();
-            Dates.Add(DateTimeOffset.Now);
             SetCurrentShownMonth();
+
+            List<DateTimeOffset> Dates = new List<DateTimeOffset>();
             Dates.Add(DateTimeOffset.Now);
             User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
             NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
@@ -59,8 +60,8 @@ namespace KommandoBogApp.ViewModel
             NewUser2.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
             UserCatalogSingleton.AddUser(NewUser);
             UserCatalogSingleton.AddUser(NewUser1);
+
             Handler.FixDaysWithActivities();
-            Handler.ShowFirstUsers();
         }
 
         public static void SetCurrentShownMonth()

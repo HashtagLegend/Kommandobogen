@@ -25,9 +25,6 @@ using KommandoBogApp.ViewModel;
 
 namespace KommandoBogApp.View
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class HubTest : Page
     {
         public static DateTime ShownMonth {get; set; }
@@ -48,8 +45,6 @@ namespace KommandoBogApp.View
             FillListOfPossibleMonths();
             ListOfPossibleYears = new List<int>();
             FillListOfPossibleYears();
-
-
         }
 
 
@@ -134,26 +129,18 @@ namespace KommandoBogApp.View
             }
         }
 
-        private void ForwardInNameList(object sender, RoutedEventArgs e)
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            if (UserHandler.NamePage < 1)
+            for (int i = 0; i < 3; i++)
             {
-                UserHandler.NamePage++;
-                UserHandler.ShowUsers();
+                List<DateTimeOffset> Dates = new List<DateTimeOffset>();
+                Dates.Add(DateTimeOffset.Now);
+                User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
+                NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
+                UserHandler.UserVM.UserCatalogSingleton.AddUser(NewUser);
+                UserHandler.UserVM.Handler.FixDaysWithActivities();
             }
-        }
-        private void BackInNameList(object sender, RoutedEventArgs e)
-        {
-            if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count * 0.1 > UserHandler.NamePage)
-            {
-                UserHandler.NamePage--;
-                UserHandler.ShowUsers();
-            }
-        }
-
-        private void UsersShownTextBox_OnTextChanged(Object sender, TextChangedEventArgs e)
-        {
-            NameStartWith.Text = UserHandler.UserVM.Handler.UpdateNameTextBox();
+            
         }
     }
 }

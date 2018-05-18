@@ -14,13 +14,10 @@ namespace KommandoBogApp.Handler
     public class UserHandler
     {
         public static UserViewModel UserVM { get; set; }
-        public static int AmountOfShownUsers { get; set; }
-        public static int NamePage { get; set; }
 
         public UserHandler(UserViewModel uSW)
         {
             UserVM = uSW;
-            AmountOfShownUsers = new int();
         }
 
         public void CreateUser()
@@ -63,38 +60,9 @@ namespace KommandoBogApp.Handler
             UserVM.Afdeling.AddUserToList(user);
         }
 
-        public void ShowFirstUsers()
-        {
-            int count = 0;
-            foreach (var User in UserVM.UserCatalogSingleton.UserList)
-            {
-                
-                if (count < 13)
-                {
-                    UserVM.ShownUsers.Add(User);
-                    count++;
-                }
-            }
-        }
-        public static void ShowUsers()
-        {
-            int UsersShown = 0;
-            if (UserVM.UserCatalogSingleton.UserList.Count >= NamePage*10)
-            {
-                for (int i = 0; i < 12; i++)
-                {
-                    UserVM.ShownUsers.Add(UserVM.UserCatalogSingleton.UserList[NamePage+UsersShown]);
-                    if (UsersShown < UserVM.UserCatalogSingleton.UserList.Count - 1)
-                    {
-                        UsersShown++;
-                    }
-                }
-
-            }
-        }
         public void FixDaysWithActivities()
         {
-            foreach (var Users in UserVM.ShownUsers)
+            foreach (var Users in UserVM.UserCatalogSingleton.UserList)
             {
                 Users.DaysWithActivities.Clear();
                 Users.FillDaysWithActivities();
@@ -102,6 +70,11 @@ namespace KommandoBogApp.Handler
                 {
                     foreach (var Dates in Activities.Dates)
                     {
+                        Debug.WriteLine("Month And Year");
+                        Debug.WriteLine(Dates.Month);
+                        Debug.WriteLine(Dates.Year);
+                        Debug.WriteLine(HubTest.ShownMonth.Month);
+                        Debug.WriteLine(HubTest.ShownYear.Year);
                         if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
                         {
                             Debug.WriteLine(Dates.Day - 1);
@@ -110,15 +83,6 @@ namespace KommandoBogApp.Handler
                     }
                 }
             }
-        }
-
-        public string UpdateNameTextBox()
-        {
-            char First;
-            char Last;
-            First = UserVM.ShownUsers.First().Navn[0];
-            Last = UserVM.ShownUsers.Last().Navn[0];
-            return $"{First} Til {Last}";
         }
     }
 }
