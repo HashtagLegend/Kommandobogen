@@ -19,7 +19,7 @@
             <PasswordBox HorizontalAlignment="Left" Height="58" Margin="82,452,0,0" VerticalAlignment="Top" Width="568" PasswordChar="*" Password="{Binding LoginPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock HorizontalAlignment="Left" Margin="82,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Text="Brugernavn"/>
             <TextBlock HorizontalAlignment="Left" Margin="82,415,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="24"/>
-            <AppBarButton x:Name="LoginButton" HorizontalAlignment="Left" Height="48" Icon="Permissions" Label="Login" Margin="540,554,0,0" VerticalAlignment="Top" Width="110" Background="#FF2B62E2" FontSize="24" Foreground="White"/>
+            <AppBarButton x:Name="LoginButton" HorizontalAlignment="Left" Height="60" Icon="Permissions" Label="Login" Margin="540,554,0,0" VerticalAlignment="Top" Width="110" Background="#FF2B62E2" FontSize="24" Foreground="White"/>
         </Grid>
 
     </Grid>
