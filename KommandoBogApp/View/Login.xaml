@@ -9,17 +9,18 @@
     x:Class="KommandoBogApp.View.Login"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#FF858383">
 
         <Grid.DataContext>
             <ViewModel:UserViewModel/>
         </Grid.DataContext>
-        <AppBarButton x:Name="LoginButton" HorizontalAlignment="Left" Height="120" Icon="Permissions" Label="Login" Margin="792,749,0,0" VerticalAlignment="Top" Width="383">
-            <Interactivity:Interaction.Behaviors>
-            </Interactivity:Interaction.Behaviors>
-        </AppBarButton>
-        <TextBox HorizontalAlignment="Left" Height="117" Margin="684,404,0,0" TextWrapping="Wrap" Text="{Binding LoginString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="568" PlaceholderText="{Binding LoginString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <PasswordBox HorizontalAlignment="Left" Height="119" Margin="684,526,0,0" VerticalAlignment="Top" Width="568" PasswordChar="*" Password="{Binding LoginPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Grid HorizontalAlignment="Left" Height="1080" Margin="1192,0,0,0" VerticalAlignment="Top" Width="728" Background="#FFD2D2D2">
+            <TextBox HorizontalAlignment="Left" Height="60" TextWrapping="Wrap" Text="{Binding LoginString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="568" PlaceholderText="{Binding LoginString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="82,350,0,0" FontSize="24"/>
+            <PasswordBox HorizontalAlignment="Left" Height="58" Margin="82,452,0,0" VerticalAlignment="Top" Width="568" PasswordChar="*" Password="{Binding LoginPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="82,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Text="Brugernavn"/>
+            <TextBlock HorizontalAlignment="Left" Margin="82,415,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="24"/>
+            <AppBarButton x:Name="LoginButton" HorizontalAlignment="Left" Height="48" Icon="Permissions" Label="Login" Margin="540,554,0,0" VerticalAlignment="Top" Width="110" Background="#FF2B62E2" FontSize="24" Foreground="White"/>
+        </Grid>
 
     </Grid>
 </Page>
