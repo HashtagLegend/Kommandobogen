@@ -143,6 +143,12 @@
     <None Include="KommandoBogApp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Pictures\abasalon.jpg" />
+    <Content Include="Assets\Pictures\Billede.jpg" />
+    <Content Include="Assets\Pictures\Fly.jpg" />
+    <Content Include="Assets\Pictures\Kampvogn 2.jpg" />
+    <Content Include="Assets\Pictures\Kampvogn.jpg" />
+    <Content Include="Assets\Pictures\Ny kampvogn.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

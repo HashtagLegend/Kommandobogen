@@ -9,7 +9,7 @@
     x:Class="KommandoBogApp.View.Login"
     mc:Ignorable="d">
 
-    <Grid Background="#FF858383">
+    <Grid Background="#FF252424">
 
         <Grid.DataContext>
             <ViewModel:UserViewModel/>
@@ -19,8 +19,27 @@
             <PasswordBox HorizontalAlignment="Left" Height="58" Margin="82,452,0,0" VerticalAlignment="Top" Width="568" PasswordChar="*" Password="{Binding LoginPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock HorizontalAlignment="Left" Margin="82,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Text="Brugernavn"/>
             <TextBlock HorizontalAlignment="Left" Margin="82,415,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="24"/>
-            <AppBarButton x:Name="LoginButton" HorizontalAlignment="Left" Height="48" Icon="Permissions" Label="Login" Margin="540,554,0,0" VerticalAlignment="Top" Width="110" Background="#FF2B62E2" FontSize="24" Foreground="White"/>
+            <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="523,537,0,0" VerticalAlignment="Top" Height="47" Width="127" FontSize="24" Background="#FF2B62E2" Foreground="White"/>
         </Grid>
+        <FlipView HorizontalAlignment="Left" Margin="0,212,0,0" VerticalAlignment="Top" Width="1192" Height="712" TabNavigation="Cycle">
+            <FlipViewItem Content="" Height="712" Width="1177">
+                <FlipViewItem.Background>
+                    <ImageBrush ImageSource="ms-appx:///Assets/Pictures/Fly.jpg"/>
+                </FlipViewItem.Background>
+            </FlipViewItem>
+            <FlipViewItem Content="">
+                <FlipViewItem.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Pictures/abasalon.jpg"/>
+                </FlipViewItem.Background>
+            </FlipViewItem>
+            <FlipViewItem Content="">
+                <FlipViewItem.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Pictures/Billede.jpg"/>
+                </FlipViewItem.Background>
+            </FlipViewItem>
+        </FlipView>
+        <Image HorizontalAlignment="Left" Height="125" Margin="1098,941,0,0" VerticalAlignment="Top" Width="89" Source="ms-appx:///Assets/Pictures/Ny kampvogn.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="202,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" Text="Kommandobogen" Foreground="White" Height="86" Width="741" FontFamily="Perpetua Titling MT"/>
 
     </Grid>
 </Page>
