@@ -41,14 +41,6 @@ namespace KommandoBogApp.ViewModel
             Handler=new ActivityHandler(this);
         }
 
-         /*TODO ActivityType Implemantation
-            1. Implementer Activitytype i Handler og VM
-            2. Opdater konstruktør
-            3. Lav Combobox
-         */
-
-        //TODO Create Activity ICommand
-
 public void CreateActivity(ActivityHandler.Color color)
         {
             Handler.CreateActivity(color);
