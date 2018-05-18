@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.ComponentModel;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Windows.System;
-using System.Windows.Input;
-using KommandoBogApp.Annotations;
 using KommandoBogApp.Handler;
 using KommandoBogApp.Model;
 using KommandoBogApp.RelayCommands;
@@ -24,7 +12,6 @@ namespace KommandoBogApp.ViewModel
     public class UserViewModel
     {
 
-        public string navn { get; set; }
         public UserCatalogSingleton UserCatalogSingleton { get; set; }
         public string ViewMaNr { get; set; }
         public string ViewNavn { get; set; }
@@ -38,23 +25,22 @@ namespace KommandoBogApp.ViewModel
         public static ObservableCollection<int> DatesInMonth { get; set; }
         public static string CurrentShownMonth { get; set; }
         public static string CurrentShownYear { get; set; }
-        public ObservableCollection<User> ShownUsers { get; set; }
-        public string FirstShownStartingLetters { get; set; }
         public UserHandler UserHandler { get; set; }
         public static string ViewSearch { get; set; }
 
         public string ViewPassword { get; set; }
 
-        public UserHandler Handler { get; set; }
+       
 
 
         public UserViewModel()
         {
-            navn = KnownUserProperties.FirstName;
-            Debug.WriteLine(navn);
+
             ActivityViewModel = new ActivityViewModel();
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             UserHandler = new UserHandler(this);
+            SetCurrentShownMonth();
+            UserHandler.FixDaysWithActivities();
 
 
             //User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
@@ -83,10 +69,9 @@ namespace KommandoBogApp.ViewModel
             get { return _deleteUser ?? (_deleteUser = new RelayCommand(UserHandler.DeleteUser)); }
             set { _deleteUser = value; }
 
-            UserCatalogSingleton.AddUser(NewUser1);
-
-            Handler.FixDaysWithActivities();
+        
         }
+        #endregion
 
         public static void SetCurrentShownMonth()
         {
@@ -96,7 +81,7 @@ namespace KommandoBogApp.ViewModel
 
 
 
-        #endregion
+       
         
     }
 }

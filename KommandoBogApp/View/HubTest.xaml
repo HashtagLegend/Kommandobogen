@@ -24,9 +24,7 @@
             </Grid>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="914" Margin="0,166,0,0" VerticalAlignment="Top" Width="372" BorderThickness="2" BorderBrush="Black">
-            <Grid HorizontalAlignment="Left" Height="578" Margin="0,0,0,0" VerticalAlignment="Top" Width="372" BorderThickness="1" BorderBrush="Black">
-                <Button Content="Button" HorizontalAlignment="Left" Height="75" Margin="100,272,0,0" VerticalAlignment="Top" Width="69" Click="ButtonBase_OnClick"/>
-            </Grid>
+            <Grid HorizontalAlignment="Left" Height="578" Margin="0,0,0,0" VerticalAlignment="Top" Width="372" BorderThickness="1" BorderBrush="Black"/>
             <Grid HorizontalAlignment="Left" Height="202" Margin="0,578,0,0" VerticalAlignment="Top" Width="372" BorderThickness="1" BorderBrush="Black">
 
             </Grid>

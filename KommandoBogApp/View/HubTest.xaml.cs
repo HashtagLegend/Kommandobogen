@@ -97,7 +97,7 @@ namespace KommandoBogApp.View
                 {
                     ShownMonth = ShownMonth.AddMonths(-ShownMonth.Month);
                     ShownMonth = ShownMonth.AddMonths(Int32.Parse(MonthShownTextBox.Text));
-                    UserHandler.UserVM.Handler.FixDaysWithActivities();
+                    UserHandler.UserVM.UserHandler.FixDaysWithActivities();
                     datesInMonth();
                     MonthYearError.Text = "";
                 }
@@ -117,7 +117,7 @@ namespace KommandoBogApp.View
                     {
                         ShownYear = ShownYear.AddYears(-ShownYear.Year+1);
                         ShownYear = ShownYear.AddYears(Int32.Parse(YearShownTextBox.Text)-1);
-                        UserHandler.UserVM.Handler.FixDaysWithActivities();
+                        UserHandler.UserVM.UserHandler.FixDaysWithActivities();
                         datesInMonth();
                         MonthYearError.Text = "";
                     }
@@ -129,18 +129,5 @@ namespace KommandoBogApp.View
             }
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                List<DateTimeOffset> Dates = new List<DateTimeOffset>();
-                Dates.Add(DateTimeOffset.Now);
-                User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
-                NewUser.Activities.Add(new Activity(Dates, "I Australien", "Ole", ActivityHandler.Color.Blue));
-                UserHandler.UserVM.UserCatalogSingleton.AddUser(NewUser);
-                UserHandler.UserVM.Handler.FixDaysWithActivities();
-            }
-            
-        }
     }
 }
