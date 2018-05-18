@@ -9,7 +9,7 @@ namespace KommandoBogApp.Model
     public class Leader: User
     {
 
-        public Leader(string maNummer, string navn, string tlf, string adresse, string email) : base(maNummer, navn, tlf, adresse, email)
+        public Leader(string maNummer, string navn, string tlf, string adresse, string email, string password) : base(maNummer, navn, tlf, adresse, email, password)
         {
             UserType = "Leader";
         }

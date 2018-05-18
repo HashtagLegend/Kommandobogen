@@ -29,17 +29,26 @@ namespace KommandoBogApp.ViewModel
         public Afdeling Afdeling { get; set; }
         public User SelectedUser { get; set; }
         public UserHandler UserHandler { get; set; }
+        public static string ViewSearch { get; set; }
+
+        public string ViewPassword { get; set; }
+
+
         
         
         public UserViewModel()
         {
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             UserHandler = new UserHandler(this);
-            
-            User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
-            UserCatalogSingleton.AddUser(NewUser);
+
+
+            //User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
+            //UserCatalogSingleton.AddUser(NewUser);
         }
         public static string LoginString { get; set; }
+        public static string LoginPassword { get; set; }
+
+
 
 
 

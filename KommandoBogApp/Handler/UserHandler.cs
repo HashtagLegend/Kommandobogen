@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Media.Streaming.Adaptive;
+using Windows.UI.Popups;
 using KommandoBogApp.Model;
 using KommandoBogApp.ViewModel;
 
@@ -24,7 +25,7 @@ namespace KommandoBogApp.Handler
           
             if (UserVM.Type == "Admin")
             {
-                Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail);
+                Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
                 UserVM.UserCatalogSingleton.AddUser(admin);
                 AddUserToAfdeling(admin);
                 admin.Afd = UserVM.Afdeling;
@@ -32,7 +33,7 @@ namespace KommandoBogApp.Handler
             }
             else if (UserVM.Type == "Leader")
             {
-                Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail);
+                Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
                 UserVM.UserCatalogSingleton.AddUser(leader);
                 AddUserToAfdeling(leader); 
                 leader.Afd = UserVM.Afdeling;
@@ -41,7 +42,7 @@ namespace KommandoBogApp.Handler
             }
             else if (UserVM.Type == "Regular")
             {
-                Regular regular= new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail);
+                Regular regular= new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
                 UserVM.UserCatalogSingleton.AddUser(regular);
                 AddUserToAfdeling(regular);
                 regular.Afd = UserVM.Afdeling;
@@ -57,13 +58,14 @@ namespace KommandoBogApp.Handler
         public void AddUserToAfdeling(User user)
         {
             UserVM.Afdeling.AddUserToList(user);
+            
         }
 
         public bool CheckCredentials(string credentials)
         {
             foreach (User user in UserVM.UserCatalogSingleton.UserList)
             {
-                if (credentials==user.MaNummer)
+                if (credentials==user.MaNummer && user.Password==UserViewModel.LoginPassword)
                 {
                     UserVM.UserCatalogSingleton.LoginUser = user;
                     
