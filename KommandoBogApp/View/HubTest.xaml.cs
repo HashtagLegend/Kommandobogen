@@ -38,7 +38,6 @@ namespace KommandoBogApp.View
             UserViewModel.DatesInMonth = new ObservableCollection<int>();
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             ShownMonth = DateTime.Today;
-            ShownYear = DateTime.Today;
             this.InitializeComponent();
             datesInMonth();
             ListOfPossibleMonths = new List<int>();
@@ -76,6 +75,7 @@ namespace KommandoBogApp.View
         private void MonthPlusOne(object sender, RoutedEventArgs e)
         {
             ShownMonth = ShownMonth.AddMonths(1);
+
             datesInMonth();
             UserViewModel.SetCurrentShownMonth();
             MonthShownTextBox.Text = ShownMonth.Month.ToString();

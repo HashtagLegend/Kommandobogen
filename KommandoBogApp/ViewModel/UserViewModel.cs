@@ -67,7 +67,7 @@ namespace KommandoBogApp.ViewModel
         public static void SetCurrentShownMonth()
         {
             CurrentShownMonth = HubTest.ShownMonth.Month.ToString();
-            CurrentShownYear = HubTest.ShownYear.Year.ToString();
+            CurrentShownYear = HubTest.ShownMonth.Year.ToString();
         }
     
 
