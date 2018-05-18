@@ -17,7 +17,7 @@ namespace KommandoBogApp.Handler
     {
         public TimeSpan UseAfterTimeStart { get; set; }
         public TimeSpan UseAfterTimeEnd { get; set; }
-
+        public UserCatalogSingleton UserSingleton { get; set; }
         public ActivityViewModel ActivityVM { get; set; }
 
         public static IList<DateTimeOffset> CalendarViewSelectedDates { get; set; }
@@ -30,6 +30,8 @@ namespace KommandoBogApp.Handler
         public ActivityHandler(ActivityViewModel activityViewModel)
         {
             ActivityVM = activityViewModel;
+            UserSingleton = UserCatalogSingleton.Instance;
+           
         }
 
         public Color ColorOfActivity(Color color)
@@ -56,14 +58,15 @@ namespace KommandoBogApp.Handler
 
         public void CreateActivity(Color color)
         {
-            Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ColorOfActivity(color));
+            Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, UserSingleton.LoginUser.Navn, ColorOfActivity(color));
             newActivity.TimeEnd = UseAfterTimeEnd;
             newActivity.TimeStart = UseAfterTimeStart;
             ActivityVM.ActivityList.AddActivity(newActivity);
             ActivityViewModel.ViewKommentar = null;
-            ActivityViewModel.ViewNavn = null;
             UseAfterTimeEnd.Subtract(UseAfterTimeEnd);
             UseAfterTimeStart.Subtract(UseAfterTimeStart);
+            UserSingleton.LoginUser.Activities.Add(newActivity);
+
         }
 
         public List<DateTimeOffset> CurrentDatesToActivity()

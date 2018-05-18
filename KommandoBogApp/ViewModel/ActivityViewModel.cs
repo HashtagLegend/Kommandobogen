@@ -25,7 +25,6 @@ namespace KommandoBogApp.ViewModel
         public static TimeSpan TimeStart { get; set; }
         public static TimeSpan TimeEnd { get; set; }
         public static string ViewKommentar { get; set; }
-        public static string ViewNavn { get; set; }
         public DateTime ViewDateTime { get; set; }
         public Color ViewColor { get; set; }
         public ActivitySingleton ActivityList { get; }
@@ -46,7 +45,7 @@ namespace KommandoBogApp.ViewModel
 
         }
 
-public void CreateActivity(ActivityHandler.Color color)
+        public void CreateActivity(ActivityHandler.Color color)
         {
             Handler.CreateActivity(color);
         }
