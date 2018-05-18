@@ -76,7 +76,6 @@ namespace KommandoBogApp.View
                             currentActivities.Add(dates);
                             }
                         }
-                        
                 }
                 var CalendarTime = args.Item.Date.DateTime.ToString("yyyy-MM-dd");
 

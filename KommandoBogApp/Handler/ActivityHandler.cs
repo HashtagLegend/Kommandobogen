@@ -22,6 +22,9 @@ namespace KommandoBogApp.Handler
 
         public static IList<DateTimeOffset> CalendarViewSelectedDates { get; set; }
 
+        //public static string StartDate = CalendarViewSelectedDates.First().ToString();
+        //public static string EndDate = CalendarViewSelectedDates.First().ToString();
+
         public enum Color { DarkGreen, Orange, Firebrick, Blue }
 
         public ActivityHandler(ActivityViewModel activityViewModel)

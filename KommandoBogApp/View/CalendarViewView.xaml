@@ -98,14 +98,14 @@
             </interactivity:Interaction.Behaviors>
         </Button>
         <ListView HorizontalAlignment="Left" Height="806" VerticalAlignment="Top" Width="667" />
-        <AppBarButton HorizontalAlignment="Left" Icon="Accept" Label="CreateActivityView" Margin="790,986,0,0" VerticalAlignment="Top">
+        <AppBarButton HorizontalAlignment="Left" Icon="Accept" Label="HubTest" Margin="1139,920,0,0" VerticalAlignment="Top" Background="White">
             <interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.CreateActivityView"/>
+                    <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.HubTest"/>
                 </Core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
         </AppBarButton>
-        <AppBarButton x:Name="CreateUserButton" HorizontalAlignment="Left" Icon="Accept" Label="CreateUserView" Margin="676,986,0,0" VerticalAlignment="Top"/>
+        <AppBarButton x:Name="CreateUserButton" HorizontalAlignment="Left" Icon="Accept" Label="CreateUserView" Margin="988,920,0,0" VerticalAlignment="Top"/>
         <TextBox Text="Start Tid" Margin="676,830,0,0" Width="100" Height="30" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
         <TimePicker HorizontalAlignment="Left" Margin="676,870,0,0" VerticalAlignment="Top" Time="{Binding TimeStart, Mode=TwoWay}" ClockIdentifier="24HourClock" />
