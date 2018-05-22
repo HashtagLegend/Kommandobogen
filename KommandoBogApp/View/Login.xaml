@@ -38,8 +38,9 @@
                 </FlipViewItem.Background>
             </FlipViewItem>
         </FlipView>
-        <Image HorizontalAlignment="Left" Height="125" Margin="1098,941,0,0" VerticalAlignment="Top" Width="89" Source="ms-appx:///Assets/Pictures/Ny kampvogn.png"/>
         <TextBlock HorizontalAlignment="Left" Margin="202,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" Text="Kommandobogen" Foreground="White" Height="86" Width="741" FontFamily="Perpetua Titling MT"/>
+        <Image HorizontalAlignment="Left" Height="134" Margin="0,936,0,0" VerticalAlignment="Top" Width="1164" Source="ms-appx:///Assets/Pictures/FMI.png"/>
+        <Image HorizontalAlignment="Left" Height="56" Margin="1076,1014,0,0" VerticalAlignment="Top" Width="111" Source="ms-appx:///Assets/Pictures/#Legends.png"/>
 
     </Grid>
 </Page>
