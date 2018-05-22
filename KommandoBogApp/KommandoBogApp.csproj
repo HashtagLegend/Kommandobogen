@@ -126,14 +126,11 @@
     <Compile Include="View\CreateUserView.xaml.cs">
       <DependentUpon>CreateUserView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\FrontPage.xaml.cs">
-      <DependentUpon>FrontPage.xaml</DependentUpon>
+    <Compile Include="View\HubTest.xaml.cs">
+      <DependentUpon>HubTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\HubTest.xaml.cs">
-      <DependentUpon>HubTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SkabelonUdenSplitview.xaml.cs">
       <DependentUpon>SkabelonUdenSplitview.xaml</DependentUpon>
@@ -184,15 +181,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\FrontPage.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\HubTest.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\HubTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

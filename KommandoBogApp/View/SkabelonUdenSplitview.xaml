@@ -26,11 +26,11 @@
                 <AppBarButton x:Name="Logout" Label="Log Out" Width="150" Icon="GoToStart" Height="65" RelativePanel.AlignBottomWithPanel="True"/>
             </RelativePanel>
         </Grid>
-        <Grid x:Name="OverskriftBar" HorizontalAlignment="Stretch" Height="116" Margin="150,0,0,0" VerticalAlignment="Top" Width="Auto" Background="#FF188F29">
+        <Grid x:Name="OverskriftBar" HorizontalAlignment="Stretch" Height="116" Margin="150,0,0,0" VerticalAlignment="Top" Width="Auto" Background="#FF323433">
             <RelativePanel HorizontalAlignment="Stretch" Height="116" VerticalAlignment="Top" Width="Auto">
-                <TextBlock x:Name="Overskrift" Height="116" TextWrapping="Wrap" Text="Kommandobogen" Width="1350" FontSize="72" RelativePanel.AlignLeftWith=""/>
                 <TextBlock x:Name="LoginInformationer" Height="116" TextWrapping="Wrap" Text="Login" Width="353" RelativePanel.AlignRightWithPanel="True"/>
             </RelativePanel>
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" Text="Kommandobogen" Foreground="White" Height="86" Width="741" FontFamily="Perpetua Titling MT"/>
         </Grid>
         <Grid x:Name="NavigationBar" HorizontalAlignment="Stretch" Height="70" Margin="150,116,0,0" VerticalAlignment="Top" Width="Auto"/>
         <Grid x:Name="Indhold" HorizontalAlignment="Stretch" Height="Auto" Margin="155,191,0,0" VerticalAlignment="Stretch" Width="Auto"/>
