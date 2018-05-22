@@ -135,8 +135,11 @@
     <Compile Include="View\HubTest.xaml.cs">
       <DependentUpon>HubTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SkabelonTilViews.xaml.cs">
-      <DependentUpon>SkabelonTilViews.xaml</DependentUpon>
+    <Compile Include="View\SkabelonUdenSplitview.xaml.cs">
+      <DependentUpon>SkabelonUdenSplitview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Skabelon_med_splitview.xaml.cs">
+      <DependentUpon>Skabelon_med_splitview.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -188,7 +191,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SkabelonTilViews.xaml">
+    <Page Include="View\SkabelonUdenSplitview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Skabelon_med_splitview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
