@@ -33,6 +33,7 @@ namespace KommandoBogApp.ViewModel
         public CalendarOverviewSingleton CalendarOverviewSingleton { get;}
         public CalendarViewView CWW { get; set; }
         public static string UserName;
+        public UserCatalogSingleton userCatalogSingleton { get; set; }
 
 
         public ActivityType ViewActivityType { get; set; }
@@ -43,6 +44,7 @@ namespace KommandoBogApp.ViewModel
             ActivityList = ActivitySingleton.Instance;
             CalendarOverviewSingleton = CalendarOverviewSingleton.Instance;
             Handler=new ActivityHandler(this);
+            userCatalogSingleton = UserCatalogSingleton.Instance;
 
         }
 
