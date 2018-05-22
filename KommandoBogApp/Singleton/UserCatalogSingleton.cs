@@ -34,9 +34,9 @@ namespace KommandoBogApp.Singleton
             SearchUserList = new ObservableCollection<User>();
             UserList = new ObservableCollection<User>();
             AfdelingList = new ObservableCollection<Afdeling>();
-            AfdelingList.Add(new Afdeling("Q"));
-            AfdelingList.Add(new Afdeling("J"));
-            AfdelingList.Add(new Afdeling("Pallemans Combobox"));
+            AfdelingList.Add(new Afdeling("Q",1));
+            AfdelingList.Add(new Afdeling("J",2));
+            AfdelingList.Add(new Afdeling("Pallemans Combobox",3));
             UserTypeList = new ObservableCollection<string>();
             UserTypeList.Add("Regular");
             UserTypeList.Add("Leader");

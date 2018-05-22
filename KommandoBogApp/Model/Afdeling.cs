@@ -9,13 +9,15 @@ namespace KommandoBogApp.Model
 {
    public class Afdeling
     {
+        public int Id { get; set; }
 
         public string Navn { get; set; }
         public ObservableCollection<User> AfdelingList { get; set; }
 
-        public Afdeling(string navn)
+        public Afdeling(string navn, int id)
         {
             Navn = navn;
+            Id = id;
             AfdelingList = new ObservableCollection<User>();
         }
 
