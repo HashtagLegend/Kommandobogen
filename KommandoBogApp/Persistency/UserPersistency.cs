@@ -61,14 +61,15 @@ namespace KommandoBogApp.Persistency
                     var responce = client.GetAsync("api/UserTables").Result;
                     if (responce.IsSuccessStatusCode)
                     {
+                        ObservableCollection<User> listen = new ObservableCollection<User>();
                         var userList = responce.Content.ReadAsAsync<IEnumerable<User>>().Result;
 
                         foreach (var user in userList)
                         {
-                            UserCatalogSingleton.Instance.UserList.Add(user);
+                            listen.Add(user);
                         }
+                        
 
-                       
                     }
                     return null;
                 }
