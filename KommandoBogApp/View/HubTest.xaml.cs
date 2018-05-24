@@ -45,8 +45,16 @@ namespace KommandoBogApp.View
             FillListOfPossibleMonths();
             ListOfPossibleYears = new List<int>();
             FillListOfPossibleYears();
+            Opret_bruger.Click += Opret_bruger_Click;
         }
 
+        private void Opret_bruger_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserCatalogSingleton.LoginUser.UserType == "Admin")
+            {
+                this.Frame.Navigate(typeof(KommandoBogApp.View.CreateUserView));
+            }
+        }
 
         public void FillListOfPossibleMonths()
         {
