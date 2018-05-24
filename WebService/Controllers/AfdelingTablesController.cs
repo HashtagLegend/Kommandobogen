@@ -14,7 +14,7 @@ namespace WebService.Controllers
 {
     public class AfdelingTablesController : ApiController
     {
-        private DataBaseContext db = new DataBaseContext();
+        private DatabaseContext db = new DatabaseContext();
 
         // GET: api/AfdelingTables
         public IQueryable<AfdelingTable> GetAfdelingTable()

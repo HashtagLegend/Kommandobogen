@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KommandoBogApp.Model;
+using KommandoBogApp.Persistency;
 
 namespace KommandoBogApp.Singleton
 {
@@ -34,8 +35,8 @@ namespace KommandoBogApp.Singleton
             SearchUserList = new ObservableCollection<User>();
             UserList = new ObservableCollection<User>();
             AfdelingList = new ObservableCollection<Afdeling>();
-            AfdelingList.Add(new Afdeling("Q",1));
-            AfdelingList.Add(new Afdeling("J",2));
+            AfdelingList.Add(new Afdeling("Afdeling Q",1));
+            AfdelingList.Add(new Afdeling("Afdeling J",2));
             AfdelingList.Add(new Afdeling("Pallemans Combobox",3));
             UserTypeList = new ObservableCollection<string>();
             UserTypeList.Add("Regular");
@@ -47,7 +48,7 @@ namespace KommandoBogApp.Singleton
             UserList.Add(f1);
             foreach (Afdeling afd in AfdelingList)
             {
-                if (afd.Navn == "Q")
+                if (afd.Navn == "Afdeling Q")
                 {
                     f1.Afd = afd;
                     afd.AfdelingList.Add(f1);
@@ -57,7 +58,7 @@ namespace KommandoBogApp.Singleton
             UserList.Add(f2);
             foreach (Afdeling afd in AfdelingList)
             {
-                if (afd.Navn == "Q")
+                if (afd.Navn == "Afdeling Q")
                 {
                     f2.Afd = afd;
                     afd.AfdelingList.Add(f2);
@@ -71,6 +72,7 @@ namespace KommandoBogApp.Singleton
         public void AddUser(User user)
         {
             UserList.Add(user);
+            UserPersistency.SaveUsersAsJsonAsync(user);
         }
 
 

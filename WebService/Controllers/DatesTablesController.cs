@@ -14,7 +14,7 @@ namespace WebService.Controllers
 {
     public class DatesTablesController : ApiController
     {
-        private DataBaseContext db = new DataBaseContext();
+        private DatabaseContext db = new DatabaseContext();
 
         // GET: api/DatesTables
         public IQueryable<DatesTable> GetDatesTable()

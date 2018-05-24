@@ -14,7 +14,7 @@ namespace WebService.Controllers
 {
     public class UserTablesController : ApiController
     {
-        private DataBaseContext db = new DataBaseContext();
+        private DatabaseContext db = new DatabaseContext();
 
         // GET: api/UserTables
         public IQueryable<UserTable> GetUserTable()

@@ -41,6 +41,10 @@ namespace WebService
 
         public int AfdId { get; set; }
 
+        [Required]
+        [StringLength(50)]
+        public string UserType { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ActivityTable> ActivityTable { get; set; }
 

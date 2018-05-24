@@ -14,7 +14,7 @@ namespace WebService.Controllers
 {
     public class ActivityTablesController : ApiController
     {
-        private DataBaseContext db = new DataBaseContext();
+        private DatabaseContext db = new DatabaseContext();
 
         // GET: api/ActivityTables
         public IQueryable<ActivityTable> GetActivityTable()

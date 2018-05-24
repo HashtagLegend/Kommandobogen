@@ -27,26 +27,32 @@ namespace KommandoBogApp.Handler
             if (UserVM.Type == "Admin")
             {
                 Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
+                admin.Afd = UserVM.Afdeling;
+                admin.AfdId = UserVM.Afdeling.AfdId;
                 UserVM.UserCatalogSingleton.AddUser(admin);
                 AddUserToAfdeling(admin);
-                admin.Afd = UserVM.Afdeling;
+                
 
             }
             else if (UserVM.Type == "Leader")
             {
                 Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
+                leader.Afd = UserVM.Afdeling;
+                leader.AfdId = UserVM.Afdeling.AfdId;
                 UserVM.UserCatalogSingleton.AddUser(leader);
                 AddUserToAfdeling(leader); 
-                leader.Afd = UserVM.Afdeling;
+                
 
 
             }
             else if (UserVM.Type == "Regular")
             {
                 Regular regular= new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
+                regular.Afd = UserVM.Afdeling;
+                regular.AfdId = UserVM.Afdeling.AfdId;
                 UserVM.UserCatalogSingleton.AddUser(regular);
                 AddUserToAfdeling(regular);
-                regular.Afd = UserVM.Afdeling;
+              
             }
 
         }

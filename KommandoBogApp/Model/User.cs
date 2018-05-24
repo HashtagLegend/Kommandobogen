@@ -10,7 +10,7 @@ namespace KommandoBogApp.Model
 {
    public class User
     {
-
+        public int AfdId { get; set; }
         public string UserType { get; set; }
         public string MaNummer { get; set; }
         public string Navn { get; set; }
@@ -37,6 +37,7 @@ namespace KommandoBogApp.Model
             DaysWithActivities = new ObservableCollection<Activity>();
             FillDaysWithActivities();
             Password = password;
+    
         }
 
         public void CreateActivity()
@@ -62,6 +63,11 @@ namespace KommandoBogApp.Model
         public override string ToString()
         {
             return $"{MaNummer} {Navn} {Tlf} {Afd} {Email} {Adresse} {UserType}";
+        }
+
+        public string DatabaseString()
+        {
+            return $"{nameof(MaNummer)}:{MaNummer},{nameof(Navn)}:{Navn},{nameof(Adresse)}:{Adresse},{nameof(Email)}:{Email},{nameof(Tlf)}:{Tlf},{nameof(Password)}:{Password},{nameof(Afd.AfdId)}:{Afd.AfdId},{nameof(UserType)}:{UserType}";
         }
     }
 }

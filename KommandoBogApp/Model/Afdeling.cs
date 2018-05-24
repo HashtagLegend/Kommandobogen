@@ -9,7 +9,7 @@ namespace KommandoBogApp.Model
 {
    public class Afdeling
     {
-        public int Id { get; set; }
+        public int AfdId { get; set; }
 
         public string Navn { get; set; }
         public ObservableCollection<User> AfdelingList { get; set; }
@@ -17,7 +17,7 @@ namespace KommandoBogApp.Model
         public Afdeling(string navn, int id)
         {
             Navn = navn;
-            Id = id;
+            AfdId = id;
             AfdelingList = new ObservableCollection<User>();
         }
 
@@ -28,7 +28,7 @@ namespace KommandoBogApp.Model
 
         public override string ToString()
         {
-            return $"{nameof(Navn)}: {Navn}";
+            return $"{nameof(Navn)}{Navn}";
         }
     }
 }

@@ -5,10 +5,10 @@ namespace WebService
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class DataBaseContext : DbContext
+    public partial class DatabaseContext : DbContext
     {
-        public DataBaseContext()
-            : base("name=DataBaseContext")
+        public DatabaseContext()
+            : base("name=DatabaseContext")
         {
             base.Configuration.ProxyCreationEnabled = false;
         }
