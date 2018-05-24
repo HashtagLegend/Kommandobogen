@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Windows.Media.Streaming.Adaptive;
 using Windows.UI.Popups;
 using KommandoBogApp.Model;
+using KommandoBogApp.Persistency;
 using KommandoBogApp.View;
 using KommandoBogApp.ViewModel;
 
@@ -31,7 +32,6 @@ namespace KommandoBogApp.Handler
                 admin.AfdId = UserVM.Afdeling.AfdId;
                 UserVM.UserCatalogSingleton.AddUser(admin);
                 AddUserToAfdeling(admin);
-                
 
             }
             else if (UserVM.Type == "Leader")

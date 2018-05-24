@@ -42,6 +42,7 @@ namespace KommandoBogApp.Singleton
             UserTypeList.Add("Regular");
             UserTypeList.Add("Leader");
             UserTypeList.Add("Admin");
+           
 
 
             User f1 = new Admin("123", "Frederik Wulff", "42489902", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","123");
@@ -66,13 +67,13 @@ namespace KommandoBogApp.Singleton
             }
 
 
-
+            LoadUsers();
         }
 
         public void AddUser(User user)
         {
             UserList.Add(user);
-            UserPersistency.SaveUsersAsJsonAsync(user);
+            UserPersistency.SaveUsers(user);
         }
 
 
@@ -82,6 +83,10 @@ namespace KommandoBogApp.Singleton
             user.Afd.AfdelingList.Remove(user);
         }
 
-       
+        public async void LoadUsers()
+        {
+            UserList.Clear();
+            UserList = await UserPersistency.LoadEventsFromJsonAsync();
+        }
     }
 }

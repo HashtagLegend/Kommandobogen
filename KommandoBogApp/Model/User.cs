@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace KommandoBogApp.Model
             Tlf = tlf;
             Adresse = adresse;
             Email = email;
+            AfdId = 0;
 
             Password = password;
 
@@ -67,7 +69,7 @@ namespace KommandoBogApp.Model
 
         public string DatabaseString()
         {
-            return $"{nameof(MaNummer)}:{MaNummer},{nameof(Navn)}:{Navn},{nameof(Adresse)}:{Adresse},{nameof(Email)}:{Email},{nameof(Tlf)}:{Tlf},{nameof(Password)}:{Password},{nameof(Afd.AfdId)}:{Afd.AfdId},{nameof(UserType)}:{UserType}";
+            return $"{nameof(MaNummer)}: {MaNummer}, {nameof(Navn)}: {Navn}, {nameof(Adresse)}: {Adresse}, {nameof(Email)}: {Email}, {nameof(Tlf)}: {Tlf}, {nameof(Password)}: {Password}, {nameof(AfdId)}: {AfdId}, {nameof(UserType)}: {UserType}";
         }
     }
 }
