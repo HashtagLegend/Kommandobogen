@@ -61,9 +61,9 @@ namespace KommandoBogApp.Persistency
                     var responce = client.GetAsync("api/UserTables").Result;
                     if (responce.IsSuccessStatusCode)
                     {
-                        ObservableCollection<User> listen = new ObservableCollection<User>();
                         var userList = responce.Content.ReadAsAsync<IEnumerable<User>>().Result;
-
+                        ObservableCollection<User> listen = new ObservableCollection<User>();
+                        
                         foreach (var user in userList)
                         {
                             listen.Add(user);
