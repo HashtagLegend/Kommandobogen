@@ -108,6 +108,7 @@
     <Compile Include="Model\Regular.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Activity.cs" />
+    <Compile Include="Persistency\AfdelingPersistency.cs" />
     <Compile Include="Persistency\UserPersistency.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

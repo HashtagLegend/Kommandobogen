@@ -36,7 +36,7 @@ namespace KommandoBogApp.Model
             Activities = new List<Activity>();
             DaysWithActivities = new ObservableCollection<Activity>();
             FillDaysWithActivities();
-            Password = password;
+            
     
         }
 

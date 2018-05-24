@@ -35,16 +35,17 @@ namespace KommandoBogApp.Singleton
             SearchUserList = new ObservableCollection<User>();
             UserList = new ObservableCollection<User>();
             AfdelingList = new ObservableCollection<Afdeling>();
-            AfdelingList.Add(new Afdeling("Afdeling Q",1));
-            AfdelingList.Add(new Afdeling("Afdeling J",2));
-            AfdelingList.Add(new Afdeling("Pallemans Combobox",3));
+            AfdelingList.Add(new Afdeling("Afdeling Q", 1));
+            AfdelingList.Add(new Afdeling("Afdeling J", 2));
+            AfdelingList.Add(new Afdeling("Afdeling P", 3));
             UserTypeList = new ObservableCollection<string>();
             UserTypeList.Add("Regular");
             UserTypeList.Add("Leader");
             UserTypeList.Add("Admin");
 
 
-            User f1 = new Admin("123", "Frederik Wulff", "42489902", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","123");
+
+            User f1 = new Admin("123", "Frederik Wulff", "42489902", "Hasselvej 2 2th", "fwpdanmark@hotmail.com", "123");
             UserList.Add(f1);
             foreach (Afdeling afd in AfdelingList)
             {
@@ -54,7 +55,7 @@ namespace KommandoBogApp.Singleton
                     afd.AfdelingList.Add(f1);
                 }
             }
-            User f2 = new Regular("444", "Steffen LArsen", "4242", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","Hallo");
+            User f2 = new Regular("444", "Steffen LArsen", "4242", "Hasselvej 2 2th", "fwpdanmark@hotmail.com", "Hallo");
             UserList.Add(f2);
             foreach (Afdeling afd in AfdelingList)
             {
@@ -64,8 +65,10 @@ namespace KommandoBogApp.Singleton
                     afd.AfdelingList.Add(f2);
                 }
             }
+            //LoadAfdeling();
+            //Debug.WriteLine(AfdelingList.Count);
 
-
+            LoadUser();
 
         }
 
@@ -80,6 +83,18 @@ namespace KommandoBogApp.Singleton
         {
             UserList.Remove(user);
             user.Afd.AfdelingList.Remove(user);
+        }
+
+        public async void LoadAfdeling()
+        {
+            AfdelingList.Clear();
+            AfdelingList = await AfdelingPersistency.LoadAfdelingsFromJsonAsync();
+        }
+
+        public async void LoadUser()
+        {
+            UserList.Clear();
+            UserList = await UserPersistency.LoadUserFromJsonAsync();
         }
 
        
