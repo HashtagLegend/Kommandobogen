@@ -39,8 +39,11 @@ namespace KommandoBogApp.Persistency
 
                 try
                 {
-                    await client.PostAsJsonAsync("api/UserTables", content);
-
+                    var httpResponseMessage = client.PostAsJsonAsync("api/UserTables", content).Result;
+                    if (httpResponseMessage.IsSuccessStatusCode)
+                    {
+                        Debug.WriteLine(httpResponseMessage);
+                    }
                 }
                 catch (Exception e)
                 {

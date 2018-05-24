@@ -9,7 +9,8 @@ using KommandoBogApp.View;
 
 namespace KommandoBogApp.Model
 {
-   public class User
+    [Serializable]
+    public class User
     {
         public int AfdId { get; set; }
         public string UserType { get; set; }
@@ -17,10 +18,10 @@ namespace KommandoBogApp.Model
         public string Navn { get; set; }
         public string Tlf { get; set; }
         public string Adresse { get; set; }
-        public Afdeling Afd { get; set; }
+        [NonSerialized] public Afdeling Afd;
         public string Email { get; set; }
-        public List<Activity> Activities { get; set; }
-        public ObservableCollection<Activity> DaysWithActivities { get; set; }
+        [NonSerialized] public List<Activity> Activities;
+        [NonSerialized] public ObservableCollection<Activity> DaysWithActivities;
 
         public string Password { get; set; }
 
