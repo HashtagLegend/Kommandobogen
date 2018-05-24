@@ -15,9 +15,9 @@
         <viewModel:UserViewModel/>
     </Page.DataContext>
 
-    <Grid>
+    <Grid Background="#FFF5EFEF">
 
-        <Grid HorizontalAlignment="Left" Height="700" Margin="372,273,0,0" VerticalAlignment="Top" Width="1548" Background="#cccccc">
+        <Grid HorizontalAlignment="Left" Height="700" Margin="191,300,0,0" VerticalAlignment="Top" Width="1548" Background="#cccccc">
             <Button Width="50" Height="50" Margin="1250,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="MonthMinusOne">
             </Button>
             <TextBox Name="MonthShownTextBox" Text="{Binding CurrentShownMonth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="50" Margin="1300,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="MonthShownTextBox_OnTextChanged"/>
@@ -98,20 +98,38 @@
                     </interactivity:Interaction.Behaviors>
                 </AppBarButton>
                 <AppBarButton x:Name="Arbejdstid" Label="Arbejdstid" Width="150" Icon="Home" Height="65" RelativePanel.Below="HjemKnap"/>
-                <AppBarButton x:Name="Overblik" Label="Overblik" Width="150" Icon="Calendar" Height="65" RelativePanel.Below="Arbejdstid"/>
-                <Button x:Name="___Alle" Content="-Alle" Width="150" Height="32" RelativePanel.Below="Overblik" Background="{x:Null}" />
-                <Button x:Name="_Afdeling" Content="-Afdeling" Width="150" Height="32" RelativePanel.Below="___Alle" Background="{x:Null}"/>
-                <AppBarButton x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="_Afdeling"/>
+                <AppBarButton x:Name="Overblik" Label="Overblik" Width="150" Icon="Calendar" Height="65" RelativePanel.Below="Arbejdstid">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:NavigateToPageAction TargetPage="KommandoBogApp.View.HubTest"/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
+                <AppBarButton x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik"/>
                 <TextBlock x:Name="Leder" TextWrapping="Wrap" Text="  Leder" Height="20" Width="150" RelativePanel.Below="Hjælp"/>
                 <AppBarButton x:Name="Merarbejde" Label="Merarbejde" Width="150" Height="65" Icon="Manage" RelativePanel.Below="Leder"/>
                 <AppBarButton x:Name="Statistik" Label="Statistik" Width="150" Icon="List" Height="65" RelativePanel.Below="Merarbejde"/>
                 <TextBlock x:Name="Admin" TextWrapping="Wrap" Height="20" Width="150" Text="  Admin" RelativePanel.Below="Statistik"/>
-                <AppBarButton x:Name="Opret_bruger" Label="Opret Bruger" Width="150" Icon="AddFriend" Height="65" RelativePanel.Below="Admin"/>
+                <AppBarButton x:Name="Opret_bruger" Label="Opret Bruger" Width="150" Icon="AddFriend" Height="65" RelativePanel.Below="Admin">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:NavigateToPageAction TargetPage="KommandoBogApp.View.CreateUserView"/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
                 <AppBarButton x:Name="Rediger_bruger" Label="Rediger Bruger" Width="150" Icon="Edit" Height="65" RelativePanel.Below="Opret_bruger"/>
-                <AppBarButton x:Name="Logout" Label="Log Out" Width="150" Icon="GoToStart" Height="65" RelativePanel.AlignBottomWithPanel="True"/>
+                <AppBarButton x:Name="Logout" Label="Log Out" Width="150" Icon="GoToStart" Height="65" RelativePanel.AlignBottomWithPanel="True">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:NavigateToPageAction TargetPage="KommandoBogApp.View.Login"/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
             </RelativePanel>
         </Grid>
-        <Grid x:Name="NavigationBar" HorizontalAlignment="Stretch" Height="70" Margin="150,116,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <Grid x:Name="NavigationBar" HorizontalAlignment="Stretch" Height="42" Margin="150,116,0,0" VerticalAlignment="Top" Width="Auto">
+            <TextBlock x:Name="NavigationBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nuværende Side: Overblik" VerticalAlignment="Top" Height="42" Width="1770" FontSize="24"/>
+        </Grid>
     </Grid>
 </Page>
 

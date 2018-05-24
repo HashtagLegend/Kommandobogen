@@ -56,6 +56,7 @@ namespace KommandoBogApp.View
             }
         }
 
+
         public void FillListOfPossibleYears()
         {
             for (int i = 2000; i <= 2100; i++)

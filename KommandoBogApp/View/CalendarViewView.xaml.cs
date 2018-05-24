@@ -41,7 +41,7 @@ namespace KommandoBogApp.View
             ActivitiySingleton = ActivitySingleton.Instance;
             ActivityViewModel = new ActivityViewModel();
             UserSingleton = UserCatalogSingleton.Instance;
-            CreateUserButton.Click += CreateUserButton_Click;
+            Opret_bruger.Click += Opret_bruger_Click;
             Opret.Click += Opret_OnClick;
         }
 
@@ -177,7 +177,7 @@ namespace KommandoBogApp.View
             ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Blue);
         }
 
-        private void CreateUserButton_Click(object sender, RoutedEventArgs e)
+        private void Opret_bruger_Click(object sender, RoutedEventArgs e)
         {
             if (UserSingleton.LoginUser.UserType=="Admin")
             {
