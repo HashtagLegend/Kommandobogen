@@ -49,5 +49,10 @@ namespace WebService
         public virtual ICollection<ActivityTable> ActivityTable { get; set; }
 
         public virtual AfdelingTable AfdelingTable { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(MaNummer)}: {MaNummer}, {nameof(Navn)}: {Navn}, {nameof(Adresse)}: {Adresse}, {nameof(Email)}: {Email}, {nameof(Tlf)}: {Tlf}, {nameof(Password)}: {Password}, {nameof(AfdId)}: {AfdId}, {nameof(UserType)}: {UserType}";
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace KommandoBogApp.Persistency
         
         public static async void SaveUsersAsJsonAsync(User user)
         {
-            const string Url = "http://localhost:61818";
+            const string Url = "http://localhost:55000";
             HttpClientHandler handler = new HttpClientHandler();
             handler.UseDefaultCredentials = true;
 
@@ -46,7 +46,7 @@ namespace KommandoBogApp.Persistency
 
         public static async Task<ObservableCollection<User>> LoadUsersFromJsonAsync()
         {
-            const string ServerUrl = "http://localhost:61818";
+            const string ServerUrl = "http://localhost:55000";
             HttpClientHandler handler = new HttpClientHandler();
             handler.UseDefaultCredentials = true;
 
@@ -82,3 +82,6 @@ namespace KommandoBogApp.Persistency
         }
     }
 }
+
+
+

@@ -70,27 +70,31 @@ namespace KommandoBogApp.Handler
 
         public void FixDaysWithActivities()
         {
-            foreach (var Users in UserVM.UserCatalogSingleton.UserList)
+            if (UserVM.UserCatalogSingleton.UserList != null)
             {
-                Users.DaysWithActivities.Clear();
-                Users.FillDaysWithActivities();
-                foreach (var Activities in Users.Activities)
+                foreach (var Users in UserVM.UserCatalogSingleton.UserList)
                 {
-                    foreach (var Dates in Activities.Dates)
+                    Users.DaysWithActivities.Clear();
+                    Users.FillDaysWithActivities();
+                    foreach (var Activities in Users.Activities)
                     {
-                        Debug.WriteLine("Month And Year");
-                        Debug.WriteLine(Dates.Month);
-                        Debug.WriteLine(Dates.Year);
-                        Debug.WriteLine(HubTest.ShownMonth.Month);
-                        Debug.WriteLine(HubTest.ShownYear.Year);
-                        if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
+                        foreach (var Dates in Activities.Dates)
                         {
-                            Debug.WriteLine(Dates.Day - 1);
-                            Users.DaysWithActivities[Dates.Day - 1] = Activities;
+                            Debug.WriteLine("Month And Year");
+                            Debug.WriteLine(Dates.Month);
+                            Debug.WriteLine(Dates.Year);
+                            Debug.WriteLine(HubTest.ShownMonth.Month);
+                            Debug.WriteLine(HubTest.ShownYear.Year);
+                            if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
+                            {
+                                Debug.WriteLine(Dates.Day - 1);
+                                Users.DaysWithActivities[Dates.Day - 1] = Activities;
+                            }
                         }
                     }
                 }
             }
+           
         }
 
         public bool CheckCredentials(string credentials)
