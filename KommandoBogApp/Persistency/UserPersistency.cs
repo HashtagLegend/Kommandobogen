@@ -68,8 +68,8 @@ namespace KommandoBogApp.Persistency
                         {
                             listen.Add(user);
                         }
-                        
 
+                        return listen;
                     }
                     return null;
                 }
