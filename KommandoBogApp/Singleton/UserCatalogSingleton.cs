@@ -86,7 +86,7 @@ namespace KommandoBogApp.Singleton
         public async void LoadUsers()
         {
             UserList.Clear();
-            await UserPersistency.LoadUsersFromJsonAsync();
+            UserList = await UserPersistency.LoadUsersFromJsonAsync();
         }
 
        
