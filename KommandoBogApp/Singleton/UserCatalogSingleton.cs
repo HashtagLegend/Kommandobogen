@@ -42,28 +42,29 @@ namespace KommandoBogApp.Singleton
             UserTypeList.Add("Regular");
             UserTypeList.Add("Leader");
             UserTypeList.Add("Admin");
+            
 
-
-            User f1 = new Admin("123", "Frederik Wulff", "42489902", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","123");
-            UserList.Add(f1);
-            foreach (Afdeling afd in AfdelingList)
-            {
-                if (afd.Navn == "Afdeling Q")
-                {
-                    f1.Afd = afd;
-                    afd.AfdelingList.Add(f1);
-                }
-            }
-            User f2 = new Regular("444", "Steffen LArsen", "4242", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","Hallo");
-            UserList.Add(f2);
-            foreach (Afdeling afd in AfdelingList)
-            {
-                if (afd.Navn == "Afdeling Q")
-                {
-                    f2.Afd = afd;
-                    afd.AfdelingList.Add(f2);
-                }
-            }
+            //User f1 = new Admin("123", "Frederik Wulff", "42489902", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","123");
+            //UserList.Add(f1);
+            //foreach (Afdeling afd in AfdelingList)
+            //{
+            //    if (afd.Navn == "Afdeling Q")
+            //    {
+            //        f1.Afd = afd;
+            //        afd.AfdelingList.Add(f1);
+            //    }
+            //}
+            //User f2 = new Regular("444", "Steffen LArsen", "4242", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","Hallo");
+            //UserList.Add(f2);
+            //foreach (Afdeling afd in AfdelingList)
+            //{
+            //    if (afd.Navn == "Afdeling Q")
+            //    {
+            //        f2.Afd = afd;
+            //        afd.AfdelingList.Add(f2);
+            //    }
+            //}
+            LoadUsers();
 
 
 
@@ -80,6 +81,12 @@ namespace KommandoBogApp.Singleton
         {
             UserList.Remove(user);
             user.Afd.AfdelingList.Remove(user);
+        }
+
+        public async void LoadUsers()
+        {
+            UserList.Clear();
+            await UserPersistency.LoadUsersFromJsonAsync();
         }
 
        
