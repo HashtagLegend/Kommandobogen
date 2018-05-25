@@ -14,10 +14,12 @@ namespace KommandoBogApp.Model
         
         public string Kommentar { get; set; }
         public string Navn { get; set; }
-        public ActivityHandler.Color Color { get; set; }
-        public Color color { get; set; }
+        public ActivityHandler.Color color { get; set; }
+        public string Color { get; set; }
+        public Color _color { get; set; }
         public List<DateTimeOffset> Dates { get; set; }
         public static int ID { get; set; }
+        public string MaNummer { get; set; }
         public int id { get; set; }
         public int Hour { get; set; }
         public string DatesFromAndTo { get; set; }
@@ -26,11 +28,11 @@ namespace KommandoBogApp.Model
      
         public ActivityType ActivityTypeName { get; set; }
 
-        public Activity(List<DateTimeOffset> dates, string kommentar, string navn, ActivityHandler.Color color)
+        public Activity(List<DateTimeOffset> dates, string kommentar, string navn, ActivityHandler.Color _color)
         {           
             Kommentar = kommentar;
             Navn = navn;
-            Color = color;
+            color = _color;
             Dates = dates;
             id = ID;
             ID++;
@@ -39,17 +41,17 @@ namespace KommandoBogApp.Model
 
         public string ColorString()
         {
-            if (Color == ActivityHandler.Color.DarkGreen)
-                color = Windows.UI.Color.FromArgb(255,0,100,0);
+            if (color == ActivityHandler.Color.DarkGreen)
+                _color = Windows.UI.Color.FromArgb(255,0,100,0);
 
-            if (Color == ActivityHandler.Color.Blue)
-                color = Windows.UI.Color.FromArgb(255, 0, 0, 100);
+            if (color == ActivityHandler.Color.Blue)
+                _color = Windows.UI.Color.FromArgb(255, 0, 0, 100);
 
-            if (Color == ActivityHandler.Color.Firebrick)
-                color = Windows.UI.Color.FromArgb(255, 178, 38, 38);
+            if (color == ActivityHandler.Color.Firebrick)
+                _color = Windows.UI.Color.FromArgb(255, 178, 38, 38);
 
-            if (Color == ActivityHandler.Color.Orange)
-                color = Windows.UI.Color.FromArgb(255, 255, 165, 0);
+            if (color == ActivityHandler.Color.Orange)
+                _color = Windows.UI.Color.FromArgb(255, 255, 165, 0);
             return null;
         }
 

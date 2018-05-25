@@ -29,7 +29,7 @@ namespace KommandoBogApp.Handler
             {
                 Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
                 admin.Afd = UserVM.Afdeling;
-                admin.AfdId = UserVM.Afdeling.AfdId;
+                admin.AfdId = UserVM.Afdeling.AfdId.ToString();
                 UserVM.UserCatalogSingleton.AddUser(admin);
                 AddUserToAfdeling(admin);
 
@@ -38,7 +38,7 @@ namespace KommandoBogApp.Handler
             {
                 Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
                 leader.Afd = UserVM.Afdeling;
-                leader.AfdId = UserVM.Afdeling.AfdId;
+                leader.AfdId = UserVM.Afdeling.AfdId.ToString();
                 UserVM.UserCatalogSingleton.AddUser(leader);
                 AddUserToAfdeling(leader); 
                 
@@ -49,7 +49,7 @@ namespace KommandoBogApp.Handler
             {
                 Regular regular= new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
                 regular.Afd = UserVM.Afdeling;
-                regular.AfdId = UserVM.Afdeling.AfdId;
+                regular.AfdId = UserVM.Afdeling.AfdId.ToString();
                 UserVM.UserCatalogSingleton.AddUser(regular);
                 AddUserToAfdeling(regular);
               
@@ -70,6 +70,7 @@ namespace KommandoBogApp.Handler
 
         public void FixDaysWithActivities()
         {
+            if(UserVM.UserCatalogSingleton.UserList != null)
             foreach (var Users in UserVM.UserCatalogSingleton.UserList)
             {
                 Users.DaysWithActivities.Clear();

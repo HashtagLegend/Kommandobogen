@@ -16,7 +16,9 @@ namespace WebService
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string Id { get; set; }
 
         [Required]
         [StringLength(50)]

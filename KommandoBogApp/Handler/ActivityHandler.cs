@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Windows.UI;
 using KommandoBogApp.Converter;
 using KommandoBogApp.Model;
+using KommandoBogApp.Persistency;
 using KommandoBogApp.Singleton;
 using KommandoBogApp.ViewModel;
 
@@ -30,6 +31,7 @@ namespace KommandoBogApp.Handler
         public ActivityHandler(ActivityViewModel activityViewModel)
         {
             ActivityVM = activityViewModel;
+
         }
 
         public Color ColorOfActivity(Color color)
@@ -144,10 +146,34 @@ namespace KommandoBogApp.Handler
 
         }
 
-        
-        
-
-       
-
+        public static async void LoadActivitiesFromDB()
+        {
+            if (ActivitySingleton.Instance.ActivityList != null)
+            {
+                ActivitySingleton.Instance.ActivityList.Clear();
+            }
+            if (UserCatalogSingleton.Instance.UserList != null)
+            {
+                List<Activity> newActivities = await ActivityPersistency.LoadActivities();
+                foreach (var activity in newActivities)
+                {
+                    Debug.WriteLine("REEE1");
+                    foreach (var user in UserCatalogSingleton.Instance.UserList)
+                    {
+                        Debug.WriteLine("REEE2");
+                        if (user.MaNummer == activity.MaNummer)
+                        {
+                            foreach (var VARIABLE in Enum.GetNames(typeof(Color)))
+                            {
+                                Debug.WriteLine("REEE3");
+                                Enum.Parse(typeof(Color), VARIABLE);
+                            }
+                            activity.MaNummer = UserHandler.UserVM.UserCatalogSingleton.LoginUser.MaNummer;
+                            user.Activities.Add(activity);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

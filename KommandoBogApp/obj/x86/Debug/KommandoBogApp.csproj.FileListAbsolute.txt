@@ -246,7 +246,6 @@ C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\View\Log
 C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\View\Login.xaml
 C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\View\Login.xbf
 C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\Login.xbf
-C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\KommandoBogApp.csprojAssemblyReference.cache
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\SkabelonUdenSplitview.xbf
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\System.Net.Http.Formatting.dll
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\System.Net.Http.Extensions.dll
@@ -268,3 +267,4 @@ C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\FxResour
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\FxResources.System.Runtime.Serialization.Formatters.SR.resw
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\System.Net.Http.Formatting\en-US\System.Net.Http.Properties.CommonWebApiResources.resw
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\System.Net.Http.Formatting\en-US\System.Net.Http.Properties.Resources.resw
+C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\KommandoBogApp.csprojAssemblyReference.cache

@@ -125,3 +125,4 @@ C:\Users\Jesper\source\repos\Kommandobogen\WebService\obj\Debug\WebService.cspro
 C:\Users\Jesper\source\repos\Kommandobogen\WebService\obj\Debug\WebService.csproj.CopyComplete
 C:\Users\Jesper\source\repos\Kommandobogen\WebService\obj\Debug\WebService.dll
 C:\Users\Jesper\source\repos\Kommandobogen\WebService\obj\Debug\WebService.pdb
+C:\Users\Jesper\source\repos\Kommandobogen\WebService\obj\Debug\WebService.csprojAssemblyReference.cache

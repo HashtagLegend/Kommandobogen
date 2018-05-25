@@ -12,7 +12,7 @@ namespace KommandoBogApp.Model
     [Serializable]
     public class User
     {
-        public int AfdId { get; set; }
+        public string AfdId { get; set; }
         public string UserType { get; set; }
         public string MaNummer { get; set; }
         public string Navn { get; set; }
@@ -32,7 +32,7 @@ namespace KommandoBogApp.Model
             Tlf = tlf;
             Adresse = adresse;
             Email = email;
-            AfdId = 0;
+            AfdId = "";
 
             Password = password;
 

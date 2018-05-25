@@ -83,7 +83,7 @@ namespace KommandoBogApp.View
                 {
                     foreach (var Dates in VARIABLE.Dates)
                     {
-                        ActivityHandler.Color c = VARIABLE.Color;
+                        ActivityHandler.Color c = VARIABLE.color;
                         switch (c)
                         {
                             case ActivityHandler.Color.Blue:

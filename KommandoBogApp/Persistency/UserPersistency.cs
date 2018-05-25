@@ -25,55 +25,25 @@ namespace KommandoBogApp.Persistency
             HttpClientHandler handler = new HttpClientHandler();
             handler.UseDefaultCredentials = true;
 
+
             using (var client = new HttpClient(handler))
             {
-                string Postbody = JsonConvert.SerializeObject(user);
-                byte[] msgBytes = Encoding.UTF8.GetBytes(Postbody);
-                var content = new ByteArrayContent(msgBytes);
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
                 client.BaseAddress = new Uri(Url);
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-
                 try
                 {
-                    var httpResponseMessage = client.PostAsJsonAsync("api/UserTables", content).Result;
-                    if (httpResponseMessage.IsSuccessStatusCode)
-                    {
-                        Debug.WriteLine(httpResponseMessage);
-                    }
+                    await client.PostAsJsonAsync("api/UserTables", user);
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    Console.WriteLine(e);
-                    throw;
+                    Debug.WriteLine(ex);
                 }
             }
-            //foreach (var VARIABLE in UserCatalogSingleton.Instance.UserList)
-            //{
-            //using (var client = new HttpClient(handler, false))
-            //    if (VARIABLE != null)
-            //    {
-            //    StringContent quarystring = new StringContent(VARIABLE.DatabaseString());
-            //    Debug.WriteLine(VARIABLE.DatabaseString());
-
-
-            //    using (HttpResponseMessage usingResponse = await client.PostAsync(Url, quarystring))
-            //    {
-            //        using (HttpContent content = usingResponse.Content)
-            //        {
-            //            string mycontent = await content.ReadAsStringAsync();
-            //            HttpContentHeaders headers = content.Headers;
-            //        }
-            //    }
-            //}
-
-            //}
         }
 
-        public static async Task<ObservableCollection<User>> LoadEventsFromJsonAsync()
+        public static async Task<ObservableCollection<User>> LoadUsers()
         {
             const string Url = "http://localhost:55000";
             HttpClientHandler handler = new HttpClientHandler();
@@ -88,6 +58,7 @@ namespace KommandoBogApp.Persistency
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                     var responce = client.GetAsync("api/UserTables").Result;
+                    Debug.WriteLine(responce);
                     if (responce.IsSuccessStatusCode)
                     {
                         var users = responce.Content.ReadAsAsync<IEnumerable<User>>().Result;
