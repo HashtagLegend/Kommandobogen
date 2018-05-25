@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KommandoBogApp.Handler;
 using KommandoBogApp.Model;
+using KommandoBogApp.Persistency;
 using ActivityType = Windows.Devices.Sensors.ActivityType;
 
 namespace KommandoBogApp.Singleton
@@ -37,6 +38,11 @@ namespace KommandoBogApp.Singleton
 
         public void AddActivity(Activity activity)
         {
+            foreach (var dates in activity.Dates)
+            {
+                var date = new ActivityDate(activity.id, dates);
+                DatesPersistency.SaveDates(date);
+            }
             ActivityList.Add(activity);
         }
 

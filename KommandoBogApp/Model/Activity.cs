@@ -55,6 +55,11 @@ namespace KommandoBogApp.Model
             return null;
         }
 
+        public void Initializelist()
+        {
+            Dates = new List<DateTimeOffset>();
+        }
+
         #region ToStrings
 
         public void ToStringDate()

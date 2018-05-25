@@ -40,6 +40,7 @@ namespace KommandoBogApp.View
             ShownMonth = DateTime.Today;
             ShownYear = DateTime.Today;
             this.InitializeComponent();
+            this.Loaded += FixHubTestAcitivities;
             datesInMonth();
             ListOfPossibleMonths = new List<int>();
             FillListOfPossibleMonths();
@@ -47,6 +48,31 @@ namespace KommandoBogApp.View
             FillListOfPossibleYears();
         }
 
+        private void FixHubTestAcitivities(object sender, RoutedEventArgs e)
+        {
+                if (UserHandler.UserVM.UserCatalogSingleton.UserList != null)
+                    foreach (var Users in UserHandler.UserVM.UserCatalogSingleton.UserList)
+                    {
+                        Users.DaysWithActivities.Clear();
+                        Users.FillDaysWithActivities();
+                        foreach (var Activities in Users.Activities)
+                        {
+                            foreach (var Dates in Activities.Dates)
+                            {
+                                Debug.WriteLine("Month And Year");
+                                Debug.WriteLine(Dates.Month);
+                                Debug.WriteLine(Dates.Year);
+                                Debug.WriteLine(HubTest.ShownMonth.Month);
+                                Debug.WriteLine(HubTest.ShownYear.Year);
+                                if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
+                                {
+                                    Debug.WriteLine(Dates.Day - 1);
+                                    Users.DaysWithActivities[Dates.Day - 1] = Activities;
+                                }
+                            }
+                        }
+                    }
+        }
 
         public void FillListOfPossibleMonths()
         {
@@ -97,7 +123,7 @@ namespace KommandoBogApp.View
                 {
                     ShownMonth = ShownMonth.AddMonths(-ShownMonth.Month);
                     ShownMonth = ShownMonth.AddMonths(Int32.Parse(MonthShownTextBox.Text));
-                    UserHandler.UserVM.UserHandler.FixDaysWithActivities();
+                    FixHubTestAcitivities(sender, e);
                     datesInMonth();
                     MonthYearError.Text = "";
                 }
@@ -117,7 +143,7 @@ namespace KommandoBogApp.View
                     {
                         ShownYear = ShownYear.AddYears(-ShownYear.Year+1);
                         ShownYear = ShownYear.AddYears(Int32.Parse(YearShownTextBox.Text)-1);
-                        UserHandler.UserVM.UserHandler.FixDaysWithActivities();
+                        FixHubTestAcitivities(sender, e);
                         datesInMonth();
                         MonthYearError.Text = "";
                     }

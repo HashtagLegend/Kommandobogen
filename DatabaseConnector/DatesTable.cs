@@ -12,6 +12,8 @@ namespace DatabaseConnector
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
+        public int ActivityID { get; set; }
+
         public DateTimeOffset DatesTimeOffset { get; set; }
 
         public virtual ActivityTable ActivityTable { get; set; }

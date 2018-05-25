@@ -68,31 +68,7 @@ namespace KommandoBogApp.Handler
             
         }
 
-        public void FixDaysWithActivities()
-        {
-            if(UserVM.UserCatalogSingleton.UserList != null)
-            foreach (var Users in UserVM.UserCatalogSingleton.UserList)
-            {
-                Users.DaysWithActivities.Clear();
-                Users.FillDaysWithActivities();
-                foreach (var Activities in Users.Activities)
-                {
-                    foreach (var Dates in Activities.Dates)
-                    {
-                        Debug.WriteLine("Month And Year");
-                        Debug.WriteLine(Dates.Month);
-                        Debug.WriteLine(Dates.Year);
-                        Debug.WriteLine(HubTest.ShownMonth.Month);
-                        Debug.WriteLine(HubTest.ShownYear.Year);
-                        if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
-                        {
-                            Debug.WriteLine(Dates.Day - 1);
-                            Users.DaysWithActivities[Dates.Day - 1] = Activities;
-                        }
-                    }
-                }
-            }
-        }
+        
 
         public bool CheckCredentials(string credentials)
         {
@@ -101,7 +77,8 @@ namespace KommandoBogApp.Handler
                 if (credentials==user.MaNummer && user.Password==UserViewModel.LoginPassword)
                 {
                     UserVM.UserCatalogSingleton.LoginUser = user;
-                    
+                    UserVM.UserCatalogSingleton.LoadActivitiesFromDB();
+                    Debug.WriteLine(UserVM.UserCatalogSingleton.LoginUser.Activities[0]);
                     return true;
                 }
             }

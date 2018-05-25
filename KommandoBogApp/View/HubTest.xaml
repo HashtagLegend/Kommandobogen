@@ -10,7 +10,6 @@
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <Page.DataContext>
         <viewModel:UserViewModel/>
     </Page.DataContext>

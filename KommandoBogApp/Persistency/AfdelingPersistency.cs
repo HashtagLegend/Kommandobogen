@@ -28,7 +28,6 @@ namespace KommandoBogApp.Persistency
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                     var responce = client.GetAsync("api/AfdelingTables").Result;
-                    Debug.WriteLine(responce);
                     if (responce.IsSuccessStatusCode)
                     {
                         var Afdelinger = responce.Content.ReadAsAsync<IEnumerable<Afdeling>>().Result;

@@ -77,7 +77,22 @@ namespace KommandoBogApp.View
                             }
                         }
                 }
-                var CalendarTime = args.Item.Date.DateTime.ToString("yyyy-MM-dd");
+            foreach (var user in UserSingleton.UserList)
+            {
+                foreach (var activity in user.Activities)
+                {
+                    foreach (var dates in activity.Dates)
+                    {
+                        if (dates.DateTime.Date == args.Item.Date.DateTime.Date)
+                        {
+                            currentActivities.Add(activity);
+                        }
+                    }
+                }
+                
+            }
+
+            var CalendarTime = args.Item.Date.DateTime.ToString("yyyy-MM-dd");
 
                 foreach (var VARIABLE in currentActivities)
                 {
