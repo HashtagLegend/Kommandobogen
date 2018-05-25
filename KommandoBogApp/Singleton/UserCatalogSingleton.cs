@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KommandoBogApp.Model;
+using KommandoBogApp.Persistency;
 
 namespace KommandoBogApp.Singleton
 {
@@ -23,7 +24,6 @@ namespace KommandoBogApp.Singleton
 
         public ObservableCollection<User> SearchUserList { get; set; }
 
-        public ObservableCollection<Afdeling> AfdelingList { get; set; }
 
         public ObservableCollection<string> UserTypeList { get; set; }
 
@@ -33,36 +33,8 @@ namespace KommandoBogApp.Singleton
         {
             SearchUserList = new ObservableCollection<User>();
             UserList = new ObservableCollection<User>();
-            AfdelingList = new ObservableCollection<Afdeling>();
-            AfdelingList.Add(new Afdeling("Q"));
-            AfdelingList.Add(new Afdeling("J"));
-            AfdelingList.Add(new Afdeling("Pallemans Combobox"));
-            UserTypeList = new ObservableCollection<string>();
-            UserTypeList.Add("Regular");
-            UserTypeList.Add("Leader");
-            UserTypeList.Add("Admin");
-
-
-            User f1 = new Admin("123", "Frederik Wulff", "42489902", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","123");
-            UserList.Add(f1);
-            foreach (Afdeling afd in AfdelingList)
-            {
-                if (afd.Navn == "Q")
-                {
-                    f1.Afd = afd;
-                    afd.AfdelingList.Add(f1);
-                }
-            }
-            User f2 = new Regular("444", "Steffen LArsen", "4242", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","Hallo");
-            UserList.Add(f2);
-            foreach (Afdeling afd in AfdelingList)
-            {
-                if (afd.Navn == "Q")
-                {
-                    f2.Afd = afd;
-                    afd.AfdelingList.Add(f2);
-                }
-            }
+            LoadUserAsync();
+            //UserList.Add(new User("111","Frederik Wulff","42489902","Hasselvej 2 2th","Fwpdanmark@hotmail.com","123","Admin","Afdeling Q"));
 
 
 
@@ -77,9 +49,24 @@ namespace KommandoBogApp.Singleton
         public void RemoveUser(User user)
         {
             UserList.Remove(user);
-            user.Afd.AfdelingList.Remove(user);
+            
         }
 
-       
+        public async Task LoadUserAsync()
+        {
+            try
+            {
+                List<User> users = await PersistencyUser.LoadFromJsonAsync();
+                foreach (User u in users)
+                {
+                    UserList.Add(u);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                throw;
+            }
+        }
     }
 }

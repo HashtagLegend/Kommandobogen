@@ -16,41 +16,30 @@ namespace KommandoBogApp.Model
         public string Navn { get; set; }
         public string Tlf { get; set; }
         public string Adresse { get; set; }
-        public Afdeling Afd { get; set; }
         public string Email { get; set; }
         public List<Activity> Activities { get; set; }
         public ObservableCollection<Activity> DaysWithActivities { get; set; }
+        public string Afdeling { get; set; }
+
 
         public string Password { get; set; }
 
-        public User(string maNummer, string navn, string tlf, string adresse, string email, string password)
+        public User(string maNummer, string navn, string tlf, string adresse, string email, string password,string usertype, string afdeling)
         {
             MaNummer = maNummer;
             Navn = navn;
             Tlf = tlf;
             Adresse = adresse;
             Email = email;
-
             Password = password;
+            Afdeling = afdeling;
+            UserType = usertype;
 
             Activities = new List<Activity>();
             DaysWithActivities = new ObservableCollection<Activity>();
             FillDaysWithActivities();
-            Password = password;
+            
         }
-
-        public void CreateActivity()
-        {
-
-        }
-
-
-
-        public void EditActivity()
-        {
-
-        }
-
         public void FillDaysWithActivities()
         {
             for (int i = 1; i <= DateTime.DaysInMonth(HubTest.ShownMonth.Year,HubTest.ShownMonth.Month); i++)
@@ -61,7 +50,7 @@ namespace KommandoBogApp.Model
 
         public override string ToString()
         {
-            return $"{MaNummer} {Navn} {Tlf} {Afd} {Email} {Adresse} {UserType}";
+            return $"{nameof(UserType)}: {UserType}, {nameof(MaNummer)}: {MaNummer}, {nameof(Navn)}: {Navn}, {nameof(Tlf)}: {Tlf}, {nameof(Adresse)}: {Adresse}, {nameof(Email)}: {Email}, {nameof(Afdeling)}: {Afdeling}";
         }
     }
 }

@@ -23,32 +23,7 @@ namespace KommandoBogApp.Handler
 
         public void CreateUser()
         {
-          
-            if (UserVM.Type == "Admin")
-            {
-                Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
-                UserVM.UserCatalogSingleton.AddUser(admin);
-                AddUserToAfdeling(admin);
-                admin.Afd = UserVM.Afdeling;
-
-            }
-            else if (UserVM.Type == "Leader")
-            {
-                Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
-                UserVM.UserCatalogSingleton.AddUser(leader);
-                AddUserToAfdeling(leader); 
-                leader.Afd = UserVM.Afdeling;
-
-
-            }
-            else if (UserVM.Type == "Regular")
-            {
-                Regular regular= new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
-                UserVM.UserCatalogSingleton.AddUser(regular);
-                AddUserToAfdeling(regular);
-                regular.Afd = UserVM.Afdeling;
-            }
-
+                UserVM.UserCatalogSingleton.UserList.Add(new User(UserVM.ViewMaNr,UserVM.ViewNavn,UserVM.ViewTlf,UserVM.ViewAdresse,UserVM.ViewEmail,UserVM.ViewPassword,UserVM.Type,UserVM.ViewAfdeling));
         }
 
         public void DeleteUser()
@@ -56,14 +31,12 @@ namespace KommandoBogApp.Handler
             UserVM.UserCatalogSingleton.RemoveUser(UserVM.SelectedUser);
         }
 
-        public void AddUserToAfdeling(User user)
-        {
-            UserVM.Afdeling.AddUserToList(user);
-            
-        }
+       
 
         public void FixDaysWithActivities()
         {
+            if(UserVM.UserCatalogSingleton.UserList!=null)
+
             foreach (var Users in UserVM.UserCatalogSingleton.UserList)
             {
                 Users.DaysWithActivities.Clear();

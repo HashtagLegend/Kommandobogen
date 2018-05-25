@@ -19,7 +19,6 @@ namespace KommandoBogApp.ViewModel
         public string ViewAdresse { get; set; }
         public string ViewEmail { get; set; }
         public string Type { get; set; }
-        public Afdeling Afdeling { get; set; }
         public User SelectedUser { get; set; }
         public ActivityViewModel ActivityViewModel { get; set; }
         public static ObservableCollection<int> DatesInMonth { get; set; }
@@ -27,6 +26,8 @@ namespace KommandoBogApp.ViewModel
         public static string CurrentShownYear { get; set; }
         public UserHandler UserHandler { get; set; }
         public static string ViewSearch { get; set; }
+        public string ViewAfdeling { get; set; }
+
 
         public string ViewPassword { get; set; }
 

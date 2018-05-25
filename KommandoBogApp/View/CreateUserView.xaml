@@ -27,7 +27,7 @@
                         <StackPanel HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="914" Orientation="Horizontal">
                             <TextBlock TextWrapping="Wrap" Text="{Binding MaNummer}" Width="109" FontFamily="Arial Black" FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
                             <TextBlock TextWrapping="Wrap" Text="{Binding Navn}" Width="156" FontFamily="Arial Black" FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Afd.Navn}" Width="90" FontFamily="Arial Black" FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Afdeling}" Width="90" FontFamily="Arial Black" FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
                             <TextBlock TextWrapping="Wrap" Text="{Binding Adresse}" Width="125" FontFamily="Arial Black" FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
                             <TextBlock TextWrapping="Wrap" Text="{Binding Email}" Width="204" FontFamily="Arial Black" FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
                             <TextBlock TextWrapping="Wrap" Text="{Binding Tlf}" Width="101" FontFamily="Arial Black"  FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
@@ -40,11 +40,6 @@
                 <StaticResource ResourceKey="DataTemplate1"/>
             </ListView.ItemTemplate>
         </ListView>
-        <ComboBox HorizontalAlignment="Left" Height="40" Margin="148,433,0,0" VerticalAlignment="Top" Width="286" ItemsSource="{Binding UserCatalogSingleton.AfdelingList}" SelectedItem="{Binding Afdeling, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-
-        </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Height="57" Margin="148,568,0,0" VerticalAlignment="Top" Width="285" SelectedItem="{Binding Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding UserCatalogSingleton.UserTypeList}">
-        </ComboBox>
         <AppBarButton HorizontalAlignment="Left" Icon="Home" Label="Home" Margin="1695,109,0,0" VerticalAlignment="Top">
             <Custom:Interaction.Behaviors>
                 <Custom1:EventTriggerBehavior EventName="Click">
@@ -73,6 +68,8 @@
         </Grid>
         <TextBlock HorizontalAlignment="Left" Height="20" Margin="1696,224,0,0" TextWrapping="Wrap" Text="{Binding UserCatalogSingleton.LoginUser.MaNummer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="154"/>
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="53" Margin="147,473,0,0" VerticalAlignment="Top" Width="287" PasswordChar="*" Password="{Binding ViewPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="148,433,0,0" TextWrapping="Wrap" Text="{Binding ViewAfdeling, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="285" PlaceholderText="Afdeling"/>
+        <TextBox HorizontalAlignment="Left" Height="49" Margin="147,563,0,0" TextWrapping="Wrap" Text="{Binding Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Type"/>
 
     </Grid>
 </Page>
