@@ -1,4 +1,4 @@
-namespace WebService
+namespace PersistencyConsoleTest
 {
     using System;
     using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace WebService
             UserTable = new HashSet<UserTable>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [StringLength(50)]
         public string Id { get; set; }
 
         [Required]
@@ -24,5 +24,10 @@ namespace WebService
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserTable> UserTable { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(Id)}: {Id}, {nameof(Navn)}: {Navn}";
+        }
     }
 }

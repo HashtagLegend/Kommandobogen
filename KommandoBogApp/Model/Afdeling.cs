@@ -9,12 +9,12 @@ namespace KommandoBogApp.Model
 {
    public class Afdeling
     {
-        public int AfdId { get; set; }
+        public string AfdId { get; set; }
 
         public string Navn { get; set; }
         public ObservableCollection<User> AfdelingList { get; set; }
 
-        public Afdeling(string navn, int id)
+        public Afdeling(string navn, string id)
         {
             Navn = navn;
             AfdId = id;

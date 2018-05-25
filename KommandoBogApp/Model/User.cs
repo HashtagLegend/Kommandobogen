@@ -10,7 +10,7 @@ namespace KommandoBogApp.Model
 {
    public class User
     {
-        public int AfdId { get; set; }
+        public string AfdId { get; set; }
         public string UserType { get; set; }
         public string MaNummer { get; set; }
         public string Navn { get; set; }
