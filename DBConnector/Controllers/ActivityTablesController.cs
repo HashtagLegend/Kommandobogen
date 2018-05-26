@@ -17,16 +17,16 @@ namespace DBConnector.Controllers
         private DBContext db = new DBContext();
 
         // GET: api/ActivityTables
-        public IQueryable<ActivityTable> GetActivityTables()
+        public IQueryable<ActivityTable> GetActivityTable()
         {
-            return db.ActivityTables;
+            return db.ActivityTable;
         }
 
         // GET: api/ActivityTables/5
         [ResponseType(typeof(ActivityTable))]
-        public IHttpActionResult GetActivityTable(int id)
+        public IHttpActionResult GetActivityTable(string id)
         {
-            ActivityTable activityTable = db.ActivityTables.Find(id);
+            ActivityTable activityTable = db.ActivityTable.Find(id);
             if (activityTable == null)
             {
                 return NotFound();
@@ -37,7 +37,7 @@ namespace DBConnector.Controllers
 
         // PUT: api/ActivityTables/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutActivityTable(int id, ActivityTable activityTable)
+        public IHttpActionResult PutActivityTable(string id, ActivityTable activityTable)
         {
             if (!ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace DBConnector.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.ActivityTables.Add(activityTable);
+            db.ActivityTable.Add(activityTable);
 
             try
             {
@@ -102,15 +102,15 @@ namespace DBConnector.Controllers
 
         // DELETE: api/ActivityTables/5
         [ResponseType(typeof(ActivityTable))]
-        public IHttpActionResult DeleteActivityTable(int id)
+        public IHttpActionResult DeleteActivityTable(string id)
         {
-            ActivityTable activityTable = db.ActivityTables.Find(id);
+            ActivityTable activityTable = db.ActivityTable.Find(id);
             if (activityTable == null)
             {
                 return NotFound();
             }
 
-            db.ActivityTables.Remove(activityTable);
+            db.ActivityTable.Remove(activityTable);
             db.SaveChanges();
 
             return Ok(activityTable);
@@ -125,9 +125,9 @@ namespace DBConnector.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ActivityTableExists(int id)
+        private bool ActivityTableExists(string id)
         {
-            return db.ActivityTables.Count(e => e.ID == id) > 0;
+            return db.ActivityTable.Count(e => e.ID == id) > 0;
         }
     }
 }

@@ -17,16 +17,16 @@ namespace DBConnector.Controllers
         private DBContext db = new DBContext();
 
         // GET: api/UserTables
-        public IQueryable<UserTable> GetUserTables()
+        public IQueryable<UserTable> GetUserTable()
         {
-            return db.UserTables;
+            return db.UserTable;
         }
 
         // GET: api/UserTables/5
         [ResponseType(typeof(UserTable))]
         public IHttpActionResult GetUserTable(string id)
         {
-            UserTable userTable = db.UserTables.Find(id);
+            UserTable userTable = db.UserTable.Find(id);
             if (userTable == null)
             {
                 return NotFound();
@@ -79,7 +79,7 @@ namespace DBConnector.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.UserTables.Add(userTable);
+            db.UserTable.Add(userTable);
 
             try
             {
@@ -104,13 +104,13 @@ namespace DBConnector.Controllers
         [ResponseType(typeof(UserTable))]
         public IHttpActionResult DeleteUserTable(string id)
         {
-            UserTable userTable = db.UserTables.Find(id);
+            UserTable userTable = db.UserTable.Find(id);
             if (userTable == null)
             {
                 return NotFound();
             }
 
-            db.UserTables.Remove(userTable);
+            db.UserTable.Remove(userTable);
             db.SaveChanges();
 
             return Ok(userTable);
@@ -127,7 +127,7 @@ namespace DBConnector.Controllers
 
         private bool UserTableExists(string id)
         {
-            return db.UserTables.Count(e => e.MaNummer == id) > 0;
+            return db.UserTable.Count(e => e.MaNummer == id) > 0;
         }
     }
 }

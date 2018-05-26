@@ -9,13 +9,15 @@ namespace DBConnector
     [Table("DatesTable")]
     public partial class DatesTable
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+        [StringLength(50)]
+        public string Id { get; set; }
 
-        public DateTimeOffset DatesTimeOffset { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string DatesTimeOffset { get; set; }
 
-        public int ActivityID { get; set; }
-
-        public virtual ActivityTable ActivityTable { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string ActivityID { get; set; }
     }
 }

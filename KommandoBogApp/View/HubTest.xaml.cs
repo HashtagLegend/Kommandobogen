@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -32,11 +33,15 @@ namespace KommandoBogApp.View
         public List<int> ListOfPossibleMonths { get; set; }
         public List<int> ListOfPossibleYears { get; set; }
         public UserCatalogSingleton UserCatalogSingleton { get; set; }
+        public ObservableCollection<User> LoadUsersOfThree { get; set; }
+        public int Load = 0;
+        public int i = 0;
 
         public HubTest()
         {
             UserViewModel.DatesInMonth = new ObservableCollection<int>();
             UserCatalogSingleton = UserCatalogSingleton.Instance;
+            LoadUsersOfThree = new ObservableCollection<User>();
             ShownMonth = DateTime.Today;
             ShownYear = DateTime.Today;
             this.InitializeComponent();
@@ -50,28 +55,93 @@ namespace KommandoBogApp.View
 
         private void FixHubTestAcitivities(object sender, RoutedEventArgs e)
         {
-                if (UserHandler.UserVM.UserCatalogSingleton.UserList != null)
-                    foreach (var Users in UserHandler.UserVM.UserCatalogSingleton.UserList)
+            switch (i)
+            {
+                case 0:
+                    for (int j = 0; j < 2; j++)
                     {
-                        Users.DaysWithActivities.Clear();
-                        Users.FillDaysWithActivities();
-                        foreach (var Activities in Users.Activities)
+                        if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count > Load)
                         {
-                            foreach (var Dates in Activities.Dates)
-                            {
-                                Debug.WriteLine("Month And Year");
-                                Debug.WriteLine(Dates.Month);
-                                Debug.WriteLine(Dates.Year);
-                                Debug.WriteLine(HubTest.ShownMonth.Month);
-                                Debug.WriteLine(HubTest.ShownYear.Year);
-                                if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
-                                {
-                                    Debug.WriteLine(Dates.Day - 1);
-                                    Users.DaysWithActivities[Dates.Day - 1] = Activities;
-                                }
-                            }
+                            LoadUsersOfThree.Add(UserHandler.UserVM.UserCatalogSingleton.UserList[Load]);
+                            Load++;
                         }
                     }
+                    break;
+
+                case 1:
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count > Load)
+                        {
+                            LoadUsersOfThree.Add(UserHandler.UserVM.UserCatalogSingleton.UserList[Load]);
+                            Load++;
+                        }
+                    }
+                    break;
+                case 2:
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count > Load)
+                        {
+                            LoadUsersOfThree.Add(UserHandler.UserVM.UserCatalogSingleton.UserList[Load]);
+                            Load++;
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count > Load)
+                        {
+                            LoadUsersOfThree.Add(UserHandler.UserVM.UserCatalogSingleton.UserList[Load]);
+                            Load++;
+                        }
+                    }
+                    break;
+                case 4:
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count > Load)
+                        {
+                            LoadUsersOfThree.Add(UserHandler.UserVM.UserCatalogSingleton.UserList[Load]);
+                            Load++;
+                        }
+                    }
+                    break;
+                case 5:
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count > Load)
+                        {
+                            LoadUsersOfThree.Add(UserHandler.UserVM.UserCatalogSingleton.UserList[Load]);
+                            Load++;
+                        }
+                    }
+                    break;
+
+            }
+
+            foreach (var Users in LoadUsersOfThree)
+            {
+                Users.DaysWithActivities.Clear();
+                Users.FillDaysWithActivities();
+                foreach (var Activities in Users.Activities)
+                {
+                    foreach (var Dates in Activities.Dates)
+                    {
+                        Debug.WriteLine("Month And Year");
+                        Debug.WriteLine(Dates.Month);
+                        Debug.WriteLine(Dates.Year);
+                        Debug.WriteLine(HubTest.ShownMonth.Month);
+                        Debug.WriteLine(HubTest.ShownYear.Year);
+                        if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
+                        {
+                            Debug.WriteLine(Dates.Day - 1);
+                            Users.DaysWithActivities[Dates.Day - 1] = Activities;
+                        }
+                    }
+                }
+            }
         }
 
         public void FillListOfPossibleMonths()
@@ -97,6 +167,12 @@ namespace KommandoBogApp.View
             {
                 UserViewModel.DatesInMonth.Add(i);
             }
+        }
+
+        private void iOneUp(object sender, RoutedEventArgs e)
+        {
+            i++;
+            FixHubTestAcitivities(sender, e);
         }
 
         private void MonthPlusOne(object sender, RoutedEventArgs e)

@@ -12,7 +12,7 @@ namespace DatabaseConnector
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UserTable()
         {
-            ActivityTables = new HashSet<ActivityTable>();
+            ActivityTable = new HashSet<ActivityTable>();
         }
 
         [Key]
@@ -48,7 +48,7 @@ namespace DatabaseConnector
         public string UserType { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ActivityTable> ActivityTables { get; set; }
+        public virtual ICollection<ActivityTable> ActivityTable { get; set; }
 
         public virtual AfdelingTable AfdelingTable { get; set; }
     }

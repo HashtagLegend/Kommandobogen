@@ -123,8 +123,8 @@ C:\Users\Jesper\source\repos\Kommandobogen\DatabaseConnector\bin\Microsoft.AI.De
 C:\Users\Jesper\source\repos\Kommandobogen\DatabaseConnector\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Jesper\source\repos\Kommandobogen\DatabaseConnector\bin\Microsoft.AI.Web.xml
 C:\Users\Jesper\source\repos\Kommandobogen\DatabaseConnector\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Jesper\source\repos\Kommandobogen\DatabaseConnector\obj\Debug\DatabaseConnector.csprojAssemblyReference.cache
 C:\Users\Jesper\source\repos\Kommandobogen\DatabaseConnector\obj\Debug\DatabaseConnector.csproj.CoreCompileInputs.cache
 C:\Users\Jesper\source\repos\Kommandobogen\DatabaseConnector\obj\Debug\DatabaseConnector.csproj.CopyComplete
 C:\Users\Jesper\source\repos\Kommandobogen\DatabaseConnector\obj\Debug\DatabaseConnector.dll
 C:\Users\Jesper\source\repos\Kommandobogen\DatabaseConnector\obj\Debug\DatabaseConnector.pdb
-C:\Users\Jesper\source\repos\Kommandobogen\DatabaseConnector\obj\Debug\DatabaseConnector.csprojAssemblyReference.cache

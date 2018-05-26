@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KommandoBogApp.View;
+using System.Threading;
+using Windows.System.Threading;
+using KommandoBogApp.Persistency;
 
 namespace KommandoBogApp.Model
 {
@@ -21,7 +24,7 @@ namespace KommandoBogApp.Model
         [NonSerialized] public Afdeling Afd;
         public string Email { get; set; }
         [NonSerialized] public List<Activity> Activities;
-        [NonSerialized] public ObservableCollection<Activity> DaysWithActivities;
+        public ObservableCollection<Activity> DaysWithActivities { get; set; }
 
         public string Password { get; set; }
 
@@ -38,16 +41,24 @@ namespace KommandoBogApp.Model
 
             Activities = new List<Activity>();
             DaysWithActivities = new ObservableCollection<Activity>();
-            FillDaysWithActivities();
             Password = password;
     
         }
 
-        public void CreateActivity()
+        public void AddActivity(Activity activity)
         {
-
+            Activities.Add(activity);
+            ActivityPersistency.SaveActivity(activity);
         }
 
+        public void AddDatesToActivityInDB(Activity activity)
+        {
+            foreach (var dates in activity.Dates)
+            {
+                var date = new ActivityDate(activity.ID, dates);
+                DatesPersistency.SaveDates(date);
+            }
+        }
 
 
         public void EditActivity()
@@ -55,10 +66,11 @@ namespace KommandoBogApp.Model
 
         }
 
-        public void FillDaysWithActivities()
+        public async void FillDaysWithActivities()
         {
             for (int i = 1; i <= DateTime.DaysInMonth(HubTest.ShownMonth.Year,HubTest.ShownMonth.Month); i++)
             {
+                Task.Delay(10000);
                 DaysWithActivities.Add(null);
             }
         }

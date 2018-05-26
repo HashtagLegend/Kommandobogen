@@ -38,12 +38,13 @@ namespace KommandoBogApp.Singleton
 
         public void AddActivity(Activity activity)
         {
+            ActivityList.Add(activity);
+            ActivityPersistency.SaveActivity(activity);
             foreach (var dates in activity.Dates)
             {
-                var date = new ActivityDate(activity.id, dates);
+                var date = new ActivityDate(activity.ID, dates);
                 DatesPersistency.SaveDates(date);
             }
-            ActivityList.Add(activity);
         }
 
         public void RemoveActivity(Activity activity)

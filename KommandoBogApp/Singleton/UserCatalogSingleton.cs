@@ -114,15 +114,16 @@ namespace KommandoBogApp.Singleton
                                 activity.Initializelist();
                                 foreach (var dates in Dates)
                                 {
-                                    if (activity.id == dates.ActivityID)
+                                    if (activity.ID == dates.ActivityID)
                                     {
                                         Debug.WriteLine("DateTimeOffset" + dates.DatesTimeOffset);
-                                        activity.Dates.Add(dates.DatesTimeOffset);
+                                        activity.Dates.Add(DateTimeOffset.Parse(dates.DatesTimeOffset));
                                     }
                                 }
                                 user.Activities.Add(activity);
                             }
                         }
+                        Activity.id++;
                     }
                 }
                 HasLoadFromDBRunActivity++;

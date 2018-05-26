@@ -17,16 +17,16 @@ namespace DatabaseConnector.Controllers
         private DBContext db = new DBContext();
 
         // GET: api/AfdelingTables
-        public IQueryable<AfdelingTable> GetAfdelingTables()
+        public IQueryable<AfdelingTable> GetAfdelingTable()
         {
-            return db.AfdelingTables;
+            return db.AfdelingTable;
         }
 
         // GET: api/AfdelingTables/5
         [ResponseType(typeof(AfdelingTable))]
         public IHttpActionResult GetAfdelingTable(string id)
         {
-            AfdelingTable afdelingTable = db.AfdelingTables.Find(id);
+            AfdelingTable afdelingTable = db.AfdelingTable.Find(id);
             if (afdelingTable == null)
             {
                 return NotFound();
@@ -79,7 +79,7 @@ namespace DatabaseConnector.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.AfdelingTables.Add(afdelingTable);
+            db.AfdelingTable.Add(afdelingTable);
 
             try
             {
@@ -104,13 +104,13 @@ namespace DatabaseConnector.Controllers
         [ResponseType(typeof(AfdelingTable))]
         public IHttpActionResult DeleteAfdelingTable(string id)
         {
-            AfdelingTable afdelingTable = db.AfdelingTables.Find(id);
+            AfdelingTable afdelingTable = db.AfdelingTable.Find(id);
             if (afdelingTable == null)
             {
                 return NotFound();
             }
 
-            db.AfdelingTables.Remove(afdelingTable);
+            db.AfdelingTable.Remove(afdelingTable);
             db.SaveChanges();
 
             return Ok(afdelingTable);
@@ -127,7 +127,7 @@ namespace DatabaseConnector.Controllers
 
         private bool AfdelingTableExists(string id)
         {
-            return db.AfdelingTables.Count(e => e.Id == id) > 0;
+            return db.AfdelingTable.Count(e => e.Id == id) > 0;
         }
     }
 }

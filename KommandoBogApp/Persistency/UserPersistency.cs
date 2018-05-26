@@ -58,7 +58,6 @@ namespace KommandoBogApp.Persistency
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                     var responce = client.GetAsync("api/UserTables").Result;
-                    Debug.WriteLine(responce);
                     if (responce.IsSuccessStatusCode)
                     {
                         var users = responce.Content.ReadAsAsync<IEnumerable<User>>().Result;

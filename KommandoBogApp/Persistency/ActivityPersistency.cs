@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using KommandoBogApp.Handler;
 using KommandoBogApp.Model;
 using KommandoBogApp.Singleton;
+using Newtonsoft.Json;
 
 namespace KommandoBogApp.Persistency
 {
@@ -18,29 +19,29 @@ namespace KommandoBogApp.Persistency
 
 
 
-        public static async void SaveActivity(Activity activity)
-        {
-        const string Url = "http://localhost:55000";
-        HttpClientHandler handler = new HttpClientHandler();
-        handler.UseDefaultCredentials = true;
-
-
-        using (var client = new HttpClient(handler))
-        {
-            client.BaseAddress = new Uri(Url);
-            client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            try
+            public static async void SaveActivity(Activity activity)
             {
-                await client.PostAsJsonAsync("api/ActivityTables", activity);
+                const string Url = "http://localhost:55000";
+                HttpClientHandler handler = new HttpClientHandler();
+                handler.UseDefaultCredentials = true;
+
+
+                using (var client = new HttpClient(handler))
+                {
+                    client.BaseAddress = new Uri(Url);
+                    client.DefaultRequestHeaders.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            
+                    try
+                    {
+                        await client.PostAsJsonAsync("api/ActivityTables", activity);
+                    }
+                        catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex);
+                    }
+                }   
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-        }   
-    }
 
     public static async Task<List<Activity>> LoadActivities()
     {

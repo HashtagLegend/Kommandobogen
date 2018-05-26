@@ -17,16 +17,16 @@ namespace DBConnector.Controllers
         private DBContext db = new DBContext();
 
         // GET: api/DatesTables
-        public IQueryable<DatesTable> GetDatesTables()
+        public IQueryable<DatesTable> GetDatesTable()
         {
-            return db.DatesTables;
+            return db.DatesTable;
         }
 
         // GET: api/DatesTables/5
         [ResponseType(typeof(DatesTable))]
-        public IHttpActionResult GetDatesTable(int id)
+        public IHttpActionResult GetDatesTable(string id)
         {
-            DatesTable datesTable = db.DatesTables.Find(id);
+            DatesTable datesTable = db.DatesTable.Find(id);
             if (datesTable == null)
             {
                 return NotFound();
@@ -37,7 +37,7 @@ namespace DBConnector.Controllers
 
         // PUT: api/DatesTables/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutDatesTable(int id, DatesTable datesTable)
+        public IHttpActionResult PutDatesTable(string id, DatesTable datesTable)
         {
             if (!ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace DBConnector.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.DatesTables.Add(datesTable);
+            db.DatesTable.Add(datesTable);
 
             try
             {
@@ -102,15 +102,15 @@ namespace DBConnector.Controllers
 
         // DELETE: api/DatesTables/5
         [ResponseType(typeof(DatesTable))]
-        public IHttpActionResult DeleteDatesTable(int id)
+        public IHttpActionResult DeleteDatesTable(string id)
         {
-            DatesTable datesTable = db.DatesTables.Find(id);
+            DatesTable datesTable = db.DatesTable.Find(id);
             if (datesTable == null)
             {
                 return NotFound();
             }
 
-            db.DatesTables.Remove(datesTable);
+            db.DatesTable.Remove(datesTable);
             db.SaveChanges();
 
             return Ok(datesTable);
@@ -125,9 +125,9 @@ namespace DBConnector.Controllers
             base.Dispose(disposing);
         }
 
-        private bool DatesTableExists(int id)
+        private bool DatesTableExists(string id)
         {
-            return db.DatesTables.Count(e => e.Id == id) > 0;
+            return db.DatesTable.Count(e => e.Id == id) > 0;
         }
     }
 }

@@ -9,22 +9,23 @@ using KommandoBogApp.Handler;
 
 namespace KommandoBogApp.Model
 {
+    [Serializable]
     public class Activity
     {
         
         public string Kommentar { get; set; }
         public string Navn { get; set; }
-        public ActivityHandler.Color color { get; set; }
+        [NonSerialized] public ActivityHandler.Color color;
         public string Color { get; set; }
-        public Color _color { get; set; }
-        public List<DateTimeOffset> Dates { get; set; }
-        public static int ID { get; set; }
+        [NonSerialized] public Color _color;
+        [NonSerialized] public List<DateTimeOffset> Dates;
+        [NonSerialized] public static int id = 0;
         public string MaNummer { get; set; }
-        public int id { get; set; }
-        public int Hour { get; set; }
-        public string DatesFromAndTo { get; set; }
-        public TimeSpan TimeStart { get; set; }
-        public TimeSpan TimeEnd { get; set; }
+        public string ID { get; set; }
+        [NonSerialized] public int Hour;
+        [NonSerialized] public string DatesFromAndTo;
+        public string TimeStart { get; set; }
+        public string TimeEnd { get; set; }
      
         public ActivityType ActivityTypeName { get; set; }
 
@@ -34,9 +35,10 @@ namespace KommandoBogApp.Model
             Navn = navn;
             color = _color;
             Dates = dates;
-            id = ID;
-            ID++;
+            ID = id.ToString();
+            id++;
             ColorString();
+            Color = color.ToString();
         }
 
         public string ColorString()
@@ -64,36 +66,55 @@ namespace KommandoBogApp.Model
 
         public void ToStringDate()
         {
-            DateTimeOffset HighestDate = Dates.First();
-            DateTimeOffset LowestDate = Dates.First();
-            if (Dates.Count == 1)
+            if (Dates.Count != 0)
             {
-
-                HighestDate = new DateTimeOffset(DateTime.SpecifyKind(new DateTime(Dates[0].Year, Dates[0].Month, Dates[0].Day, TimeEnd.Hours, TimeEnd.Minutes, TimeEnd.Seconds), DateTimeKind.Utc));
-                LowestDate = new DateTimeOffset(DateTime.SpecifyKind(new DateTime(Dates[0].Year, Dates[0].Month, Dates[0].Day, TimeStart.Hours, TimeStart.Minutes, TimeStart.Seconds), DateTimeKind.Utc));
-            }
-            if (Dates.Count >= 2)
-            {
-                foreach (var VARIABLE in Dates)
+                DateTimeOffset HighestDate = Dates.First();
+                DateTimeOffset LowestDate = Dates.First();
+                if (Dates.Count == 1)
                 {
-                    if (VARIABLE >= HighestDate)
+                    var NewTimeEnd = TimeSpan.Parse(TimeEnd);
+                    var NewTimeStart = TimeSpan.Parse(TimeStart);
+                    HighestDate = new DateTimeOffset(DateTime.SpecifyKind(
+                        new DateTime(Dates[0].Year, Dates[0].Month, Dates[0].Day, NewTimeEnd.Hours, NewTimeEnd.Minutes,
+                            NewTimeEnd.Seconds), DateTimeKind.Utc));
+                    LowestDate = new DateTimeOffset(DateTime.SpecifyKind(
+                        new DateTime(Dates[0].Year, Dates[0].Month, Dates[0].Day, NewTimeStart.Hours,
+                            NewTimeStart.Minutes, NewTimeStart.Seconds), DateTimeKind.Utc));
+                }
+                if (Dates.Count >= 2)
+                {
+                    foreach (var VARIABLE in Dates)
                     {
-                        HighestDate = VARIABLE;
-                    }
-                    if (VARIABLE <= LowestDate)
-                    {
-                        LowestDate = VARIABLE;
+                        if (VARIABLE >= HighestDate)
+                        {
+                            HighestDate = VARIABLE;
+                        }
+                        if (VARIABLE <= LowestDate)
+                        {
+                            LowestDate = VARIABLE;
+                        }
                     }
                 }
+                DatesFromAndTo =
+                    $"{LowestDate.Day} - {LowestDate.Month} - {LowestDate.Year} kl {LowestDate.TimeOfDay} Til {HighestDate.Day} - {HighestDate.Month} - {HighestDate.Year} kl {HighestDate.TimeOfDay}";
             }
-            DatesFromAndTo = $"{LowestDate.Day} - {LowestDate.Month} - {LowestDate.Year} kl {LowestDate.TimeOfDay} Til {HighestDate.Day} - {HighestDate.Month} - {HighestDate.Year} kl {HighestDate.TimeOfDay}";
         }
 
        
 
+        //public override string ToString()
+        //{
+        //    return $"{nameof(Kommentar)}: {Kommentar}, {nameof(Navn)}: {Navn}, {nameof(Color)}: {Color}";
+        //}
+
         public override string ToString()
         {
-            return $"{nameof(Kommentar)}: {Kommentar}, {nameof(Navn)}: {Navn}, {nameof(Color)}: {Color}";
+            return $"{nameof(Kommentar)}: {Kommentar}, {nameof(Navn)}: {Navn}, {nameof(Color)}: {Color}, {nameof(MaNummer)}: {MaNummer}, {nameof(ID)}: {ID}, {nameof(TimeStart)}: {TimeStart}, {nameof(TimeEnd)}: {TimeEnd}";
+        }
+
+        public string ToStringDatabase()
+        {
+            return $"{nameof(Kommentar)}: {Kommentar}, {nameof(Navn)}: {Navn}, {nameof(Color)}: {Color}, {nameof(MaNummer)}: {MaNummer}, {nameof(TimeStart)}: {TimeStart}, {nameof(TimeEnd)}: {TimeEnd}, {nameof(ID)}: {ID}";
         }
 
         #endregion

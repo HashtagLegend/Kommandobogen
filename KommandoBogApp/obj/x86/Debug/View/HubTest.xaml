@@ -38,14 +38,16 @@
         <Grid HorizontalAlignment="Left" Height="700" Margin="372,273,0,0" VerticalAlignment="Top" Width="1548" Background="#cccccc">
             <Button x:ConnectionId='1' Width="50" Height="50" Margin="1250,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"                      >
             </Button>
-            <TextBox x:ConnectionId='2' Name="MonthShownTextBox" Text="{Binding CurrentShownMonth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="50" Margin="1300,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"                                              />
-            <TextBox x:ConnectionId='3' Name="YearShownTextBox" Text="{Binding CurrentShownYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="50" Margin="1300,-100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"                                             />
-            <TextBlock x:ConnectionId='4' Name="MonthYearError" Width="350" Height="50" Margin="950,-100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Button x:ConnectionId='5' Width="50" Height="50" Margin="1400,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"                      >
+            <Button x:ConnectionId='2' Width="50" Height="50" Margin="1000,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"               >
+            </Button>
+            <TextBox x:ConnectionId='3' Name="MonthShownTextBox" Text="{Binding CurrentShownMonth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="50" Margin="1300,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"                                              />
+            <TextBox x:ConnectionId='4' Name="YearShownTextBox" Text="{Binding CurrentShownYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="50" Margin="1300,-100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"                                             />
+            <TextBlock x:ConnectionId='5' Name="MonthYearError" Width="350" Height="50" Margin="950,-100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Button x:ConnectionId='6' Width="50" Height="50" Margin="1400,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"                      >
             </Button>
             <ScrollViewer VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled">
                 <Grid>
-                    <GridView x:ConnectionId='6' Name="Users" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="150" Height="auto" ItemsSource="{Binding UserCatalogSingleton.UserList }" Margin="0,100,0,0" >
+                    <GridView x:ConnectionId='7' Name="Users" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="150" Height="auto" ItemsSource="{Binding UserCatalogSingleton.UserList }" Margin="0,100,0,0" >
                         <GridView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical" Width="150" Height="40">
@@ -57,7 +59,7 @@
                     <ScrollViewer VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Hidden" HorizontalScrollMode="Enabled" Width="1548" Margin="150,50,0,0">
 
                         <Grid>
-                            <GridView x:ConnectionId='7' x:Name="Days" Height="auto" Width="2300" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding DatesInMonth}" Margin="0,0,0,0">
+                            <GridView x:ConnectionId='8' x:Name="Days" Height="auto" Width="2300" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding DatesInMonth}" Margin="0,0,0,0">
                                 <GridView.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Height="40" Width="64" Orientation="Horizontal">
@@ -67,10 +69,10 @@
                                     </DataTemplate>
                                 </GridView.ItemTemplate>
                             </GridView>
-                            <ListView x:ConnectionId='8' x:Name="Activities" Height="auto" Width="2300" ItemsSource="{Binding UserCatalogSingleton.UserList}" Margin="-24,50,0,0">
+                            <ListView x:ConnectionId='9' x:Name="Activities" Height="auto" Width="2300" ItemsSource="{Binding UserCatalogSingleton.UserList}" Margin="-24,50,0,0"  >
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <GridView Name="GridViewUserActivities"  Height="50" Width="auto" ItemsSource="{Binding DaysWithActivities}" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled">
+                                        <GridView Name="GridViewUserActivities"  Height="50" Width="auto" ItemsSource="{Binding DaysWithActivities}" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled" >
                                             <GridView.ItemTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Height="50" Width="64" Orientation="Horizontal">

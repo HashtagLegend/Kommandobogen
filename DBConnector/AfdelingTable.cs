@@ -12,7 +12,7 @@ namespace DBConnector
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AfdelingTable()
         {
-            UserTables = new HashSet<UserTable>();
+            UserTable = new HashSet<UserTable>();
         }
 
         [StringLength(50)]
@@ -23,6 +23,6 @@ namespace DBConnector
         public string Navn { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserTable> UserTables { get; set; }
+        public virtual ICollection<UserTable> UserTable { get; set; }
     }
 }

@@ -57,13 +57,19 @@ namespace KommandoBogApp.Handler
         public void CreateActivity(Color color)
         {
             Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ColorOfActivity(color));
-            newActivity.TimeEnd = UseAfterTimeEnd;
-            newActivity.TimeStart = UseAfterTimeStart;
-            ActivityVM.ActivityList.AddActivity(newActivity);
+            newActivity.TimeStart = ActivityViewModel.TimeStart.ToString();
+            newActivity.TimeEnd = ActivityViewModel.TimeEnd.ToString();
+            newActivity.MaNummer = UserCatalogSingleton.Instance.LoginUser.MaNummer;
+            var NewTimeEnd = TimeSpan.Parse(newActivity.TimeEnd);
+            NewTimeEnd = UseAfterTimeEnd;
+            var NewTimeStart = TimeSpan.Parse(newActivity.TimeStart);
+            NewTimeStart  = UseAfterTimeStart;
+            UserCatalogSingleton.Instance.LoginUser.AddActivity(newActivity);
             ActivityViewModel.ViewKommentar = null;
             ActivityViewModel.ViewNavn = null;
             UseAfterTimeEnd.Subtract(UseAfterTimeEnd);
             UseAfterTimeStart.Subtract(UseAfterTimeStart);
+            UserCatalogSingleton.Instance.LoginUser.AddDatesToActivityInDB(newActivity);
         }
 
         public List<DateTimeOffset> CurrentDatesToActivity()

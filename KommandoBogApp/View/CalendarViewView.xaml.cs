@@ -67,17 +67,6 @@ namespace KommandoBogApp.View
             var stringdatesFri = new List<string>();
             var stringdatesFerie = new List<string>();
 
-            //foreach (var dates in ActivityViewModel.ActivityList.ActivityList)          
-            //{
-            //        foreach (var VARIABLE in dates.Dates)
-            //        {
-            //            if (VARIABLE.DateTime.Date == args.Item.Date.DateTime.Date)
-            //            {
-            //            currentActivities.Add(dates);
-            //            }
-            //        }
-            //}
-
             foreach (var activity in UserSingleton.LoginUser.Activities)
             {
                 foreach (var dates in activity.Dates)

@@ -28,9 +28,10 @@ namespace KommandoBogApp.Persistency
                     
                     try
                     {
-                        await client.PostAsJsonAsync("api/DatesTables", date);
+                        Debug.WriteLine(date);
                         Debug.WriteLine(client.PostAsJsonAsync("api/DatesTables", date).Result);
-                }
+                        await client.PostAsJsonAsync("api/DatesTables", date);
+                    }
                         catch (Exception ex)
                     {
                         Debug.WriteLine(ex);

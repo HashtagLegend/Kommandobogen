@@ -9,8 +9,14 @@ namespace DatabaseConnector
     [Table("ActivityTable")]
     public partial class ActivityTable
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ActivityTable()
+        {
+            DatesTable = new HashSet<DatesTable>();
+        }
+
+        [StringLength(50)]
+        public string ID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -24,9 +30,13 @@ namespace DatabaseConnector
         [StringLength(50)]
         public string MaNummer { get; set; }
 
-        public TimeSpan TimeStart { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string TimeStart { get; set; }
 
-        public TimeSpan TimeEnd { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string TimeEnd { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -34,6 +44,7 @@ namespace DatabaseConnector
 
         public virtual UserTable UserTable { get; set; }
 
-        public virtual DatesTable DatesTable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DatesTable> DatesTable { get; set; }
     }
 }

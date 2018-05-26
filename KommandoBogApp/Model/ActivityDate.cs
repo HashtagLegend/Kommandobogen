@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 namespace KommandoBogApp.Model
 {
+
     class ActivityDate
     {
-        public static int Id = 0;
-        public int ActivityID { get; set; }
-        public DateTimeOffset DatesTimeOffset { get; set; }
+        public static string Id { get; set; }
+        public string ActivityID { get; set; }
+        public string DatesTimeOffset { get; set; }
 
-        public ActivityDate(int activityId, DateTimeOffset date)
+        public ActivityDate(string activityId, DateTimeOffset date)
         {
             ActivityID = activityId;
-            DatesTimeOffset = date;
-            Id++;
+            DatesTimeOffset = date.ToString();
+            var id = int.Parse(Id);
+            id++;
+            Id = id.ToString();
         }
 
         public override string ToString()

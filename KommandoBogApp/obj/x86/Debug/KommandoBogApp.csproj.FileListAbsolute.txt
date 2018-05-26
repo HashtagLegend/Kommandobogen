@@ -267,3 +267,4 @@ C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Multiple
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Microsoft.Xaml.Interactions.pri.xml
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Microsoft.Xaml.Interactivity.pri.xml
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\KommandoBogApp.csprojAssemblyReference.cache

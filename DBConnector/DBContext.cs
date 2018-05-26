@@ -13,27 +13,21 @@ namespace DBConnector
             base.Configuration.ProxyCreationEnabled = false;
         }
 
-        public virtual DbSet<ActivityTable> ActivityTables { get; set; }
-        public virtual DbSet<AfdelingTable> AfdelingTables { get; set; }
-        public virtual DbSet<DatesTable> DatesTables { get; set; }
-        public virtual DbSet<UserTable> UserTables { get; set; }
+        public virtual DbSet<ActivityTable> ActivityTable { get; set; }
+        public virtual DbSet<AfdelingTable> AfdelingTable { get; set; }
+        public virtual DbSet<DatesTable> DatesTable { get; set; }
+        public virtual DbSet<UserTable> UserTable { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ActivityTable>()
-                .HasMany(e => e.DatesTables)
-                .WithRequired(e => e.ActivityTable)
-                .HasForeignKey(e => e.ActivityID)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<AfdelingTable>()
-                .HasMany(e => e.UserTables)
+                .HasMany(e => e.UserTable)
                 .WithRequired(e => e.AfdelingTable)
                 .HasForeignKey(e => e.AfdId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<UserTable>()
-                .HasMany(e => e.ActivityTables)
+                .HasMany(e => e.ActivityTable)
                 .WithRequired(e => e.UserTable)
                 .WillCascadeOnDelete(false);
         }
