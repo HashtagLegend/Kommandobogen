@@ -112,7 +112,7 @@
         <TextBox Text="Slut Tid" Margin="966,830,0,0" Width="100" Height="30" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TimePicker HorizontalAlignment="Left" Margin="966,870,0,0" VerticalAlignment="Top" Time="{Binding TimeEnd, Mode=TwoWay}" ClockIdentifier="24HourClock" />
         <TextBox Text="{Binding ActivityList.ActivityList.Count}" Margin="1680,920,0,0" Width="100" Height="30" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <ListView HorizontalAlignment="Left" Height="1080" VerticalAlignment="Top" Width="667" ItemsSource="{Binding CalendarOverviewSingleton.ActiveActivityList}" Margin="-5,0,0,0" >
+        <ListView x:ConnectionId='16' Name="ClickedDatesActivity" HorizontalAlignment="Left" Height="1080" VerticalAlignment="Top" Width="667" ItemsSource="{Binding CalendarOverviewSingleton.ActiveActivityList}" Margin="-5,0,0,0" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -127,7 +127,7 @@
         </ListView>
         <TextBox HorizontalAlignment="Left" Margin="676,920,0,0" TextWrapping="Wrap" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="131" PlaceholderText="Navn"/>
         <TextBox HorizontalAlignment="Left" Margin="820,920,0,0" TextWrapping="Wrap" Text="{Binding ViewKommentar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="131" PlaceholderText="Kommentar"/>
-        <Button x:ConnectionId='16' x:Name="CreateActivityButton" HorizontalAlignment="Left" Margin="1400,830,0,0" VerticalAlignment="Top" Height="32" Width="157" Background="#33FFFFFF" Flyout="{StaticResource CreateActivityFlyout}" Content="Opret Aktivitet">
+        <Button x:ConnectionId='17' x:Name="CreateActivityButton" HorizontalAlignment="Left" Margin="1400,830,0,0" VerticalAlignment="Top" Height="32" Width="157" Background="#33FFFFFF" Flyout="{StaticResource CreateActivityFlyout}" Content="Opret Aktivitet">
 
         </Button>
 

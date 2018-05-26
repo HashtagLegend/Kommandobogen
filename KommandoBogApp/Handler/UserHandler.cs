@@ -8,6 +8,7 @@ using Windows.Media.Streaming.Adaptive;
 using Windows.UI.Popups;
 using KommandoBogApp.Model;
 using KommandoBogApp.Persistency;
+using KommandoBogApp.Singleton;
 using KommandoBogApp.View;
 using KommandoBogApp.ViewModel;
 
@@ -77,8 +78,8 @@ namespace KommandoBogApp.Handler
                 if (credentials==user.MaNummer && user.Password==UserViewModel.LoginPassword)
                 {
                     UserVM.UserCatalogSingleton.LoginUser = user;
+                    Debug.WriteLine(UserVM.UserCatalogSingleton.LoginUser.ToString());
                     UserVM.UserCatalogSingleton.LoadActivitiesFromDB();
-                    Debug.WriteLine(UserVM.UserCatalogSingleton.LoginUser.Activities[0]);
                     return true;
                 }
             }

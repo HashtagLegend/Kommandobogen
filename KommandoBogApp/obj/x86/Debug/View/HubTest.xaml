@@ -13,6 +13,8 @@
     <Page.DataContext>
         <viewModel:UserViewModel/>
     </Page.DataContext>
+    
+    
 
     <Grid>
         <Grid HorizontalAlignment="Left" Height="166" VerticalAlignment="Top" Width="1920" BorderThickness="2" BorderBrush="Black">
@@ -43,7 +45,7 @@
             </Button>
             <ScrollViewer VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled">
                 <Grid>
-                    <GridView HorizontalAlignment="Left" VerticalAlignment="Top"  Width="150" Height="auto" ItemsSource="{Binding UserCatalogSingleton.UserList }" Margin="0,100,0,0" >
+                    <GridView x:ConnectionId='6' Name="Users" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="150" Height="auto" ItemsSource="{Binding UserCatalogSingleton.UserList }" Margin="0,100,0,0" >
                         <GridView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical" Width="150" Height="40">
@@ -55,7 +57,7 @@
                     <ScrollViewer VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Hidden" HorizontalScrollMode="Enabled" Width="1548" Margin="150,50,0,0">
 
                         <Grid>
-                            <GridView x:ConnectionId='6' x:Name="Days" Height="auto" Width="2300" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding DatesInMonth}" Margin="0,0,0,0">
+                            <GridView x:ConnectionId='7' x:Name="Days" Height="auto" Width="2300" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding DatesInMonth}" Margin="0,0,0,0">
                                 <GridView.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Height="40" Width="64" Orientation="Horizontal">
@@ -65,10 +67,10 @@
                                     </DataTemplate>
                                 </GridView.ItemTemplate>
                             </GridView>
-                            <ListView x:ConnectionId='7' x:Name="Activities" Height="auto" Width="2300" ItemsSource="{Binding UserCatalogSingleton.UserList}" Margin="-24,50,0,0">
+                            <ListView x:ConnectionId='8' x:Name="Activities" Height="auto" Width="2300" ItemsSource="{Binding UserCatalogSingleton.UserList}" Margin="-24,50,0,0">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <GridView Height="50" Width="auto" ItemsSource="{Binding DaysWithActivities}" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled">
+                                        <GridView Name="GridViewUserActivities"  Height="50" Width="auto" ItemsSource="{Binding DaysWithActivities}" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled">
                                             <GridView.ItemTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Height="50" Width="64" Orientation="Horizontal">

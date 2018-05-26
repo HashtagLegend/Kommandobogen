@@ -61,104 +61,102 @@ namespace KommandoBogApp.View
         public void CalendarView_CalendarViewDayItemChanging(CalendarView sender,
             CalendarViewDayItemChangingEventArgs args)
         {
-                var currentActivities = new List<Activity>();
-                var stringdatesVagt = new List<string>();
-                var stringdatesKursus = new List<string>();
-                var stringdatesFri = new List<string>();
-                var stringdatesFerie = new List<string>();
+            var currentActivities = new List<Activity>();
+            var stringdatesVagt = new List<string>();
+            var stringdatesKursus = new List<string>();
+            var stringdatesFri = new List<string>();
+            var stringdatesFerie = new List<string>();
 
-                foreach (var dates in ActivityViewModel.ActivityList.ActivityList)          
-                {
-                        foreach (var VARIABLE in dates.Dates)
-                        {
-                            if (VARIABLE.DateTime.Date == args.Item.Date.DateTime.Date)
-                            {
-                            currentActivities.Add(dates);
-                            }
-                        }
-                }
-            foreach (var user in UserSingleton.UserList)
+            //foreach (var dates in ActivityViewModel.ActivityList.ActivityList)          
+            //{
+            //        foreach (var VARIABLE in dates.Dates)
+            //        {
+            //            if (VARIABLE.DateTime.Date == args.Item.Date.DateTime.Date)
+            //            {
+            //            currentActivities.Add(dates);
+            //            }
+            //        }
+            //}
+
+            foreach (var activity in UserSingleton.LoginUser.Activities)
             {
-                foreach (var activity in user.Activities)
+                foreach (var dates in activity.Dates)
                 {
-                    foreach (var dates in activity.Dates)
+                    if (dates.DateTime.Date == args.Item.Date.DateTime.Date)
                     {
-                        if (dates.DateTime.Date == args.Item.Date.DateTime.Date)
-                        {
-                            currentActivities.Add(activity);
-                        }
+                        currentActivities.Add(activity);
                     }
                 }
-                
             }
+
 
             var CalendarTime = args.Item.Date.DateTime.ToString("yyyy-MM-dd");
 
-                foreach (var VARIABLE in currentActivities)
+            foreach (var VARIABLE in currentActivities)
+            {
+                foreach (var Dates in VARIABLE.Dates)
                 {
-                    foreach (var Dates in VARIABLE.Dates)
+                    ActivityHandler.Color c = VARIABLE.color;
+                    switch (c)
                     {
-                        ActivityHandler.Color c = VARIABLE.color;
-                        switch (c)
-                        {
-                            case ActivityHandler.Color.Blue:
-                                stringdatesVagt.Add(Dates.DateTime.ToString("yyyy-MM-dd"));
-                                break;
+                        case ActivityHandler.Color.Blue:
+                            stringdatesVagt.Add(Dates.DateTime.ToString("yyyy-MM-dd"));
+                            break;
 
-                            case ActivityHandler.Color.DarkGreen:
-                                stringdatesKursus.Add(Dates.DateTime.ToString("yyyy-MM-dd"));
-                                break;
+                        case ActivityHandler.Color.DarkGreen:
+                            stringdatesKursus.Add(Dates.DateTime.ToString("yyyy-MM-dd"));
+                            break;
 
-                            case ActivityHandler.Color.Firebrick:
-                                stringdatesFri.Add(Dates.DateTime.ToString("yyyy-MM-dd"));
-                                break;
+                        case ActivityHandler.Color.Firebrick:
+                            stringdatesFri.Add(Dates.DateTime.ToString("yyyy-MM-dd"));
+                            break;
 
-                            case ActivityHandler.Color.Orange:
-                                stringdatesFerie.Add(Dates.DateTime.ToString("yyyy-MM-dd"));
-                                break;
-                        }
-                              
-                        
+                        case ActivityHandler.Color.Orange:
+                            stringdatesFerie.Add(Dates.DateTime.ToString("yyyy-MM-dd"));
+                            break;
                     }
+
+
                 }
+            }
 
-                var densityColors = new List<Color>();
+            var densityColors = new List<Color>();
 
-                if (stringdatesVagt.Distinct().Contains(CalendarTime))
-                {
-                       Debug.WriteLine(CalendarTime);
-                       //args.Item.Background = new SolidColorBrush(Colors.Red);
-                       densityColors.Add(Colors.Blue);
-                       args.Item.SetDensityColors(densityColors);
-                      
-                }
+            if (stringdatesVagt.Distinct().Contains(CalendarTime))
+            {
+                Debug.WriteLine(CalendarTime);
+                //args.Item.Background = new SolidColorBrush(Colors.Red);
+                densityColors.Add(Colors.Blue);
+                args.Item.SetDensityColors(densityColors);
 
-                if (stringdatesKursus.Distinct().Contains(CalendarTime))
-                {
+            }
+
+            if (stringdatesKursus.Distinct().Contains(CalendarTime))
+            {
                 Debug.WriteLine(CalendarTime);
                 //args.Item.Background = new SolidColorBrush(Colors.Red);
                 densityColors.Add(Colors.DarkGreen);
                 args.Item.SetDensityColors(densityColors);
 
-                }
+            }
 
-                if (stringdatesFri.Distinct().Contains(CalendarTime))
-                {
+            if (stringdatesFri.Distinct().Contains(CalendarTime))
+            {
                 Debug.WriteLine(CalendarTime);
                 //args.Item.Background = new SolidColorBrush(Colors.Red);
                 densityColors.Add(Colors.Firebrick);
                 args.Item.SetDensityColors(densityColors);
 
-                }
+            }
 
-                 if (stringdatesFerie.Distinct().Contains(CalendarTime))
-                 {
+            if (stringdatesFerie.Distinct().Contains(CalendarTime))
+            {
                 Debug.WriteLine(CalendarTime);
                 //args.Item.Background = new SolidColorBrush(Colors.Red);
                 densityColors.Add(Colors.Orange);
                 args.Item.SetDensityColors(densityColors);
 
-                 }
+            }
 
         }
 

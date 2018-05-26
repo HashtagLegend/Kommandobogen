@@ -112,7 +112,7 @@
         <TextBox Text="Slut Tid" Margin="966,830,0,0" Width="100" Height="30" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TimePicker HorizontalAlignment="Left" Margin="966,870,0,0" VerticalAlignment="Top" Time="{Binding TimeEnd, Mode=TwoWay}" ClockIdentifier="24HourClock" />
         <TextBox Text="{Binding ActivityList.ActivityList.Count}" Margin="1680,920,0,0" Width="100" Height="30" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <ListView HorizontalAlignment="Left" Height="1080" VerticalAlignment="Top" Width="667" ItemsSource="{Binding CalendarOverviewSingleton.ActiveActivityList}" Margin="-5,0,0,0" >
+        <ListView Name="ClickedDatesActivity" HorizontalAlignment="Left" Height="1080" VerticalAlignment="Top" Width="667" ItemsSource="{Binding CalendarOverviewSingleton.ActiveActivityList}" Margin="-5,0,0,0" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

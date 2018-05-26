@@ -126,7 +126,8 @@ namespace KommandoBogApp.Handler
         public void ShowFilteredList()
         {
             ActivityVM.CalendarOverviewSingleton.ActiveActivityList.Clear();
-            foreach (var Activity in ActivityVM.ActivityList.ActivityList)
+
+            foreach (var Activity in UserCatalogSingleton.Instance.LoginUser.Activities)
             {
                 foreach (var VARIABLE in CalendarViewSelectedDates)
                 {

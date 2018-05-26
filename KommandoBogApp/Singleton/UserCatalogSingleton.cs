@@ -42,6 +42,7 @@ namespace KommandoBogApp.Singleton
             UserTypeList.Add("Regular");
             UserTypeList.Add("Leader");
             UserTypeList.Add("Admin");
+            AddUser(new User("123", "test", "test", "test", "test", "test"));
 
             LoadUsers();
 
@@ -96,7 +97,7 @@ namespace KommandoBogApp.Singleton
                         Debug.WriteLine("REEE1");
                         foreach (var user in UserList)
                         {
-                            activity.MaNummer = UserHandler.UserVM.UserCatalogSingleton.LoginUser.MaNummer;
+                            
                             Debug.WriteLine("REEE2");
                             if (user.MaNummer == activity.MaNummer)
                             {

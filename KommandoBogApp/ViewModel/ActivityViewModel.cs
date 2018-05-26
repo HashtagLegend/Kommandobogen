@@ -46,7 +46,7 @@ namespace KommandoBogApp.ViewModel
 
         }
 
-public void CreateActivity(ActivityHandler.Color color)
+        public void CreateActivity(ActivityHandler.Color color)
         {
             Handler.CreateActivity(color);
         }

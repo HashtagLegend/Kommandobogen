@@ -1,3 +1,9 @@
+C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\System.IO.Compression.dll
+C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\VBCSCompiler.exe
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\ApplicationInsights.config
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\DBConnector.dll.config
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\DBConnector.dll
@@ -9,13 +15,9 @@ C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\csi.exe
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\csi.exe.config
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\csi.rsp
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.VisualBasic.Core.targets
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\Microsoft.Win32.Primitives.dll
@@ -25,7 +27,6 @@ C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\System.Console
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\System.Diagnostics.Process.dll
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\System.IO.Compression.dll
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\System.IO.FileSystem.dll
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\System.IO.FileSystem.Primitives.dll
@@ -48,7 +49,6 @@ C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\System.Xml.XPa
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\vbc.exe
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\vbc.exe.config
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\vbc.rsp
-C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\VBCSCompiler.exe
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\Antlr3.Runtime.dll
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\EntityFramework.dll
@@ -123,7 +123,6 @@ C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\Microsoft.AI.Dependen
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\Microsoft.AI.Web.xml
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\obj\Debug\DBConnector.csprojAssemblyReference.cache
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\obj\Debug\DBConnector.csproj.CoreCompileInputs.cache
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\obj\Debug\DBConnector.csproj.CopyComplete
 C:\Users\Jesper\source\repos\Kommandobogen\DBConnector\obj\Debug\DBConnector.dll
