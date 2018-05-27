@@ -79,5 +79,30 @@ namespace KommandoBogApp.Persistency
             }
             return null;
         }
+
+        public static async void DeleteEventsAsync(User user)
+        {
+            const string ServerUrl = "http://localhost:55000";
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.UseDefaultCredentials = true;
+
+            using (var client = new HttpClient(handler))
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                try
+                {
+                    Debug.WriteLine(ServerUrl + "/api/UserTables/" + user.MaNummer);
+                    Debug.WriteLine(client.DeleteAsync("/api/UserTables/" + user.MaNummer).Result);
+                    await client.DeleteAsync("/api/UserTables/" + user.MaNummer);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+        }
     }
 }

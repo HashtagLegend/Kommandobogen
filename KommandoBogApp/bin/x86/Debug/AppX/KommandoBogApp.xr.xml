@@ -46,6 +46,7 @@
     <RootPropertyPathName Name="DaysWithActivities" />
     <RootPropertyPathName Name="DatesInMonth" />
     <RootPropertyPathName Name="color" />
+    <RootPropertyPathName Name="_color" />
     <RootPropertyPathName Name="CurrentShownYear" />
     <RootPropertyPathName Name="CurrentShownMonth" />
   </Roots.PropertyPathNames>

@@ -69,6 +69,13 @@ namespace KommandoBogApp.Handler
             ActivityViewModel.ViewNavn = null;
             UseAfterTimeEnd.Subtract(UseAfterTimeEnd);
             UseAfterTimeStart.Subtract(UseAfterTimeStart);
+            foreach (var user in UserCatalogSingleton.Instance.UserList)
+            {
+                if (user.MaNummer == UserCatalogSingleton.Instance.LoginUser.MaNummer)
+                {
+                    user.AddActivity(newActivity);
+                }
+            }
             await Task.Run(async () =>
             {
                 UserCatalogSingleton.Instance.LoginUser.AddActivity(newActivity);

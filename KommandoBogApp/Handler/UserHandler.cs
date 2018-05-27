@@ -60,6 +60,17 @@ namespace KommandoBogApp.Handler
 
         public void DeleteUser()
         {
+            int UserSpotInList = 0;
+            foreach (var user in UserVM.UserCatalogSingleton.UserList)
+            {
+                if (user == UserVM.SelectedUser)
+                {
+                    break;
+                }
+                UserSpotInList++;
+            }
+            Debug.WriteLine(UserSpotInList);
+            UserPersistency.DeleteEventsAsync(UserVM.SelectedUser);
             UserVM.UserCatalogSingleton.RemoveUser(UserVM.SelectedUser);
         }
 

@@ -67,7 +67,6 @@ namespace KommandoBogApp.Singleton
         public void RemoveUser(User user)
         {
             UserList.Remove(user);
-            user.Afd.AfdelingList.Remove(user);
         }
 
         public async void LoadUsers()

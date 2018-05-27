@@ -17,7 +17,7 @@ namespace KommandoBogApp.Model
         public string Navn { get; set; }
         [NonSerialized] public ActivityHandler.Color color;
         public string Color { get; set; }
-        [NonSerialized] public Color _color;
+        public Color _color { get; set; }
         [NonSerialized] public List<DateTimeOffset> Dates;
         [NonSerialized] public static int id = 0;
         public string MaNummer { get; set; }

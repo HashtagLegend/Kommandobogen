@@ -79,7 +79,7 @@
                                                         <GridView Height="auto" Width="auto" ItemsSource="{Binding Mode=OneWay}"  >
                                                             <TextBox Width="40">
                                                                 <TextBox.Background>
-                                                                    <SolidColorBrush Color="{Binding color}"/>
+                                                                    <SolidColorBrush Color="{Binding _color}"/>
                                                                 </TextBox.Background>
                                                             </TextBox>
                                                         </GridView>
