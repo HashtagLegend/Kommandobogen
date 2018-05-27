@@ -13,7 +13,7 @@ namespace KommandoBogApp.Model
         public string ActivityID { get; set; }
         public string DatesTimeOffset { get; set; }
 
-        public ActivityDate(string activityId, DateTimeOffset date)
+        public ActivityDate(string activityId, string date)
         {
             ActivityID = activityId;
             DatesTimeOffset = date.ToString();

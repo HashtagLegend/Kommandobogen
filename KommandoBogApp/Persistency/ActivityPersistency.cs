@@ -34,6 +34,7 @@ namespace KommandoBogApp.Persistency
             
                     try
                     {
+                        Debug.WriteLine("Activity " + activity.ID);
                         await client.PostAsJsonAsync("api/ActivityTables", activity);
                     }
                         catch (Exception ex)

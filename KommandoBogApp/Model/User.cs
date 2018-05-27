@@ -55,7 +55,7 @@ namespace KommandoBogApp.Model
         {
             foreach (var dates in activity.Dates)
             {
-                var date = new ActivityDate(activity.ID, dates);
+                var date = new ActivityDate(activity.ID, dates.ToString());
                 DatesPersistency.SaveDates(date);
             }
         }
@@ -70,7 +70,6 @@ namespace KommandoBogApp.Model
         {
             for (int i = 1; i <= DateTime.DaysInMonth(HubTest.ShownMonth.Year,HubTest.ShownMonth.Month); i++)
             {
-                Task.Delay(10000);
                 DaysWithActivities.Add(null);
             }
         }

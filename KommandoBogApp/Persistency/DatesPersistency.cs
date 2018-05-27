@@ -25,12 +25,10 @@ namespace KommandoBogApp.Persistency
                     client.BaseAddress = new Uri(Url);
                     client.DefaultRequestHeaders.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    
                     try
                     {
-                        Debug.WriteLine(date);
-                        Debug.WriteLine(client.PostAsJsonAsync("api/DatesTables", date).Result);
-                        await client.PostAsJsonAsync("api/DatesTables", date);
+                        await client.PostAsJsonAsync("api/DateTables", date);
+                        Debug.WriteLine(client.PostAsJsonAsync("api/DateTables", date).Result);
                     }
                         catch (Exception ex)
                     {
@@ -53,7 +51,7 @@ namespace KommandoBogApp.Persistency
                         client.DefaultRequestHeaders.Clear();
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                        var responce = client.GetAsync("api/DatesTables").Result;
+                        var responce = client.GetAsync("api/DateTables").Result;
                         Debug.WriteLine(responce);
                         if (responce.IsSuccessStatusCode)
                         {

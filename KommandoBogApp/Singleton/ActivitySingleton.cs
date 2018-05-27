@@ -42,7 +42,7 @@ namespace KommandoBogApp.Singleton
             ActivityPersistency.SaveActivity(activity);
             foreach (var dates in activity.Dates)
             {
-                var date = new ActivityDate(activity.ID, dates);
+                var date = new ActivityDate(activity.ID, dates.ToString());
                 DatesPersistency.SaveDates(date);
             }
         }

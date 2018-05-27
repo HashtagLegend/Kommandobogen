@@ -54,7 +54,7 @@ namespace KommandoBogApp.Handler
             }
         }
 
-        public void CreateActivity(Color color)
+        public async void CreateActivity(Color color)
         {
             Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ColorOfActivity(color));
             newActivity.TimeStart = ActivityViewModel.TimeStart.ToString();
@@ -64,12 +64,18 @@ namespace KommandoBogApp.Handler
             NewTimeEnd = UseAfterTimeEnd;
             var NewTimeStart = TimeSpan.Parse(newActivity.TimeStart);
             NewTimeStart  = UseAfterTimeStart;
-            UserCatalogSingleton.Instance.LoginUser.AddActivity(newActivity);
+            
             ActivityViewModel.ViewKommentar = null;
             ActivityViewModel.ViewNavn = null;
             UseAfterTimeEnd.Subtract(UseAfterTimeEnd);
             UseAfterTimeStart.Subtract(UseAfterTimeStart);
-            UserCatalogSingleton.Instance.LoginUser.AddDatesToActivityInDB(newActivity);
+            await Task.Run(async () =>
+            {
+                UserCatalogSingleton.Instance.LoginUser.AddActivity(newActivity);
+                await Task.Delay(TimeSpan.FromSeconds(10));
+                UserCatalogSingleton.Instance.LoginUser.AddDatesToActivityInDB(newActivity);
+                return newActivity;
+            });
         }
 
         public List<DateTimeOffset> CurrentDatesToActivity()
