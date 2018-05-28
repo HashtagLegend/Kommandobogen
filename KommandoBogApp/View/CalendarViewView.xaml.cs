@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -18,6 +19,7 @@ using KommandoBogApp.Handler;
 using KommandoBogApp.Model;
 using KommandoBogApp.Singleton;
 using KommandoBogApp.ViewModel;
+using Microsoft.Xaml.Interactions.Core;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -70,12 +72,18 @@ namespace KommandoBogApp.View
 
             foreach (var activity in UserSingleton.LoginUser.Activities)
             {
-                foreach (var dates in activity.Dates)
+                if (activity.Dates != null)
                 {
-                    if (dates.DateTime.Date == args.Item.Date.DateTime.Date)
+                    foreach (var dates in activity.Dates)
                     {
-                        currentActivities.Add(activity);
+
+                        if (dates.DateTime.Date == args.Item.Date.DateTime.Date)
+                        {
+                            currentActivities.Add(activity);
+                        }
+
                     }
+                    
                 }
             }
 
@@ -160,25 +168,50 @@ namespace KommandoBogApp.View
             CalendarView1.SelectionMode = CalendarViewSelectionMode.Single;
         }
 
-        private void Opret_OnClick(object sender, RoutedEventArgs e)
+        private async void Opret_OnClick(object sender, RoutedEventArgs e)
         {
-            
-            if (SetActivity.SelectionBoxItem.Equals("Ferie"))
+
+            if (SetActivity.SelectionBoxItem != null)
             {
-                ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Orange);
+                if (SetActivity.SelectionBoxItem.Equals("Ferie"))
+                {
+                    ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Orange);
+                }
+                else if (SetActivity.SelectionBoxItem.Equals("Vagt"))
+                {
+                    ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Blue);
+                }
+                else if (SetActivity.SelectionBoxItem.Equals("Kursus"))
+                {
+                    ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.DarkGreen);
+                }
+                else if (SetActivity.SelectionBoxItem.Equals("Fri"))
+                {
+                    ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Firebrick);
+                }
             }
-            else if (SetActivity.SelectionBoxItem.Equals("Vagt"))
+            await Task.Run(async () =>
             {
-                ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Blue);
-            }
-            else if (SetActivity.SelectionBoxItem.Equals("Kursus"))
+                await Task.Delay(TimeSpan.FromSeconds(1));
+                
+            });
+            this.Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
+        }
+
+        public void LeavingPage(object sender, RoutedEventArgs e)
+        {
+            ActivityHandler.CalendarViewSelectedDates.Clear();
+        }
+
+        public async void SelfDestruct(object sender, RoutedEventArgs e)
+        {
+            await Task.Run(async () =>
             {
-                ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.DarkGreen);
-            }
-            else if (SetActivity.SelectionBoxItem.Equals("Fri"))
-            {
-                ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Firebrick);
-            }
+                await Task.Delay(TimeSpan.FromSeconds(2));
+
+            });
+            ActivityHandler.CalendarViewSelectedDates.Clear();
+            this.Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
         }
     }
 }

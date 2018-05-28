@@ -69,58 +69,55 @@ namespace KommandoBogApp.Handler
             ActivityViewModel.ViewNavn = null;
             UseAfterTimeEnd.Subtract(UseAfterTimeEnd);
             UseAfterTimeStart.Subtract(UseAfterTimeStart);
-            foreach (var user in UserCatalogSingleton.Instance.UserList)
-            {
-                if (user.MaNummer == UserCatalogSingleton.Instance.LoginUser.MaNummer)
-                {
-                    user.AddActivity(newActivity);
-                }
-            }
             await Task.Run(async () =>
             {
-                UserCatalogSingleton.Instance.LoginUser.AddActivity(newActivity);
-                await Task.Delay(TimeSpan.FromSeconds(2));
+                await Task.Delay(TimeSpan.FromSeconds(1));
                 UserCatalogSingleton.Instance.LoginUser.AddDatesToActivityInDB(newActivity);
+                UserCatalogSingleton.Instance.LoginUser.AddActivity(newActivity);
                 return newActivity;
             });
         }
 
         public List<DateTimeOffset> CurrentDatesToActivity()
         {
-            UseAfterTimeStart = ActivityViewModel.TimeStart;
-            UseAfterTimeEnd = ActivityViewModel.TimeEnd;
-            var CurrentDatesToActivityList = new List<DateTimeOffset>();
-            if (CalendarViewSelectedDates.Count == 1)
+            if (CalendarViewSelectedDates != null)
             {
-                CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(new DateTime(CalendarViewSelectedDates[0].Year, CalendarViewSelectedDates[0].Month, CalendarViewSelectedDates[0].Day, ActivityViewModel.TimeStart.Hours,
-                        ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds), DateTimeKind.Utc)));
-            }
-
-            else if (CalendarViewSelectedDates != null)
-            {
-                foreach (var VARIABLE in CalendarViewSelectedDates)
+                UseAfterTimeStart = ActivityViewModel.TimeStart;
+                UseAfterTimeEnd = ActivityViewModel.TimeEnd;
+                var CurrentDatesToActivityList = new List<DateTimeOffset>();
+                if (CalendarViewSelectedDates.Count == 1)
                 {
-                    CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(
-                        new DateTime(VARIABLE.Year, VARIABLE.Month, VARIABLE.Day, ActivityViewModel.TimeStart.Hours,
-                            ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds), DateTimeKind.Utc)));
+                    CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(new DateTime(CalendarViewSelectedDates[0].Year, CalendarViewSelectedDates[0].Month, CalendarViewSelectedDates[0].Day, ActivityViewModel.TimeStart.Hours,
+                        ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds), DateTimeKind.Utc)));
                 }
 
-                var lasttime = CurrentDatesToActivityList[CurrentDatesToActivityList.Count - 1];
+                else if (CalendarViewSelectedDates.Count >= 2)
+                {
+                    foreach (var VARIABLE in CalendarViewSelectedDates)
+                    {
+                        CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(
+                            new DateTime(VARIABLE.Year, VARIABLE.Month, VARIABLE.Day, ActivityViewModel.TimeStart.Hours,
+                                ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds), DateTimeKind.Utc)));
+                    }
+                    var lasttime = CurrentDatesToActivityList[CurrentDatesToActivityList.Count - 1];
 
-                var lastSelectedtime = CalendarViewSelectedDates[CalendarViewSelectedDates.Count - 1];
+                    var lastSelectedtime = CalendarViewSelectedDates[CalendarViewSelectedDates.Count - 1];
 
-                CurrentDatesToActivityList.Remove(lasttime);
+                    CurrentDatesToActivityList.Remove(lasttime);
 
-                CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(
+                    CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(
                         new DateTime(lastSelectedtime.Year, lastSelectedtime.Month, lastSelectedtime.Day, ActivityViewModel.TimeEnd.Hours,
                             ActivityViewModel.TimeEnd.Minutes, ActivityViewModel.TimeEnd.Seconds), DateTimeKind.Utc)));
 
-            }
-            
+                }
 
-            ActivityViewModel.TimeStart.Subtract(ActivityViewModel.TimeStart);
-            ActivityViewModel.TimeEnd.Subtract(ActivityViewModel.TimeEnd);
-            return CurrentDatesToActivityList;
+
+                ActivityViewModel.TimeStart.Subtract(ActivityViewModel.TimeStart);
+                ActivityViewModel.TimeEnd.Subtract(ActivityViewModel.TimeEnd);
+                return CurrentDatesToActivityList;
+            }
+
+            return null;
         }
 
         public List<Activity> CycleThroughActivities(DateTime dateTime)
@@ -148,16 +145,18 @@ namespace KommandoBogApp.Handler
 
             foreach (var Activity in UserCatalogSingleton.Instance.LoginUser.Activities)
             {
-                foreach (var VARIABLE in CalendarViewSelectedDates)
+                foreach (var selectedDate in CalendarViewSelectedDates)
                 {
-                    foreach (var ActivityDates in Activity.Dates)
+                    if (Activity.Dates != null)
                     {
-                        if (ActivityDates.Date == VARIABLE.Date)
+                        foreach (var ActivityDates in Activity.Dates)
                         {
-                            ActivityVM.CalendarOverviewSingleton.ActiveActivityList.Add(Activity);
+                            if (ActivityDates.Date == selectedDate.Date)
+                            {
+                                ActivityVM.CalendarOverviewSingleton.ActiveActivityList.Add(Activity);
+                            }
                         }
                     }
-
                 }
                 Activity.ToStringDate();
             }

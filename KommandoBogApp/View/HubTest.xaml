@@ -58,18 +58,13 @@
                                             <GridView.ItemTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Height="50" Width="64" Orientation="Horizontal">
-                                                        <GridView Height="auto" Width="auto" ItemsSource="{Binding Mode=OneWay}"  >
-                                                            <TextBox Width="40">
+                                                        <GridView Height="auto" Width="auto" ItemsSource="{Binding Mode=OneWay}" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled" >
+                                                            <TextBox Width="40" >
                                                                 <TextBox.Background>
                                                                     <SolidColorBrush Color="{Binding _color}"/>
                                                                 </TextBox.Background>
                                                             </TextBox>
                                                         </GridView>
-                                                        <TextBox Text="{Binding DatesInMonth, Mode=OneWay}" IsReadOnly="True">
-                                                            <TextBox.Background>
-                                                                <SolidColorBrush Color="{Binding color}"/>
-                                                            </TextBox.Background>
-                                                        </TextBox>
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </GridView.ItemTemplate>
@@ -85,6 +80,8 @@
         
         <Grid x:Name="OverskriftBar" HorizontalAlignment="Stretch" Height="116" Margin="150,0,0,0" VerticalAlignment="Top" Width="Auto" Background="#FF323433">
             <RelativePanel HorizontalAlignment="Stretch" Height="116" VerticalAlignment="Top" Width="Auto">
+                <TextBlock Height="58" TextWrapping="Wrap"  Text="MaNummer:" Width="200" RelativePanel.AlignRightWithPanel="True" Foreground="#FFFDFBFB" Margin="-370,0,0,0"/>
+                <TextBlock Height="58" TextWrapping="Wrap" Text="Navn:" Width="200" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="MAFraloginTest" Foreground="#FFFBF7F7" Margin="-280,0,0,0"/>
                 <TextBlock x:Name="MAFraloginTest" Height="58" TextWrapping="Wrap"  Text="{Binding UserCatalogSingleton.LoginUser.MaNummer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" RelativePanel.AlignRightWithPanel="True" Foreground="#FFFDFBFB"/>
                 <TextBlock x:Name="NavnFraLoginTest" Height="58" TextWrapping="Wrap" Text="{Binding UserCatalogSingleton.LoginUser.Navn}" Width="200" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="MAFraloginTest" Foreground="#FFFBF7F7"/>
             </RelativePanel>

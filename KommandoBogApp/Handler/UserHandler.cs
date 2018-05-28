@@ -77,7 +77,7 @@ namespace KommandoBogApp.Handler
                         }
                     }
                 }
-                await Task.Delay(TimeSpan.FromSeconds(2));
+                await Task.Delay(TimeSpan.FromSeconds(1));
             });
 
             await Task.Run(async () =>
@@ -90,7 +90,7 @@ namespace KommandoBogApp.Handler
                     }
                     UserSpotInList++;
                 }
-                await Task.Delay(TimeSpan.FromSeconds(2));
+                await Task.Delay(TimeSpan.FromSeconds(1));
             });
             
             Debug.WriteLine(UserSpotInList);
@@ -108,17 +108,24 @@ namespace KommandoBogApp.Handler
 
         public bool CheckCredentials(string credentials)
         {
-            foreach (User user in UserVM.UserCatalogSingleton.UserList)
+            if (UserCatalogSingleton.Instance.UserList == null)
             {
-                if (credentials==user.MaNummer && user.Password==UserViewModel.LoginPassword)
+                Login.LoadFromDBGoneWrong = "Somethings not right, and its probably your authentication that is broken";
+            }
+            else
+            {
+                foreach (User user in UserVM.UserCatalogSingleton.UserList)
                 {
-                    UserVM.UserCatalogSingleton.LoginUser = user;
-                    Debug.WriteLine(UserVM.UserCatalogSingleton.LoginUser.ToString());
-                    UserVM.UserCatalogSingleton.LoadActivitiesFromDB();
-                    return true;
+                    if (credentials == user.MaNummer && user.Password == UserViewModel.LoginPassword)
+                    {
+                        UserVM.UserCatalogSingleton.LoginUser = user;
+                        Debug.WriteLine(UserVM.UserCatalogSingleton.LoginUser.ToString());
+                        UserVM.UserCatalogSingleton.LoadActivitiesFromDB();
+                        return true;
+                    }
+                    Login.LoadFromDBGoneWrong = "Wrong Username or Password";
                 }
             }
-
             return false;
         }
 

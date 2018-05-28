@@ -34,6 +34,7 @@ namespace KommandoBogApp.Persistency
             
                     try
                     {
+                        Debug.WriteLine(activity);
                         Debug.WriteLine("Activity " + client.PostAsJsonAsync("api/ActivityTables", activity).Result);
                         await client.PostAsJsonAsync("api/ActivityTables", activity);
                     }

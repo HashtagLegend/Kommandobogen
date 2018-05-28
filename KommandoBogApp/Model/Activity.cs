@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
 using KommandoBogApp.Handler;
+using KommandoBogApp.Persistency;
+using KommandoBogApp.Singleton;
 
 namespace KommandoBogApp.Model
 {
@@ -59,6 +61,20 @@ namespace KommandoBogApp.Model
             return null;
         }
 
+        public async void SelfDestruct()
+        {
+            await Task.Run(async () =>
+            {
+                foreach (var date in DatesID)
+                {
+                     DatesPersistency.DeleteDateAsync(date);
+                }
+                await Task.Delay(TimeSpan.FromSeconds(1));
+                ActivityPersistency.DeleteActivityAsync(this);
+                UserCatalogSingleton.Instance.LoginUser.Activities.Remove(this);
+            });
+        }
+
         public void Initializelist()
         {
             Dates = new List<DateTimeOffset>();
@@ -68,9 +84,11 @@ namespace KommandoBogApp.Model
 
         public void ToStringDate()
         {
-            if (Dates.Count != 0)
+            if (Dates != null)
             {
-                DateTimeOffset HighestDate = Dates.First();
+                if (Dates.Count >= 1)
+                {
+                    DateTimeOffset HighestDate = Dates.First();
                 DateTimeOffset LowestDate = Dates.First();
                 if (Dates.Count == 1)
                 {
@@ -99,6 +117,8 @@ namespace KommandoBogApp.Model
                 }
                 DatesFromAndTo =
                     $"{LowestDate.Day} - {LowestDate.Month} - {LowestDate.Year} kl {LowestDate.TimeOfDay} Til {HighestDate.Day} - {HighestDate.Month} - {HighestDate.Year} kl {HighestDate.TimeOfDay}";
+                }
+                
             }
         }
 

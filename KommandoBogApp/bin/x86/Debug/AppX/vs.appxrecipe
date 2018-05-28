@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>ROVSNEGLEN</Machine>
+    <Machine>JESPER-PC</Machine>
     <WindowsUser>Jesper</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>A0675F5D384CCDC8AB87189BEE0996093C515D064BC6DBFCB581A3A93F28106D</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>C920270B60A45E7E7997B6A3E5C7432BDD9197DDB2032A2A843B7588B1B57A71</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>30353258-13db-4308-941b-e9168a759c00_1.0.0.0_x86__t66pgecwyvnzw</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>30353258-13db-4308-941b-e9168a759c00_t66pgecwyvnzw!App</RegisteredUserModeAppID>
     <RegisteredPackageID>30353258-13db-4308-941b-e9168a759c00</RegisteredPackageID>
@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-28T15:31:13.140</Modified>
+      <Modified>2018-05-28T22:57:44.256</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\KommandoBogApp.exe">
       <PackagePath>entrypoint\KommandoBogApp.exe</PackagePath>
-      <Modified>2018-05-28T15:31:12.251</Modified>
+      <Modified>2018-05-28T22:57:43.879</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\microsoft.aspnet.webapi.client\5.2.6\lib\portable-wp8+netcore45+net45+wp81+wpa81\System.Net.Http.Formatting.dll">
       <PackagePath>System.Net.Http.Formatting.dll</PackagePath>
@@ -359,7 +359,7 @@
       <PackagePath>System.Net.WebSockets.dll</PackagePath>
       <Modified>2016-06-11T21:14:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.net.websockets.client\4.0.2\runtimes\win\lib\netcore50\System.Net.WebSockets.Client.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.net.websockets.client\4.0.2\runtimes\win\lib\netcore50\System.Net.WebSockets.Client.dll">
       <PackagePath>System.Net.WebSockets.Client.dll</PackagePath>
       <Modified>2017-11-20T13:34:00.000</Modified>
     </AppxPackagedFile>
@@ -379,7 +379,7 @@
       <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
       <Modified>2017-02-09T12:26:02.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.private.servicemodel\4.1.1\runtimes\win7\lib\netcore50\System.Private.ServiceModel.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.private.servicemodel\4.1.1\runtimes\win7\lib\netcore50\System.Private.ServiceModel.dll">
       <PackagePath>System.Private.ServiceModel.dll</PackagePath>
       <Modified>2017-12-12T23:31:12.000</Modified>
     </AppxPackagedFile>
@@ -475,23 +475,23 @@
       <PackagePath>System.Security.Principal.dll</PackagePath>
       <Modified>2016-06-11T21:14:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.servicemodel.duplex\4.0.2\lib\netcore50\System.ServiceModel.Duplex.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.duplex\4.0.2\lib\netcore50\System.ServiceModel.Duplex.dll">
       <PackagePath>System.ServiceModel.Duplex.dll</PackagePath>
       <Modified>2017-12-12T23:31:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.servicemodel.http\4.1.1\lib\netcore50\System.ServiceModel.Http.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.http\4.1.1\lib\netcore50\System.ServiceModel.Http.dll">
       <PackagePath>System.ServiceModel.Http.dll</PackagePath>
       <Modified>2017-12-12T23:31:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.servicemodel.nettcp\4.1.1\lib\netcore50\System.ServiceModel.NetTcp.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.nettcp\4.1.1\lib\netcore50\System.ServiceModel.NetTcp.dll">
       <PackagePath>System.ServiceModel.NetTcp.dll</PackagePath>
       <Modified>2017-12-12T23:31:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.servicemodel.primitives\4.1.1\lib\netcore50\System.ServiceModel.Primitives.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.primitives\4.1.1\lib\netcore50\System.ServiceModel.Primitives.dll">
       <PackagePath>System.ServiceModel.Primitives.dll</PackagePath>
       <Modified>2017-12-12T23:31:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.servicemodel.security\4.0.2\lib\netcore50\System.ServiceModel.Security.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.security\4.0.2\lib\netcore50\System.ServiceModel.Security.dll">
       <PackagePath>System.ServiceModel.Security.dll</PackagePath>
       <Modified>2017-12-12T23:31:22.000</Modified>
     </AppxPackagedFile>
@@ -541,126 +541,126 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\#Legends.png">
       <PackagePath>Assets\Pictures\#Legends.png</PackagePath>
-      <Modified>2018-05-28T11:57:00.783</Modified>
+      <Modified>2018-05-26T11:17:30.188</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\FMI.png">
       <PackagePath>Assets\Pictures\FMI.png</PackagePath>
-      <Modified>2018-05-28T11:57:00.793</Modified>
+      <Modified>2018-05-26T11:17:30.201</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Ny kampvogn.png">
       <PackagePath>Assets\Pictures\Ny kampvogn.png</PackagePath>
-      <Modified>2018-05-28T11:57:00.803</Modified>
+      <Modified>2018-05-26T11:17:30.216</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2018-04-23T10:46:18.516</Modified>
+      <Modified>2018-04-23T01:46:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-23T10:46:18.518</Modified>
+      <Modified>2018-04-23T01:46:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-23T10:46:18.520</Modified>
+      <Modified>2018-04-23T01:46:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-23T10:46:18.522</Modified>
+      <Modified>2018-04-23T01:46:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-23T10:46:18.523</Modified>
+      <Modified>2018-04-23T01:46:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-23T10:46:18.525</Modified>
+      <Modified>2018-04-23T01:46:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-23T10:46:18.527</Modified>
+      <Modified>2018-04-23T01:46:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\abasalon.jpg">
       <PackagePath>Assets\Pictures\abasalon.jpg</PackagePath>
-      <Modified>2018-05-28T11:57:00.808</Modified>
+      <Modified>2018-05-26T11:17:30.218</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Billede.jpg">
       <PackagePath>Assets\Pictures\Billede.jpg</PackagePath>
-      <Modified>2018-05-28T11:57:00.791</Modified>
+      <Modified>2018-05-26T11:17:30.196</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Fly.jpg">
       <PackagePath>Assets\Pictures\Fly.jpg</PackagePath>
-      <Modified>2018-05-28T11:57:00.796</Modified>
+      <Modified>2018-05-26T11:17:30.208</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Kampvogn 2.jpg">
       <PackagePath>Assets\Pictures\Kampvogn 2.jpg</PackagePath>
-      <Modified>2018-05-28T11:57:00.798</Modified>
+      <Modified>2018-05-26T11:17:30.210</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Kampvogn.jpg">
       <PackagePath>Assets\Pictures\Kampvogn.jpg</PackagePath>
-      <Modified>2018-05-28T11:57:00.800</Modified>
+      <Modified>2018-05-26T11:17:30.214</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2018-04-23T10:46:18.542</Modified>
+      <Modified>2018-04-23T01:46:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\KommandoBogApp.xr.xml">
       <PackagePath>KommandoBogApp.xr.xml</PackagePath>
-      <Modified>2018-05-28T15:31:11.631</Modified>
+      <Modified>2018-05-28T22:57:43.654</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-05-28T14:11:42.185</Modified>
+      <Modified>2018-05-28T18:30:47.935</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-05-28T14:11:42.433</Modified>
+      <Modified>2018-05-28T18:30:47.935</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\CalendarViewView.xbf">
       <PackagePath>View\CalendarViewView.xbf</PackagePath>
-      <Modified>2018-05-28T15:31:11.659</Modified>
+      <Modified>2018-05-28T22:57:43.675</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\CreateActivityView.xbf">
       <PackagePath>View\CreateActivityView.xbf</PackagePath>
-      <Modified>2018-05-28T14:11:42.537</Modified>
+      <Modified>2018-05-28T18:30:47.935</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\CreateUserView.xbf">
       <PackagePath>View\CreateUserView.xbf</PackagePath>
-      <Modified>2018-05-28T15:06:09.692</Modified>
+      <Modified>2018-05-28T19:28:22.469</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\FrontPage.xbf">
       <PackagePath>View\FrontPage.xbf</PackagePath>
-      <Modified>2018-05-28T14:11:42.559</Modified>
+      <Modified>2018-05-28T18:30:47.936</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\Login.xbf">
       <PackagePath>View\Login.xbf</PackagePath>
-      <Modified>2018-05-28T14:33:56.660</Modified>
+      <Modified>2018-05-28T19:05:17.904</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\HubTest.xbf">
       <PackagePath>View\HubTest.xbf</PackagePath>
-      <Modified>2018-05-28T15:16:15.920</Modified>
+      <Modified>2018-05-28T19:28:22.469</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\SkabelonUdenSplitview.xbf">
       <PackagePath>View\SkabelonUdenSplitview.xbf</PackagePath>
-      <Modified>2018-05-28T14:33:56.661</Modified>
+      <Modified>2018-05-28T18:30:47.936</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2018-05-07T19:24:27.728</Modified>
+      <Modified>2017-12-05T18:37:55.783</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-28T14:34:00.072</Modified>
+      <Modified>2018-05-28T18:30:49.457</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\Core\KommandoBogApp.exe">
       <PackagePath>KommandoBogApp.exe</PackagePath>
-      <Modified>2018-05-28T15:31:13.131</Modified>
+      <Modified>2018-05-28T22:57:44.252</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

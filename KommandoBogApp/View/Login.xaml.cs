@@ -30,6 +30,7 @@ namespace KommandoBogApp.View
     {
         public UserCatalogSingleton Singleton { get; set; }
         public UserViewModel VM { get; set; }
+        public static string LoadFromDBGoneWrong { get; set; }
         
         public Login()
         {
@@ -37,6 +38,7 @@ namespace KommandoBogApp.View
             VM = new UserViewModel();
             Singleton = UserCatalogSingleton.Instance;
             LoginButton.Click += LoginButton_Click;
+            LoadFromDBGoneWrong = " ";
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -45,16 +47,14 @@ namespace KommandoBogApp.View
             {
                 this.Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
             }
+            SomethingIsWrong.Text = LoadFromDBGoneWrong;
         }
 
         private void UIElement_OnKeyUp(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == VirtualKey.Enter)
             {
-                if (VM.UserHandler.CheckCredentials(UserViewModel.LoginString))
-                {
-                    this.Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
-                }
+                LoginButton_Click(sender, e);
             }
         }
     }
