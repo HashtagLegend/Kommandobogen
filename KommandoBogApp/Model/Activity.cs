@@ -23,7 +23,7 @@ namespace KommandoBogApp.Model
         public string MaNummer { get; set; }
         public string ID { get; set; }
         [NonSerialized] public int Hour;
-        [NonSerialized] public string DatesFromAndTo;
+        public string DatesFromAndTo { get; set; }
         public string TimeStart { get; set; }
         public string TimeEnd { get; set; }
         public List<int> DatesID { get; set; }

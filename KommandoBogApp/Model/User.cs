@@ -22,6 +22,7 @@ namespace KommandoBogApp.Model
         public string Navn { get; set; }
         public string Tlf { get; set; }
         public string Adresse { get; set; }
+        public string AfdNavn { get; set; }
         [NonSerialized] public Afdeling Afd;
         public string Email { get; set; }
         [NonSerialized] public List<Activity> Activities;

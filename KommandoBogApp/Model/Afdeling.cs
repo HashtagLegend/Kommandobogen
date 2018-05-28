@@ -28,7 +28,7 @@ namespace KommandoBogApp.Model
 
         public override string ToString()
         {
-            return $"{nameof(Navn)}{Navn}";
+            return $"{Navn}";
         }
     }
 }

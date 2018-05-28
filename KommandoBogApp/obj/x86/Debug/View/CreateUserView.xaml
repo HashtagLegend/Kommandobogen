@@ -14,20 +14,23 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBox x:ConnectionId='1' x:Name="MA_Nummer" HorizontalAlignment="Left" Margin="147,183,0,0" Text="{Binding ViewMaNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="41" Width="286" PlaceholderText="MA-nummer"/>
-        <TextBox x:ConnectionId='2' x:Name="Telefon_Nummer" HorizontalAlignment="Left" Margin="147,320,0,0" Text="{Binding ViewTlf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Tlf_nummer"/>
-        <TextBox x:ConnectionId='3' x:Name="Email" HorizontalAlignment="Left" Margin="147,531,0,0" Text="{Binding ViewEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Email"/>
-        <TextBox x:ConnectionId='4' x:Name="Navn" HorizontalAlignment="Left" Margin="147,254,0,0" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Navn"/>
-        <TextBox x:ConnectionId='5' x:Name="Adresse" HorizontalAlignment="Left" Margin="147,396,0,0" Text="{Binding ViewAdresse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Adresse"/>
+        <TextBox x:ConnectionId='1' x:Name="MA_Nummer" HorizontalAlignment="Left" Margin="160,183,0,0" Text="{Binding ViewMaNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="41" Width="286" PlaceholderText="MA-nummer"/>
+        <TextBox x:ConnectionId='2' x:Name="Navn" HorizontalAlignment="Left" Margin="160,254,0,0" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Navn"/>
+        <TextBox x:ConnectionId='3' x:Name="Telefon_Nummer" HorizontalAlignment="Left" Margin="160,320,0,0" Text="{Binding ViewTlf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Tlf_nummer"/>
+        <TextBox x:ConnectionId='4' x:Name="Adresse" HorizontalAlignment="Left" Margin="160,396,0,0" Text="{Binding ViewAdresse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Adresse"/>
+        <ComboBox PlaceholderText="Afdeling" HorizontalAlignment="Left" Height="40" Margin="160,433,0,0" VerticalAlignment="Top" Width="286" ItemsSource="{Binding UserCatalogSingleton.AfdelingList}" SelectedItem="{Binding Afdeling, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <PasswordBox x:ConnectionId='5' x:Name="PasswordBox" PlaceholderText="Password" HorizontalAlignment="Left" Height="53" Margin="160,473,0,0" VerticalAlignment="Top" Width="287" PasswordChar="*" Password="{Binding ViewPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:ConnectionId='6' x:Name="Email" HorizontalAlignment="Left" Margin="160,531,0,0" Text="{Binding ViewEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Email"/>
+        <ComboBox PlaceholderText="BrugerType" HorizontalAlignment="Left" Height="57" Margin="160,568,0,0" VerticalAlignment="Top" Width="285" SelectedItem="{Binding Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding UserCatalogSingleton.UserTypeList}"/>
         <TextBlock HorizontalAlignment="Left" Margin="147,54,0,0" Text="Opret Bruger " TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="287" FontSize="36" TextDecorations="Underline"/>
-        <ListView x:ConnectionId='6' x:Name="UserListView" HorizontalAlignment="Left" Height="706" Margin="684,183,0,0" VerticalAlignment="Top" Width="930" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding UserCatalogSingleton.UserList}">
+        <ListView x:ConnectionId='7' x:Name="UserListView" HorizontalAlignment="Left" Height="706" Margin="597,315,0,0" VerticalAlignment="Top" Width="930" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding UserCatalogSingleton.UserList}">
             <ListView.Resources>
                 <DataTemplate x:Key="DataTemplate1">
                     <Grid Height="50" Width="914">
                         <StackPanel HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="914" Orientation="Horizontal">
                             <TextBlock TextWrapping="Wrap" Text="{Binding MaNummer}" Width="109" FontFamily="Arial Black" FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
                             <TextBlock TextWrapping="Wrap" Text="{Binding Navn}" Width="156" FontFamily="Arial Black" FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Afd}" Width="90" FontFamily="Arial Black" FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
+                            <TextBlock TextWrapping="Wrap" Text="{Binding AfdNavn}" Width="90" FontFamily="Arial Black" FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
                             <TextBlock TextWrapping="Wrap" Text="{Binding Adresse}" Width="125" FontFamily="Arial Black" FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
                             <TextBlock TextWrapping="Wrap" Text="{Binding Email}" Width="204" FontFamily="Arial Black" FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
                             <TextBlock TextWrapping="Wrap" Text="{Binding Tlf}" Width="101" FontFamily="Arial Black"  FontSize="15" UseLayoutRounding="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0" />
@@ -40,11 +43,6 @@
                 <StaticResource ResourceKey="DataTemplate1"/>
             </ListView.ItemTemplate>
         </ListView>
-        <ComboBox HorizontalAlignment="Left" Height="40" Margin="148,433,0,0" VerticalAlignment="Top" Width="286" ItemsSource="{Binding UserCatalogSingleton.AfdelingList}" SelectedItem="{Binding Afdeling, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-
-        </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Height="57" Margin="148,568,0,0" VerticalAlignment="Top" Width="285" SelectedItem="{Binding Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding UserCatalogSingleton.UserTypeList}">
-        </ComboBox>
         <AppBarButton HorizontalAlignment="Left" Icon="Home" Label="Home" Margin="1695,109,0,0" VerticalAlignment="Top">
             <Custom:Interaction.Behaviors>
                 <Custom1:EventTriggerBehavior EventName="Click">
@@ -52,27 +50,74 @@
                 </Custom1:EventTriggerBehavior>
             </Custom:Interaction.Behaviors>
         </AppBarButton>
-        <Button x:ConnectionId='7' x:Name="CreateButton" Content="CreateUserCommand" HorizontalAlignment="Left" Margin="148,663,0,0" VerticalAlignment="Top" Command="{Binding CreateUserCommand}"/>
-        <Button x:ConnectionId='8' x:Name="DeleteButton" Content="DeleteUserCommand" HorizontalAlignment="Left" Margin="148,727,0,0" VerticalAlignment="Top" Command="{Binding DeleteUserCommand}"/>
-        <TextBox x:ConnectionId='9' x:Name="SearchBox" HorizontalAlignment="Left" Height="30" Margin="748,54,0,0" TextWrapping="Wrap" Text="{Binding ViewSearch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="124">
+        <Button x:ConnectionId='8' x:Name="CreateButton" Content="CreateUserCommand" HorizontalAlignment="Left" Margin="160,663,0,0" VerticalAlignment="Top" Command="{Binding CreateUserCommand}"/>
+        <Button x:ConnectionId='9' x:Name="DeleteButton" Content="DeleteUserCommand" HorizontalAlignment="Left" Margin="160,727,0,0" VerticalAlignment="Top" Command="{Binding DeleteUserCommand}"/>
+        <TextBox x:ConnectionId='10' x:Name="SearchBox" HorizontalAlignment="Left" Height="30" Margin="748,54,0,0" TextWrapping="Wrap" Text="{Binding ViewSearch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="124">
             <Custom:Interaction.Behaviors>
                 <Custom1:EventTriggerBehavior EventName="TextChanged"/>
             </Custom:Interaction.Behaviors>
         </TextBox>
-        <Grid HorizontalAlignment="Left" Height="55" Margin="684,123,0,0" VerticalAlignment="Top" Width="930">
-            <TextBox HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="MA-Nummer" VerticalAlignment="Top" Width="121" Background="#66707070" IsReadOnly="True"/>
-            <TextBox HorizontalAlignment="Left" Height="55" Margin="121,0,0,0" TextWrapping="Wrap" Text="Navn&#xD;&#xA;" VerticalAlignment="Top" Width="154" Background="#66707070" IsReadOnly="True"/>
-            <TextBox HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="Afdeling" VerticalAlignment="Top" Width="93" Background="#66707070" IsReadOnly="True" Margin="275,0,0,0"/>
-            <TextBox HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="125" Background="#66707070" IsReadOnly="True" Margin="368,0,0,0"/>
-            <TextBox HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="Brugertype" VerticalAlignment="Top" Width="135" Background="#66707070" IsReadOnly="True" Margin="795,0,0,0"/>
-            <TextBox HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="Email-Adresse" VerticalAlignment="Top" Width="198" Background="#66707070" IsReadOnly="True" Margin="493,0,0,0"/>
-            <TextBox HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="Telefon NR" VerticalAlignment="Top" Width="104" Background="#66707070" IsReadOnly="True" Margin="691,0,0,0"/>
+
+        <Grid x:ConnectionId='11' x:Name="OversigtsBarTilList" HorizontalAlignment="Left" Height="55" Margin="597,259,0,0" VerticalAlignment="Top" Width="930">
+            <TextBox x:ConnectionId='32' x:Name="MA_NummerBlock" HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="MA-Nummer" VerticalAlignment="Top" Width="121" Background="#66707070" IsReadOnly="True"/>
+            <TextBox x:ConnectionId='33' x:Name="NavnBlock" HorizontalAlignment="Left" Height="55" Margin="121,0,0,0" TextWrapping="Wrap" Text="Navn&#xD;&#xA;" VerticalAlignment="Top" Width="154" Background="#66707070" IsReadOnly="True"/>
+            <TextBox x:ConnectionId='34' x:Name="AfdelingBlock" HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="Afdeling" VerticalAlignment="Top" Width="93" Background="#66707070" IsReadOnly="True" Margin="275,0,0,0"/>
+            <TextBox x:ConnectionId='35' x:Name="AdresseBlock" HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="125" Background="#66707070" IsReadOnly="True" Margin="368,0,0,0"/>
+            <TextBox x:ConnectionId='36' x:Name="Email_AdresseBlock" HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="Email-Adresse" VerticalAlignment="Top" Width="198" Background="#66707070" IsReadOnly="True" Margin="493,0,0,0"/>
+            <TextBox x:ConnectionId='37' x:Name="TelefonBlock" HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="Telefon NR" VerticalAlignment="Top" Width="104" Background="#66707070" IsReadOnly="True" Margin="691,0,0,0"/>
+            <TextBox x:ConnectionId='38' x:Name="BrugerTypeBlock" HorizontalAlignment="Left" Height="55" TextWrapping="Wrap" Text="Brugertype" VerticalAlignment="Top" Width="135" Background="#66707070" IsReadOnly="True" Margin="795,0,0,0"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="146" Margin="1695,224,0,0" VerticalAlignment="Top" Width="155">
-            <TextBlock HorizontalAlignment="Left" Height="32" Margin="1,30,0,0" TextWrapping="Wrap" Text="{Binding UserCatalogSingleton.LoginUser.Navn}" VerticalAlignment="Top" Width="144"/>
+        <Grid x:ConnectionId='12' x:Name="OverskriftBar" HorizontalAlignment="Stretch" Height="116" Margin="150,0,0,0" VerticalAlignment="Top" Width="Auto" Background="#FF323433">
+            <RelativePanel HorizontalAlignment="Stretch" Height="116" VerticalAlignment="Top" Width="Auto">
+                <TextBlock x:ConnectionId='30' x:Name="MAFraloginTest" Height="58" TextWrapping="Wrap"  Text="{Binding UserCatalogSingleton.LoginUser.MaNummer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" RelativePanel.AlignRightWithPanel="True" Foreground="#FFFDFBFB"/>
+                <TextBlock x:ConnectionId='31' x:Name="NavnFraLoginTest" Height="58" TextWrapping="Wrap" Text="{Binding UserCatalogSingleton.LoginUser.Navn}" Width="200" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="MAFraloginTest" Foreground="#FFFBF7F7"/>
+            </RelativePanel>
+            <TextBlock x:ConnectionId='29' x:Name="OverskriftBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" Text="Kommandobogen" Foreground="White" Height="86" Width="741" FontFamily="Perpetua Titling MT"/>
         </Grid>
-        <TextBlock HorizontalAlignment="Left" Height="20" Margin="1696,224,0,0" TextWrapping="Wrap" Text="{Binding UserCatalogSingleton.LoginUser.MaNummer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="154"/>
-        <PasswordBox x:ConnectionId='10' x:Name="PasswordBox" HorizontalAlignment="Left" Height="53" Margin="147,473,0,0" VerticalAlignment="Top" Width="287" PasswordChar="*" Password="{Binding ViewPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock x:ConnectionId='13' x:Name="SøgKnap" HorizontalAlignment="Left" Margin="597,182,0,0" TextWrapping="Wrap" Text="Søg" VerticalAlignment="Top" Height="23" Width="35"/>
+        <Grid x:ConnectionId='14' x:Name="MenuBar" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="150" Background="#FF767171">
+            <RelativePanel HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="150">
+                <TextBlock x:ConnectionId='17' x:Name="BrugerNavn" TextWrapping="Wrap" Text="  Bruger" Height="20" Width="150" RelativePanel.AlignTopWith=""/>
+                <AppBarButton x:ConnectionId='18' x:Name="HjemKnap" Label="Hjem" Width="150" Icon="Home" Height="65" RelativePanel.Below="BrugerNavn">
+                    <Custom:Interaction.Behaviors>
+                        <Custom1:EventTriggerBehavior EventName="Click">
+                            <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.CalendarViewView"/>
+                        </Custom1:EventTriggerBehavior>
+                    </Custom:Interaction.Behaviors>
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='19' x:Name="Arbejdstid" Label="Arbejdstid" Width="150" Icon="People" Height="65" RelativePanel.Below="HjemKnap"/>
+                <AppBarButton x:ConnectionId='20' x:Name="Overblik" Label="Overblik" Width="150" Icon="Calendar" Height="65" RelativePanel.Below="Arbejdstid">
+                    <Custom:Interaction.Behaviors>
+                        <Custom1:EventTriggerBehavior EventName="Click">
+                            <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.HubTest"/>
+                        </Custom1:EventTriggerBehavior>
+                    </Custom:Interaction.Behaviors>
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='21' x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik"/>
+                <TextBlock x:ConnectionId='22' x:Name="Leder" TextWrapping="Wrap" Text="  Leder" Height="20" Width="150" RelativePanel.Below="Hjælp"/>
+                <AppBarButton x:ConnectionId='23' x:Name="Merarbejde" Label="Merarbejde" Width="150" Height="65" Icon="Manage" RelativePanel.Below="Leder"/>
+                <AppBarButton x:ConnectionId='24' x:Name="Statistik" Label="Statistik" Width="150" Icon="List" Height="65" RelativePanel.Below="Merarbejde"/>
+                <TextBlock x:ConnectionId='25' x:Name="Admin" TextWrapping="Wrap" Height="20" Width="150" Text="  Admin" RelativePanel.Below="Statistik"/>
+                <AppBarButton x:ConnectionId='26' x:Name="Opret_bruger" Label="Opret Bruger" Width="150" Icon="AddFriend" Height="65" RelativePanel.Below="Admin">
+                    <Custom:Interaction.Behaviors>
+                        <Custom1:EventTriggerBehavior EventName="Click">
+                            <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.CreateUserView"/>
+                        </Custom1:EventTriggerBehavior>
+                    </Custom:Interaction.Behaviors>
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='27' x:Name="Rediger_bruger" Label="Rediger Bruger" Width="150" Icon="Edit" Height="65" RelativePanel.Below="Opret_bruger"/>
+                <AppBarButton x:ConnectionId='28' x:Name="Logout" Label="Log Out" Width="150" Icon="GoToStart" Height="65" RelativePanel.AlignBottomWithPanel="True">
+                    <Custom:Interaction.Behaviors>
+                        <Custom1:EventTriggerBehavior EventName="Click">
+                            <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.Login"/>
+                        </Custom1:EventTriggerBehavior>
+                    </Custom:Interaction.Behaviors>
+                </AppBarButton>
+            </RelativePanel>
+        </Grid>
+        <Grid x:ConnectionId='15' x:Name="NavigationBar" HorizontalAlignment="Stretch" Height="42" Margin="150,116,0,0" VerticalAlignment="Top" Width="Auto">
+            <TextBlock x:ConnectionId='16' x:Name="NavigationBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nuværende Side: Opret Bruger" VerticalAlignment="Top" Height="42" Width="1770" FontSize="24"/>
+        </Grid>
 
     </Grid>
 </Page>

@@ -41,8 +41,9 @@ namespace KommandoBogApp.View
             ActivitiySingleton = ActivitySingleton.Instance;
             ActivityViewModel = new ActivityViewModel();
             UserSingleton = UserCatalogSingleton.Instance;
-            CreateUserButton.Click += CreateUserButton_Click;
             Opret.Click += Opret_OnClick;
+            MAFraloginTest.Text = UserHandler.UserVM.UserCatalogSingleton.LoginUser.MaNummer;
+            NavnFraLoginTest.Text = UserHandler.UserVM.UserCatalogSingleton.LoginUser.Navn;
         }
 
         public static List<DateTimeOffset> DateSelected { get; set; }
@@ -157,34 +158,6 @@ namespace KommandoBogApp.View
         private void CalendarView1_OnKeyUp(object sender, KeyRoutedEventArgs e)
         {
             CalendarView1.SelectionMode = CalendarViewSelectionMode.Single;
-        }
-
-        public void FriButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Firebrick);
-        }
-
-        private void FerieButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Orange);
-        }
-
-        private void KursusButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.DarkGreen);
-        }
-
-        private void VagtButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Blue);
-        }
-
-        private void CreateUserButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (UserSingleton.LoginUser.UserType=="Admin")
-            {
-                this.Frame.Navigate(typeof(KommandoBogApp.View.CreateUserView));
-            }
         }
 
         private void Opret_OnClick(object sender, RoutedEventArgs e)

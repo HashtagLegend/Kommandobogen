@@ -13,37 +13,19 @@
     <Page.DataContext>
         <viewModel:UserViewModel/>
     </Page.DataContext>
-    
-    
+
+
 
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="166" VerticalAlignment="Top" Width="1920" BorderThickness="2" BorderBrush="Black">
-            <TextBlock HorizontalAlignment="Left" Margin="20,20,0,0" TextWrapping="Wrap" Text="KommandoBogen" VerticalAlignment="Top" FontSize="90"/>
-
-            <Grid HorizontalAlignment="Left" Height="166" Margin="1512,-2,0,0" VerticalAlignment="Top" Width="408" BorderThickness="2" BorderBrush="Black">
-
-            </Grid>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="914" Margin="0,166,0,0" VerticalAlignment="Top" Width="372" BorderThickness="2" BorderBrush="Black">
-            <Grid HorizontalAlignment="Left" Height="578" Margin="0,0,0,0" VerticalAlignment="Top" Width="372" BorderThickness="1" BorderBrush="Black"/>
-            <Grid HorizontalAlignment="Left" Height="202" Margin="0,578,0,0" VerticalAlignment="Top" Width="372" BorderThickness="1" BorderBrush="Black">
-
-            </Grid>
-            <Grid HorizontalAlignment="Left" Height="134" Margin="0,779,0,0" VerticalAlignment="Top" Width="372" BorderThickness="1" BorderBrush="Black">
-
-            </Grid>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="108" Margin="372,166,0,0" VerticalAlignment="Top" Width="1552" BorderThickness="2" BorderBrush="Black"/>
-
-        <Grid HorizontalAlignment="Left" Height="700" Margin="372,273,0,0" VerticalAlignment="Top" Width="1548" Background="#cccccc">
-            <Button Width="50" Height="50" Margin="1250,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="MonthMinusOne">
+               <Grid HorizontalAlignment="Left" Height="700" Margin="191,250,0,0" VerticalAlignment="Top" Width="1700" Background="#cccccc" BorderBrush="Black" BorderThickness="2">
+            <Button Padding="-2,-25,0,0" Content="←" FontSize="60" Width="50" Height="50" Margin="1250,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="MonthMinusOne">
             </Button>
-            <Button Width="50" Height="50" Margin="1000,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="iOneUp">
+            <Button Width="100" Content="Update" Height="50" Margin="1000,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="iOneUp">
             </Button>
             <TextBox Name="MonthShownTextBox" Text="{Binding CurrentShownMonth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="50" Margin="1300,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="MonthShownTextBox_OnTextChanged"/>
             <TextBox Name="YearShownTextBox" Text="{Binding CurrentShownYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="50" Margin="1300,-100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="YearShownTextBox_OnTextChanged"/>
             <TextBlock Name="MonthYearError" Width="350" Height="50" Margin="950,-100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Button Width="50" Height="50" Margin="1400,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="MonthPlusOne" >
+            <Button Padding="-5,-25,0,0" Content="→" FontSize="60" Width="50" Height="50" Margin="1400,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="MonthPlusOne" >
             </Button>
             <ScrollViewer VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled">
                 <Grid>
@@ -100,6 +82,58 @@
                 </Grid>
             </ScrollViewer>
         </Grid>
+        
+        <Grid x:Name="OverskriftBar" HorizontalAlignment="Stretch" Height="116" Margin="150,0,0,0" VerticalAlignment="Top" Width="Auto" Background="#FF323433">
+            <RelativePanel HorizontalAlignment="Stretch" Height="116" VerticalAlignment="Top" Width="Auto">
+                <TextBlock x:Name="MAFraloginTest" Height="58" TextWrapping="Wrap"  Text="{Binding UserCatalogSingleton.LoginUser.MaNummer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" RelativePanel.AlignRightWithPanel="True" Foreground="#FFFDFBFB"/>
+                <TextBlock x:Name="NavnFraLoginTest" Height="58" TextWrapping="Wrap" Text="{Binding UserCatalogSingleton.LoginUser.Navn}" Width="200" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="MAFraloginTest" Foreground="#FFFBF7F7"/>
+            </RelativePanel>
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" Text="Kommandobogen" Foreground="White" Height="86" Width="741" FontFamily="Perpetua Titling MT"/>
+        </Grid>
+        <Grid x:Name="MenuBar" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="150" Background="#FF767171">
+            <RelativePanel HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="150">
+                <TextBlock x:Name="BrugerNavn" TextWrapping="Wrap" Text="  Bruger" Height="20" Width="150" RelativePanel.AlignTopWith=""/>
+                <AppBarButton x:Name="HjemKnap" Label="Hjem" Width="150" Icon="Home" Height="65" RelativePanel.Below="BrugerNavn">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:NavigateToPageAction TargetPage="KommandoBogApp.View.CalendarViewView"/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
+                <AppBarButton x:Name="Arbejdstid" Label="Arbejdstid" Width="150" Icon="People" Height="65" RelativePanel.Below="HjemKnap"/>
+                <AppBarButton x:Name="Overblik" Label="Overblik" Width="150" Icon="Calendar" Height="65" RelativePanel.Below="Arbejdstid">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:NavigateToPageAction TargetPage="KommandoBogApp.View.HubTest"/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
+                <AppBarButton x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik"/>
+                <TextBlock x:Name="Leder" TextWrapping="Wrap" Text="  Leder" Height="20" Width="150" RelativePanel.Below="Hjælp"/>
+                <AppBarButton x:Name="Merarbejde" Label="Merarbejde" Width="150" Height="65" Icon="Manage" RelativePanel.Below="Leder"/>
+                <AppBarButton x:Name="Statistik" Label="Statistik" Width="150" Icon="List" Height="65" RelativePanel.Below="Merarbejde"/>
+                <TextBlock x:Name="Admin" TextWrapping="Wrap" Height="20" Width="150" Text="  Admin" RelativePanel.Below="Statistik"/>
+                <AppBarButton x:Name="Opret_bruger" Label="Opret Bruger" Width="150" Icon="AddFriend" Height="65" RelativePanel.Below="Admin">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:NavigateToPageAction TargetPage="KommandoBogApp.View.CreateUserView"/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
+                <AppBarButton x:Name="Rediger_bruger" Label="Rediger Bruger" Width="150" Icon="Edit" Height="65" RelativePanel.Below="Opret_bruger"/>
+                <AppBarButton x:Name="Logout" Label="Log Out" Width="150" Icon="GoToStart" Height="65" RelativePanel.AlignBottomWithPanel="True">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:NavigateToPageAction TargetPage="KommandoBogApp.View.Login"/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
+            </RelativePanel>
+        </Grid>
+        <Grid x:Name="NavigationBar" HorizontalAlignment="Stretch" Height="42" Margin="150,116,0,0" VerticalAlignment="Top" Width="Auto">
+            <TextBlock x:Name="NavigationBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nuværende Side: Overblik" VerticalAlignment="Top" Height="42" Width="1770" FontSize="24"/>
+        </Grid>
+
     </Grid>
 </Page>
 

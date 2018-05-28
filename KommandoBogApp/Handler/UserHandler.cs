@@ -29,7 +29,7 @@ namespace KommandoBogApp.Handler
             if (UserVM.Type == "Admin")
             {
                 Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
-                admin.Afd = UserVM.Afdeling;
+                admin.AfdNavn = UserVM.Afdeling.Navn;
                 admin.AfdId = UserVM.Afdeling.AfdId.ToString();
                 UserVM.UserCatalogSingleton.AddUser(admin);
                 AddUserToAfdeling(admin);
@@ -38,7 +38,7 @@ namespace KommandoBogApp.Handler
             else if (UserVM.Type == "Leader")
             {
                 Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
-                leader.Afd = UserVM.Afdeling;
+                leader.AfdNavn = UserVM.Afdeling.Navn;
                 leader.AfdId = UserVM.Afdeling.AfdId.ToString();
                 UserVM.UserCatalogSingleton.AddUser(leader);
                 AddUserToAfdeling(leader); 
@@ -49,7 +49,7 @@ namespace KommandoBogApp.Handler
             else if (UserVM.Type == "Regular")
             {
                 Regular regular= new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
-                regular.Afd = UserVM.Afdeling;
+                regular.AfdNavn = UserVM.Afdeling.Navn;
                 regular.AfdId = UserVM.Afdeling.AfdId.ToString();
                 UserVM.UserCatalogSingleton.AddUser(regular);
                 AddUserToAfdeling(regular);
