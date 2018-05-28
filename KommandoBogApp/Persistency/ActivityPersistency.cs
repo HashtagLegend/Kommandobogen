@@ -76,6 +76,31 @@ namespace KommandoBogApp.Persistency
         }
         return null;
         }
+
+        public static async void DeleteActivityAsync(Activity activity)
+        {
+            const string ServerUrl = "http://localhost:55000";
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.UseDefaultCredentials = true;
+
+            using (var client = new HttpClient(handler))
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                try
+                {
+                    Debug.WriteLine(ServerUrl + "/api/ActivityTables/" + activity.ID);
+                    Debug.WriteLine(client.DeleteAsync("/api/ActivityTables/" + activity.ID).Result);
+                    await client.DeleteAsync("/api/ActivityTables/" + activity.ID);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+        }
     }
     
 }

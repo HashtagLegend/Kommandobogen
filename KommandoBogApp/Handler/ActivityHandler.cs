@@ -79,7 +79,7 @@ namespace KommandoBogApp.Handler
             await Task.Run(async () =>
             {
                 UserCatalogSingleton.Instance.LoginUser.AddActivity(newActivity);
-                await Task.Delay(TimeSpan.FromSeconds(10));
+                await Task.Delay(TimeSpan.FromSeconds(2));
                 UserCatalogSingleton.Instance.LoginUser.AddDatesToActivityInDB(newActivity);
                 return newActivity;
             });

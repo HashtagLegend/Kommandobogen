@@ -9,6 +9,7 @@ using KommandoBogApp.View;
 using System.Threading;
 using Windows.System.Threading;
 using KommandoBogApp.Persistency;
+using KommandoBogApp.Singleton;
 
 namespace KommandoBogApp.Model
 {
@@ -51,12 +52,18 @@ namespace KommandoBogApp.Model
             ActivityPersistency.SaveActivity(activity);
         }
 
-        public void AddDatesToActivityInDB(Activity activity)
+        public async void AddDatesToActivityInDB(Activity activity)
         {
             foreach (var dates in activity.Dates)
             {
                 var date = new ActivityDate(activity.ID, dates.ToString());
-                DatesPersistency.SaveDates(date);
+                
+                await Task.Run(async () =>
+                {
+                    await Task.Delay(TimeSpan.FromSeconds(2));
+                    DatesPersistency.SaveDates(date);
+                    return date;
+                });
             }
         }
 

@@ -58,17 +58,41 @@ namespace KommandoBogApp.Handler
 
         }
 
-        public void DeleteUser()
+        public async void DeleteUser()
         {
             int UserSpotInList = 0;
-            foreach (var user in UserVM.UserCatalogSingleton.UserList)
+            await Task.Run(async () =>
             {
-                if (user == UserVM.SelectedUser)
+                foreach (var user in UserVM.UserCatalogSingleton.UserList)
                 {
-                    break;
+                    if (user == UserVM.SelectedUser)
+                    {
+                        foreach (var activity in user.Activities)
+                        {
+                            foreach (var dateids in activity.DatesID)
+                            {
+                                DatesPersistency.DeleteDateAsync(dateids);
+                            }
+                            ActivityPersistency.DeleteActivityAsync(activity);
+                        }
+                    }
                 }
-                UserSpotInList++;
-            }
+                await Task.Delay(TimeSpan.FromSeconds(2));
+            });
+
+            await Task.Run(async () =>
+            {
+                foreach (var user in UserVM.UserCatalogSingleton.UserList)
+                {
+                    if (user == UserVM.SelectedUser)
+                    {
+                        break;
+                    }
+                    UserSpotInList++;
+                }
+                await Task.Delay(TimeSpan.FromSeconds(2));
+            });
+            
             Debug.WriteLine(UserSpotInList);
             UserPersistency.DeleteEventsAsync(UserVM.SelectedUser);
             UserVM.UserCatalogSingleton.RemoveUser(UserVM.SelectedUser);

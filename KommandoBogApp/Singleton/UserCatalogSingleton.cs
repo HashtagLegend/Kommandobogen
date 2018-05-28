@@ -39,6 +39,7 @@ namespace KommandoBogApp.Singleton
             UserList = new ObservableCollection<User>();
             AddAfdelinger();
             UserTypeList = new ObservableCollection<string>();
+            ActivityDate.id = 0;
             UserTypeList.Add("Regular");
             UserTypeList.Add("Leader");
             UserTypeList.Add("Admin");
@@ -114,11 +115,16 @@ namespace KommandoBogApp.Singleton
                                 foreach (var dates in Dates)
                                 {
                                     if (activity.ID == dates.ActivityID)
-                                    {
-                                        Debug.WriteLine("DateTimeOffset" + dates.DatesTimeOffset);
+                                    {;
                                         activity.Dates.Add(DateTimeOffset.Parse(dates.DatesTimeOffset));
+                                        if (dates.ID >= ActivityDate.id)
+                                        {
+                                            ActivityDate.id = dates.ID;
+                                        }
+                                        activity.DatesID.Add(dates.ID);
                                     }
                                 }
+                                
                                 user.Activities.Add(activity);
                             }
                         }

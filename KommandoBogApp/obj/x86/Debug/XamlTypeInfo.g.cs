@@ -723,6 +723,7 @@ namespace KommandoBogApp.KommandoBogApp_XamlTypeInfo
                 userType.AddMemberName("ID");
                 userType.AddMemberName("TimeStart");
                 userType.AddMemberName("TimeEnd");
+                userType.AddMemberName("DatesID");
                 userType.AddMemberName("ActivityTypeName");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -1382,22 +1383,32 @@ namespace KommandoBogApp.KommandoBogApp_XamlTypeInfo
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that.TimeEnd = (global::System.String)Value;
         }
-        private object get_73_Activity_ActivityTypeName(object instance)
+        private object get_73_Activity_DatesID(object instance)
+        {
+            var that = (global::KommandoBogApp.Model.Activity)instance;
+            return that.DatesID;
+        }
+        private void set_73_Activity_DatesID(object instance, object Value)
+        {
+            var that = (global::KommandoBogApp.Model.Activity)instance;
+            that.DatesID = (global::System.Collections.Generic.List<global::System.Int32>)Value;
+        }
+        private object get_74_Activity_ActivityTypeName(object instance)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             return that.ActivityTypeName;
         }
-        private void set_73_Activity_ActivityTypeName(object instance, object Value)
+        private void set_74_Activity_ActivityTypeName(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that.ActivityTypeName = (global::KommandoBogApp.Model.ActivityType)Value;
         }
-        private object get_74_User_Password(object instance)
+        private object get_75_User_Password(object instance)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             return that.Password;
         }
-        private void set_74_User_Password(object instance, object Value)
+        private void set_75_User_Password(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             that.Password = (global::System.String)Value;
@@ -1860,17 +1871,23 @@ namespace KommandoBogApp.KommandoBogApp_XamlTypeInfo
                 xamlMember.Getter = get_72_Activity_TimeEnd;
                 xamlMember.Setter = set_72_Activity_TimeEnd;
                 break;
+            case "KommandoBogApp.Model.Activity.DatesID":
+                userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
+                xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "DatesID", "System.Collections.Generic.List`1<Int32>");
+                xamlMember.Getter = get_73_Activity_DatesID;
+                xamlMember.Setter = set_73_Activity_DatesID;
+                break;
             case "KommandoBogApp.Model.Activity.ActivityTypeName":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "ActivityTypeName", "KommandoBogApp.Model.ActivityType");
-                xamlMember.Getter = get_73_Activity_ActivityTypeName;
-                xamlMember.Setter = set_73_Activity_ActivityTypeName;
+                xamlMember.Getter = get_74_Activity_ActivityTypeName;
+                xamlMember.Setter = set_74_Activity_ActivityTypeName;
                 break;
             case "KommandoBogApp.Model.User.Password":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.User");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "Password", "String");
-                xamlMember.Getter = get_74_User_Password;
-                xamlMember.Setter = set_74_User_Password;
+                xamlMember.Getter = get_75_User_Password;
+                xamlMember.Setter = set_75_User_Password;
                 break;
             }
             return xamlMember;

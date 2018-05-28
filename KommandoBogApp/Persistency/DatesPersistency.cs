@@ -25,10 +25,10 @@ namespace KommandoBogApp.Persistency
                     client.BaseAddress = new Uri(Url);
                     client.DefaultRequestHeaders.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
                     try
                     {
                         await client.PostAsJsonAsync("api/DateTables", date);
-                        Debug.WriteLine(client.PostAsJsonAsync("api/DateTables", date).Result);
                     }
                         catch (Exception ex)
                     {
@@ -37,7 +37,7 @@ namespace KommandoBogApp.Persistency
                 }
             }
 
-            public static async Task<List<ActivityDate>> LoadDates()
+        public static async Task<List<ActivityDate>> LoadDates()
             {
                 const string Url = "http://localhost:55000";
                 HttpClientHandler handler = new HttpClientHandler();
@@ -70,5 +70,30 @@ namespace KommandoBogApp.Persistency
             }
             return null;
             }
+
+        public static async void DeleteDateAsync(int ID)
+        {
+            const string ServerUrl = "http://localhost:55000";
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.UseDefaultCredentials = true;
+
+            using (var client = new HttpClient(handler))
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                try
+                {
+                    Debug.WriteLine(ServerUrl + "/api/DateTables/" + ID);
+                    Debug.WriteLine(client.DeleteAsync("/api/DateTables/" + ID).Result);
+                    await client.DeleteAsync("/api/DateTables/" + ID);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+        }
     }
 }

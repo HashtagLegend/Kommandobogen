@@ -26,6 +26,7 @@ namespace KommandoBogApp.Model
         [NonSerialized] public string DatesFromAndTo;
         public string TimeStart { get; set; }
         public string TimeEnd { get; set; }
+        public List<int> DatesID { get; set; }
      
         public ActivityType ActivityTypeName { get; set; }
 
@@ -39,6 +40,7 @@ namespace KommandoBogApp.Model
             id++;
             ColorString();
             Color = color.ToString();
+            DatesID = new List<int>();
         }
 
         public string ColorString()

@@ -207,6 +207,5 @@ namespace KommandoBogApp.View
                 ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Firebrick);
             }
         }
-        
     }
 }
