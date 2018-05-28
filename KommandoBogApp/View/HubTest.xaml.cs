@@ -127,12 +127,7 @@ namespace KommandoBogApp.View
                 {
                     foreach (var Dates in Activities.Dates)
                     {
-                        Debug.WriteLine("Month And Year");
-                        Debug.WriteLine(Dates.Month);
-                        Debug.WriteLine(Dates.Year);
-                        Debug.WriteLine(HubTest.ShownMonth.Month);
-                        Debug.WriteLine(HubTest.ShownYear.Year);
-                        if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
+                        if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownMonth.Year)
                         {
                             Debug.WriteLine(Dates.Day - 1);
                             Users.DaysWithActivities[Dates.Day - 1] = Activities;
@@ -228,7 +223,6 @@ namespace KommandoBogApp.View
                     {
                         ShownMonth = ShownMonth.AddYears(-ShownMonth.Year+1);
                         ShownMonth = ShownMonth.AddYears(Int32.Parse(YearShownTextBox.Text)-1);
-                        UserHandler.UserVM.UserHandler.FixDaysWithActivities();
                         datesInMonth();
                         MonthYearError.Text = "";
                     }
