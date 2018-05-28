@@ -55,17 +55,21 @@ namespace KommandoBogApp.Model
 
         public async void AddDatesToActivityInDB(Activity activity)
         {
-            foreach (var dates in activity.Dates)
+            if (activity.Dates != null)
             {
-                var date = new ActivityDate(activity.ID, dates.ToString());
-                
-                await Task.Run(async () =>
+                foreach (var dates in activity.Dates)
                 {
-                    await Task.Delay(TimeSpan.FromSeconds(1));
-                    DatesPersistency.SaveDates(date);
-                    return date;
-                });
+                    var date = new ActivityDate(activity.ID, dates.ToString());
+
+                    await Task.Run(async () =>
+                    {
+                        await Task.Delay(TimeSpan.FromSeconds(2));
+                        DatesPersistency.SaveDates(date);
+                        return date;
+                    });
+                }
             }
+            
         }
 
 

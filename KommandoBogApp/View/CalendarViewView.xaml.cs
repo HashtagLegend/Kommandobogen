@@ -36,6 +36,7 @@ namespace KommandoBogApp.View
 
         public UserCatalogSingleton UserSingleton { get; set; }
 
+        public bool UILoading = false;
 
         public CalendarViewView()
         {
@@ -69,24 +70,38 @@ namespace KommandoBogApp.View
             var stringdatesKursus = new List<string>();
             var stringdatesFri = new List<string>();
             var stringdatesFerie = new List<string>();
-
-            foreach (var activity in UserSingleton.LoginUser.Activities)
+            if (UserSingleton.LoginUser.Activities != null)
             {
-                if (activity.Dates != null)
+                if (UILoading == false)
                 {
-                    foreach (var dates in activity.Dates)
+                    try
                     {
-
-                        if (dates.DateTime.Date == args.Item.Date.DateTime.Date)
+                        foreach (var activity in UserSingleton.LoginUser.Activities)
                         {
-                            currentActivities.Add(activity);
+                            if (activity.Dates != null)
+                            {
+                                foreach (var dates in activity.Dates)
+                                {
+
+                                    if (dates.DateTime.Date == args.Item.Date.DateTime.Date)
+                                    {
+                                        currentActivities.Add(activity);
+                                    }
+
+                                }
+
+                            }
                         }
-
                     }
-                    
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        throw;
+                    }
                 }
+                
+                
             }
-
 
             var CalendarTime = args.Item.Date.DateTime.ToString("yyyy-MM-dd");
 
@@ -170,7 +185,7 @@ namespace KommandoBogApp.View
 
         private async void Opret_OnClick(object sender, RoutedEventArgs e)
         {
-
+            
             if (SetActivity.SelectionBoxItem != null)
             {
                 if (SetActivity.SelectionBoxItem.Equals("Ferie"))
@@ -190,12 +205,13 @@ namespace KommandoBogApp.View
                     ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Firebrick);
                 }
             }
-            await Task.Run(async () =>
-            {
-                await Task.Delay(TimeSpan.FromSeconds(1));
-                
-            });
-            this.Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
+            UILoading = true;
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
+            UILoading = false;
+
         }
 
         public void LeavingPage(object sender, RoutedEventArgs e)

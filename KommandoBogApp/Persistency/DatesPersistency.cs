@@ -25,10 +25,11 @@ namespace KommandoBogApp.Persistency
                     client.BaseAddress = new Uri(Url);
                     client.DefaultRequestHeaders.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
+                    
                     try
                     {
                         await client.PostAsJsonAsync("api/DateTables", date);
+                        
                     }
                         catch (Exception ex)
                     {

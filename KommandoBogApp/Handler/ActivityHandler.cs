@@ -76,6 +76,22 @@ namespace KommandoBogApp.Handler
                 UserCatalogSingleton.Instance.LoginUser.AddActivity(newActivity);
                 return newActivity;
             });
+
+            
+            await Task.Run(async () =>
+            {
+                foreach (var users in UserCatalogSingleton.Instance.UserList)
+                {
+                    users.Activities.Clear();
+                }
+                UserCatalogSingleton.Instance.LoginUser.Activities.Clear();
+                await Task.Delay(TimeSpan.FromSeconds(2));
+
+                UserCatalogSingleton.Instance.LoadActivitiesFromDB();
+                return newActivity;
+            });
+            
+           
         }
 
         public List<DateTimeOffset> CurrentDatesToActivity()

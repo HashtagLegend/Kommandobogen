@@ -15,7 +15,6 @@ namespace KommandoBogApp.Singleton
     {
         public int HasLoadFromDBRun = 0;
         public int HasLoadFromDBRunAfdeling = 0;
-        public static int HasLoadFromDBRunActivity = 0;
         private static UserCatalogSingleton _instance = new UserCatalogSingleton();
 
         public static UserCatalogSingleton Instance
@@ -82,8 +81,6 @@ namespace KommandoBogApp.Singleton
 
         public async void LoadActivitiesFromDB()
         {
-            if (HasLoadFromDBRunActivity == 0)
-            {
                 if (ActivitySingleton.Instance.ActivityList != null)
                 {
                     ActivitySingleton.Instance.ActivityList.Clear();
@@ -130,8 +127,6 @@ namespace KommandoBogApp.Singleton
                         }
                         Activity.id++;
                     }
-                }
-                HasLoadFromDBRunActivity++;
             }
         }
     }
