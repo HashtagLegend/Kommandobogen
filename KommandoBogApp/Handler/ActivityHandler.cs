@@ -10,6 +10,7 @@ using KommandoBogApp.Converter;
 using KommandoBogApp.Model;
 using KommandoBogApp.Persistency;
 using KommandoBogApp.Singleton;
+using KommandoBogApp.View;
 using KommandoBogApp.ViewModel;
 
 namespace KommandoBogApp.Handler
@@ -56,6 +57,7 @@ namespace KommandoBogApp.Handler
 
         public async void CreateActivity(Color color)
         {
+            CalendarViewView.UILoading = false;
             int i = 1;
             Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ColorOfActivity(color));
             newActivity.TimeStart = ActivityViewModel.TimeStart.ToString();
@@ -100,8 +102,8 @@ namespace KommandoBogApp.Handler
                 UserCatalogSingleton.Instance.LoadActivitiesFromDB();
                 return newActivity;
             });
-            
-           
+
+            CalendarViewView.UILoading = true;
         }
 
         public List<DateTimeOffset> CurrentDatesToActivity()

@@ -36,7 +36,7 @@ namespace KommandoBogApp.View
 
         public UserCatalogSingleton UserSingleton { get; set; }
 
-        public bool UILoading = false;
+        public static bool UILoading = true;
 
         public CalendarViewView()
         {
@@ -72,10 +72,8 @@ namespace KommandoBogApp.View
             var stringdatesFerie = new List<string>();
             if (UserSingleton.LoginUser.Activities != null)
             {
-                if (UILoading == false)
+                if (UILoading)
                 {
-                    try
-                    {
                         foreach (var activity in UserSingleton.LoginUser.Activities)
                         {
                             if (activity.Dates != null)
@@ -92,12 +90,6 @@ namespace KommandoBogApp.View
 
                             }
                         }
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e);
-                        throw;
-                    }
                 }
 
 
@@ -185,38 +177,45 @@ namespace KommandoBogApp.View
 
         private async void Opret_OnClick(object sender, RoutedEventArgs e)
         {
-                if (SetActivity.SelectionBoxItem != null)
+            UILoading = false;
+            if (SetActivity.SelectionBoxItem != null)
+            {
+                if (SetActivity.SelectionBoxItem.Equals("Ferie"))
                 {
-                    if (SetActivity.SelectionBoxItem.Equals("Ferie"))
-                    {
-                        ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Orange);
-                    }
-                    else if (SetActivity.SelectionBoxItem.Equals("Vagt"))
-                    {
-                        ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Blue);
-                    }
-                    else if (SetActivity.SelectionBoxItem.Equals("Kursus"))
-                    {
-                        ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.DarkGreen);
-                    }
-                    else if (SetActivity.SelectionBoxItem.Equals("Fri"))
-                    {
-                        ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Firebrick);
-                    }
+                    ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Orange);
+                }
+                else if (SetActivity.SelectionBoxItem.Equals("Vagt"))
+                {
+                    ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Blue);
+                }
+                else if (SetActivity.SelectionBoxItem.Equals("Kursus"))
+                {
+                    ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.DarkGreen);
+                }
+                else if (SetActivity.SelectionBoxItem.Equals("Fri"))
+                {
+                    ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Firebrick);
                 }
 
-            UILoading = true;
-            int i = 1;
-            if (ActivityHandler.CalendarViewSelectedDates != null)
-            {
-                i = ActivityHandler.CalendarViewSelectedDates.Count;
-            }
-            await Task.Delay(TimeSpan.FromSeconds(3+i*2));
-            Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
-            await Task.Delay(TimeSpan.FromSeconds(1.5*i));
-            Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
-            UILoading = false;
 
+
+                int i = 1;
+                if (ActivityHandler.CalendarViewSelectedDates != null)
+                {
+                    i = ActivityHandler.CalendarViewSelectedDates.Count;
+                }
+
+
+                await Task.Delay(TimeSpan.FromSeconds(3 + i));
+                Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
+                if (i == 1)
+                {
+                    await Task.Delay(TimeSpan.FromSeconds(1.5 + i));
+                }
+                if (i > 1)
+                    await Task.Delay(TimeSpan.FromSeconds(1.5 + 1.5 * i));
+                Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
+            }
         }
 
         public void LeavingPage(object sender, RoutedEventArgs e)
