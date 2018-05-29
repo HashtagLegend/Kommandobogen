@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Windows.Media.Streaming.Adaptive;
 using Windows.UI.Popups;
 using KommandoBogApp.Model;
+using KommandoBogApp.Persistency;
+using KommandoBogApp.Singleton;
 using KommandoBogApp.View;
 using KommandoBogApp.ViewModel;
 
@@ -27,32 +29,72 @@ namespace KommandoBogApp.Handler
             if (UserVM.Type == "Admin")
             {
                 Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
+                admin.AfdNavn = UserVM.Afdeling.Navn;
+                admin.AfdId = UserVM.Afdeling.AfdId.ToString();
                 UserVM.UserCatalogSingleton.AddUser(admin);
                 AddUserToAfdeling(admin);
-                admin.Afd = UserVM.Afdeling;
 
             }
             else if (UserVM.Type == "Leader")
             {
                 Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
+                leader.AfdNavn = UserVM.Afdeling.Navn;
+                leader.AfdId = UserVM.Afdeling.AfdId.ToString();
                 UserVM.UserCatalogSingleton.AddUser(leader);
                 AddUserToAfdeling(leader); 
-                leader.Afd = UserVM.Afdeling;
+                
 
 
             }
             else if (UserVM.Type == "Regular")
             {
                 Regular regular= new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
+                regular.AfdNavn = UserVM.Afdeling.Navn;
+                regular.AfdId = UserVM.Afdeling.AfdId.ToString();
                 UserVM.UserCatalogSingleton.AddUser(regular);
                 AddUserToAfdeling(regular);
-                regular.Afd = UserVM.Afdeling;
+              
             }
 
         }
 
-        public void DeleteUser()
+        public async void DeleteUser()
         {
+            int UserSpotInList = 0;
+            await Task.Run(async () =>
+            {
+                foreach (var user in UserVM.UserCatalogSingleton.UserList)
+                {
+                    if (user == UserVM.SelectedUser)
+                    {
+                        foreach (var activity in user.Activities)
+                        {
+                            foreach (var dateids in activity.DatesID)
+                            {
+                                DatesPersistency.DeleteDateAsync(dateids);
+                            }
+                            ActivityPersistency.DeleteActivityAsync(activity);
+                        }
+                    }
+                }
+                await Task.Delay(TimeSpan.FromSeconds(1));
+            });
+
+            await Task.Run(async () =>
+            {
+                foreach (var user in UserVM.UserCatalogSingleton.UserList)
+                {
+                    if (user == UserVM.SelectedUser)
+                    {
+                        break;
+                    }
+                    UserSpotInList++;
+                }
+                await Task.Delay(TimeSpan.FromSeconds(1));
+            });
+            
+            Debug.WriteLine(UserSpotInList);
+            UserPersistency.DeleteEventsAsync(UserVM.SelectedUser);
             UserVM.UserCatalogSingleton.RemoveUser(UserVM.SelectedUser);
         }
 
@@ -62,43 +104,28 @@ namespace KommandoBogApp.Handler
             
         }
 
-        public void FixDaysWithActivities()
-        {
-            foreach (var Users in UserVM.UserCatalogSingleton.UserList)
-            {
-                Users.DaysWithActivities.Clear();
-                Users.FillDaysWithActivities();
-                foreach (var Activities in Users.Activities)
-                {
-                    foreach (var Dates in Activities.Dates)
-                    {
-                        Debug.WriteLine("Month And Year");
-                        Debug.WriteLine(Dates.Month);
-                        Debug.WriteLine(Dates.Year);
-                        Debug.WriteLine(HubTest.ShownMonth.Month);
-                        Debug.WriteLine(HubTest.ShownYear.Year);
-                        if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownYear.Year)
-                        {
-                            Debug.WriteLine(Dates.Day - 1);
-                            Users.DaysWithActivities[Dates.Day - 1] = Activities;
-                        }
-                    }
-                }
-            }
-        }
+        
 
         public bool CheckCredentials(string credentials)
         {
-            foreach (User user in UserVM.UserCatalogSingleton.UserList)
+            if (UserCatalogSingleton.Instance.UserList == null)
             {
-                if (credentials==user.MaNummer && user.Password==UserViewModel.LoginPassword)
+                Login.LoadFromDBGoneWrong = "Somethings not right, and its probably your authentication that is broken";
+            }
+            else
+            {
+                foreach (User user in UserVM.UserCatalogSingleton.UserList)
                 {
-                    UserVM.UserCatalogSingleton.LoginUser = user;
-                    
-                    return true;
+                    if (credentials == user.MaNummer && user.Password == UserViewModel.LoginPassword)
+                    {
+                        UserVM.UserCatalogSingleton.LoginUser = user;
+                        Debug.WriteLine(UserVM.UserCatalogSingleton.LoginUser.ToString());
+                        UserVM.UserCatalogSingleton.LoadActivitiesFromDB();
+                        return true;
+                    }
+                    Login.LoadFromDBGoneWrong = "Wrong Username or Password";
                 }
             }
-
             return false;
         }
 

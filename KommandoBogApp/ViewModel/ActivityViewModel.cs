@@ -43,10 +43,10 @@ namespace KommandoBogApp.ViewModel
             ActivityList = ActivitySingleton.Instance;
             CalendarOverviewSingleton = CalendarOverviewSingleton.Instance;
             Handler=new ActivityHandler(this);
-
+            //ActivityDate._id = "0";
         }
 
-public void CreateActivity(ActivityHandler.Color color)
+        public void CreateActivity(ActivityHandler.Color color)
         {
             Handler.CreateActivity(color);
         }

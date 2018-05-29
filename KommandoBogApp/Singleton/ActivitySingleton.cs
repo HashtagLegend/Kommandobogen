@@ -5,7 +5,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using KommandoBogApp.Handler;
 using KommandoBogApp.Model;
+using KommandoBogApp.Persistency;
 using ActivityType = Windows.Devices.Sensors.ActivityType;
 
 namespace KommandoBogApp.Singleton
@@ -37,6 +39,12 @@ namespace KommandoBogApp.Singleton
         public void AddActivity(Activity activity)
         {
             ActivityList.Add(activity);
+            ActivityPersistency.SaveActivity(activity);
+            foreach (var dates in activity.Dates)
+            {
+                var date = new ActivityDate(activity.ID, dates.ToString());
+                DatesPersistency.SaveDates(date);
+            }
         }
 
         public void RemoveActivity(Activity activity)

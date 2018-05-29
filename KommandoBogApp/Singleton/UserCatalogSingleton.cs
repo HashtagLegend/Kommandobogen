@@ -5,13 +5,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KommandoBogApp.Handler;
 using KommandoBogApp.Model;
+using KommandoBogApp.Persistency;
 
 namespace KommandoBogApp.Singleton
 {
     public class UserCatalogSingleton
     {
-
+        public int HasLoadFromDBRun = 0;
         private static UserCatalogSingleton _instance = new UserCatalogSingleton();
 
         public static UserCatalogSingleton Instance
@@ -33,53 +35,107 @@ namespace KommandoBogApp.Singleton
         {
             SearchUserList = new ObservableCollection<User>();
             UserList = new ObservableCollection<User>();
-            AfdelingList = new ObservableCollection<Afdeling>();
-            AfdelingList.Add(new Afdeling("Q"));
-            AfdelingList.Add(new Afdeling("J"));
-            AfdelingList.Add(new Afdeling("Pallemans Combobox"));
+            AddAfdelinger();
             UserTypeList = new ObservableCollection<string>();
+            ActivityDate.id = 0;
             UserTypeList.Add("Regular");
             UserTypeList.Add("Leader");
             UserTypeList.Add("Admin");
+            AddUser(new User("123", "test", "test", "test", "test", "test"));
 
+            LoadUsers();
 
-            User f1 = new Admin("123", "Frederik Wulff", "42489902", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","123");
-            UserList.Add(f1);
-            foreach (Afdeling afd in AfdelingList)
-            {
-                if (afd.Navn == "Q")
-                {
-                    f1.Afd = afd;
-                    afd.AfdelingList.Add(f1);
-                }
-            }
-            User f2 = new Regular("444", "Steffen LArsen", "4242", "Hasselvej 2 2th", "fwpdanmark@hotmail.com","Hallo");
-            UserList.Add(f2);
-            foreach (Afdeling afd in AfdelingList)
-            {
-                if (afd.Navn == "Q")
-                {
-                    f2.Afd = afd;
-                    afd.AfdelingList.Add(f2);
-                }
-            }
+        }
 
-
-
+        private async void AddAfdelinger()
+        {
+                AfdelingList = await AfdelingPersistency.LoadAfdelinger();
         }
 
         public void AddUser(User user)
         {
             UserList.Add(user);
+            UserPersistency.SaveUsers(user);
         }
 
 
         public void RemoveUser(User user)
         {
             UserList.Remove(user);
-            user.Afd.AfdelingList.Remove(user);
         }
 
-       
+        public async void LoadUsers()
+        {
+            if (HasLoadFromDBRun == 0)
+            {
+                UserList.Clear();
+                UserList = await UserPersistency.LoadUsers();
+                HasLoadFromDBRun++;
+            }
+        }
+
+        public async void LoadActivitiesFromDB()
+        {
+            DateTimeOffset dateWithDateTimeOffset;
+                if (ActivitySingleton.Instance.ActivityList != null)
+                {
+                    ActivitySingleton.Instance.ActivityList.Clear();
+                }
+                if (UserList != null)
+                {
+                    var Dates = await DatesPersistency.LoadDates();
+                    List<Activity> newActivities = await ActivityPersistency.LoadActivities();
+                    foreach (var activity in newActivities)
+                    {
+                        Debug.WriteLine("REEE1");
+                        foreach (var user in UserList)
+                        {
+                            foreach (var afdeling in AfdelingList)
+                            {
+                                if (user.AfdId == afdeling.AfdId.ToString())
+                                {
+                                    user.AfdNavn = afdeling.Navn;
+                                }
+                            }    
+
+                            Debug.WriteLine("REEE2");
+                            if (user.MaNummer == activity.MaNummer)
+                            {
+                                if (activity.Color == "Firebrick")
+                                    activity.color = ActivityHandler.Color.Firebrick;
+                                if (activity.Color == "Blue")
+                                    activity.color = ActivityHandler.Color.Blue;
+                                if (activity.Color == "DarkGreen")
+                                    activity.color = ActivityHandler.Color.DarkGreen;
+                                if (activity.Color == "Orange")
+                                    activity.color = ActivityHandler.Color.Orange;
+                                activity.ColorString();
+
+                                activity.Initializelist();
+                                foreach (var dates in Dates)
+                                {
+                                    if (activity.ID == dates.ActivityID)
+                                    {
+
+                                        if (DateTimeOffset.TryParse(dates.DatesTimeOffset, out dateWithDateTimeOffset))
+                                        {
+                                        activity.Dates.Add(DateTimeOffset.Parse(dates.DatesTimeOffset));
+                                        }
+                                        if (dates.ID >= ActivityDate.id)
+                                        {
+                                            ActivityDate.id = dates.ID;
+                                        }
+                                        activity.DatesID.Add(dates.ID);
+                                    }
+                                }
+                                
+                                user.Activities.Add(activity);
+                            }
+                        }
+                        Activity.id++;
+                    }
+
+            }
+        }
     }
 }

@@ -16,8 +16,9 @@
         </Grid.DataContext>
         <Grid HorizontalAlignment="Left" Height="1080" Margin="1192,0,0,0" VerticalAlignment="Top" Width="728" Background="#FFD2D2D2">
             <TextBox HorizontalAlignment="Left" Height="60" TextWrapping="Wrap" Text="{Binding LoginString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="568" PlaceholderText="{Binding LoginString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="82,350,0,0" FontSize="24"/>
-            <PasswordBox HorizontalAlignment="Left" Height="58" Margin="82,452,0,0" VerticalAlignment="Top" Width="568" PasswordChar="*" Password="{Binding LoginPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <PasswordBox HorizontalAlignment="Left" Height="58" Margin="82,452,0,0" VerticalAlignment="Top" Width="568" PasswordChar="*" Password="{Binding LoginPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyUp="UIElement_OnKeyUp"/>
             <TextBlock HorizontalAlignment="Left" Margin="82,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Text="Brugernavn"/>
+            <TextBlock Name="SomethingIsWrong" HorizontalAlignment="Left" Margin="82,537,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Text="" Width="450" Height="100"/>
             <TextBlock HorizontalAlignment="Left" Margin="82,415,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="24"/>
             <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="523,537,0,0" VerticalAlignment="Top" Height="47" Width="127" FontSize="24" Background="#FF2B62E2" Foreground="White"/>
         </Grid>

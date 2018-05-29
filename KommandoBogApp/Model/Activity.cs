@@ -6,87 +6,137 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
 using KommandoBogApp.Handler;
+using KommandoBogApp.Persistency;
+using KommandoBogApp.Singleton;
 
 namespace KommandoBogApp.Model
 {
+    [Serializable]
     public class Activity
     {
         
         public string Kommentar { get; set; }
         public string Navn { get; set; }
-        public ActivityHandler.Color Color { get; set; }
-        public Color color { get; set; }
-        public List<DateTimeOffset> Dates { get; set; }
-        public static int ID { get; set; }
-        public int id { get; set; }
-        public int Hour { get; set; }
+        [NonSerialized] public ActivityHandler.Color color;
+        public string Color { get; set; }
+        public Color _color { get; set; }
+        [NonSerialized] public List<DateTimeOffset> Dates;
+        [NonSerialized] public static int id = 0;
+        public string MaNummer { get; set; }
+        public string ID { get; set; }
+        [NonSerialized] public int Hour;
         public string DatesFromAndTo { get; set; }
-        public TimeSpan TimeStart { get; set; }
-        public TimeSpan TimeEnd { get; set; }
+        public string TimeStart { get; set; }
+        public string TimeEnd { get; set; }
+        public List<int> DatesID { get; set; }
      
         public ActivityType ActivityTypeName { get; set; }
 
-        public Activity(List<DateTimeOffset> dates, string kommentar, string navn, ActivityHandler.Color color)
+        public Activity(List<DateTimeOffset> dates, string kommentar, string navn, ActivityHandler.Color _color)
         {           
             Kommentar = kommentar;
             Navn = navn;
-            Color = color;
+            color = _color;
             Dates = dates;
-            id = ID;
-            ID++;
+            ID = id.ToString();
+            id++;
             ColorString();
+            Color = color.ToString();
+            DatesID = new List<int>();
         }
 
         public string ColorString()
         {
-            if (Color == ActivityHandler.Color.DarkGreen)
-                color = Windows.UI.Color.FromArgb(255,0,100,0);
+            if (color == ActivityHandler.Color.DarkGreen)
+                _color = Windows.UI.Color.FromArgb(255,0,100,0);
 
-            if (Color == ActivityHandler.Color.Blue)
-                color = Windows.UI.Color.FromArgb(255, 0, 0, 100);
+            if (color == ActivityHandler.Color.Blue)
+                _color = Windows.UI.Color.FromArgb(255, 0, 0, 100);
 
-            if (Color == ActivityHandler.Color.Firebrick)
-                color = Windows.UI.Color.FromArgb(255, 178, 38, 38);
+            if (color == ActivityHandler.Color.Firebrick)
+                _color = Windows.UI.Color.FromArgb(255, 178, 38, 38);
 
-            if (Color == ActivityHandler.Color.Orange)
-                color = Windows.UI.Color.FromArgb(255, 255, 165, 0);
+            if (color == ActivityHandler.Color.Orange)
+                _color = Windows.UI.Color.FromArgb(255, 255, 165, 0);
             return null;
+        }
+
+        public async void SelfDestruct()
+        {
+            await Task.Run(async () =>
+            {
+                foreach (var date in DatesID)
+                {
+                     DatesPersistency.DeleteDateAsync(date);
+                }
+                await Task.Delay(TimeSpan.FromSeconds(1));
+                ActivityPersistency.DeleteActivityAsync(this);
+                UserCatalogSingleton.Instance.LoginUser.Activities.Remove(this);
+            });
+        }
+
+        public void Initializelist()
+        {
+            Dates = new List<DateTimeOffset>();
         }
 
         #region ToStrings
 
         public void ToStringDate()
         {
-            DateTimeOffset HighestDate = Dates.First();
-            DateTimeOffset LowestDate = Dates.First();
-            if (Dates.Count == 1)
+            if (Dates != null)
             {
-
-                HighestDate = new DateTimeOffset(DateTime.SpecifyKind(new DateTime(Dates[0].Year, Dates[0].Month, Dates[0].Day, TimeEnd.Hours, TimeEnd.Minutes, TimeEnd.Seconds), DateTimeKind.Utc));
-                LowestDate = new DateTimeOffset(DateTime.SpecifyKind(new DateTime(Dates[0].Year, Dates[0].Month, Dates[0].Day, TimeStart.Hours, TimeStart.Minutes, TimeStart.Seconds), DateTimeKind.Utc));
-            }
-            if (Dates.Count >= 2)
-            {
-                foreach (var VARIABLE in Dates)
+                if (Dates.Count >= 1)
                 {
-                    if (VARIABLE >= HighestDate)
+                    DateTimeOffset HighestDate = Dates.First();
+                DateTimeOffset LowestDate = Dates.First();
+                if (Dates.Count == 1)
+                {
+                    var NewTimeEnd = TimeSpan.Parse(TimeEnd);
+                    var NewTimeStart = TimeSpan.Parse(TimeStart);
+                    HighestDate = new DateTimeOffset(DateTime.SpecifyKind(
+                        new DateTime(Dates[0].Year, Dates[0].Month, Dates[0].Day, NewTimeEnd.Hours, NewTimeEnd.Minutes,
+                            NewTimeEnd.Seconds), DateTimeKind.Utc));
+                    LowestDate = new DateTimeOffset(DateTime.SpecifyKind(
+                        new DateTime(Dates[0].Year, Dates[0].Month, Dates[0].Day, NewTimeStart.Hours,
+                            NewTimeStart.Minutes, NewTimeStart.Seconds), DateTimeKind.Utc));
+                }
+                if (Dates.Count >= 2)
+                {
+                    foreach (var VARIABLE in Dates)
                     {
-                        HighestDate = VARIABLE;
-                    }
-                    if (VARIABLE <= LowestDate)
-                    {
-                        LowestDate = VARIABLE;
+                        if (VARIABLE >= HighestDate)
+                        {
+                            HighestDate = VARIABLE;
+                        }
+                        if (VARIABLE <= LowestDate)
+                        {
+                            LowestDate = VARIABLE;
+                        }
                     }
                 }
+                DatesFromAndTo =
+                    $"{LowestDate.Day} - {LowestDate.Month} - {LowestDate.Year} kl {LowestDate.TimeOfDay} Til {HighestDate.Day} - {HighestDate.Month} - {HighestDate.Year} kl {HighestDate.TimeOfDay}";
+                }
+                
             }
-            DatesFromAndTo = $"{LowestDate.Day} - {LowestDate.Month} - {LowestDate.Year} kl {LowestDate.TimeOfDay} Til {HighestDate.Day} - {HighestDate.Month} - {HighestDate.Year} kl {HighestDate.TimeOfDay}";
         }
 
        
 
+        //public override string ToString()
+        //{
+        //    return $"{nameof(Kommentar)}: {Kommentar}, {nameof(Navn)}: {Navn}, {nameof(Color)}: {Color}";
+        //}
+
         public override string ToString()
         {
-            return $"{nameof(Kommentar)}: {Kommentar}, {nameof(Navn)}: {Navn}, {nameof(Color)}: {Color}";
+            return $"{nameof(Kommentar)}: {Kommentar}, {nameof(Navn)}: {Navn}, {nameof(Color)}: {Color}, {nameof(MaNummer)}: {MaNummer}, {nameof(ID)}: {ID}, {nameof(TimeStart)}: {TimeStart}, {nameof(TimeEnd)}: {TimeEnd}";
+        }
+
+        public string ToStringDatabase()
+        {
+            return $"{nameof(Kommentar)}: {Kommentar}, {nameof(Navn)}: {Navn}, {nameof(Color)}: {Color}, {nameof(MaNummer)}: {MaNummer}, {nameof(TimeStart)}: {TimeStart}, {nameof(TimeEnd)}: {TimeEnd}, {nameof(ID)}: {ID}";
         }
 
         #endregion

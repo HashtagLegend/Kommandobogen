@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -28,18 +29,21 @@ namespace KommandoBogApp.View
     public sealed partial class HubTest : Page
     {
         public static DateTime ShownMonth {get; set; }
-        public static DateTime ShownYear{ get; set; }
         public List<int> ListOfPossibleMonths { get; set; }
         public List<int> ListOfPossibleYears { get; set; }
         public UserCatalogSingleton UserCatalogSingleton { get; set; }
+        public ObservableCollection<User> LoadUsersOfThree { get; set; }
+        public int Load = 0;
+        public int i = 0;
 
         public HubTest()
         {
             UserViewModel.DatesInMonth = new ObservableCollection<int>();
             UserCatalogSingleton = UserCatalogSingleton.Instance;
+            LoadUsersOfThree = new ObservableCollection<User>();
             ShownMonth = DateTime.Today;
-            ShownYear = DateTime.Today;
             this.InitializeComponent();
+            this.Loaded += FixHubTestAcitivities;
             datesInMonth();
             ListOfPossibleMonths = new List<int>();
             FillListOfPossibleMonths();
@@ -47,6 +51,91 @@ namespace KommandoBogApp.View
             FillListOfPossibleYears();
         }
 
+        private void FixHubTestAcitivities(object sender, RoutedEventArgs e)
+        {
+            switch (i)
+            {
+                case 0:
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count > Load)
+                        {
+                            LoadUsersOfThree.Add(UserHandler.UserVM.UserCatalogSingleton.UserList[Load]);
+                            Load++;
+                        }
+                    }
+                    break;
+
+                case 1:
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count > Load)
+                        {
+                            LoadUsersOfThree.Add(UserHandler.UserVM.UserCatalogSingleton.UserList[Load]);
+                            Load++;
+                        }
+                    }
+                    break;
+                case 2:
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count > Load)
+                        {
+                            LoadUsersOfThree.Add(UserHandler.UserVM.UserCatalogSingleton.UserList[Load]);
+                            Load++;
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count > Load)
+                        {
+                            LoadUsersOfThree.Add(UserHandler.UserVM.UserCatalogSingleton.UserList[Load]);
+                            Load++;
+                        }
+                    }
+                    break;
+                case 4:
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count > Load)
+                        {
+                            LoadUsersOfThree.Add(UserHandler.UserVM.UserCatalogSingleton.UserList[Load]);
+                            Load++;
+                        }
+                    }
+                    break;
+                case 5:
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (UserHandler.UserVM.UserCatalogSingleton.UserList.Count > Load)
+                        {
+                            LoadUsersOfThree.Add(UserHandler.UserVM.UserCatalogSingleton.UserList[Load]);
+                            Load++;
+                        }
+                    }
+                    break;
+
+            }
+
+            foreach (var Users in LoadUsersOfThree)
+            {
+                Users.DaysWithActivities.Clear();
+                Users.FillDaysWithActivities();
+                foreach (var Activities in Users.Activities)
+                {
+                    foreach (var Dates in Activities.Dates)
+                    {
+                        if (Dates.Month == HubTest.ShownMonth.Month && Dates.Year == HubTest.ShownMonth.Year)
+                        {
+                            Debug.WriteLine(Dates.Day - 1);
+                            Users.DaysWithActivities[Dates.Day - 1] = Activities;
+                        }
+                    }
+                }
+            }
+        }
 
         public void FillListOfPossibleMonths()
         {
@@ -73,20 +162,37 @@ namespace KommandoBogApp.View
             }
         }
 
+        private void iOneUp(object sender, RoutedEventArgs e)
+        {
+            i++;
+            FixHubTestAcitivities(sender, e);
+        }
+
         private void MonthPlusOne(object sender, RoutedEventArgs e)
         {
+            if (ShownMonth.Month == 12)
+            {
+                ShownMonth.AddYears(1);
+            }
             ShownMonth = ShownMonth.AddMonths(1);
+            
             datesInMonth();
             UserViewModel.SetCurrentShownMonth();
             MonthShownTextBox.Text = ShownMonth.Month.ToString();
+            YearShownTextBox.Text = ShownMonth.Year.ToString();
         }
 
         private void MonthMinusOne(object sender, RoutedEventArgs e)
         {
+            if (ShownMonth.Year == 1)
+            {
+                ShownMonth.AddYears(-1);
+            }
             ShownMonth = ShownMonth.AddMonths(-1);
             datesInMonth();
             UserViewModel.SetCurrentShownMonth();
             MonthShownTextBox.Text = ShownMonth.Month.ToString();
+            YearShownTextBox.Text = ShownMonth.Year.ToString();
         }
 
         private void MonthShownTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
@@ -97,7 +203,7 @@ namespace KommandoBogApp.View
                 {
                     ShownMonth = ShownMonth.AddMonths(-ShownMonth.Month);
                     ShownMonth = ShownMonth.AddMonths(Int32.Parse(MonthShownTextBox.Text));
-                    UserHandler.UserVM.UserHandler.FixDaysWithActivities();
+                    FixHubTestAcitivities(sender, e);
                     datesInMonth();
                     MonthYearError.Text = "";
                 }
@@ -115,9 +221,8 @@ namespace KommandoBogApp.View
                 {
                     if (ListOfPossibleYears.Contains(Int32.Parse(YearShownTextBox.Text)))
                     {
-                        ShownYear = ShownYear.AddYears(-ShownYear.Year+1);
-                        ShownYear = ShownYear.AddYears(Int32.Parse(YearShownTextBox.Text)-1);
-                        UserHandler.UserVM.UserHandler.FixDaysWithActivities();
+                        ShownMonth = ShownMonth.AddYears(-ShownMonth.Year+1);
+                        ShownMonth = ShownMonth.AddYears(Int32.Parse(YearShownTextBox.Text)-1);
                         datesInMonth();
                         MonthYearError.Text = "";
                     }
@@ -126,6 +231,14 @@ namespace KommandoBogApp.View
                 {
                     MonthYearError.Text = "Året er ikke inden for Kalenders rækkevidde";
                 }
+            }
+        }
+
+        public void NavigateToPageOpretBruger(object sender, RoutedEventArgs e)
+        {
+            if (UserCatalogSingleton.LoginUser.UserType == "Admin")
+            {
+                this.Frame.Navigate(typeof(KommandoBogApp.View.CreateUserView));
             }
         }
 

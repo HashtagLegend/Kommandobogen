@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows.Input;
 using KommandoBogApp.Handler;
 using KommandoBogApp.Model;
@@ -41,7 +42,6 @@ namespace KommandoBogApp.ViewModel
             UserCatalogSingleton = UserCatalogSingleton.Instance;
             UserHandler = new UserHandler(this);
             SetCurrentShownMonth();
-            UserHandler.FixDaysWithActivities();
 
 
             //User NewUser = new User("01", "Ole", "26891221", "Afrika", "Shit@Hotmail.com");
@@ -77,7 +77,7 @@ namespace KommandoBogApp.ViewModel
         public static void SetCurrentShownMonth()
         {
             CurrentShownMonth = HubTest.ShownMonth.Month.ToString();
-            CurrentShownYear = HubTest.ShownYear.Year.ToString();
+            CurrentShownYear = HubTest.ShownMonth.Year.ToString();
         }
 
 

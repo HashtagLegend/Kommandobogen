@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 using Windows.UI;
 using KommandoBogApp.Converter;
 using KommandoBogApp.Model;
+using KommandoBogApp.Persistency;
 using KommandoBogApp.Singleton;
+using KommandoBogApp.View;
 using KommandoBogApp.ViewModel;
 
 namespace KommandoBogApp.Handler
@@ -17,7 +19,6 @@ namespace KommandoBogApp.Handler
     {
         public TimeSpan UseAfterTimeStart { get; set; }
         public TimeSpan UseAfterTimeEnd { get; set; }
-
         public ActivityViewModel ActivityVM { get; set; }
 
         public static IList<DateTimeOffset> CalendarViewSelectedDates { get; set; }
@@ -54,54 +55,97 @@ namespace KommandoBogApp.Handler
             }
         }
 
-        public void CreateActivity(Color color)
+        public async void CreateActivity(Color color)
         {
+            CalendarViewView.UILoading = false;
+            int i = 1;
             Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ColorOfActivity(color));
-            newActivity.TimeEnd = UseAfterTimeEnd;
-            newActivity.TimeStart = UseAfterTimeStart;
-            ActivityVM.ActivityList.AddActivity(newActivity);
+            newActivity.TimeStart = ActivityViewModel.TimeStart.ToString();
+            newActivity.TimeEnd = ActivityViewModel.TimeEnd.ToString();
+            newActivity.MaNummer = UserCatalogSingleton.Instance.LoginUser.MaNummer;
+            var NewTimeEnd = TimeSpan.Parse(newActivity.TimeEnd);
+            NewTimeEnd = UseAfterTimeEnd;
+            var NewTimeStart = TimeSpan.Parse(newActivity.TimeStart);
+            NewTimeStart  = UseAfterTimeStart;
+            
             ActivityViewModel.ViewKommentar = null;
             ActivityViewModel.ViewNavn = null;
             UseAfterTimeEnd.Subtract(UseAfterTimeEnd);
             UseAfterTimeStart.Subtract(UseAfterTimeStart);
+
+            if (CalendarViewSelectedDates != null)
+            {
+                i = i * CalendarViewSelectedDates.Count();
+            }
+            await Task.Run(async () =>
+            {
+                UserCatalogSingleton.Instance.LoginUser.AddActivity(newActivity);
+                await Task.Delay(TimeSpan.FromSeconds(1 * i));
+                UserCatalogSingleton.Instance.LoginUser.AddDatesToActivityInDB(newActivity);
+
+
+                return newActivity;
+            });
+            
+
+
+            await Task.Run(async () =>
+            {
+                await Task.Delay(TimeSpan.FromSeconds(1 * i));
+                foreach (var users in UserCatalogSingleton.Instance.UserList)
+                {
+                    users.Activities.Clear();
+                }
+                UserCatalogSingleton.Instance.LoginUser.Activities.Clear();
+                await Task.Delay(TimeSpan.FromSeconds(2+i));
+
+                UserCatalogSingleton.Instance.LoadActivitiesFromDB();
+                return newActivity;
+            });
+
+            CalendarViewView.UILoading = true;
         }
 
         public List<DateTimeOffset> CurrentDatesToActivity()
         {
-            UseAfterTimeStart = ActivityViewModel.TimeStart;
-            UseAfterTimeEnd = ActivityViewModel.TimeEnd;
-            var CurrentDatesToActivityList = new List<DateTimeOffset>();
-            if (CalendarViewSelectedDates.Count == 1)
+            if (CalendarViewSelectedDates != null)
             {
-                CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(new DateTime(CalendarViewSelectedDates[0].Year, CalendarViewSelectedDates[0].Month, CalendarViewSelectedDates[0].Day, ActivityViewModel.TimeStart.Hours,
-                        ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds), DateTimeKind.Utc)));
-            }
-
-            else if (CalendarViewSelectedDates != null)
-            {
-                foreach (var VARIABLE in CalendarViewSelectedDates)
+                UseAfterTimeStart = ActivityViewModel.TimeStart;
+                UseAfterTimeEnd = ActivityViewModel.TimeEnd;
+                var CurrentDatesToActivityList = new List<DateTimeOffset>();
+                if (CalendarViewSelectedDates.Count == 1)
                 {
-                    CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(
-                        new DateTime(VARIABLE.Year, VARIABLE.Month, VARIABLE.Day, ActivityViewModel.TimeStart.Hours,
-                            ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds), DateTimeKind.Utc)));
+                    CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(new DateTime(CalendarViewSelectedDates[0].Year, CalendarViewSelectedDates[0].Month, CalendarViewSelectedDates[0].Day, ActivityViewModel.TimeStart.Hours,
+                        ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds), DateTimeKind.Utc)));
                 }
 
-                var lasttime = CurrentDatesToActivityList[CurrentDatesToActivityList.Count - 1];
+                else if (CalendarViewSelectedDates.Count >= 2)
+                {
+                    foreach (var VARIABLE in CalendarViewSelectedDates)
+                    {
+                        CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(
+                            new DateTime(VARIABLE.Year, VARIABLE.Month, VARIABLE.Day, ActivityViewModel.TimeStart.Hours,
+                                ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds), DateTimeKind.Utc)));
+                    }
+                    var lasttime = CurrentDatesToActivityList[CurrentDatesToActivityList.Count - 1];
 
-                var lastSelectedtime = CalendarViewSelectedDates[CalendarViewSelectedDates.Count - 1];
+                    var lastSelectedtime = CalendarViewSelectedDates[CalendarViewSelectedDates.Count - 1];
 
-                CurrentDatesToActivityList.Remove(lasttime);
+                    CurrentDatesToActivityList.Remove(lasttime);
 
-                CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(
+                    CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(
                         new DateTime(lastSelectedtime.Year, lastSelectedtime.Month, lastSelectedtime.Day, ActivityViewModel.TimeEnd.Hours,
                             ActivityViewModel.TimeEnd.Minutes, ActivityViewModel.TimeEnd.Seconds), DateTimeKind.Utc)));
 
-            }
-            
+                }
 
-            ActivityViewModel.TimeStart.Subtract(ActivityViewModel.TimeStart);
-            ActivityViewModel.TimeEnd.Subtract(ActivityViewModel.TimeEnd);
-            return CurrentDatesToActivityList;
+
+                ActivityViewModel.TimeStart.Subtract(ActivityViewModel.TimeStart);
+                ActivityViewModel.TimeEnd.Subtract(ActivityViewModel.TimeEnd);
+                return CurrentDatesToActivityList;
+            }
+
+            return null;
         }
 
         public List<Activity> CycleThroughActivities(DateTime dateTime)
@@ -126,28 +170,27 @@ namespace KommandoBogApp.Handler
         public void ShowFilteredList()
         {
             ActivityVM.CalendarOverviewSingleton.ActiveActivityList.Clear();
-            foreach (var Activity in ActivityVM.ActivityList.ActivityList)
+
+            foreach (var Activity in UserCatalogSingleton.Instance.LoginUser.Activities)
             {
-                foreach (var VARIABLE in CalendarViewSelectedDates)
+                foreach (var selectedDate in CalendarViewSelectedDates)
                 {
-                    foreach (var ActivityDates in Activity.Dates)
+                    if (Activity.Dates != null)
                     {
-                        if (ActivityDates.Date == VARIABLE.Date)
+                        foreach (var ActivityDates in Activity.Dates)
                         {
-                            ActivityVM.CalendarOverviewSingleton.ActiveActivityList.Add(Activity);
+                            if (ActivityDates.Date == selectedDate.Date)
+                            {
+                                ActivityVM.CalendarOverviewSingleton.ActiveActivityList.Add(Activity);
+                            }
                         }
                     }
-
                 }
                 Activity.ToStringDate();
             }
 
         }
 
-        
-        
-
-       
-
+      
     }
-}
+ }
