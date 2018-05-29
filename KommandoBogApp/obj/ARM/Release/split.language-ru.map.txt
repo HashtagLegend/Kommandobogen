@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-ru"
+"ResourceDimensions"		"language-ru-ru"
+
+[Files]
+"C:\Users\Patrick\OneDrive\Delt Datamatiker Mappe\Projekt Kommandobog\Kommandobogen\KommandoBogApp\obj\ARM\Release\split.language-ru.pri"			"resources.pri"

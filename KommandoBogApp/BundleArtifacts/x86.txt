@@ -1,0 +1,2 @@
+MainPackage=C:\Users\Patrick\OneDrive\Delt Datamatiker Mappe\Projekt Kommandobog\Kommandobogen\KommandoBogApp\bin\x86\Release\KommandoBogApp_1.0.0.0_x86.appx
+SymbolPackage=C:\Users\Patrick\OneDrive\Delt Datamatiker Mappe\Projekt Kommandobog\Kommandobogen\Releases\KommandoBogApp_1.0.0.0_Test\KommandoBogApp_1.0.0.0_x86.appxsym

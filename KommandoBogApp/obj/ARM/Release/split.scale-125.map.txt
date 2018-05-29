@@ -1,0 +1,8 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.scale-125"
+"ResourceDimensions"		"scale-125"
+
+[Files]
+"C:\Users\Patrick\OneDrive\Delt Datamatiker Mappe\Projekt Kommandobog\Kommandobogen\KommandoBogApp\obj\ARM\Release\split.scale-125.pri"			"resources.pri"
+"C:\Users\Patrick\OneDrive\Delt Datamatiker Mappe\Projekt Kommandobog\Kommandobogen\KommandoBogApp\obj\ARM\Release\PackageLayout\Assets\StoreLogo.scale-125.png"			"Assets\StoreLogo.scale-125.png"
+"C:\Users\Patrick\OneDrive\Delt Datamatiker Mappe\Projekt Kommandobog\Kommandobogen\KommandoBogApp\obj\ARM\Release\PackageLayout\Assets\FMI.scale-125.png"			"Assets\FMI.scale-125.png"

@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-fr"
+"ResourceDimensions"		"language-fr-fr"
+
+[Files]
+"C:\Users\Patrick\OneDrive\Delt Datamatiker Mappe\Projekt Kommandobog\Kommandobogen\KommandoBogApp\obj\x86\Release\split.language-fr.pri"			"resources.pri"

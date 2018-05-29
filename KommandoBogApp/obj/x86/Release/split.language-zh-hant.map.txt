@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-zh-hant"
+"ResourceDimensions"		"language-zh-tw"
+
+[Files]
+"C:\Users\Patrick\OneDrive\Delt Datamatiker Mappe\Projekt Kommandobog\Kommandobogen\KommandoBogApp\obj\x86\Release\split.language-zh-hant.pri"			"resources.pri"

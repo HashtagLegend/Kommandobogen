@@ -115,6 +115,8 @@
       <RootProperty Name="UseLayoutRounding" />
       <RootProperty Name="Padding" />
       <RootProperty Name="Name" />
+      <RootProperty Name="Inlines" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="HorizontalAlignment" />
@@ -349,6 +351,10 @@
       <RootProperty Name="Stretch" />
       <RootProperty Name="ImageSource" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Documents.Run">
+      <RootProperty Name="Text" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Documents.LineBreak" />
     <RootType FullName="KommandoBogApp.View.Login" />
     <RootType FullName="Windows.UI.Xaml.Controls.GridView">
       <RootProperty Name="Name" />
