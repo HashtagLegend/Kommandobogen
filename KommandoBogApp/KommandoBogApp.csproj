@@ -125,23 +125,14 @@
     <Compile Include="View\CalendarViewView.xaml.cs">
       <DependentUpon>CalendarViewView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CreateActivityView.xaml.cs">
-      <DependentUpon>CreateActivityView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\CreateUserView.xaml.cs">
       <DependentUpon>CreateUserView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\FrontPage.xaml.cs">
-      <DependentUpon>FrontPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HubTest.xaml.cs">
       <DependentUpon>HubTest.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\SkabelonUdenSplitview.xaml.cs">
-      <DependentUpon>SkabelonUdenSplitview.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -181,15 +172,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\CreateActivityView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\CreateUserView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\FrontPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,10 +181,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HubTest.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\SkabelonUdenSplitview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
