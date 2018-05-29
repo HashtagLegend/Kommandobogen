@@ -63,8 +63,9 @@ namespace KommandoBogApp.Model
 
                     await Task.Run(async () =>
                     {
-                        await Task.Delay(TimeSpan.FromSeconds(2));
+                        
                         DatesPersistency.SaveDates(date);
+                        await Task.Delay(TimeSpan.FromSeconds(1));
                         return date;
                     });
                 }

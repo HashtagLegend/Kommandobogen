@@ -185,30 +185,35 @@ namespace KommandoBogApp.View
 
         private async void Opret_OnClick(object sender, RoutedEventArgs e)
         {
+                if (SetActivity.SelectionBoxItem != null)
+                {
+                    if (SetActivity.SelectionBoxItem.Equals("Ferie"))
+                    {
+                        ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Orange);
+                    }
+                    else if (SetActivity.SelectionBoxItem.Equals("Vagt"))
+                    {
+                        ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Blue);
+                    }
+                    else if (SetActivity.SelectionBoxItem.Equals("Kursus"))
+                    {
+                        ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.DarkGreen);
+                    }
+                    else if (SetActivity.SelectionBoxItem.Equals("Fri"))
+                    {
+                        ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Firebrick);
+                    }
+                }
 
-            if (SetActivity.SelectionBoxItem != null)
-            {
-                if (SetActivity.SelectionBoxItem.Equals("Ferie"))
-                {
-                    ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Orange);
-                }
-                else if (SetActivity.SelectionBoxItem.Equals("Vagt"))
-                {
-                    ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Blue);
-                }
-                else if (SetActivity.SelectionBoxItem.Equals("Kursus"))
-                {
-                    ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.DarkGreen);
-                }
-                else if (SetActivity.SelectionBoxItem.Equals("Fri"))
-                {
-                    ActivityViewModel.Handler.CreateActivity(ActivityHandler.Color.Firebrick);
-                }
-            }
             UILoading = true;
-            await Task.Delay(TimeSpan.FromSeconds(3));
+            int i = 1;
+            if (ActivityHandler.CalendarViewSelectedDates != null)
+            {
+                i = ActivityHandler.CalendarViewSelectedDates.Count;
+            }
+            await Task.Delay(TimeSpan.FromSeconds(3+i*2));
             Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
-            await Task.Delay(TimeSpan.FromSeconds(1));
+            await Task.Delay(TimeSpan.FromSeconds(1.5*i));
             Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
             UILoading = false;
 

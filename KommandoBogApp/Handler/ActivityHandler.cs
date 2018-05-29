@@ -56,6 +56,7 @@ namespace KommandoBogApp.Handler
 
         public async void CreateActivity(Color color)
         {
+            int i = 1;
             Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ColorOfActivity(color));
             newActivity.TimeStart = ActivityViewModel.TimeStart.ToString();
             newActivity.TimeEnd = ActivityViewModel.TimeEnd.ToString();
@@ -69,23 +70,32 @@ namespace KommandoBogApp.Handler
             ActivityViewModel.ViewNavn = null;
             UseAfterTimeEnd.Subtract(UseAfterTimeEnd);
             UseAfterTimeStart.Subtract(UseAfterTimeStart);
+
+            if (CalendarViewSelectedDates != null)
+            {
+                i = i * CalendarViewSelectedDates.Count();
+            }
             await Task.Run(async () =>
             {
-                await Task.Delay(TimeSpan.FromSeconds(1));
-                UserCatalogSingleton.Instance.LoginUser.AddDatesToActivityInDB(newActivity);
                 UserCatalogSingleton.Instance.LoginUser.AddActivity(newActivity);
+                await Task.Delay(TimeSpan.FromSeconds(1 * i));
+                UserCatalogSingleton.Instance.LoginUser.AddDatesToActivityInDB(newActivity);
+
+
                 return newActivity;
             });
-
             
+
+
             await Task.Run(async () =>
             {
+                await Task.Delay(TimeSpan.FromSeconds(1 * i));
                 foreach (var users in UserCatalogSingleton.Instance.UserList)
                 {
                     users.Activities.Clear();
                 }
                 UserCatalogSingleton.Instance.LoginUser.Activities.Clear();
-                await Task.Delay(TimeSpan.FromSeconds(2));
+                await Task.Delay(TimeSpan.FromSeconds(2+i));
 
                 UserCatalogSingleton.Instance.LoadActivitiesFromDB();
                 return newActivity;
