@@ -99,8 +99,8 @@ namespace KommandoBogApp.View
                         throw;
                     }
                 }
-                
-                
+
+
             }
 
             var CalendarTime = args.Item.Date.DateTime.ToString("yyyy-MM-dd");
@@ -185,7 +185,7 @@ namespace KommandoBogApp.View
 
         private async void Opret_OnClick(object sender, RoutedEventArgs e)
         {
-            
+
             if (SetActivity.SelectionBoxItem != null)
             {
                 if (SetActivity.SelectionBoxItem.Equals("Ferie"))
@@ -206,9 +206,9 @@ namespace KommandoBogApp.View
                 }
             }
             UILoading = true;
-            await Task.Delay(TimeSpan.FromSeconds(2));
+            await Task.Delay(TimeSpan.FromSeconds(3));
             Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
-            await Task.Delay(TimeSpan.FromSeconds(2));
+            await Task.Delay(TimeSpan.FromSeconds(1));
             Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
             UILoading = false;
 
@@ -216,18 +216,30 @@ namespace KommandoBogApp.View
 
         public void LeavingPage(object sender, RoutedEventArgs e)
         {
-            ActivityHandler.CalendarViewSelectedDates.Clear();
+            if (ActivityHandler.CalendarViewSelectedDates != null)
+            {
+                ActivityHandler.CalendarViewSelectedDates.Clear();
+            }
         }
 
         public async void SelfDestruct(object sender, RoutedEventArgs e)
         {
             await Task.Run(async () =>
             {
-                await Task.Delay(TimeSpan.FromSeconds(2));
+                await Task.Delay(TimeSpan.FromSeconds(3));
 
             });
             ActivityHandler.CalendarViewSelectedDates.Clear();
             this.Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
+        }
+
+        public void NavigateToPageOpretBruger(object sender, RoutedEventArgs e)
+        {
+            if (UserSingleton.LoginUser.UserType == "Admin")
+            {
+                LeavingPage(sender, e);
+                this.Frame.Navigate(typeof(KommandoBogApp.View.CreateUserView));
+            }
         }
     }
 }

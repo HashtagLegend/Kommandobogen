@@ -110,12 +110,7 @@
                 <AppBarButton x:ConnectionId='11' x:Name="Merarbejde" Label="Merarbejde" Width="150" Height="65" Icon="Manage" RelativePanel.Below="Leder"/>
                 <AppBarButton x:ConnectionId='12' x:Name="Statistik" Label="Statistik" Width="150" Icon="List" Height="65" RelativePanel.Below="Merarbejde"/>
                 <TextBlock x:ConnectionId='13' x:Name="Admin" TextWrapping="Wrap" Height="20" Width="150" Text="  Admin" RelativePanel.Below="Statistik"/>
-                <AppBarButton x:ConnectionId='14' x:Name="Opret_bruger" Label="Opret Bruger" Width="150" Icon="AddFriend" Height="65" RelativePanel.Below="Admin">
-                    <interactivity:Interaction.Behaviors>
-                        <core:EventTriggerBehavior EventName="Click">
-                            <core:NavigateToPageAction TargetPage="KommandoBogApp.View.CreateUserView"/>
-                        </core:EventTriggerBehavior>
-                    </interactivity:Interaction.Behaviors>
+                <AppBarButton x:ConnectionId='14' x:Name="Opret_bruger" Label="Opret Bruger" Width="150" Icon="AddFriend" Height="65" RelativePanel.Below="Admin"                                  >
                 </AppBarButton>
                 <AppBarButton x:ConnectionId='15' x:Name="Rediger_bruger" Label="Rediger Bruger" Width="150" Icon="Edit" Height="65" RelativePanel.Below="Opret_bruger"/>
                 <AppBarButton x:ConnectionId='16' x:Name="Logout" Label="Log Out" Width="150" Icon="GoToStart" Height="65" RelativePanel.AlignBottomWithPanel="True">

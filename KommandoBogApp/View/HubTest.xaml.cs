@@ -234,5 +234,13 @@ namespace KommandoBogApp.View
             }
         }
 
+        public void NavigateToPageOpretBruger(object sender, RoutedEventArgs e)
+        {
+            if (UserCatalogSingleton.LoginUser.UserType == "Admin")
+            {
+                this.Frame.Navigate(typeof(KommandoBogApp.View.CreateUserView));
+            }
+        }
+
     }
 }

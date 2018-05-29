@@ -14,7 +14,6 @@ namespace KommandoBogApp.Singleton
     public class UserCatalogSingleton
     {
         public int HasLoadFromDBRun = 0;
-        public int HasLoadFromDBRunAfdeling = 0;
         private static UserCatalogSingleton _instance = new UserCatalogSingleton();
 
         public static UserCatalogSingleton Instance
@@ -50,11 +49,7 @@ namespace KommandoBogApp.Singleton
 
         private async void AddAfdelinger()
         {
-            if (HasLoadFromDBRunAfdeling == 0)
-            {
                 AfdelingList = await AfdelingPersistency.LoadAfdelinger();
-                HasLoadFromDBRunAfdeling++;
-            }
         }
 
         public void AddUser(User user)
@@ -81,6 +76,7 @@ namespace KommandoBogApp.Singleton
 
         public async void LoadActivitiesFromDB()
         {
+            DateTimeOffset dateWithDateTimeOffset;
                 if (ActivitySingleton.Instance.ActivityList != null)
                 {
                     ActivitySingleton.Instance.ActivityList.Clear();
@@ -94,7 +90,14 @@ namespace KommandoBogApp.Singleton
                         Debug.WriteLine("REEE1");
                         foreach (var user in UserList)
                         {
-                            
+                            foreach (var afdeling in AfdelingList)
+                            {
+                                if (user.AfdId == afdeling.AfdId.ToString())
+                                {
+                                    user.AfdNavn = afdeling.Navn;
+                                }
+                            }    
+
                             Debug.WriteLine("REEE2");
                             if (user.MaNummer == activity.MaNummer)
                             {
@@ -112,8 +115,12 @@ namespace KommandoBogApp.Singleton
                                 foreach (var dates in Dates)
                                 {
                                     if (activity.ID == dates.ActivityID)
-                                    {;
+                                    {
+
+                                        if (DateTimeOffset.TryParse(dates.DatesTimeOffset, out dateWithDateTimeOffset))
+                                        {
                                         activity.Dates.Add(DateTimeOffset.Parse(dates.DatesTimeOffset));
+                                        }
                                         if (dates.ID >= ActivityDate.id)
                                         {
                                             ActivityDate.id = dates.ID;
@@ -127,6 +134,7 @@ namespace KommandoBogApp.Singleton
                         }
                         Activity.id++;
                     }
+
             }
         }
     }
