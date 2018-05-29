@@ -567,3 +567,4 @@ C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x64\Release\ilc\in
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x64\Release\ilc\intermediate\TransformedSRWR\System.Runtime.WindowsRuntime.dll
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x64\Release\ilc\intermediate\TransformedSRWR\System.Runtime.WindowsRuntime.dll.ILTransformTask.repro
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x64\Release\ilc\intermediate\TransformedSRWR\System.Runtime.WindowsRuntime.pdb
+C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x64\Release\KommandoBogApp.csprojAssemblyReference.cache

@@ -567,3 +567,4 @@ C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Release\ilc\in
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Release\ilc\intermediate\PreMergeILTransformed\System.Net.Http.Extensions.pdb
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Release\ilc\intermediate\PreMergeILTransformed\System.Net.Http.Formatting.dll
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Release\ilc\intermediate\PreMergeILTransformed\System.Net.Http.Formatting.pdb
+C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Release\KommandoBogApp.csprojAssemblyReference.cache

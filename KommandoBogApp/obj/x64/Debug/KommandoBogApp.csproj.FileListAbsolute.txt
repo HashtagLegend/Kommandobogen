@@ -267,3 +267,4 @@ C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x64\Debug\FxResour
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x64\Debug\FxResources.System.Runtime.Serialization.Formatters.SR.resw
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x64\Debug\System.Net.Http.Formatting\en-US\System.Net.Http.Properties.CommonWebApiResources.resw
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x64\Debug\System.Net.Http.Formatting\en-US\System.Net.Http.Properties.Resources.resw
+C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x64\Debug\KommandoBogApp.csprojAssemblyReference.cache

@@ -266,3 +266,4 @@ C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\ARM\Debug\System.N
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\ARM\Debug\KommandoBogApp.csproj.GenerateResource.Cache
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\ARM\Debug\Microsoft.Xaml.Interactions.pri.xml
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\ARM\Debug\Microsoft.Xaml.Interactivity.pri.xml
+C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\ARM\Debug\KommandoBogApp.csprojAssemblyReference.cache
