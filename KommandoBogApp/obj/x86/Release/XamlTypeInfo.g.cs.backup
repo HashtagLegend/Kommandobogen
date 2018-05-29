@@ -132,45 +132,47 @@ namespace KommandoBogApp.KommandoBogApp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[18];
+            _typeNameTable = new string[19];
             _typeNameTable[0] = "KommandoBogApp.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "KommandoBogApp.ViewModel.UserViewModel";
-            _typeNameTable[4] = "Object";
-            _typeNameTable[5] = "KommandoBogApp.Singleton.UserCatalogSingleton";
-            _typeNameTable[6] = "String";
-            _typeNameTable[7] = "KommandoBogApp.Handler.UserHandler";
-            _typeNameTable[8] = "Microsoft.Xaml.Interactivity.Interaction";
-            _typeNameTable[9] = "Microsoft.Xaml.Interactivity.BehaviorCollection";
-            _typeNameTable[10] = "Windows.UI.Xaml.DependencyObjectCollection";
-            _typeNameTable[11] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[12] = "Microsoft.Xaml.Interactions.Core.EventTriggerBehavior";
-            _typeNameTable[13] = "Microsoft.Xaml.Interactivity.Trigger";
-            _typeNameTable[14] = "Microsoft.Xaml.Interactivity.Behavior";
-            _typeNameTable[15] = "Microsoft.Xaml.Interactivity.ActionCollection";
-            _typeNameTable[16] = "Microsoft.Xaml.Interactions.Core.CallMethodAction";
-            _typeNameTable[17] = "KommandoBogApp.View.CreateUserView";
+            _typeNameTable[3] = "KommandoBogApp.CalenderView";
+            _typeNameTable[4] = "KommandoBogApp.ViewModel.UserViewModel";
+            _typeNameTable[5] = "Object";
+            _typeNameTable[6] = "KommandoBogApp.Singleton.UserCatalogSingleton";
+            _typeNameTable[7] = "String";
+            _typeNameTable[8] = "KommandoBogApp.Handler.UserHandler";
+            _typeNameTable[9] = "Microsoft.Xaml.Interactivity.Interaction";
+            _typeNameTable[10] = "Microsoft.Xaml.Interactivity.BehaviorCollection";
+            _typeNameTable[11] = "Windows.UI.Xaml.DependencyObjectCollection";
+            _typeNameTable[12] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[13] = "Microsoft.Xaml.Interactions.Core.EventTriggerBehavior";
+            _typeNameTable[14] = "Microsoft.Xaml.Interactivity.Trigger";
+            _typeNameTable[15] = "Microsoft.Xaml.Interactivity.Behavior";
+            _typeNameTable[16] = "Microsoft.Xaml.Interactivity.ActionCollection";
+            _typeNameTable[17] = "Microsoft.Xaml.Interactions.Core.CallMethodAction";
+            _typeNameTable[18] = "KommandoBogApp.View.CreateUserView";
 
-            _typeTable = new global::System.Type[18];
+            _typeTable = new global::System.Type[19];
             _typeTable[0] = typeof(global::KommandoBogApp.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::KommandoBogApp.ViewModel.UserViewModel);
-            _typeTable[4] = typeof(global::System.Object);
-            _typeTable[5] = typeof(global::KommandoBogApp.Singleton.UserCatalogSingleton);
-            _typeTable[6] = typeof(global::System.String);
-            _typeTable[7] = typeof(global::KommandoBogApp.Handler.UserHandler);
-            _typeTable[8] = typeof(global::Microsoft.Xaml.Interactivity.Interaction);
-            _typeTable[9] = typeof(global::Microsoft.Xaml.Interactivity.BehaviorCollection);
-            _typeTable[10] = typeof(global::Windows.UI.Xaml.DependencyObjectCollection);
-            _typeTable[11] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[12] = typeof(global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior);
-            _typeTable[13] = typeof(global::Microsoft.Xaml.Interactivity.Trigger);
-            _typeTable[14] = typeof(global::Microsoft.Xaml.Interactivity.Behavior);
-            _typeTable[15] = typeof(global::Microsoft.Xaml.Interactivity.ActionCollection);
-            _typeTable[16] = typeof(global::Microsoft.Xaml.Interactions.Core.CallMethodAction);
-            _typeTable[17] = typeof(global::KommandoBogApp.View.CreateUserView);
+            _typeTable[3] = typeof(global::KommandoBogApp.CalenderView);
+            _typeTable[4] = typeof(global::KommandoBogApp.ViewModel.UserViewModel);
+            _typeTable[5] = typeof(global::System.Object);
+            _typeTable[6] = typeof(global::KommandoBogApp.Singleton.UserCatalogSingleton);
+            _typeTable[7] = typeof(global::System.String);
+            _typeTable[8] = typeof(global::KommandoBogApp.Handler.UserHandler);
+            _typeTable[9] = typeof(global::Microsoft.Xaml.Interactivity.Interaction);
+            _typeTable[10] = typeof(global::Microsoft.Xaml.Interactivity.BehaviorCollection);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.DependencyObjectCollection);
+            _typeTable[12] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[13] = typeof(global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior);
+            _typeTable[14] = typeof(global::Microsoft.Xaml.Interactivity.Trigger);
+            _typeTable[15] = typeof(global::Microsoft.Xaml.Interactivity.Behavior);
+            _typeTable[16] = typeof(global::Microsoft.Xaml.Interactivity.ActionCollection);
+            _typeTable[17] = typeof(global::Microsoft.Xaml.Interactions.Core.CallMethodAction);
+            _typeTable[18] = typeof(global::KommandoBogApp.View.CreateUserView);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -206,19 +208,20 @@ namespace KommandoBogApp.KommandoBogApp_XamlTypeInfo
         }
 
         private object Activate_0_MainPage() { return new global::KommandoBogApp.MainPage(); }
-        private object Activate_3_UserViewModel() { return new global::KommandoBogApp.ViewModel.UserViewModel(); }
-        private object Activate_9_BehaviorCollection() { return new global::Microsoft.Xaml.Interactivity.BehaviorCollection(); }
-        private object Activate_12_EventTriggerBehavior() { return new global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior(); }
-        private object Activate_15_ActionCollection() { return new global::Microsoft.Xaml.Interactivity.ActionCollection(); }
-        private object Activate_16_CallMethodAction() { return new global::Microsoft.Xaml.Interactions.Core.CallMethodAction(); }
-        private object Activate_17_CreateUserView() { return new global::KommandoBogApp.View.CreateUserView(); }
-        private void VectorAdd_9_BehaviorCollection(object instance, object item)
+        private object Activate_3_CalenderView() { return new global::KommandoBogApp.CalenderView(); }
+        private object Activate_4_UserViewModel() { return new global::KommandoBogApp.ViewModel.UserViewModel(); }
+        private object Activate_10_BehaviorCollection() { return new global::Microsoft.Xaml.Interactivity.BehaviorCollection(); }
+        private object Activate_13_EventTriggerBehavior() { return new global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior(); }
+        private object Activate_16_ActionCollection() { return new global::Microsoft.Xaml.Interactivity.ActionCollection(); }
+        private object Activate_17_CallMethodAction() { return new global::Microsoft.Xaml.Interactions.Core.CallMethodAction(); }
+        private object Activate_18_CreateUserView() { return new global::KommandoBogApp.View.CreateUserView(); }
+        private void VectorAdd_10_BehaviorCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.DependencyObject>)instance;
             var newItem = (global::Windows.UI.Xaml.DependencyObject)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_15_ActionCollection(object instance, object item)
+        private void VectorAdd_16_ActionCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.DependencyObject>)instance;
             var newItem = (global::Windows.UI.Xaml.DependencyObject)item;
@@ -250,9 +253,16 @@ namespace KommandoBogApp.KommandoBogApp_XamlTypeInfo
                 xamlType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  KommandoBogApp.ViewModel.UserViewModel
+            case 3:   //  KommandoBogApp.CalenderView
+                userType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_3_CalenderView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  KommandoBogApp.ViewModel.UserViewModel
                 userType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_3_UserViewModel;
+                userType.Activator = Activate_4_UserViewModel;
                 userType.AddMemberName("UserCatalogSingleton");
                 userType.AddMemberName("ViewMaNr");
                 userType.AddMemberName("ViewNavn");
@@ -265,89 +275,89 @@ namespace KommandoBogApp.KommandoBogApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 4:   //  Object
+            case 5:   //  Object
                 xamlType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  KommandoBogApp.Singleton.UserCatalogSingleton
+            case 6:   //  KommandoBogApp.Singleton.UserCatalogSingleton
                 userType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  String
+            case 7:   //  String
                 xamlType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 7:   //  KommandoBogApp.Handler.UserHandler
+            case 8:   //  KommandoBogApp.Handler.UserHandler
                 userType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 8:   //  Microsoft.Xaml.Interactivity.Interaction
+            case 9:   //  Microsoft.Xaml.Interactivity.Interaction
                 userType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.AddMemberName("Behaviors");
                 xamlType = userType;
                 break;
 
-            case 9:   //  Microsoft.Xaml.Interactivity.BehaviorCollection
+            case 10:   //  Microsoft.Xaml.Interactivity.BehaviorCollection
                 userType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObjectCollection"));
-                userType.CollectionAdd = VectorAdd_9_BehaviorCollection;
+                userType.CollectionAdd = VectorAdd_10_BehaviorCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 10:   //  Windows.UI.Xaml.DependencyObjectCollection
+            case 11:   //  Windows.UI.Xaml.DependencyObjectCollection
                 xamlType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 11:   //  Windows.UI.Xaml.DependencyObject
+            case 12:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 12:   //  Microsoft.Xaml.Interactions.Core.EventTriggerBehavior
+            case 13:   //  Microsoft.Xaml.Interactions.Core.EventTriggerBehavior
                 userType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Xaml.Interactivity.Trigger"));
-                userType.Activator = Activate_12_EventTriggerBehavior;
+                userType.Activator = Activate_13_EventTriggerBehavior;
                 userType.SetContentPropertyName("Microsoft.Xaml.Interactivity.Trigger.Actions");
                 userType.AddMemberName("EventName");
                 userType.AddMemberName("SourceObject");
                 xamlType = userType;
                 break;
 
-            case 13:   //  Microsoft.Xaml.Interactivity.Trigger
+            case 14:   //  Microsoft.Xaml.Interactivity.Trigger
                 userType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Xaml.Interactivity.Behavior"));
                 userType.SetContentPropertyName("Microsoft.Xaml.Interactivity.Trigger.Actions");
                 userType.AddMemberName("Actions");
                 xamlType = userType;
                 break;
 
-            case 14:   //  Microsoft.Xaml.Interactivity.Behavior
+            case 15:   //  Microsoft.Xaml.Interactivity.Behavior
                 userType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.AddMemberName("AssociatedObject");
                 xamlType = userType;
                 break;
 
-            case 15:   //  Microsoft.Xaml.Interactivity.ActionCollection
+            case 16:   //  Microsoft.Xaml.Interactivity.ActionCollection
                 userType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObjectCollection"));
-                userType.CollectionAdd = VectorAdd_15_ActionCollection;
+                userType.CollectionAdd = VectorAdd_16_ActionCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 16:   //  Microsoft.Xaml.Interactions.Core.CallMethodAction
+            case 17:   //  Microsoft.Xaml.Interactions.Core.CallMethodAction
                 userType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_16_CallMethodAction;
+                userType.Activator = Activate_17_CallMethodAction;
                 userType.AddMemberName("MethodName");
                 userType.AddMemberName("TargetObject");
                 xamlType = userType;
                 break;
 
-            case 17:   //  KommandoBogApp.View.CreateUserView
+            case 18:   //  KommandoBogApp.View.CreateUserView
                 userType = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_17_CreateUserView;
+                userType.Activator = Activate_18_CreateUserView;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

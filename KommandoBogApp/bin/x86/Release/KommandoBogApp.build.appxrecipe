@@ -25,8 +25,35 @@
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\Assets\Pictures\#Legends.png">
+      <PackagePath>Assets\Pictures\#Legends.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\Assets\Pictures\abasalon.jpg">
+      <PackagePath>Assets\Pictures\abasalon.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\Assets\Pictures\Billede.jpg">
+      <PackagePath>Assets\Pictures\Billede.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\Assets\Pictures\Fly.jpg">
+      <PackagePath>Assets\Pictures\Fly.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\Assets\Pictures\FMI.png">
+      <PackagePath>Assets\Pictures\FMI.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\Assets\Pictures\Kampvogn 2.jpg">
+      <PackagePath>Assets\Pictures\Kampvogn 2.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\Assets\Pictures\Kampvogn.jpg">
+      <PackagePath>Assets\Pictures\Kampvogn.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\Assets\Pictures\Ny kampvogn.png">
+      <PackagePath>Assets\Pictures\Ny kampvogn.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
@@ -64,9 +91,42 @@
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\KommandoBogApp.pdb">
       <PackagePath>KommandoBogApp.pdb</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\View\CalendarViewView.xbf">
+      <PackagePath>View\CalendarViewView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\View\CreateActivityView.xbf">
+      <PackagePath>View\CreateActivityView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\View\CreateUserView.xbf">
+      <PackagePath>View\CreateUserView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\View\FrontPage.xbf">
+      <PackagePath>View\FrontPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\View\HubTest.xbf">
+      <PackagePath>View\HubTest.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\View\Login.xbf">
+      <PackagePath>View\Login.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\View\SkabelonUdenSplitview.xbf">
+      <PackagePath>View\SkabelonUdenSplitview.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\_Resources\0.rsrc">
+      <PackagePath>_Resources\0.rsrc</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\_Resources\1.rsrc">
+      <PackagePath>_Resources\1.rsrc</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Release\ilc\_Resources\index.txt">
+      <PackagePath>_Resources\index.txt</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

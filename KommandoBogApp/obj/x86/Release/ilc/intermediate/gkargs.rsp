@@ -2,5 +2,6 @@
 /Lib:"C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Release\ilc\in"
 /Lib:"C:\Users\Jesper\.nuget\packages\microsoft.net.native.compiler\1.7.3\tools\x86\ilc\lib\Private"
 /WinMD:"C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Release\ilc\in\WinMetadata\Windows.winmd"
+/VSTelemetrySessionSettings:"{"AppId":1001,"AppInsightsInstrumentationKey":"f144292e-e3b2-4011-ac90-20e5c03fbce5","AsimovInstrumentationKey":"AIF-312cbd79-9dbb-4c48-a7da-3cc2a931cb70","HostName":"Dev14","Id":"a1b71ae4-da59-4a94-8eba-a2a85f2f9838","IsOptedIn":true,"ProcessStartTime":636631904301591872,"UserId":"f1b6c621-9583-45b9-899e-9c513824c25e"}"
 /RdXmlPath:"C:\Users\Jesper\.nuget\packages\microsoft.net.native.compiler\1.7.3\tools\LibraryXML"
 /RunOnlyPreDR
