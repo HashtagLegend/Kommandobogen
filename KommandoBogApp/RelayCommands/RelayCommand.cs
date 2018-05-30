@@ -17,6 +17,7 @@ namespace KommandoBogApp.RelayCommands
     /// </summary>
     public class RelayCommand : ICommand
     {
+        //Bruges til afkobling af knapper
         private readonly Action _execute;
         private readonly Func<bool> _canExecute;
 

@@ -9,6 +9,7 @@ namespace KommandoBogApp.Model
     [Serializable]
     public class ActivityDate
     {
+        //Aktivitetdatesmodel klassen
         public static int id { get; set; }
         public int ID { get; set; }
         public string ActivityID { get; set; }

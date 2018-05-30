@@ -14,7 +14,7 @@ namespace KommandoBogApp.Model
     [Serializable]
     public class Activity
     {
-        
+        //Non Serializeable kommer ikke med som properties i DB
         public string Kommentar { get; set; }
         public string Navn { get; set; }
         [NonSerialized] public ActivityHandler.Color color;
@@ -44,7 +44,7 @@ namespace KommandoBogApp.Model
             Color = color.ToString();
             DatesID = new List<int>();
         }
-
+        // Farven til aktiviter gives
         public string ColorString()
         {
             if (color == ActivityHandler.Color.DarkGreen)
@@ -60,7 +60,7 @@ namespace KommandoBogApp.Model
                 _color = Windows.UI.Color.FromArgb(255, 255, 165, 0);
             return null;
         }
-
+        //Slet aktivity 
         public async void SelfDestruct()
         {
             await Task.Run(async () =>
@@ -74,7 +74,7 @@ namespace KommandoBogApp.Model
                 UserCatalogSingleton.Instance.LoginUser.Activities.Remove(this);
             });
         }
-
+        //Liste initialiseres
         public void Initializelist()
         {
             Dates = new List<DateTimeOffset>();

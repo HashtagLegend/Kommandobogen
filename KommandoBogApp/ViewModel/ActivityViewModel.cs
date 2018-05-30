@@ -21,6 +21,7 @@ namespace KommandoBogApp.ViewModel
 {
     public class ActivityViewModel
     {
+        //Her bliver alle vores properties bundet fra view til view model
         public List<DateTime> Dates { get; set; }
         public static TimeSpan TimeStart { get; set; }
         public static TimeSpan TimeEnd { get; set; }

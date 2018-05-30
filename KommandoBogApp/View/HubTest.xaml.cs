@@ -50,7 +50,7 @@ namespace KommandoBogApp.View
             ListOfPossibleYears = new List<int>();
             FillListOfPossibleYears();
         }
-
+        //Loader kun et bestemt antal aktiviteer
         private void FixHubTestAcitivities(object sender, RoutedEventArgs e)
         {
             switch (i)

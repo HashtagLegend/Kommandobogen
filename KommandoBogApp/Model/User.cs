@@ -16,6 +16,7 @@ namespace KommandoBogApp.Model
     [Serializable]
     public class User
     {
+        //Dette er base classes som de andre user models nedarver fra
         public string AfdId { get; set; }
         public string UserType { get; set; }
         public string MaNummer { get; set; }
@@ -46,13 +47,13 @@ namespace KommandoBogApp.Model
             Password = password;
     
         }
-
+        // Aktivitet tilføjes til brugerens aktivitetsliste
         public void AddActivity(Activity activity)
         {
             Activities.Add(activity);
             ActivityPersistency.SaveActivity(activity);
         }
-
+        // Dato sættes til ativitet til DB
         public async void AddDatesToActivityInDB(Activity activity)
         {
             if (activity.Dates != null)
@@ -78,7 +79,7 @@ namespace KommandoBogApp.Model
         {
 
         }
-
+        //Der addes tomme objecter til overblik
         public async void FillDaysWithActivities()
         {
             for (int i = 1; i <= DateTime.DaysInMonth(HubTest.ShownMonth.Year,HubTest.ShownMonth.Month); i++)

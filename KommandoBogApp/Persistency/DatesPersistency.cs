@@ -12,7 +12,7 @@ namespace KommandoBogApp.Persistency
 {
     class DatesPersistency
     { 
-        
+        //Gemmer dato
             public static async void SaveDates(ActivityDate date)
             {
                 const string Url = "http://localhost:55000";
@@ -37,7 +37,7 @@ namespace KommandoBogApp.Persistency
                     }
                 }
             }
-
+        //Load date
         public static async Task<List<ActivityDate>> LoadDates()
             {
                 const string Url = "http://localhost:55000";
@@ -71,7 +71,7 @@ namespace KommandoBogApp.Persistency
             }
             return null;
             }
-
+        //Sletter date
         public static async void DeleteDateAsync(int ID)
         {
             const string ServerUrl = "http://localhost:55000";

@@ -15,7 +15,7 @@ namespace KommandoBogApp.Singleton
     {
         public int HasLoadFromDBRun = 0;
         private static UserCatalogSingleton _instance = new UserCatalogSingleton();
-
+        //Design pattern singleton som kun oprettes 1 gang
         public static UserCatalogSingleton Instance
         {
             get { return _instance ?? (_instance = new UserCatalogSingleton()); }
@@ -73,7 +73,7 @@ namespace KommandoBogApp.Singleton
                 HasLoadFromDBRun++;
             }
         }
-
+        //Udvider load fra DB for at få dates koblet sammen med aktivitet 
         public async void LoadActivitiesFromDB()
         {
             DateTimeOffset dateWithDateTimeOffset;

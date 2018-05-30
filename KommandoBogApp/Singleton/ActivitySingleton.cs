@@ -14,6 +14,7 @@ namespace KommandoBogApp.Singleton
 {
     public class ActivitySingleton
     {
+        //Design pattern singleton som kun oprettes 1 gang
         private static ActivitySingleton _instance = new ActivitySingleton();
 
         public static ActivitySingleton Instance

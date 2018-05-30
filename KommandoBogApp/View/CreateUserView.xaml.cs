@@ -40,7 +40,7 @@ namespace KommandoBogApp.View
             DeleteButton.Click += DeleteButton_Click;
             bindingToList();
         }
-
+        //Her bindes til enten searchlist eller orignal user list
         public void bindingToList()
         {
             if (UserViewModel.ViewSearch == null || UserViewModel.ViewSearch == "")
@@ -61,7 +61,7 @@ namespace KommandoBogApp.View
                 this.UserListView.ItemsSource = Singleton.SearchUserList;
             }
         }
-
+        //Oberservers
         public void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             bindingToList();

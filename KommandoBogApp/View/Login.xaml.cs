@@ -40,7 +40,7 @@ namespace KommandoBogApp.View
             LoginButton.Click += LoginButton_Click;
             LoadFromDBGoneWrong = " ";
         }
-
+        //observers
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             if (VM.UserHandler.CheckCredentials(UserViewModel.LoginString))

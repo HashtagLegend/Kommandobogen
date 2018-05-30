@@ -18,7 +18,7 @@ namespace KommandoBogApp.Persistency
     { 
 
 
-
+        //Gem aktiviteter i DB
             public static async void SaveActivity(Activity activity)
             {
                 const string Url = "http://localhost:55000";
@@ -44,7 +44,7 @@ namespace KommandoBogApp.Persistency
                     }
                 }   
             }
-
+        //Loader fra DB
     public static async Task<List<Activity>> LoadActivities()
     {
         const string Url = "http://localhost:55000";
@@ -77,7 +77,7 @@ namespace KommandoBogApp.Persistency
         }
         return null;
         }
-
+        //Sletter fra DB
         public static async void DeleteActivityAsync(Activity activity)
         {
             const string ServerUrl = "http://localhost:55000";

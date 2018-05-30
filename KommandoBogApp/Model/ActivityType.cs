@@ -10,6 +10,7 @@ namespace KommandoBogApp.Model
 {
     public class ActivityType
     {
+        // Bruges til at give en aktivitetstype
         public string ActivityTypeName { get; set; }
         
         public ActivityType(string activityTypeName)

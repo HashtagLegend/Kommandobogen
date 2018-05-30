@@ -30,6 +30,7 @@ namespace KommandoBogApp.View
     /// </summary>
     public sealed partial class CalendarViewView : Page
     {
+        //Kode behind for at benytte fuld funktionalietet i vores calender view
         public ActivitySingleton ActivitiySingleton { get; set; }
 
         public ActivityViewModel ActivityViewModel { get; set; }
@@ -50,7 +51,7 @@ namespace KommandoBogApp.View
         }
 
         public static List<DateTimeOffset> DateSelected { get; set; }
-
+        //Alle vores observers
         private void CalendarView_OnSelectedDatesChanged(object sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
             ActivityHandler.CalendarViewSelectedDates = CalendarView1.SelectedDates;

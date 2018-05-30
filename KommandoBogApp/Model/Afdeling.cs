@@ -9,6 +9,7 @@ namespace KommandoBogApp.Model
 {
    public class Afdeling
     {
+        // Afdelings model, som vi oprettet i DB
         public int AfdId { get; set; }
 
         public string Navn { get; set; }

@@ -16,13 +16,14 @@ namespace KommandoBogApp.Handler
 {
     public class UserHandler
     {
+        //Vi har alt over user metoder og funktionalitet i denne klasse
         public static UserViewModel UserVM { get; set; }
 
         public UserHandler(UserViewModel uSW)
         {
             UserVM = uSW;
         }
-
+        //Opretter bruger alt efter hvilken type
         public void CreateUser()
         {
           
@@ -57,7 +58,7 @@ namespace KommandoBogApp.Handler
             }
 
         }
-
+        //Sletter en given bruger
         public async void DeleteUser()
         {
             int UserSpotInList = 0;
@@ -104,7 +105,7 @@ namespace KommandoBogApp.Handler
             
         }
 
-        
+        //Bruger til at tjekke om den givne user kan logges ind
 
         public bool CheckCredentials(string credentials)
         {

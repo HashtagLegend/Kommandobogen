@@ -10,6 +10,7 @@ namespace KommandoBogApp.Singleton
 {
     public class CalendarOverviewSingleton
     {
+        //Design pattern singleton som kun oprettes 1 gang
         private static CalendarOverviewSingleton _instance = new CalendarOverviewSingleton();
 
         public static CalendarOverviewSingleton Instance

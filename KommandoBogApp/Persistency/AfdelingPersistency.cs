@@ -13,6 +13,7 @@ namespace KommandoBogApp.Persistency
 {
     class AfdelingPersistency
     {
+        //Loader alle afdelinger fra DB, dog bliver der sat to afdelinger fra start manuelt i DB
         public static async Task<ObservableCollection<Afdeling>> LoadAfdelinger()
         {
             const string Url = "http://localhost:55000";

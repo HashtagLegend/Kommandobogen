@@ -12,7 +12,7 @@ namespace KommandoBogApp.ViewModel
 {
     public class UserViewModel
     {
-
+        //Her bliver alle properties bundet fra view til view model
         public UserCatalogSingleton UserCatalogSingleton { get; set; }
         public string ViewMaNr { get; set; }
         public string ViewNavn { get; set; }

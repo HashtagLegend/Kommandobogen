@@ -8,6 +8,7 @@ using KommandoBogApp.Handler;
 
 namespace KommandoBogApp.RelayCommands
 {
+    //Bruger til afkobling af knapper
     class RelayArgCommand<T> : ICommand
     {
         private readonly Action<T> _execute;

@@ -18,7 +18,7 @@ namespace KommandoBogApp.Persistency
     {
 
        
-
+        //Gemmer user
         public static async void SaveUsers(User user)
         {
             const string Url = "http://localhost:55000";
@@ -42,7 +42,7 @@ namespace KommandoBogApp.Persistency
                 }
             }
         }
-
+        //Loader user fra DB
         public static async Task<ObservableCollection<User>> LoadUsers()
         {
             const string Url = "http://localhost:55000";
@@ -79,7 +79,7 @@ namespace KommandoBogApp.Persistency
             }
             return null;
         }
-
+        //Slet user fra DB
         public static async void DeleteEventsAsync(User user)
         {
             const string ServerUrl = "http://localhost:55000";
