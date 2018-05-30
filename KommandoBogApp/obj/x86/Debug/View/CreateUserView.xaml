@@ -44,8 +44,8 @@
             </ListView.ItemTemplate>
         </ListView>
         
-        <Button x:ConnectionId='8' x:Name="CreateButton" Content="CreateUserCommand" HorizontalAlignment="Left" Margin="160,663,0,0" VerticalAlignment="Top" Command="{Binding CreateUserCommand}"/>
-        <Button x:ConnectionId='9' x:Name="DeleteButton" Content="DeleteUserCommand" HorizontalAlignment="Left" Margin="160,727,0,0" VerticalAlignment="Top" Command="{Binding DeleteUserCommand}"/>
+        <Button x:ConnectionId='8' x:Name="CreateButton" Content="Opret Bruger" HorizontalAlignment="Left" Margin="160,663,0,0" VerticalAlignment="Top" Command="{Binding CreateUserCommand}"/>
+        <Button x:ConnectionId='9' x:Name="DeleteButton" Content="Slet Bruger" HorizontalAlignment="Left" Margin="160,727,0,0" VerticalAlignment="Top" Command="{Binding DeleteUserCommand}"/>
         <TextBox x:ConnectionId='10' x:Name="SearchBox" HorizontalAlignment="Left" Height="30" Margin="630,180,0,0" TextWrapping="Wrap" Text="{Binding ViewSearch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="124">
             <Custom:Interaction.Behaviors>
                 <Custom1:EventTriggerBehavior EventName="TextChanged"/>
