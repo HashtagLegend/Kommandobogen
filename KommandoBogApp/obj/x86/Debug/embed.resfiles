@@ -1,9 +1,6 @@
 App.xbf
 MainPage.xbf
 View\CalendarViewView.xbf
-View\CreateActivityView.xbf
 View\CreateUserView.xbf
-View\FrontPage.xbf
 View\HubTest.xbf
 View\Login.xbf
-View\SkabelonUdenSplitview.xbf
