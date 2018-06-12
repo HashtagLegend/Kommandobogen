@@ -77,10 +77,9 @@ namespace KommandoBogApp.Singleton
         public async void LoadActivitiesFromDB()
         {
             DateTimeOffset dateWithDateTimeOffset;
-                if (ActivitySingleton.Instance.ActivityList != null)
-                {
+                
                     ActivitySingleton.Instance.ActivityList.Clear();
-                }
+                
                 if (UserList != null)
                 {
                     var Dates = await DatesPersistency.LoadDates();

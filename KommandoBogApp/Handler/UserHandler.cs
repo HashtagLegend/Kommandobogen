@@ -120,6 +120,7 @@ namespace KommandoBogApp.Handler
                     if (credentials == user.MaNummer && user.Password == UserViewModel.LoginPassword)
                     {
                         UserVM.UserCatalogSingleton.LoginUser = user;
+                        UserVM.UserCatalogSingleton.LoginUser.Activities.Clear();
                         Debug.WriteLine(UserVM.UserCatalogSingleton.LoginUser.ToString());
                         UserVM.UserCatalogSingleton.LoadActivitiesFromDB();
                         return true;
