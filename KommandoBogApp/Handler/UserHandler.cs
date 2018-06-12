@@ -26,35 +26,47 @@ namespace KommandoBogApp.Handler
         //Opretter bruger alt efter hvilken type
         public void CreateUser()
         {
-          
-            if (UserVM.Type == "Admin")
+            if (UserVM.ViewEmail.Contains("@"))
             {
-                Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
-                admin.AfdNavn = UserVM.Afdeling.Navn;
-                admin.AfdId = UserVM.Afdeling.AfdId.ToString();
-                UserVM.UserCatalogSingleton.AddUser(admin);
-                AddUserToAfdeling(admin);
 
+
+                if (UserVM.Type == "Admin")
+                {
+                    Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
+                        UserVM.ViewEmail, UserVM.ViewPassword);
+                    admin.AfdNavn = UserVM.Afdeling.Navn;
+                    admin.AfdId = UserVM.Afdeling.AfdId.ToString();
+                    UserVM.UserCatalogSingleton.AddUser(admin);
+                    AddUserToAfdeling(admin);
+
+                }
+                else if (UserVM.Type == "Leader")
+                {
+                    Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
+                        UserVM.ViewEmail, UserVM.ViewPassword);
+                    leader.AfdNavn = UserVM.Afdeling.Navn;
+                    leader.AfdId = UserVM.Afdeling.AfdId.ToString();
+                    UserVM.UserCatalogSingleton.AddUser(leader);
+                    AddUserToAfdeling(leader);
+
+
+
+                }
+                else if (UserVM.Type == "Regular")
+                {
+                    Regular regular = new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
+                        UserVM.ViewEmail, UserVM.ViewPassword);
+                    regular.AfdNavn = UserVM.Afdeling.Navn;
+                    regular.AfdId = UserVM.Afdeling.AfdId.ToString();
+                    UserVM.UserCatalogSingleton.AddUser(regular);
+                    AddUserToAfdeling(regular);
+
+                }
             }
-            else if (UserVM.Type == "Leader")
+            else
             {
-                Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
-                leader.AfdNavn = UserVM.Afdeling.Navn;
-                leader.AfdId = UserVM.Afdeling.AfdId.ToString();
-                UserVM.UserCatalogSingleton.AddUser(leader);
-                AddUserToAfdeling(leader); 
-                
-
-
-            }
-            else if (UserVM.Type == "Regular")
-            {
-                Regular regular= new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
-                regular.AfdNavn = UserVM.Afdeling.Navn;
-                regular.AfdId = UserVM.Afdeling.AfdId.ToString();
-                UserVM.UserCatalogSingleton.AddUser(regular);
-                AddUserToAfdeling(regular);
-              
+                var dialog = new MessageDialog("Husk @ i din email");
+                dialog.ShowAsync();
             }
 
         }

@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
+using Windows.UI.Popups;
 using KommandoBogApp.Converter;
 using KommandoBogApp.Model;
 using KommandoBogApp.Persistency;
@@ -21,16 +22,26 @@ namespace KommandoBogApp.Handler
         public TimeSpan UseAfterTimeEnd { get; set; }
         public ActivityViewModel ActivityVM { get; set; }
 
+        public UserCatalogSingleton UserList { get; set; }
+
+
         public static IList<DateTimeOffset> CalendarViewSelectedDates { get; set; }
 
         //public static string StartDate = CalendarViewSelectedDates.First().ToString();
         //public static string EndDate = CalendarViewSelectedDates.First().ToString();
 
-        public enum Color { DarkGreen, Orange, Firebrick, Blue }
+        public enum Color
+        {
+            DarkGreen,
+            Orange,
+            Firebrick,
+            Blue
+        }
 
         public ActivityHandler(ActivityViewModel activityViewModel)
         {
             ActivityVM = activityViewModel;
+            UserList = UserCatalogSingleton.Instance;
         }
 
         public Color ColorOfActivity(Color color)
@@ -59,15 +70,16 @@ namespace KommandoBogApp.Handler
         {
             CalendarViewView.UILoading = false;
             int i = 1;
-            Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar, ActivityViewModel.ViewNavn, ColorOfActivity(color));
+            Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar,
+                ActivityViewModel.ViewNavn, ColorOfActivity(color));
             newActivity.TimeStart = ActivityViewModel.TimeStart.ToString();
             newActivity.TimeEnd = ActivityViewModel.TimeEnd.ToString();
             newActivity.MaNummer = UserCatalogSingleton.Instance.LoginUser.MaNummer;
             var NewTimeEnd = TimeSpan.Parse(newActivity.TimeEnd);
             NewTimeEnd = UseAfterTimeEnd;
             var NewTimeStart = TimeSpan.Parse(newActivity.TimeStart);
-            NewTimeStart  = UseAfterTimeStart;
-            
+            NewTimeStart = UseAfterTimeStart;
+
             ActivityViewModel.ViewKommentar = null;
             ActivityViewModel.ViewNavn = null;
             UseAfterTimeEnd.Subtract(UseAfterTimeEnd);
@@ -77,6 +89,7 @@ namespace KommandoBogApp.Handler
             {
                 i = i * CalendarViewSelectedDates.Count();
             }
+
             await Task.Run(async () =>
             {
                 UserCatalogSingleton.Instance.LoginUser.AddActivity(newActivity);
@@ -86,7 +99,7 @@ namespace KommandoBogApp.Handler
 
                 return newActivity;
             });
-            
+
 
 
             await Task.Run(async () =>
@@ -96,8 +109,9 @@ namespace KommandoBogApp.Handler
                 {
                     users.Activities.Clear();
                 }
+
                 UserCatalogSingleton.Instance.LoginUser.Activities.Clear();
-                await Task.Delay(TimeSpan.FromSeconds(2+i));
+                await Task.Delay(TimeSpan.FromSeconds(2 + i));
 
                 UserCatalogSingleton.Instance.LoadActivitiesFromDB();
                 return newActivity;
@@ -115,7 +129,9 @@ namespace KommandoBogApp.Handler
                 var CurrentDatesToActivityList = new List<DateTimeOffset>();
                 if (CalendarViewSelectedDates.Count == 1)
                 {
-                    CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(new DateTime(CalendarViewSelectedDates[0].Year, CalendarViewSelectedDates[0].Month, CalendarViewSelectedDates[0].Day, ActivityViewModel.TimeStart.Hours,
+                    CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(new DateTime(
+                        CalendarViewSelectedDates[0].Year, CalendarViewSelectedDates[0].Month,
+                        CalendarViewSelectedDates[0].Day, ActivityViewModel.TimeStart.Hours,
                         ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds), DateTimeKind.Utc)));
                 }
 
@@ -125,8 +141,10 @@ namespace KommandoBogApp.Handler
                     {
                         CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(
                             new DateTime(VARIABLE.Year, VARIABLE.Month, VARIABLE.Day, ActivityViewModel.TimeStart.Hours,
-                                ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds), DateTimeKind.Utc)));
+                                ActivityViewModel.TimeStart.Minutes, ActivityViewModel.TimeStart.Seconds),
+                            DateTimeKind.Utc)));
                     }
+
                     var lasttime = CurrentDatesToActivityList[CurrentDatesToActivityList.Count - 1];
 
                     var lastSelectedtime = CalendarViewSelectedDates[CalendarViewSelectedDates.Count - 1];
@@ -134,7 +152,8 @@ namespace KommandoBogApp.Handler
                     CurrentDatesToActivityList.Remove(lasttime);
 
                     CurrentDatesToActivityList.Add(new DateTimeOffset(DateTime.SpecifyKind(
-                        new DateTime(lastSelectedtime.Year, lastSelectedtime.Month, lastSelectedtime.Day, ActivityViewModel.TimeEnd.Hours,
+                        new DateTime(lastSelectedtime.Year, lastSelectedtime.Month, lastSelectedtime.Day,
+                            ActivityViewModel.TimeEnd.Hours,
                             ActivityViewModel.TimeEnd.Minutes, ActivityViewModel.TimeEnd.Seconds), DateTimeKind.Utc)));
 
                 }
@@ -155,15 +174,16 @@ namespace KommandoBogApp.Handler
             foreach (var Activity in ActivityVM.ActivityList.ActivityList)
             {
 
-                foreach (var DatesOfActivity in Activity.Dates )
+                foreach (var DatesOfActivity in Activity.Dates)
                 {
 
                     if (DatesOfActivity == dateTime)
                     {
-                       ActivityList.Add(Activity); 
+                        ActivityList.Add(Activity);
                     }
                 }
             }
+
             return ActivityList;
         }
 
@@ -186,11 +206,27 @@ namespace KommandoBogApp.Handler
                         }
                     }
                 }
+
                 Activity.ToStringDate();
             }
 
         }
 
-      
+        public void ClearAllList()
+        {
+            Debug.WriteLine("Vi kommer ned i ClearAllList");
+            UserList.LoginUser = null;
+            ActivityVM.CalendarOverviewSingleton.ActiveActivityList.Clear();
+            ActivityVM.ActivityList.ActivityList.Clear();
+
+
+        }
+
+        public async void ShowNothing()
+        {
+            var dialog = new MessageDialog("Dette er funktionalitet som endnu ikke er blevet bygget");
+            await dialog.ShowAsync();
+
+        }
     }
- }
+}

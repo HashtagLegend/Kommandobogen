@@ -94,7 +94,13 @@
                         </Core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </AppBarButton>
-                <AppBarButton x:Name="Arbejdstid" Label="Arbejdstid" Width="150" Icon="People" Height="65" RelativePanel.Below="HjemKnap"/>
+                <AppBarButton x:Name="Arbejdstid" Label="Arbejdstid" Width="150" Icon="People" Height="65" RelativePanel.Below="HjemKnap">
+                    <interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction MethodName="ShowNothing" TargetObject="{Binding Handler}"/>
+                        </Core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
                 <AppBarButton x:Name="Overblik" Label="Overblik" Width="150" Icon="Calendar" Height="65" RelativePanel.Below="Arbejdstid" Click="LeavingPage">
                     <interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
@@ -104,8 +110,20 @@
                 </AppBarButton>
                 <AppBarButton x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik"/>
                 <TextBlock x:Name="Leder" TextWrapping="Wrap" Text="  Leder" Height="20" Width="150" RelativePanel.Below="Hjælp"/>
-                <AppBarButton x:Name="Merarbejde" Label="Merarbejde" Width="150" Height="65" Icon="Manage" RelativePanel.Below="Leder"/>
-                <AppBarButton x:Name="Statistik" Label="Statistik" Width="150" Icon="List" Height="65" RelativePanel.Below="Merarbejde"/>
+                <AppBarButton x:Name="Merarbejde" Label="Merarbejde" Width="150" Height="65" Icon="Manage" RelativePanel.Below="Leder">
+                    <interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction MethodName="ShowNothing" TargetObject="{Binding Handler}"/>
+                        </Core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
+                <AppBarButton x:Name="Statistik" Label="Statistik" Width="150" Icon="List" Height="65" RelativePanel.Below="Merarbejde">
+                    <interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction MethodName="ShowNothing" TargetObject="{Binding Handler}"/>
+                        </Core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
                 <TextBlock x:Name="Admin" TextWrapping="Wrap" Height="20" Width="150" Text="  Admin" RelativePanel.Below="Statistik"/>
                 <AppBarButton x:Name="Opret_bruger" Label="Opret Bruger" Width="150" Icon="AddFriend" Height="65" RelativePanel.Below="Admin" Click="NavigateToPageOpretBruger">
                 </AppBarButton>
@@ -114,6 +132,7 @@
                     <interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.Login"/>
+                            <Core:CallMethodAction MethodName="ClearAllList" TargetObject="{Binding Handler}"/>
                         </Core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </AppBarButton>

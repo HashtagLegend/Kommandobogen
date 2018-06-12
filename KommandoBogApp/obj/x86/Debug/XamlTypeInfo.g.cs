@@ -577,6 +577,7 @@ namespace KommandoBogApp.KommandoBogApp_XamlTypeInfo
                 userType.AddMemberName("ActivityViewModel");
                 userType.AddMemberName("UserHandler");
                 userType.AddMemberName("ViewPassword");
+                userType.AddMemberName("ViewMailMessage");
                 userType.AddMemberName("CreateUserCommand");
                 userType.AddMemberName("DeleteUserCommand");
                 userType.SetIsLocalType();
@@ -1066,302 +1067,312 @@ namespace KommandoBogApp.KommandoBogApp_XamlTypeInfo
             var that = (global::KommandoBogApp.ViewModel.UserViewModel)instance;
             that.ViewPassword = (global::System.String)Value;
         }
-        private object get_45_UserViewModel_CreateUserCommand(object instance)
+        private object get_45_UserViewModel_ViewMailMessage(object instance)
+        {
+            var that = (global::KommandoBogApp.ViewModel.UserViewModel)instance;
+            return that.ViewMailMessage;
+        }
+        private void set_45_UserViewModel_ViewMailMessage(object instance, object Value)
+        {
+            var that = (global::KommandoBogApp.ViewModel.UserViewModel)instance;
+            that.ViewMailMessage = (global::System.String)Value;
+        }
+        private object get_46_UserViewModel_CreateUserCommand(object instance)
         {
             var that = (global::KommandoBogApp.ViewModel.UserViewModel)instance;
             return that.CreateUserCommand;
         }
-        private void set_45_UserViewModel_CreateUserCommand(object instance, object Value)
+        private void set_46_UserViewModel_CreateUserCommand(object instance, object Value)
         {
             var that = (global::KommandoBogApp.ViewModel.UserViewModel)instance;
             that.CreateUserCommand = (global::System.Windows.Input.ICommand)Value;
         }
-        private object get_46_UserViewModel_DeleteUserCommand(object instance)
+        private object get_47_UserViewModel_DeleteUserCommand(object instance)
         {
             var that = (global::KommandoBogApp.ViewModel.UserViewModel)instance;
             return that.DeleteUserCommand;
         }
-        private void set_46_UserViewModel_DeleteUserCommand(object instance, object Value)
+        private void set_47_UserViewModel_DeleteUserCommand(object instance, object Value)
         {
             var that = (global::KommandoBogApp.ViewModel.UserViewModel)instance;
             that.DeleteUserCommand = (global::System.Windows.Input.ICommand)Value;
         }
-        private object get_47_CreateUserView_Singleton(object instance)
+        private object get_48_CreateUserView_Singleton(object instance)
         {
             var that = (global::KommandoBogApp.View.CreateUserView)instance;
             return that.Singleton;
         }
-        private void set_47_CreateUserView_Singleton(object instance, object Value)
+        private void set_48_CreateUserView_Singleton(object instance, object Value)
         {
             var that = (global::KommandoBogApp.View.CreateUserView)instance;
             that.Singleton = (global::KommandoBogApp.Singleton.UserCatalogSingleton)Value;
         }
-        private object get_48_Login_Singleton(object instance)
+        private object get_49_Login_Singleton(object instance)
         {
             var that = (global::KommandoBogApp.View.Login)instance;
             return that.Singleton;
         }
-        private void set_48_Login_Singleton(object instance, object Value)
+        private void set_49_Login_Singleton(object instance, object Value)
         {
             var that = (global::KommandoBogApp.View.Login)instance;
             that.Singleton = (global::KommandoBogApp.Singleton.UserCatalogSingleton)Value;
         }
-        private object get_49_Login_VM(object instance)
+        private object get_50_Login_VM(object instance)
         {
             var that = (global::KommandoBogApp.View.Login)instance;
             return that.VM;
         }
-        private void set_49_Login_VM(object instance, object Value)
+        private void set_50_Login_VM(object instance, object Value)
         {
             var that = (global::KommandoBogApp.View.Login)instance;
             that.VM = (global::KommandoBogApp.ViewModel.UserViewModel)Value;
         }
-        private object get_50_HubTest_ListOfPossibleMonths(object instance)
+        private object get_51_HubTest_ListOfPossibleMonths(object instance)
         {
             var that = (global::KommandoBogApp.View.HubTest)instance;
             return that.ListOfPossibleMonths;
         }
-        private void set_50_HubTest_ListOfPossibleMonths(object instance, object Value)
+        private void set_51_HubTest_ListOfPossibleMonths(object instance, object Value)
         {
             var that = (global::KommandoBogApp.View.HubTest)instance;
             that.ListOfPossibleMonths = (global::System.Collections.Generic.List<global::System.Int32>)Value;
         }
-        private object get_51_HubTest_ListOfPossibleYears(object instance)
+        private object get_52_HubTest_ListOfPossibleYears(object instance)
         {
             var that = (global::KommandoBogApp.View.HubTest)instance;
             return that.ListOfPossibleYears;
         }
-        private void set_51_HubTest_ListOfPossibleYears(object instance, object Value)
+        private void set_52_HubTest_ListOfPossibleYears(object instance, object Value)
         {
             var that = (global::KommandoBogApp.View.HubTest)instance;
             that.ListOfPossibleYears = (global::System.Collections.Generic.List<global::System.Int32>)Value;
         }
-        private object get_52_HubTest_UserCatalogSingleton(object instance)
+        private object get_53_HubTest_UserCatalogSingleton(object instance)
         {
             var that = (global::KommandoBogApp.View.HubTest)instance;
             return that.UserCatalogSingleton;
         }
-        private void set_52_HubTest_UserCatalogSingleton(object instance, object Value)
+        private void set_53_HubTest_UserCatalogSingleton(object instance, object Value)
         {
             var that = (global::KommandoBogApp.View.HubTest)instance;
             that.UserCatalogSingleton = (global::KommandoBogApp.Singleton.UserCatalogSingleton)Value;
         }
-        private object get_53_HubTest_LoadUsersOfThree(object instance)
+        private object get_54_HubTest_LoadUsersOfThree(object instance)
         {
             var that = (global::KommandoBogApp.View.HubTest)instance;
             return that.LoadUsersOfThree;
         }
-        private void set_53_HubTest_LoadUsersOfThree(object instance, object Value)
+        private void set_54_HubTest_LoadUsersOfThree(object instance, object Value)
         {
             var that = (global::KommandoBogApp.View.HubTest)instance;
             that.LoadUsersOfThree = (global::System.Collections.ObjectModel.ObservableCollection<global::KommandoBogApp.Model.User>)Value;
         }
-        private object get_54_User_AfdId(object instance)
+        private object get_55_User_AfdId(object instance)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             return that.AfdId;
         }
-        private void set_54_User_AfdId(object instance, object Value)
+        private void set_55_User_AfdId(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             that.AfdId = (global::System.String)Value;
         }
-        private object get_55_User_UserType(object instance)
+        private object get_56_User_UserType(object instance)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             return that.UserType;
         }
-        private void set_55_User_UserType(object instance, object Value)
+        private void set_56_User_UserType(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             that.UserType = (global::System.String)Value;
         }
-        private object get_56_User_MaNummer(object instance)
+        private object get_57_User_MaNummer(object instance)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             return that.MaNummer;
         }
-        private void set_56_User_MaNummer(object instance, object Value)
+        private void set_57_User_MaNummer(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             that.MaNummer = (global::System.String)Value;
         }
-        private object get_57_User_Navn(object instance)
+        private object get_58_User_Navn(object instance)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             return that.Navn;
         }
-        private void set_57_User_Navn(object instance, object Value)
+        private void set_58_User_Navn(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             that.Navn = (global::System.String)Value;
         }
-        private object get_58_User_Tlf(object instance)
+        private object get_59_User_Tlf(object instance)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             return that.Tlf;
         }
-        private void set_58_User_Tlf(object instance, object Value)
+        private void set_59_User_Tlf(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             that.Tlf = (global::System.String)Value;
         }
-        private object get_59_User_Adresse(object instance)
+        private object get_60_User_Adresse(object instance)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             return that.Adresse;
         }
-        private void set_59_User_Adresse(object instance, object Value)
+        private void set_60_User_Adresse(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             that.Adresse = (global::System.String)Value;
         }
-        private object get_60_User_AfdNavn(object instance)
+        private object get_61_User_AfdNavn(object instance)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             return that.AfdNavn;
         }
-        private void set_60_User_AfdNavn(object instance, object Value)
+        private void set_61_User_AfdNavn(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             that.AfdNavn = (global::System.String)Value;
         }
-        private object get_61_User_Email(object instance)
+        private object get_62_User_Email(object instance)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             return that.Email;
         }
-        private void set_61_User_Email(object instance, object Value)
+        private void set_62_User_Email(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             that.Email = (global::System.String)Value;
         }
-        private object get_62_User_DaysWithActivities(object instance)
+        private object get_63_User_DaysWithActivities(object instance)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             return that.DaysWithActivities;
         }
-        private void set_62_User_DaysWithActivities(object instance, object Value)
+        private void set_63_User_DaysWithActivities(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             that.DaysWithActivities = (global::System.Collections.ObjectModel.ObservableCollection<global::KommandoBogApp.Model.Activity>)Value;
         }
-        private object get_63_Activity_Kommentar(object instance)
+        private object get_64_Activity_Kommentar(object instance)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             return that.Kommentar;
         }
-        private void set_63_Activity_Kommentar(object instance, object Value)
+        private void set_64_Activity_Kommentar(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that.Kommentar = (global::System.String)Value;
         }
-        private object get_64_Activity_Navn(object instance)
+        private object get_65_Activity_Navn(object instance)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             return that.Navn;
         }
-        private void set_64_Activity_Navn(object instance, object Value)
+        private void set_65_Activity_Navn(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that.Navn = (global::System.String)Value;
         }
-        private object get_65_Activity_Color(object instance)
+        private object get_66_Activity_Color(object instance)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             return that.Color;
         }
-        private void set_65_Activity_Color(object instance, object Value)
+        private void set_66_Activity_Color(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that.Color = (global::System.String)Value;
         }
-        private object get_66_Activity__color(object instance)
+        private object get_67_Activity__color(object instance)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             return that._color;
         }
-        private void set_66_Activity__color(object instance, object Value)
+        private void set_67_Activity__color(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that._color = (global::Windows.UI.Color)Value;
         }
-        private object get_67_Activity_MaNummer(object instance)
+        private object get_68_Activity_MaNummer(object instance)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             return that.MaNummer;
         }
-        private void set_67_Activity_MaNummer(object instance, object Value)
+        private void set_68_Activity_MaNummer(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that.MaNummer = (global::System.String)Value;
         }
-        private object get_68_Activity_ID(object instance)
+        private object get_69_Activity_ID(object instance)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             return that.ID;
         }
-        private void set_68_Activity_ID(object instance, object Value)
+        private void set_69_Activity_ID(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that.ID = (global::System.String)Value;
         }
-        private object get_69_Activity_DatesFromAndTo(object instance)
+        private object get_70_Activity_DatesFromAndTo(object instance)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             return that.DatesFromAndTo;
         }
-        private void set_69_Activity_DatesFromAndTo(object instance, object Value)
+        private void set_70_Activity_DatesFromAndTo(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that.DatesFromAndTo = (global::System.String)Value;
         }
-        private object get_70_Activity_TimeStart(object instance)
+        private object get_71_Activity_TimeStart(object instance)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             return that.TimeStart;
         }
-        private void set_70_Activity_TimeStart(object instance, object Value)
+        private void set_71_Activity_TimeStart(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that.TimeStart = (global::System.String)Value;
         }
-        private object get_71_Activity_TimeEnd(object instance)
+        private object get_72_Activity_TimeEnd(object instance)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             return that.TimeEnd;
         }
-        private void set_71_Activity_TimeEnd(object instance, object Value)
+        private void set_72_Activity_TimeEnd(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that.TimeEnd = (global::System.String)Value;
         }
-        private object get_72_Activity_DatesID(object instance)
+        private object get_73_Activity_DatesID(object instance)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             return that.DatesID;
         }
-        private void set_72_Activity_DatesID(object instance, object Value)
+        private void set_73_Activity_DatesID(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that.DatesID = (global::System.Collections.Generic.List<global::System.Int32>)Value;
         }
-        private object get_73_Activity_ActivityTypeName(object instance)
+        private object get_74_Activity_ActivityTypeName(object instance)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             return that.ActivityTypeName;
         }
-        private void set_73_Activity_ActivityTypeName(object instance, object Value)
+        private void set_74_Activity_ActivityTypeName(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.Activity)instance;
             that.ActivityTypeName = (global::KommandoBogApp.Model.ActivityType)Value;
         }
-        private object get_74_User_Password(object instance)
+        private object get_75_User_Password(object instance)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             return that.Password;
         }
-        private void set_74_User_Password(object instance, object Value)
+        private void set_75_User_Password(object instance, object Value)
         {
             var that = (global::KommandoBogApp.Model.User)instance;
             that.Password = (global::System.String)Value;
@@ -1653,185 +1664,191 @@ namespace KommandoBogApp.KommandoBogApp_XamlTypeInfo
                 xamlMember.Getter = get_44_UserViewModel_ViewPassword;
                 xamlMember.Setter = set_44_UserViewModel_ViewPassword;
                 break;
+            case "KommandoBogApp.ViewModel.UserViewModel.ViewMailMessage":
+                userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.ViewModel.UserViewModel");
+                xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "ViewMailMessage", "String");
+                xamlMember.Getter = get_45_UserViewModel_ViewMailMessage;
+                xamlMember.Setter = set_45_UserViewModel_ViewMailMessage;
+                break;
             case "KommandoBogApp.ViewModel.UserViewModel.CreateUserCommand":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.ViewModel.UserViewModel");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "CreateUserCommand", "System.Windows.Input.ICommand");
-                xamlMember.Getter = get_45_UserViewModel_CreateUserCommand;
-                xamlMember.Setter = set_45_UserViewModel_CreateUserCommand;
+                xamlMember.Getter = get_46_UserViewModel_CreateUserCommand;
+                xamlMember.Setter = set_46_UserViewModel_CreateUserCommand;
                 break;
             case "KommandoBogApp.ViewModel.UserViewModel.DeleteUserCommand":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.ViewModel.UserViewModel");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "DeleteUserCommand", "System.Windows.Input.ICommand");
-                xamlMember.Getter = get_46_UserViewModel_DeleteUserCommand;
-                xamlMember.Setter = set_46_UserViewModel_DeleteUserCommand;
+                xamlMember.Getter = get_47_UserViewModel_DeleteUserCommand;
+                xamlMember.Setter = set_47_UserViewModel_DeleteUserCommand;
                 break;
             case "KommandoBogApp.View.CreateUserView.Singleton":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.View.CreateUserView");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "Singleton", "KommandoBogApp.Singleton.UserCatalogSingleton");
-                xamlMember.Getter = get_47_CreateUserView_Singleton;
-                xamlMember.Setter = set_47_CreateUserView_Singleton;
+                xamlMember.Getter = get_48_CreateUserView_Singleton;
+                xamlMember.Setter = set_48_CreateUserView_Singleton;
                 break;
             case "KommandoBogApp.View.Login.Singleton":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.View.Login");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "Singleton", "KommandoBogApp.Singleton.UserCatalogSingleton");
-                xamlMember.Getter = get_48_Login_Singleton;
-                xamlMember.Setter = set_48_Login_Singleton;
+                xamlMember.Getter = get_49_Login_Singleton;
+                xamlMember.Setter = set_49_Login_Singleton;
                 break;
             case "KommandoBogApp.View.Login.VM":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.View.Login");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "VM", "KommandoBogApp.ViewModel.UserViewModel");
-                xamlMember.Getter = get_49_Login_VM;
-                xamlMember.Setter = set_49_Login_VM;
+                xamlMember.Getter = get_50_Login_VM;
+                xamlMember.Setter = set_50_Login_VM;
                 break;
             case "KommandoBogApp.View.HubTest.ListOfPossibleMonths":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.View.HubTest");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "ListOfPossibleMonths", "System.Collections.Generic.List`1<Int32>");
-                xamlMember.Getter = get_50_HubTest_ListOfPossibleMonths;
-                xamlMember.Setter = set_50_HubTest_ListOfPossibleMonths;
+                xamlMember.Getter = get_51_HubTest_ListOfPossibleMonths;
+                xamlMember.Setter = set_51_HubTest_ListOfPossibleMonths;
                 break;
             case "KommandoBogApp.View.HubTest.ListOfPossibleYears":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.View.HubTest");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "ListOfPossibleYears", "System.Collections.Generic.List`1<Int32>");
-                xamlMember.Getter = get_51_HubTest_ListOfPossibleYears;
-                xamlMember.Setter = set_51_HubTest_ListOfPossibleYears;
+                xamlMember.Getter = get_52_HubTest_ListOfPossibleYears;
+                xamlMember.Setter = set_52_HubTest_ListOfPossibleYears;
                 break;
             case "KommandoBogApp.View.HubTest.UserCatalogSingleton":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.View.HubTest");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "UserCatalogSingleton", "KommandoBogApp.Singleton.UserCatalogSingleton");
-                xamlMember.Getter = get_52_HubTest_UserCatalogSingleton;
-                xamlMember.Setter = set_52_HubTest_UserCatalogSingleton;
+                xamlMember.Getter = get_53_HubTest_UserCatalogSingleton;
+                xamlMember.Setter = set_53_HubTest_UserCatalogSingleton;
                 break;
             case "KommandoBogApp.View.HubTest.LoadUsersOfThree":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.View.HubTest");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "LoadUsersOfThree", "System.Collections.ObjectModel.ObservableCollection`1<KommandoBogApp.Model.User>");
-                xamlMember.Getter = get_53_HubTest_LoadUsersOfThree;
-                xamlMember.Setter = set_53_HubTest_LoadUsersOfThree;
+                xamlMember.Getter = get_54_HubTest_LoadUsersOfThree;
+                xamlMember.Setter = set_54_HubTest_LoadUsersOfThree;
                 break;
             case "KommandoBogApp.Model.User.AfdId":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.User");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "AfdId", "String");
-                xamlMember.Getter = get_54_User_AfdId;
-                xamlMember.Setter = set_54_User_AfdId;
+                xamlMember.Getter = get_55_User_AfdId;
+                xamlMember.Setter = set_55_User_AfdId;
                 break;
             case "KommandoBogApp.Model.User.UserType":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.User");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "UserType", "String");
-                xamlMember.Getter = get_55_User_UserType;
-                xamlMember.Setter = set_55_User_UserType;
+                xamlMember.Getter = get_56_User_UserType;
+                xamlMember.Setter = set_56_User_UserType;
                 break;
             case "KommandoBogApp.Model.User.MaNummer":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.User");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "MaNummer", "String");
-                xamlMember.Getter = get_56_User_MaNummer;
-                xamlMember.Setter = set_56_User_MaNummer;
+                xamlMember.Getter = get_57_User_MaNummer;
+                xamlMember.Setter = set_57_User_MaNummer;
                 break;
             case "KommandoBogApp.Model.User.Navn":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.User");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "Navn", "String");
-                xamlMember.Getter = get_57_User_Navn;
-                xamlMember.Setter = set_57_User_Navn;
+                xamlMember.Getter = get_58_User_Navn;
+                xamlMember.Setter = set_58_User_Navn;
                 break;
             case "KommandoBogApp.Model.User.Tlf":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.User");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "Tlf", "String");
-                xamlMember.Getter = get_58_User_Tlf;
-                xamlMember.Setter = set_58_User_Tlf;
+                xamlMember.Getter = get_59_User_Tlf;
+                xamlMember.Setter = set_59_User_Tlf;
                 break;
             case "KommandoBogApp.Model.User.Adresse":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.User");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "Adresse", "String");
-                xamlMember.Getter = get_59_User_Adresse;
-                xamlMember.Setter = set_59_User_Adresse;
+                xamlMember.Getter = get_60_User_Adresse;
+                xamlMember.Setter = set_60_User_Adresse;
                 break;
             case "KommandoBogApp.Model.User.AfdNavn":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.User");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "AfdNavn", "String");
-                xamlMember.Getter = get_60_User_AfdNavn;
-                xamlMember.Setter = set_60_User_AfdNavn;
+                xamlMember.Getter = get_61_User_AfdNavn;
+                xamlMember.Setter = set_61_User_AfdNavn;
                 break;
             case "KommandoBogApp.Model.User.Email":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.User");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "Email", "String");
-                xamlMember.Getter = get_61_User_Email;
-                xamlMember.Setter = set_61_User_Email;
+                xamlMember.Getter = get_62_User_Email;
+                xamlMember.Setter = set_62_User_Email;
                 break;
             case "KommandoBogApp.Model.User.DaysWithActivities":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.User");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "DaysWithActivities", "System.Collections.ObjectModel.ObservableCollection`1<KommandoBogApp.Model.Activity>");
-                xamlMember.Getter = get_62_User_DaysWithActivities;
-                xamlMember.Setter = set_62_User_DaysWithActivities;
+                xamlMember.Getter = get_63_User_DaysWithActivities;
+                xamlMember.Setter = set_63_User_DaysWithActivities;
                 break;
             case "KommandoBogApp.Model.Activity.Kommentar":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "Kommentar", "String");
-                xamlMember.Getter = get_63_Activity_Kommentar;
-                xamlMember.Setter = set_63_Activity_Kommentar;
+                xamlMember.Getter = get_64_Activity_Kommentar;
+                xamlMember.Setter = set_64_Activity_Kommentar;
                 break;
             case "KommandoBogApp.Model.Activity.Navn":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "Navn", "String");
-                xamlMember.Getter = get_64_Activity_Navn;
-                xamlMember.Setter = set_64_Activity_Navn;
+                xamlMember.Getter = get_65_Activity_Navn;
+                xamlMember.Setter = set_65_Activity_Navn;
                 break;
             case "KommandoBogApp.Model.Activity.Color":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "Color", "String");
-                xamlMember.Getter = get_65_Activity_Color;
-                xamlMember.Setter = set_65_Activity_Color;
+                xamlMember.Getter = get_66_Activity_Color;
+                xamlMember.Setter = set_66_Activity_Color;
                 break;
             case "KommandoBogApp.Model.Activity._color":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "_color", "Windows.UI.Color");
-                xamlMember.Getter = get_66_Activity__color;
-                xamlMember.Setter = set_66_Activity__color;
+                xamlMember.Getter = get_67_Activity__color;
+                xamlMember.Setter = set_67_Activity__color;
                 break;
             case "KommandoBogApp.Model.Activity.MaNummer":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "MaNummer", "String");
-                xamlMember.Getter = get_67_Activity_MaNummer;
-                xamlMember.Setter = set_67_Activity_MaNummer;
+                xamlMember.Getter = get_68_Activity_MaNummer;
+                xamlMember.Setter = set_68_Activity_MaNummer;
                 break;
             case "KommandoBogApp.Model.Activity.ID":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "ID", "String");
-                xamlMember.Getter = get_68_Activity_ID;
-                xamlMember.Setter = set_68_Activity_ID;
+                xamlMember.Getter = get_69_Activity_ID;
+                xamlMember.Setter = set_69_Activity_ID;
                 break;
             case "KommandoBogApp.Model.Activity.DatesFromAndTo":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "DatesFromAndTo", "String");
-                xamlMember.Getter = get_69_Activity_DatesFromAndTo;
-                xamlMember.Setter = set_69_Activity_DatesFromAndTo;
+                xamlMember.Getter = get_70_Activity_DatesFromAndTo;
+                xamlMember.Setter = set_70_Activity_DatesFromAndTo;
                 break;
             case "KommandoBogApp.Model.Activity.TimeStart":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "TimeStart", "String");
-                xamlMember.Getter = get_70_Activity_TimeStart;
-                xamlMember.Setter = set_70_Activity_TimeStart;
+                xamlMember.Getter = get_71_Activity_TimeStart;
+                xamlMember.Setter = set_71_Activity_TimeStart;
                 break;
             case "KommandoBogApp.Model.Activity.TimeEnd":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "TimeEnd", "String");
-                xamlMember.Getter = get_71_Activity_TimeEnd;
-                xamlMember.Setter = set_71_Activity_TimeEnd;
+                xamlMember.Getter = get_72_Activity_TimeEnd;
+                xamlMember.Setter = set_72_Activity_TimeEnd;
                 break;
             case "KommandoBogApp.Model.Activity.DatesID":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "DatesID", "System.Collections.Generic.List`1<Int32>");
-                xamlMember.Getter = get_72_Activity_DatesID;
-                xamlMember.Setter = set_72_Activity_DatesID;
+                xamlMember.Getter = get_73_Activity_DatesID;
+                xamlMember.Setter = set_73_Activity_DatesID;
                 break;
             case "KommandoBogApp.Model.Activity.ActivityTypeName":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.Activity");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "ActivityTypeName", "KommandoBogApp.Model.ActivityType");
-                xamlMember.Getter = get_73_Activity_ActivityTypeName;
-                xamlMember.Setter = set_73_Activity_ActivityTypeName;
+                xamlMember.Getter = get_74_Activity_ActivityTypeName;
+                xamlMember.Setter = set_74_Activity_ActivityTypeName;
                 break;
             case "KommandoBogApp.Model.User.Password":
                 userType = (global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("KommandoBogApp.Model.User");
                 xamlMember = new global::KommandoBogApp.KommandoBogApp_XamlTypeInfo.XamlMember(this, "Password", "String");
-                xamlMember.Getter = get_74_User_Password;
-                xamlMember.Setter = set_74_User_Password;
+                xamlMember.Getter = get_75_User_Password;
+                xamlMember.Setter = set_75_User_Password;
                 break;
             }
             return xamlMember;

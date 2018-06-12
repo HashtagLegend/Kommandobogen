@@ -252,8 +252,8 @@ C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\bin\Microsoft.AI.Dependenc
 C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\bin\Microsoft.AI.Web.xml
 C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\obj\Debug\NewDatabase.csprojAssemblyReference.cache
 C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\obj\Debug\NewDatabase.csproj.CoreCompileInputs.cache
 C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\obj\Debug\NewDatabase.csproj.CopyComplete
 C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\obj\Debug\NewDatabase.dll
 C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\obj\Debug\NewDatabase.pdb
+C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\obj\Debug\NewDatabase.csprojAssemblyReference.cache

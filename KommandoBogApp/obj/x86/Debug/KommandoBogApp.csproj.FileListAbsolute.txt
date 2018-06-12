@@ -392,7 +392,6 @@ C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\System.Xm
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\System.Xml.XDocument.dll
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\System.Xml.XmlDocument.dll
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\System.Xml.XmlSerializer.dll
-C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\KommandoBogApp.csprojAssemblyReference.cache
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\App.g.i.cs
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\App.g.cs
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\MainPage.g.i.cs
@@ -508,3 +507,4 @@ C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\MultipleQ
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Microsoft.Xaml.Interactions.pri.xml
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Microsoft.Xaml.Interactivity.pri.xml
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\KommandoBogApp.csprojAssemblyReference.cache
