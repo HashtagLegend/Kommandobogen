@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-30T08:39:54.601</Modified>
+      <Modified>2018-06-12T08:33:54.058</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\KommandoBogApp.exe">
       <PackagePath>entrypoint\KommandoBogApp.exe</PackagePath>
-      <Modified>2018-05-30T08:39:53.767</Modified>
+      <Modified>2018-06-12T08:33:52.961</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Wulff\.nuget\packages\microsoft.aspnet.webapi.client\5.2.6\lib\portable-wp8+netcore45+net45+wp81+wpa81\System.Net.Http.Formatting.dll">
       <PackagePath>System.Net.Http.Formatting.dll</PackagePath>
@@ -648,7 +648,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\Core\KommandoBogApp.exe">
       <PackagePath>KommandoBogApp.exe</PackagePath>
-      <Modified>2018-05-30T08:39:54.594</Modified>
+      <Modified>2018-06-12T08:33:54.048</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
