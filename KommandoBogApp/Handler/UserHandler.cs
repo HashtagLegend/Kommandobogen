@@ -58,6 +58,12 @@ namespace KommandoBogApp.Handler
             }
 
         }
+
+        public void ChangeUser()
+        {
+            UserPersistency.PutUser(new User(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword));
+        }
+
         //Sletter en given bruger
         public async void DeleteUser()
         {
@@ -66,7 +72,7 @@ namespace KommandoBogApp.Handler
             {
                 foreach (var user in UserVM.UserCatalogSingleton.UserList)
                 {
-                    if (user == UserVM.SelectedUser)
+                    if (user == UserViewModel.SelectedUser)
                     {
                         foreach (var activity in user.Activities)
                         {
@@ -85,7 +91,7 @@ namespace KommandoBogApp.Handler
             {
                 foreach (var user in UserVM.UserCatalogSingleton.UserList)
                 {
-                    if (user == UserVM.SelectedUser)
+                    if (user == UserViewModel.SelectedUser)
                     {
                         break;
                     }
@@ -95,8 +101,8 @@ namespace KommandoBogApp.Handler
             });
             
             Debug.WriteLine(UserSpotInList);
-            UserPersistency.DeleteEventsAsync(UserVM.SelectedUser);
-            UserVM.UserCatalogSingleton.RemoveUser(UserVM.SelectedUser);
+            UserPersistency.DeleteUserAsync(UserViewModel.SelectedUser);
+            UserVM.UserCatalogSingleton.RemoveUser(UserViewModel.SelectedUser);
         }
 
         public void AddUserToAfdeling(User user)

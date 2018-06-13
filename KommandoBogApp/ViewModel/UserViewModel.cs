@@ -21,7 +21,7 @@ namespace KommandoBogApp.ViewModel
         public string ViewEmail { get; set; }
         public string Type { get; set; }
         public Afdeling Afdeling { get; set; }
-        public User SelectedUser { get; set; }
+        public static User SelectedUser { get; set; }
         public ActivityViewModel ActivityViewModel { get; set; }
         public static ObservableCollection<int> DatesInMonth { get; set; }
         public static string CurrentShownMonth { get; set; }
@@ -57,6 +57,7 @@ namespace KommandoBogApp.ViewModel
         #region ICommands
 
         private ICommand _createUser;
+        private ICommand _changeUser;
         private ICommand _deleteUser;
 
         public ICommand CreateUserCommand
@@ -71,6 +72,14 @@ namespace KommandoBogApp.ViewModel
             set { _deleteUser = value; }
 
         
+        }
+
+        public ICommand ChangeUserCommand
+        {
+            get { return _changeUser ?? (_changeUser = new RelayCommand(UserHandler.ChangeUser)); }
+            set { _changeUser = value; }
+
+
         }
         #endregion
 

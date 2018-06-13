@@ -252,7 +252,6 @@ C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Multiple
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Microsoft.Xaml.Interactions.pri.xml
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Microsoft.Xaml.Interactivity.pri.xml
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\ProjectArchitectures.txt
-C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\KommandoBogApp.csprojAssemblyReference.cache
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\App.xbf
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\MainPage.xbf
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\CalendarViewView.xbf
@@ -508,3 +507,4 @@ C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\MultipleQ
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Microsoft.Xaml.Interactions.pri.xml
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Microsoft.Xaml.Interactivity.pri.xml
 C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\KommandoBogApp.csprojAssemblyReference.cache

@@ -80,7 +80,7 @@ namespace KommandoBogApp.Persistency
             return null;
         }
         //Slet user fra DB
-        public static async void DeleteEventsAsync(User user)
+        public static async void DeleteUserAsync(User user)
         {
             const string ServerUrl = "http://localhost:55000";
             HttpClientHandler handler = new HttpClientHandler();
@@ -101,6 +101,32 @@ namespace KommandoBogApp.Persistency
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex);
+                }
+            }
+        }
+
+        public static async Task PutUser(User user)
+        {
+            const string Url = "http://localhost:55000";
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.UseDefaultCredentials = true;
+
+
+            using (var client = new HttpClient(handler))
+            {
+                client.BaseAddress = new Uri(Url);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                StringContent content = new StringContent(user.DatabaseString());
+                try
+                {
+                    Debug.WriteLine(client.PutAsync("api/UserTables", content).Result);
+                    await client.PutAsJsonAsync("api/UserTables", content);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                    throw;
                 }
             }
         }

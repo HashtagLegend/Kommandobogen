@@ -30608,24 +30608,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Wulff\\.nuget\\packages\\": {},
+    "C:\\Users\\Jesper\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Wulff\\source\\repos\\Kommandobogen\\KommandoBogApp\\KommandoBogApp.csproj",
+      "projectUniqueName": "C:\\Users\\Jesper\\source\\repos\\Kommandobogen\\KommandoBogApp\\KommandoBogApp.csproj",
       "projectName": "KommandoBogApp",
-      "projectPath": "C:\\Users\\Wulff\\source\\repos\\Kommandobogen\\KommandoBogApp\\KommandoBogApp.csproj",
-      "packagesPath": "C:\\Users\\Wulff\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Wulff\\source\\repos\\Kommandobogen\\KommandoBogApp\\obj\\",
+      "projectPath": "C:\\Users\\Jesper\\source\\repos\\Kommandobogen\\KommandoBogApp\\KommandoBogApp.csproj",
+      "packagesPath": "C:\\Users\\Jesper\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jesper\\source\\repos\\Kommandobogen\\KommandoBogApp\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Wulff\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jesper\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

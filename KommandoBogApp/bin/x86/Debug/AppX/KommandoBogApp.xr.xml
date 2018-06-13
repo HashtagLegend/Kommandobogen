@@ -14,6 +14,7 @@
     <RootPropertyPathName Name="LoginUser" />
     <RootPropertyPathName Name="MaNummer" />
     <RootPropertyPathName Name="ViewSearch" />
+    <RootPropertyPathName Name="ChangeUserCommand" />
     <RootPropertyPathName Name="DeleteUserCommand" />
     <RootPropertyPathName Name="CreateUserCommand" />
     <RootPropertyPathName Name="SelectedUser" />
@@ -203,6 +204,8 @@
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="SelectedItem" />
       <RootProperty Name="Resources" />
+      <RootEvent Name="SelectionChanged" />
+      <RootEvent Name="KeyDown" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="HorizontalAlignment" />

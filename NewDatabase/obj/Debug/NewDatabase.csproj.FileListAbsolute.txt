@@ -257,3 +257,4 @@ C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\obj\Debug\NewDatabase.cspr
 C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\obj\Debug\NewDatabase.csproj.CopyComplete
 C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\obj\Debug\NewDatabase.dll
 C:\Users\Wulff\source\repos\Kommandobogen\NewDatabase\obj\Debug\NewDatabase.pdb
+C:\Users\Jesper\source\repos\Kommandobogen\NewDatabase\obj\Debug\NewDatabase.csprojAssemblyReference.cache

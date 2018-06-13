@@ -7,6 +7,8 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -15,9 +17,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using KommandoBogApp.Model;
 using KommandoBogApp.Singleton;
 using KommandoBogApp.ViewModel;
+using User = KommandoBogApp.Model.User;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -80,5 +82,47 @@ namespace KommandoBogApp.View
 
         }
 
+        private void UserListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UserViewModel.SelectedUser != null)
+            {
+                MA_Nummer.Background = new SolidColorBrush(Colors.LightGray);
+                MA_Nummer.IsReadOnly = true;
+                MA_Nummer.Text = UserViewModel.SelectedUser.MaNummer;
+                Navn.Text = UserViewModel.SelectedUser.Navn;
+                Telefon_Nummer.Text = UserViewModel.SelectedUser.Tlf;
+                Adresse.Text = UserViewModel.SelectedUser.Adresse;
+                char[] chararray = UserViewModel.SelectedUser.AfdNavn.ToCharArray();
+                string endswith = chararray[chararray.Length - 1].ToString();
+                foreach (var Afdelinger in AfdelingBox.Items)
+                {
+                    if (Afdelinger.ToString().EndsWith(endswith))
+                    {
+                        AfdelingBox.SelectedItem = Afdelinger;
+                    }
+                }
+                PasswordBox.Password = UserViewModel.SelectedUser.Password;
+                Email.Text = UserViewModel.SelectedUser.Email;
+                BrugertypeBox.SelectedItem = UserViewModel.SelectedUser.UserType;
+            }
+        }
+
+        private void UserListView_OnKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == VirtualKey.Escape)
+            {
+                MA_Nummer.Background = new SolidColorBrush(Colors.Transparent);
+                MA_Nummer.IsReadOnly = false;
+                UserListView.SelectedItem = null;
+                MA_Nummer.Text = "";
+                Navn.Text = "";
+                Telefon_Nummer.Text = "";
+                Adresse.Text = "";
+                AfdelingBox.SelectedItem = null;
+                PasswordBox.Password = "";
+                Email.Text = "";
+                BrugertypeBox.SelectedItem = null;
+            }
+        }
     }
 }
