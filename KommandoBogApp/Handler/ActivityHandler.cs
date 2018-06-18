@@ -212,15 +212,7 @@ namespace KommandoBogApp.Handler
 
         }
 
-        public void ClearAllList()
-        {
-            Debug.WriteLine("Vi kommer ned i ClearAllList");
-            UserList.LoginUser = null;
-            ActivityVM.CalendarOverviewSingleton.ActiveActivityList.Clear();
-            ActivityVM.ActivityList.ActivityList.Clear();
-
-
-        }
+      
 
         public async void ShowNothing()
         {

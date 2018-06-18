@@ -11,6 +11,7 @@
     <RootPropertyPathName Name="DatesFromAndTo" />
     <RootPropertyPathName Name="Kommentar" />
     <RootPropertyPathName Name="Navn" />
+    <RootPropertyPathName Name="UserHandler" />
     <RootPropertyPathName Name="UserCatalogSingleton" />
     <RootPropertyPathName Name="LoginUser" />
     <RootPropertyPathName Name="MaNummer" />

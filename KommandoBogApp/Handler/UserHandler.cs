@@ -23,6 +23,7 @@ namespace KommandoBogApp.Handler
         {
             UserVM = uSW;
         }
+
         //Opretter bruger alt efter hvilken type
         public void CreateUser()
         {
@@ -70,6 +71,7 @@ namespace KommandoBogApp.Handler
             }
 
         }
+
         //Sletter en given bruger
         public async void DeleteUser()
         {
@@ -86,10 +88,12 @@ namespace KommandoBogApp.Handler
                             {
                                 DatesPersistency.DeleteDateAsync(dateids);
                             }
+
                             ActivityPersistency.DeleteActivityAsync(activity);
                         }
                     }
                 }
+
                 await Task.Delay(TimeSpan.FromSeconds(1));
             });
 
@@ -101,11 +105,13 @@ namespace KommandoBogApp.Handler
                     {
                         break;
                     }
+
                     UserSpotInList++;
                 }
+
                 await Task.Delay(TimeSpan.FromSeconds(1));
             });
-            
+
             Debug.WriteLine(UserSpotInList);
             UserPersistency.DeleteEventsAsync(UserVM.SelectedUser);
             UserVM.UserCatalogSingleton.RemoveUser(UserVM.SelectedUser);
@@ -114,7 +120,7 @@ namespace KommandoBogApp.Handler
         public void AddUserToAfdeling(User user)
         {
             UserVM.Afdeling.AddUserToList(user);
-            
+
         }
 
         //Bruger til at tjekke om den givne user kan logges ind
@@ -136,14 +142,24 @@ namespace KommandoBogApp.Handler
                         UserVM.UserCatalogSingleton.LoadActivitiesFromDB();
                         return true;
                     }
+
                     Login.LoadFromDBGoneWrong = "Wrong Username or Password";
                 }
             }
+
             return false;
         }
 
+        public async void ShowNothing()
+        {
+            var dialog = new MessageDialog("Dette er funktionalitet som endnu ikke er blevet bygget");
+            await dialog.ShowAsync();
 
-
-        
+        }
     }
+
+
+
+
+
 }

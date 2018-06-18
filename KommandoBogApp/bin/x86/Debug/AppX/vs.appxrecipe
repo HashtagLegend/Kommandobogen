@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>9710E0FB67D62E7B675866DFD2F033540DC5C9F2E10C59518192A03E02A0093C</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>48A033D93DEED78D11A87AD57FED4872C7CDBD1E136FCAC31AD2474A0D799D7C</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>30353258-13db-4308-941b-e9168a759c00_1.0.0.0_x86__t66pgecwyvnzw</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>30353258-13db-4308-941b-e9168a759c00_t66pgecwyvnzw!App</RegisteredUserModeAppID>
     <RegisteredPackageID>30353258-13db-4308-941b-e9168a759c00</RegisteredPackageID>
@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-12T09:59:29.848</Modified>
+      <Modified>2018-06-18T07:21:46.603</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\KommandoBogApp.exe">
       <PackagePath>entrypoint\KommandoBogApp.exe</PackagePath>
-      <Modified>2018-06-12T09:59:27.571</Modified>
+      <Modified>2018-06-18T07:21:46.157</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Wulff\.nuget\packages\microsoft.aspnet.webapi.client\5.2.6\lib\portable-wp8+netcore45+net45+wp81+wpa81\System.Net.Http.Formatting.dll">
       <PackagePath>System.Net.Http.Formatting.dll</PackagePath>
@@ -611,7 +611,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\KommandoBogApp.xr.xml">
       <PackagePath>KommandoBogApp.xr.xml</PackagePath>
-      <Modified>2018-06-12T09:59:27.175</Modified>
+      <Modified>2018-06-18T07:15:30.376</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -627,7 +627,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\CreateUserView.xbf">
       <PackagePath>View\CreateUserView.xbf</PackagePath>
-      <Modified>2018-06-12T09:59:27.242</Modified>
+      <Modified>2018-06-18T07:15:30.455</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\Login.xbf">
       <PackagePath>View\Login.xbf</PackagePath>
@@ -635,7 +635,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\HubTest.xbf">
       <PackagePath>View\HubTest.xbf</PackagePath>
-      <Modified>2018-06-12T09:59:27.244</Modified>
+      <Modified>2018-06-18T07:21:45.851</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -648,7 +648,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\Core\KommandoBogApp.exe">
       <PackagePath>KommandoBogApp.exe</PackagePath>
-      <Modified>2018-06-12T09:59:29.840</Modified>
+      <Modified>2018-06-18T07:21:46.600</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
