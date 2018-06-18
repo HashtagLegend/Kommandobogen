@@ -19,50 +19,62 @@ namespace KommandoBogApp.Handler
         //Vi har alt over user metoder og funktionalitet i denne klasse
         public static UserViewModel UserVM { get; set; }
 
+        
+
         public UserHandler(UserViewModel uSW)
         {
             UserVM = uSW;
         }
         //Opretter bruger alt efter hvilken type
-        public void CreateUser()
+        public bool CreateUser()
         {
-          
-            if (UserVM.Type == "Admin")
-            {
-                Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
-                admin.AfdNavn = UserVM.Afdeling.Navn;
-                admin.AfdId = UserVM.Afdeling.AfdId.ToString();
-                UserVM.UserCatalogSingleton.AddUser(admin);
-                AddUserToAfdeling(admin);
+            bool userExists = false;
 
-            }
-            else if (UserVM.Type == "Leader")
+            foreach (var user in UserCatalogSingleton.Instance.UserList)
             {
-                Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
-                leader.AfdNavn = UserVM.Afdeling.Navn;
-                leader.AfdId = UserVM.Afdeling.AfdId.ToString();
-                UserVM.UserCatalogSingleton.AddUser(leader);
-                AddUserToAfdeling(leader); 
-                
+                if (user.MaNummer == UserVM.ViewMaNr)
+                {
+                    userExists = true;
+                    return true;
+                }
+            }
+            if (userExists != true)
+            {
+                if (UserVM.Type == "Admin")
+                {
+                    Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
+                    admin.AfdNavn = UserVM.Afdeling.Navn;
+                    admin.AfdId = UserVM.Afdeling.AfdId.ToString();
+                    UserVM.UserCatalogSingleton.AddUser(admin);
+                    AddUserToAfdeling(admin);
+                    return false;
+                }
+                else if (UserVM.Type == "Leader")
+                {
+                    Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
+                    leader.AfdNavn = UserVM.Afdeling.Navn;
+                    leader.AfdId = UserVM.Afdeling.AfdId.ToString();
+                    UserVM.UserCatalogSingleton.AddUser(leader);
+                    AddUserToAfdeling(leader);
+                    return false;
 
 
+                }
+                else if (UserVM.Type == "Regular")
+                {
+                    Regular regular = new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
+                    regular.AfdNavn = UserVM.Afdeling.Navn;
+                    regular.AfdId = UserVM.Afdeling.AfdId.ToString();
+                    UserVM.UserCatalogSingleton.AddUser(regular);
+                    AddUserToAfdeling(regular);
+                    return false;
+                }
             }
-            else if (UserVM.Type == "Regular")
-            {
-                Regular regular= new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword);
-                regular.AfdNavn = UserVM.Afdeling.Navn;
-                regular.AfdId = UserVM.Afdeling.AfdId.ToString();
-                UserVM.UserCatalogSingleton.AddUser(regular);
-                AddUserToAfdeling(regular);
-              
-            }
+            return false;
 
         }
 
-        public void ChangeUser()
-        {
-            UserPersistency.PutUser(new User(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse, UserVM.ViewEmail, UserVM.ViewPassword));
-        }
+       
 
         //Sletter en given bruger
         public async void DeleteUser()

@@ -56,15 +56,9 @@ namespace KommandoBogApp.ViewModel
 
         #region ICommands
 
-        private ICommand _createUser;
-        private ICommand _changeUser;
+
         private ICommand _deleteUser;
 
-        public ICommand CreateUserCommand
-        {
-            get { return _createUser ?? (_createUser = new RelayCommand(UserHandler.CreateUser)); }
-            set { _createUser = value; }
-        }
 
         public ICommand DeleteUserCommand
         {
@@ -73,14 +67,6 @@ namespace KommandoBogApp.ViewModel
 
         
         }
-
-        public ICommand ChangeUserCommand
-        {
-            get { return _changeUser ?? (_changeUser = new RelayCommand(UserHandler.ChangeUser)); }
-            set { _changeUser = value; }
-
-
-        }
         #endregion
 
         public static void SetCurrentShownMonth()
@@ -88,10 +74,6 @@ namespace KommandoBogApp.ViewModel
             CurrentShownMonth = HubTest.ShownMonth.Month.ToString();
             CurrentShownYear = HubTest.ShownMonth.Year.ToString();
         }
-
-
-
-       
         
     }
 }

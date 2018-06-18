@@ -105,30 +105,6 @@ namespace KommandoBogApp.Persistency
             }
         }
 
-        public static async Task PutUser(User user)
-        {
-            const string Url = "http://localhost:55000";
-            HttpClientHandler handler = new HttpClientHandler();
-            handler.UseDefaultCredentials = true;
-
-
-            using (var client = new HttpClient(handler))
-            {
-                client.BaseAddress = new Uri(Url);
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                StringContent content = new StringContent(user.DatabaseString());
-                try
-                {
-                    Debug.WriteLine(client.PutAsync("api/UserTables", content).Result);
-                    await client.PutAsJsonAsync("api/UserTables", content);
-                }
-                catch (Exception e)
-                {
-                    Debug.WriteLine(e);
-                    throw;
-                }
-            }
-        }
+       
     }
 }

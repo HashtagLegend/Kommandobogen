@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using KommandoBogApp.Handler;
 using KommandoBogApp.Singleton;
 using KommandoBogApp.ViewModel;
 using User = KommandoBogApp.Model.User;
@@ -41,6 +42,7 @@ namespace KommandoBogApp.View
             CreateButton.Click += CreateButton_Click;
             DeleteButton.Click += DeleteButton_Click;
             bindingToList();
+            
         }
         //Her bindes til enten searchlist eller orignal user list
         public void bindingToList()
@@ -122,6 +124,41 @@ namespace KommandoBogApp.View
                 PasswordBox.Password = "";
                 Email.Text = "";
                 BrugertypeBox.SelectedItem = null;
+            }
+        }
+
+        public void ClearIfSelectedOnLoad()
+        {
+            MA_Nummer.Background = new SolidColorBrush(Colors.Transparent);
+            MA_Nummer.IsReadOnly = false;
+            UserListView.SelectedItem = null;
+            MA_Nummer.Text = "";
+            Navn.Text = "";
+            Telefon_Nummer.Text = "";
+            Adresse.Text = "";
+            AfdelingBox.SelectedItem = null;
+            PasswordBox.Password = "";
+            Email.Text = "";
+            BrugertypeBox.SelectedItem = null;
+        }
+
+        private async void CreateUser(object sender, RoutedEventArgs e)
+        {
+            if (MA_Nummer.IsReadOnly)
+            {
+                MaNummerError.Text = "Du kan ikke oprette en bruger når du har en bruger valgt";
+                await Task.Delay(TimeSpan.FromSeconds(5));
+                MaNummerError.Text = "";
+            }
+            else
+            {
+                var DoesExist = UserHandler.UserVM.UserHandler.CreateUser();
+                if (DoesExist)
+                {
+                    MaNummerError.Text = "En Bruger med dette Ma Nummer eksisterer allerede";
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                    MaNummerError.Text = "";
+                }
             }
         }
     }

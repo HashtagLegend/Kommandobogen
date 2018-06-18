@@ -14,6 +14,7 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:Name="MaNummerError" HorizontalAlignment="Left" Margin="160,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Foreground="Red" />
         <TextBox x:Name="MA_Nummer" HorizontalAlignment="Left" Margin="160,183,0,0" Text="{Binding ViewMaNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="41" Width="286" PlaceholderText="MA-nummer"/>
         <TextBox x:Name="Navn" HorizontalAlignment="Left" Margin="160,254,0,0" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Navn"/>
         <TextBox x:Name="Telefon_Nummer" HorizontalAlignment="Left" Margin="160,320,0,0" Text="{Binding ViewTlf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Tlf_nummer"/>
@@ -44,9 +45,8 @@
             </ListView.ItemTemplate>
         </ListView>
         
-        <Button x:Name="CreateButton" Content="Opret Bruger" HorizontalAlignment="Left" Margin="160,663,0,0" VerticalAlignment="Top" Command="{Binding CreateUserCommand}"/>
+        <Button x:Name="CreateButton" Content="Opret Bruger" HorizontalAlignment="Left" Margin="160,663,0,0" VerticalAlignment="Top" Click="CreateUser"/>
         <Button x:Name="DeleteButton" Content="Slet Bruger" HorizontalAlignment="Left" Margin="160,727,0,0" VerticalAlignment="Top" Command="{Binding DeleteUserCommand}"/>
-        <Button x:Name="ChangeButton" Content="Opdater Bruger" HorizontalAlignment="Left" Margin="160,791,0,0" VerticalAlignment="Top" Command="{Binding ChangeUserCommand}"/>
         <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Height="30" Margin="630,180,0,0" TextWrapping="Wrap" Text="{Binding ViewSearch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="124">
             <Custom:Interaction.Behaviors>
                 <Custom1:EventTriggerBehavior EventName="TextChanged"/>
@@ -115,6 +115,7 @@
         <Grid x:Name="NavigationBar" HorizontalAlignment="Stretch" Height="42" Margin="150,116,0,0" VerticalAlignment="Top" Width="Auto">
             <TextBlock x:Name="NavigationBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nuværende Side: Opret Bruger" VerticalAlignment="Top" Height="42" Width="1770" FontSize="24"/>
         </Grid>
+        
 
     </Grid>
 </Page>
