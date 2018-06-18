@@ -75,7 +75,7 @@
         <Grid x:Name="MenuBar" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="150" Background="#FF767171">
             <RelativePanel HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="150">
                 <TextBlock x:Name="BrugerNavn" TextWrapping="Wrap" Text="  Bruger" Height="20" Width="150" RelativePanel.AlignTopWith=""/>
-                <AppBarButton x:Name="HjemKnap" Label="Hjem" Width="150" Icon="Home" Height="65" RelativePanel.Below="BrugerNavn">
+                <AppBarButton x:Name="HjemKnap" Label="Hjem" Width="150" Icon="Home" Height="65" RelativePanel.Below="BrugerNavn" Click="ClearIfSelected">
                     <Custom:Interaction.Behaviors>
                         <Custom1:EventTriggerBehavior EventName="Click">
                             <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.CalendarViewView"/>
@@ -83,7 +83,7 @@
                     </Custom:Interaction.Behaviors>
                 </AppBarButton>
                 <AppBarButton x:Name="Arbejdstid" Label="Arbejdstid" Width="150" Icon="People" Height="65" RelativePanel.Below="HjemKnap"/>
-                <AppBarButton x:Name="Overblik" Label="Overblik" Width="150" Icon="Calendar" Height="65" RelativePanel.Below="Arbejdstid">
+                <AppBarButton x:Name="Overblik" Label="Overblik" Width="150" Icon="Calendar" Height="65" RelativePanel.Below="Arbejdstid" Click="ClearIfSelected">
                     <Custom:Interaction.Behaviors>
                         <Custom1:EventTriggerBehavior EventName="Click">
                             <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.HubTest"/>

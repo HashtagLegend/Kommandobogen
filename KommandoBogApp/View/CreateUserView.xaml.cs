@@ -127,21 +127,6 @@ namespace KommandoBogApp.View
             }
         }
 
-        public void ClearIfSelectedOnLoad()
-        {
-            MA_Nummer.Background = new SolidColorBrush(Colors.Transparent);
-            MA_Nummer.IsReadOnly = false;
-            UserListView.SelectedItem = null;
-            MA_Nummer.Text = "";
-            Navn.Text = "";
-            Telefon_Nummer.Text = "";
-            Adresse.Text = "";
-            AfdelingBox.SelectedItem = null;
-            PasswordBox.Password = "";
-            Email.Text = "";
-            BrugertypeBox.SelectedItem = null;
-        }
-
         private async void CreateUser(object sender, RoutedEventArgs e)
         {
             if (MA_Nummer.IsReadOnly)
@@ -160,6 +145,21 @@ namespace KommandoBogApp.View
                     MaNummerError.Text = "";
                 }
             }
+        }
+
+        private void ClearIfSelected(object sender, RoutedEventArgs e)
+        {
+            MA_Nummer.Background = new SolidColorBrush(Colors.Transparent);
+            MA_Nummer.IsReadOnly = false;
+            UserListView.SelectedItem = null;
+            MA_Nummer.Text = "";
+            Navn.Text = "";
+            Telefon_Nummer.Text = "";
+            Adresse.Text = "";
+            AfdelingBox.SelectedItem = null;
+            PasswordBox.Password = "";
+            Email.Text = "";
+            BrugertypeBox.SelectedItem = null;
         }
     }
 }

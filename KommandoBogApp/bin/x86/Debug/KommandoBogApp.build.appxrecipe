@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>ROVSNEGLEN</Machine>
+    <Machine>JESPER-PC</Machine>
     <WindowsUser>Jesper</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>30353258-13db-4308-941b-e9168a759c00</PackageIdentityName>
     <PackageIdentityPublisher>CN=Patrick</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\KommandoBogApp.exe">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\KommandoBogApp.exe">
       <PackagePath>entrypoint\KommandoBogApp.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\microsoft.aspnet.webapi.client\5.2.6\lib\portable-wp8+netcore45+net45+wp81+wpa81\System.Net.Http.Formatting.dll">
@@ -268,7 +268,7 @@
     <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.net.websockets\4.0.0\lib\netstandard1.3\System.Net.WebSockets.dll">
       <PackagePath>System.Net.WebSockets.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.net.websockets.client\4.0.2\runtimes\win\lib\netcore50\System.Net.WebSockets.Client.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.net.websockets.client\4.0.2\runtimes\win\lib\netcore50\System.Net.WebSockets.Client.dll">
       <PackagePath>System.Net.WebSockets.Client.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.numerics.vectors\4.1.1\lib\portable-net45+win8+wp8+wpa81\System.Numerics.Vectors.dll">
@@ -283,7 +283,7 @@
     <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.private.datacontractserialization\4.1.2\lib\netstandard1.3\System.Private.DataContractSerialization.dll">
       <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.private.servicemodel\4.1.1\runtimes\win7\lib\netcore50\System.Private.ServiceModel.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.private.servicemodel\4.1.1\runtimes\win7\lib\netcore50\System.Private.ServiceModel.dll">
       <PackagePath>System.Private.ServiceModel.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.reflection.context\4.0.1\lib\netcore50\System.Reflection.Context.dll">
@@ -355,19 +355,19 @@
     <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.security.principal\4.0.1\lib\netcore50\System.Security.Principal.dll">
       <PackagePath>System.Security.Principal.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.servicemodel.duplex\4.0.2\lib\netcore50\System.ServiceModel.Duplex.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.duplex\4.0.2\lib\netcore50\System.ServiceModel.Duplex.dll">
       <PackagePath>System.ServiceModel.Duplex.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.servicemodel.http\4.1.1\lib\netcore50\System.ServiceModel.Http.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.http\4.1.1\lib\netcore50\System.ServiceModel.Http.dll">
       <PackagePath>System.ServiceModel.Http.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.servicemodel.nettcp\4.1.1\lib\netcore50\System.ServiceModel.NetTcp.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.nettcp\4.1.1\lib\netcore50\System.ServiceModel.NetTcp.dll">
       <PackagePath>System.ServiceModel.NetTcp.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.servicemodel.primitives\4.1.1\lib\netcore50\System.ServiceModel.Primitives.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.primitives\4.1.1\lib\netcore50\System.ServiceModel.Primitives.dll">
       <PackagePath>System.ServiceModel.Primitives.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.servicemodel.security\4.0.2\lib\netcore50\System.ServiceModel.Security.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.servicemodel.security\4.0.2\lib\netcore50\System.ServiceModel.Security.dll">
       <PackagePath>System.ServiceModel.Security.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.text.encoding.codepages\4.0.1\runtimes\win\lib\netstandard1.3\System.Text.Encoding.CodePages.dll">
@@ -403,89 +403,89 @@
     <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\system.xml.xmlserializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\Pictures\#Legends.png">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\#Legends.png">
       <PackagePath>Assets\Pictures\#Legends.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\Pictures\FMI.png">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\FMI.png">
       <PackagePath>Assets\Pictures\FMI.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Ny kampvogn.png">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Ny kampvogn.png">
       <PackagePath>Assets\Pictures\Ny kampvogn.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\Pictures\abasalon.jpg">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\abasalon.jpg">
       <PackagePath>Assets\Pictures\abasalon.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Billede.jpg">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Billede.jpg">
       <PackagePath>Assets\Pictures\Billede.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Fly.jpg">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Fly.jpg">
       <PackagePath>Assets\Pictures\Fly.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Kampvogn 2.jpg">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Kampvogn 2.jpg">
       <PackagePath>Assets\Pictures\Kampvogn 2.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Kampvogn.jpg">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Assets\Pictures\Kampvogn.jpg">
       <PackagePath>Assets\Pictures\Kampvogn.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\KommandoBogApp.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\KommandoBogApp.xr.xml">
       <PackagePath>KommandoBogApp.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\CalendarViewView.xbf">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\CalendarViewView.xbf">
       <PackagePath>View\CalendarViewView.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\CreateUserView.xbf">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\CreateUserView.xbf">
       <PackagePath>View\CreateUserView.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\Login.xbf">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\Login.xbf">
       <PackagePath>View\Login.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\HubTest.xbf">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\HubTest.xbf">
       <PackagePath>View\HubTest.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jesper\Source\Repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\Core\KommandoBogApp.exe">
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\Core\KommandoBogApp.exe">
       <PackagePath>KommandoBogApp.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

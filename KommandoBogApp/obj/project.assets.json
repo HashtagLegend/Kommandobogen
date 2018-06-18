@@ -30614,11 +30614,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jesper\\Source\\Repos\\Kommandobogen\\KommandoBogApp\\KommandoBogApp.csproj",
+      "projectUniqueName": "C:\\Users\\Jesper\\source\\repos\\Kommandobogen\\KommandoBogApp\\KommandoBogApp.csproj",
       "projectName": "KommandoBogApp",
-      "projectPath": "C:\\Users\\Jesper\\Source\\Repos\\Kommandobogen\\KommandoBogApp\\KommandoBogApp.csproj",
+      "projectPath": "C:\\Users\\Jesper\\source\\repos\\Kommandobogen\\KommandoBogApp\\KommandoBogApp.csproj",
       "packagesPath": "C:\\Users\\Jesper\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jesper\\Source\\Repos\\Kommandobogen\\KommandoBogApp\\obj\\",
+      "outputPath": "C:\\Users\\Jesper\\source\\repos\\Kommandobogen\\KommandoBogApp\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
