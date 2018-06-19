@@ -19,6 +19,7 @@ KommandoBogApp.xr.xml
 MainPage.xbf
 View\CalendarViewView.xbf
 View\CreateUserView.xbf
+View\HelpView.xbf
 View\HubTest.xbf
 View\Login.xbf
 Properties\Default.rd.xml

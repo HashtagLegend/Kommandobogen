@@ -29,65 +29,67 @@ namespace KommandoBogApp.Handler
         {
             if (UserVM.ViewEmail != null)
             {
-            if (UserVM.ViewEmail.Contains("@"))
-            {
-                bool userExists = false;
-
-                foreach (var user in UserCatalogSingleton.Instance.UserList)
+                if (UserVM.ViewEmail.Contains("@"))
                 {
-                    if (user.MaNummer == UserVM.ViewMaNr)
+                    bool userExists = false;
+
+                    foreach (var user in UserCatalogSingleton.Instance.UserList)
                     {
-                        userExists = true;
-                        
+                        if (user.MaNummer == UserVM.ViewMaNr)
+                        {
+                            userExists = true;
+
+                        }
+                    }
+                    if (userExists != true)
+                    {
+
+
+                        if (UserVM.Type == "Admin")
+                        {
+                            Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf,
+                                UserVM.ViewAdresse,
+                                UserVM.ViewEmail, UserVM.ViewPassword);
+                            admin.AfdNavn = UserVM.Afdeling.Navn;
+                            admin.AfdId = UserVM.Afdeling.AfdId.ToString();
+                            UserVM.UserCatalogSingleton.AddUser(admin);
+                            AddUserToAfdeling(admin);
+
+                        }
+                        else if (UserVM.Type == "Leader")
+                        {
+                            Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf,
+                                UserVM.ViewAdresse,
+                                UserVM.ViewEmail, UserVM.ViewPassword);
+                            leader.AfdNavn = UserVM.Afdeling.Navn;
+                            leader.AfdId = UserVM.Afdeling.AfdId.ToString();
+                            UserVM.UserCatalogSingleton.AddUser(leader);
+                            AddUserToAfdeling(leader);
+
+
+
+                        }
+                        else if (UserVM.Type == "Regular")
+                        {
+                            Regular regular = new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf,
+                                UserVM.ViewAdresse,
+                                UserVM.ViewEmail, UserVM.ViewPassword);
+                            regular.AfdNavn = UserVM.Afdeling.Navn;
+                            regular.AfdId = UserVM.Afdeling.AfdId.ToString();
+                            UserVM.UserCatalogSingleton.AddUser(regular);
+                            AddUserToAfdeling(regular);
+
+                        }
                     }
                 }
-                if (userExists != true)
+
+
+                else
                 {
-
-
-                    if (UserVM.Type == "Admin")
-                    {
-                        Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
-                            UserVM.ViewEmail, UserVM.ViewPassword);
-                        admin.AfdNavn = UserVM.Afdeling.Navn;
-                        admin.AfdId = UserVM.Afdeling.AfdId.ToString();
-                        UserVM.UserCatalogSingleton.AddUser(admin);
-                        AddUserToAfdeling(admin);
-
-                    }
-                    else if (UserVM.Type == "Leader")
-                    {
-                        Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
-                            UserVM.ViewEmail, UserVM.ViewPassword);
-                        leader.AfdNavn = UserVM.Afdeling.Navn;
-                        leader.AfdId = UserVM.Afdeling.AfdId.ToString();
-                        UserVM.UserCatalogSingleton.AddUser(leader);
-                        AddUserToAfdeling(leader);
-
-
-
-                    }
-                    else if (UserVM.Type == "Regular")
-                    {
-                        Regular regular = new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf,
-                            UserVM.ViewAdresse,
-                            UserVM.ViewEmail, UserVM.ViewPassword);
-                        regular.AfdNavn = UserVM.Afdeling.Navn;
-                        regular.AfdId = UserVM.Afdeling.AfdId.ToString();
-                        UserVM.UserCatalogSingleton.AddUser(regular);
-                        AddUserToAfdeling(regular);
-
-                    }
+                    var dialog = new MessageDialog("Husk @ i din email");
+                    dialog.ShowAsync();
                 }
             }
-
-            }
-            else
-            {
-                var dialog = new MessageDialog("Husk @ i din email");
-                dialog.ShowAsync();
-            }
-
         }
 
         //Sletter en given bruger

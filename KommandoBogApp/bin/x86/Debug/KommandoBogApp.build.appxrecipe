@@ -472,6 +472,9 @@
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\CreateUserView.xbf">
       <PackagePath>View\CreateUserView.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\HelpView.xbf">
+      <PackagePath>View\HelpView.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\Login.xbf">
       <PackagePath>View\Login.xbf</PackagePath>
     </AppxPackagedFile>

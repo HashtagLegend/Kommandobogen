@@ -126,7 +126,7 @@ namespace KommandoBogApp.View
             }
         }
 
-        public void ClearIfSelectedOnLoad()
+        public void ClearIfSelectedOnLoad(object sender, RoutedEventArgs e)
         {
             MA_Nummer.Background = new SolidColorBrush(Colors.Transparent);
             MA_Nummer.IsReadOnly = false;

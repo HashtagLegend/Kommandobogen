@@ -507,3 +507,8 @@ C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Multiple
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Microsoft.Xaml.Interactions.pri.xml
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\Microsoft.Xaml.Interactivity.pri.xml
 C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\HelpView.xbf
+C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\View\HelpView.g.i.cs
+C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\View\HelpView.g.cs
+C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\View\HelpView.xaml
+C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\obj\x86\Debug\View\HelpView.xbf

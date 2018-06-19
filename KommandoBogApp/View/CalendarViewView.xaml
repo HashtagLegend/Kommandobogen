@@ -108,7 +108,13 @@
                         </Core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </AppBarButton>
-                <AppBarButton x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik"/>
+                <AppBarButton x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik">
+                <interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.HelpView"/>
+                    </Core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+                </AppBarButton>
                 <TextBlock x:Name="Leder" TextWrapping="Wrap" Text="  Leder" Height="20" Width="150" RelativePanel.Below="Hjælp"/>
                 <AppBarButton x:Name="Merarbejde" Label="Merarbejde" Width="150" Height="65" Icon="Manage" RelativePanel.Below="Leder">
                     <interactivity:Interaction.Behaviors>
@@ -127,7 +133,13 @@
                 <TextBlock x:Name="Admin" TextWrapping="Wrap" Height="20" Width="150" Text="  Admin" RelativePanel.Below="Statistik"/>
                 <AppBarButton x:Name="Opret_bruger" Label="Opret Bruger" Width="150" Icon="AddFriend" Height="65" RelativePanel.Below="Admin" Click="NavigateToPageOpretBruger">
                 </AppBarButton>
-                <AppBarButton x:Name="Rediger_bruger" Label="Rediger Bruger" Width="150" Icon="Edit" Height="65" RelativePanel.Below="Opret_bruger"/>
+                <AppBarButton x:Name="Rediger_bruger" Label="Rediger Bruger" Width="150" Icon="Edit" Height="65" RelativePanel.Below="Opret_bruger">
+                    <interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction MethodName="ShowNothing" TargetObject="{Binding Handler}"/>
+                        </Core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
                 <AppBarButton x:Name="Logout" Label="Log Out" Width="150" Icon="GoToStart" Height="65" RelativePanel.AlignBottomWithPanel="True" Click="LeavingPage">
                     <interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">

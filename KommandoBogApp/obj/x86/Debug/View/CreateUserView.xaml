@@ -14,7 +14,7 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:ConnectionId='1' x:Name="MaNummerError" HorizontalAlignment="Left" Margin="160,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Foreground="Red"/>
+        <TextBlock x:ConnectionId='1' x:Name="MaNummerError" HorizontalAlignment="Left" Margin="160,148,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Foreground="Red"/>
         <TextBox x:ConnectionId='2' x:Name="MA_Nummer" HorizontalAlignment="Left" Margin="160,183,0,0" Text="{Binding ViewMaNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="41" Width="286" PlaceholderText="MA-nummer"/>
         <TextBox x:ConnectionId='3' x:Name="Navn" HorizontalAlignment="Left" Margin="160,254,0,0" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Navn"/>
         <TextBox x:ConnectionId='4' x:Name="Telefon_Nummer" HorizontalAlignment="Left" Margin="160,320,0,0" Text="{Binding ViewTlf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Tlf_nummer"/>
@@ -75,7 +75,7 @@
         <Grid x:ConnectionId='17' x:Name="MenuBar" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="150" Background="#FF767171">
             <RelativePanel HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="150">
                 <TextBlock x:ConnectionId='20' x:Name="BrugerNavn" TextWrapping="Wrap" Text="  Bruger" Height="20" Width="150" RelativePanel.AlignTopWith=""/>
-                <AppBarButton x:ConnectionId='21' x:Name="HjemKnap" Label="Hjem" Width="150" Icon="Home" Height="65" RelativePanel.Below="BrugerNavn">
+                <AppBarButton x:ConnectionId='21' x:Name="HjemKnap" Label="Hjem" Width="150" Icon="Home" Height="65" RelativePanel.Below="BrugerNavn"                              >
                     <Custom:Interaction.Behaviors>
                         <Custom1:EventTriggerBehavior EventName="Click">
                             <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.CalendarViewView"/>
@@ -89,14 +89,20 @@
                         </Custom1:EventTriggerBehavior>
                     </Custom:Interaction.Behaviors>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='23' x:Name="Overblik" Label="Overblik" Width="150" Icon="Calendar" Height="65" RelativePanel.Below="Arbejdstid">
+                <AppBarButton x:ConnectionId='23' x:Name="Overblik" Label="Overblik" Width="150" Icon="Calendar" Height="65" RelativePanel.Below="Arbejdstid"                              >
                     <Custom:Interaction.Behaviors>
                         <Custom1:EventTriggerBehavior EventName="Click">
                             <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.HubTest"/>
                         </Custom1:EventTriggerBehavior>
                     </Custom:Interaction.Behaviors>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='24' x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik"/>
+                <AppBarButton x:ConnectionId='24' x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik"                              >
+                    <Custom:Interaction.Behaviors>
+                        <Custom1:EventTriggerBehavior EventName="Click">
+                            <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.HelpView"/>
+                        </Custom1:EventTriggerBehavior>
+                    </Custom:Interaction.Behaviors>
+                </AppBarButton>
                 <TextBlock x:ConnectionId='25' x:Name="Leder" TextWrapping="Wrap" Text="  Leder" Height="20" Width="150" RelativePanel.Below="Hjælp"/>
                 <AppBarButton x:ConnectionId='26' x:Name="Merarbejde" Label="Merarbejde" Width="150" Height="65" Icon="Manage" RelativePanel.Below="Leder">
                     <Custom:Interaction.Behaviors>
@@ -127,7 +133,7 @@
                         </Custom1:EventTriggerBehavior>
                     </Custom:Interaction.Behaviors>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='31' x:Name="Logout" Label="Log Out" Width="150" Icon="GoToStart" Height="65" RelativePanel.AlignBottomWithPanel="True">
+                <AppBarButton x:ConnectionId='31' x:Name="Logout" Label="Log Out" Width="150" Icon="GoToStart" Height="65" RelativePanel.AlignBottomWithPanel="True"                              >
                     <Custom:Interaction.Behaviors>
                         <Custom1:EventTriggerBehavior EventName="Click">
                             <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.Login"/>
@@ -143,4 +149,7 @@
 
     </Grid>
 </Page>
+
+
+
 

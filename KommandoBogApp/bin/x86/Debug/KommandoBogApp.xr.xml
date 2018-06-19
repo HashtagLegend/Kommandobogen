@@ -108,7 +108,9 @@
       <RootProperty Name="TextDecorations" />
       <RootProperty Name="UseLayoutRounding" />
       <RootProperty Name="Padding" />
+      <RootProperty Name="Inlines" />
       <RootProperty Name="Name" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="HorizontalAlignment" />
@@ -270,6 +272,11 @@
       <RootEvent Name="KeyUp" />
     </RootType>
     <RootType FullName="KommandoBogApp.View.CreateUserView" />
+    <RootType FullName="Windows.UI.Xaml.Documents.Run">
+      <RootProperty Name="Text" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Documents.LineBreak" />
+    <RootType FullName="KommandoBogApp.View.HelpView" />
     <RootType FullName="Windows.UI.Xaml.Controls.FlipView">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Margin" />

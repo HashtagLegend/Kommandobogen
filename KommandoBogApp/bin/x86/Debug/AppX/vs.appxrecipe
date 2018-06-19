@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-19T09:54:17.199</Modified>
+      <Modified>2018-06-19T10:20:04.558</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\KommandoBogApp.exe">
       <PackagePath>entrypoint\KommandoBogApp.exe</PackagePath>
-      <Modified>2018-06-19T09:54:16.157</Modified>
+      <Modified>2018-06-19T10:20:04.046</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\.nuget\packages\microsoft.aspnet.webapi.client\5.2.6\lib\portable-wp8+netcore45+net45+wp81+wpa81\System.Net.Http.Formatting.dll">
       <PackagePath>System.Net.Http.Formatting.dll</PackagePath>
@@ -611,31 +611,35 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\KommandoBogApp.xr.xml">
       <PackagePath>KommandoBogApp.xr.xml</PackagePath>
-      <Modified>2018-06-19T09:53:04.596</Modified>
+      <Modified>2018-06-19T10:05:24.355</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-06-19T09:22:09.899</Modified>
+      <Modified>2018-06-19T10:00:27.947</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-06-19T09:22:10.019</Modified>
+      <Modified>2018-06-19T10:00:27.967</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\CalendarViewView.xbf">
       <PackagePath>View\CalendarViewView.xbf</PackagePath>
-      <Modified>2018-06-19T09:22:10.034</Modified>
+      <Modified>2018-06-19T10:20:03.712</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\CreateUserView.xbf">
       <PackagePath>View\CreateUserView.xbf</PackagePath>
-      <Modified>2018-06-19T09:54:15.848</Modified>
+      <Modified>2018-06-19T10:08:11.186</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\HelpView.xbf">
+      <PackagePath>View\HelpView.xbf</PackagePath>
+      <Modified>2018-06-19T10:12:11.693</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\Login.xbf">
       <PackagePath>View\Login.xbf</PackagePath>
-      <Modified>2018-06-19T09:22:10.047</Modified>
+      <Modified>2018-06-19T10:00:27.988</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\View\HubTest.xbf">
       <PackagePath>View\HubTest.xbf</PackagePath>
-      <Modified>2018-06-19T09:22:10.044</Modified>
+      <Modified>2018-06-19T10:08:11.187</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -644,11 +648,11 @@
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-19T09:47:59.483</Modified>
+      <Modified>2018-06-19T10:05:25.996</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\bin\x86\Debug\Core\KommandoBogApp.exe">
       <PackagePath>KommandoBogApp.exe</PackagePath>
-      <Modified>2018-06-19T09:54:17.176</Modified>
+      <Modified>2018-06-19T10:20:04.552</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
