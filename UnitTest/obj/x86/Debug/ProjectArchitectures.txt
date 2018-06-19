@@ -1,0 +1,2 @@
+C:\Users\Wulff\source\repos\Kommandobogen\KommandoBogApp\KommandoBogApp.csproj;x86
+C:\Users\Wulff\source\repos\Kommandobogen\UnitTest\UnitTest.csproj;x86
