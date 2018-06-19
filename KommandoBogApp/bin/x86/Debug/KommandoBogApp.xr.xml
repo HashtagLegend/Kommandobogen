@@ -205,6 +205,8 @@
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="SelectedItem" />
       <RootProperty Name="Resources" />
+      <RootEvent Name="SelectionChanged" />
+      <RootEvent Name="KeyDown" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="HorizontalAlignment" />

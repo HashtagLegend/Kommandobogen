@@ -21,7 +21,7 @@ namespace KommandoBogApp.ViewModel
         public string ViewEmail { get; set; }
         public string Type { get; set; }
         public Afdeling Afdeling { get; set; }
-        public User SelectedUser { get; set; }
+        public static User SelectedUser { get; set; }
         public ActivityViewModel ActivityViewModel { get; set; }
         public static ObservableCollection<int> DatesInMonth { get; set; }
         public static string CurrentShownMonth { get; set; }

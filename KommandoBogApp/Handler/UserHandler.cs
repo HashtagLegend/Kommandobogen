@@ -27,42 +27,60 @@ namespace KommandoBogApp.Handler
         //Opretter bruger alt efter hvilken type
         public void CreateUser()
         {
+            if (UserVM.ViewEmail != null)
+            {
             if (UserVM.ViewEmail.Contains("@"))
             {
+                bool userExists = false;
 
-
-                if (UserVM.Type == "Admin")
+                foreach (var user in UserCatalogSingleton.Instance.UserList)
                 {
-                    Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
-                        UserVM.ViewEmail, UserVM.ViewPassword);
-                    admin.AfdNavn = UserVM.Afdeling.Navn;
-                    admin.AfdId = UserVM.Afdeling.AfdId.ToString();
-                    UserVM.UserCatalogSingleton.AddUser(admin);
-                    AddUserToAfdeling(admin);
-
+                    if (user.MaNummer == UserVM.ViewMaNr)
+                    {
+                        userExists = true;
+                        
+                    }
                 }
-                else if (UserVM.Type == "Leader")
+                if (userExists != true)
                 {
-                    Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
-                        UserVM.ViewEmail, UserVM.ViewPassword);
-                    leader.AfdNavn = UserVM.Afdeling.Navn;
-                    leader.AfdId = UserVM.Afdeling.AfdId.ToString();
-                    UserVM.UserCatalogSingleton.AddUser(leader);
-                    AddUserToAfdeling(leader);
+
+
+                    if (UserVM.Type == "Admin")
+                    {
+                        Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
+                            UserVM.ViewEmail, UserVM.ViewPassword);
+                        admin.AfdNavn = UserVM.Afdeling.Navn;
+                        admin.AfdId = UserVM.Afdeling.AfdId.ToString();
+                        UserVM.UserCatalogSingleton.AddUser(admin);
+                        AddUserToAfdeling(admin);
+
+                    }
+                    else if (UserVM.Type == "Leader")
+                    {
+                        Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
+                            UserVM.ViewEmail, UserVM.ViewPassword);
+                        leader.AfdNavn = UserVM.Afdeling.Navn;
+                        leader.AfdId = UserVM.Afdeling.AfdId.ToString();
+                        UserVM.UserCatalogSingleton.AddUser(leader);
+                        AddUserToAfdeling(leader);
 
 
 
+                    }
+                    else if (UserVM.Type == "Regular")
+                    {
+                        Regular regular = new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf,
+                            UserVM.ViewAdresse,
+                            UserVM.ViewEmail, UserVM.ViewPassword);
+                        regular.AfdNavn = UserVM.Afdeling.Navn;
+                        regular.AfdId = UserVM.Afdeling.AfdId.ToString();
+                        UserVM.UserCatalogSingleton.AddUser(regular);
+                        AddUserToAfdeling(regular);
+
+                    }
                 }
-                else if (UserVM.Type == "Regular")
-                {
-                    Regular regular = new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
-                        UserVM.ViewEmail, UserVM.ViewPassword);
-                    regular.AfdNavn = UserVM.Afdeling.Navn;
-                    regular.AfdId = UserVM.Afdeling.AfdId.ToString();
-                    UserVM.UserCatalogSingleton.AddUser(regular);
-                    AddUserToAfdeling(regular);
+            }
 
-                }
             }
             else
             {
@@ -80,7 +98,7 @@ namespace KommandoBogApp.Handler
             {
                 foreach (var user in UserVM.UserCatalogSingleton.UserList)
                 {
-                    if (user == UserVM.SelectedUser)
+                    if (user == UserViewModel.SelectedUser)
                     {
                         foreach (var activity in user.Activities)
                         {
@@ -101,7 +119,7 @@ namespace KommandoBogApp.Handler
             {
                 foreach (var user in UserVM.UserCatalogSingleton.UserList)
                 {
-                    if (user == UserVM.SelectedUser)
+                    if (user == UserViewModel.SelectedUser)
                     {
                         break;
                     }
@@ -113,8 +131,8 @@ namespace KommandoBogApp.Handler
             });
 
             Debug.WriteLine(UserSpotInList);
-            UserPersistency.DeleteEventsAsync(UserVM.SelectedUser);
-            UserVM.UserCatalogSingleton.RemoveUser(UserVM.SelectedUser);
+            UserPersistency.DeleteEventsAsync(UserViewModel.SelectedUser);
+            UserVM.UserCatalogSingleton.RemoveUser(UserViewModel.SelectedUser);
         }
 
         public void AddUserToAfdeling(User user)
@@ -152,7 +170,7 @@ namespace KommandoBogApp.Handler
 
         public async void ShowNothing()
         {
-            var dialog = new MessageDialog("Dette er funktionalitet som endnu ikke er blevet bygget");
+            var dialog = new MessageDialog("Dette er en funktionalitet som endnu ikke er blevet bygget");
             await dialog.ShowAsync();
 
         }
