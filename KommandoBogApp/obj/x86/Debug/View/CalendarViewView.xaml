@@ -102,7 +102,13 @@
                         </Core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='22' x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik"/>
+                <AppBarButton x:ConnectionId='22' x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik">
+                    <interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.HelpView"/>
+                        </Core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
                 <TextBlock x:ConnectionId='23' x:Name="Leder" TextWrapping="Wrap" Text="  Leder" Height="20" Width="150" RelativePanel.Below="Hjælp"/>
                 <AppBarButton x:ConnectionId='24' x:Name="Merarbejde" Label="Merarbejde" Width="150" Height="65" Icon="Manage" RelativePanel.Below="Leder"/>
                 <AppBarButton x:ConnectionId='25' x:Name="Statistik" Label="Statistik" Width="150" Icon="List" Height="65" RelativePanel.Below="Merarbejde"/>

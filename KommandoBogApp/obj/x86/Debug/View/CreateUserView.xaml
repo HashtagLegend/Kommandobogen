@@ -89,7 +89,13 @@
                         </Custom1:EventTriggerBehavior>
                     </Custom:Interaction.Behaviors>
                 </AppBarButton>
-                <AppBarButton x:ConnectionId='21' x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik"/>
+                <AppBarButton x:ConnectionId='21' x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik">
+                    <Custom:Interaction.Behaviors>
+                        <Custom1:EventTriggerBehavior EventName="Click">
+                            <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.HelpView"/>
+                        </Custom1:EventTriggerBehavior>
+                    </Custom:Interaction.Behaviors>
+                </AppBarButton>
                 <TextBlock x:ConnectionId='22' x:Name="Leder" TextWrapping="Wrap" Text="  Leder" Height="20" Width="150" RelativePanel.Below="Hjælp"/>
                 <AppBarButton x:ConnectionId='23' x:Name="Merarbejde" Label="Merarbejde" Width="150" Height="65" Icon="Manage" RelativePanel.Below="Leder"/>
                 <AppBarButton x:ConnectionId='24' x:Name="Statistik" Label="Statistik" Width="150" Icon="List" Height="65" RelativePanel.Below="Merarbejde"/>
