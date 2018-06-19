@@ -25,9 +25,55 @@ namespace KommandoBogApp.Handler
         {
             UserVM = uSW;
         }
+
         //Opretter bruger alt efter hvilken type
         public void CreateUser()
         {
+            if (UserVM.ViewEmail.Contains("@"))
+            {
+
+
+                if (UserVM.Type == "Admin")
+                {
+                    Admin admin = new Admin(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
+                        UserVM.ViewEmail, UserVM.ViewPassword);
+                    admin.AfdNavn = UserVM.Afdeling.Navn;
+                    admin.AfdId = UserVM.Afdeling.AfdId.ToString();
+                    UserVM.UserCatalogSingleton.AddUser(admin);
+                    AddUserToAfdeling(admin);
+
+                }
+                else if (UserVM.Type == "Leader")
+                {
+                    Leader leader = new Leader(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
+                        UserVM.ViewEmail, UserVM.ViewPassword);
+                    leader.AfdNavn = UserVM.Afdeling.Navn;
+                    leader.AfdId = UserVM.Afdeling.AfdId.ToString();
+                    UserVM.UserCatalogSingleton.AddUser(leader);
+                    AddUserToAfdeling(leader);
+
+
+
+                }
+                else if (UserVM.Type == "Regular")
+                {
+                    Regular regular = new Regular(UserVM.ViewMaNr, UserVM.ViewNavn, UserVM.ViewTlf, UserVM.ViewAdresse,
+                        UserVM.ViewEmail, UserVM.ViewPassword);
+                    regular.AfdNavn = UserVM.Afdeling.Navn;
+                    regular.AfdId = UserVM.Afdeling.AfdId.ToString();
+                    UserVM.UserCatalogSingleton.AddUser(regular);
+                    AddUserToAfdeling(regular);
+
+                }
+            }
+            else
+            {
+                var dialog = new MessageDialog("Husk @ i din email");
+                dialog.ShowAsync();
+            }
+
+        }
+
             bool userExists = false;
 
             foreach (var user in UserCatalogSingleton.Instance.UserList)
@@ -90,10 +136,12 @@ namespace KommandoBogApp.Handler
                             {
                                 DatesPersistency.DeleteDateAsync(dateids);
                             }
+
                             ActivityPersistency.DeleteActivityAsync(activity);
                         }
                     }
                 }
+
                 await Task.Delay(TimeSpan.FromSeconds(1));
             });
 
@@ -105,11 +153,13 @@ namespace KommandoBogApp.Handler
                     {
                         break;
                     }
+
                     UserSpotInList++;
                 }
+
                 await Task.Delay(TimeSpan.FromSeconds(1));
             });
-            
+
             Debug.WriteLine(UserSpotInList);
             UserPersistency.DeleteUserAsync(UserViewModel.SelectedUser);
             UserVM.UserCatalogSingleton.RemoveUser(UserViewModel.SelectedUser);
@@ -118,7 +168,7 @@ namespace KommandoBogApp.Handler
         public void AddUserToAfdeling(User user)
         {
             UserVM.Afdeling.AddUserToList(user);
-            
+
         }
 
         //Bruger til at tjekke om den givne user kan logges ind
@@ -141,14 +191,24 @@ namespace KommandoBogApp.Handler
                         UserVM.UserCatalogSingleton.LoadActivitiesFromDB();
                         return true;
                     }
+
                     Login.LoadFromDBGoneWrong = "Wrong Username or Password";
                 }
             }
+
             return false;
         }
 
+        public async void ShowNothing()
+        {
+            var dialog = new MessageDialog("Dette er funktionalitet som endnu ikke er blevet bygget");
+            await dialog.ShowAsync();
 
-
-        
+        }
     }
+
+
+
+
+
 }

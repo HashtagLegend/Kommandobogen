@@ -56,6 +56,8 @@ namespace KommandoBogApp.ViewModel
         {
             return Handler.CycleThroughActivities(dateTime);
         }
+
+       
        
 
         public void ShowFilteredList()

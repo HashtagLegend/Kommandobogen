@@ -5,11 +5,13 @@
     <RootPropertyPathName Name="TimeStart" />
     <RootPropertyPathName Name="ViewKommentar" />
     <RootPropertyPathName Name="ViewNavn" />
+    <RootPropertyPathName Name="Handler" />
     <RootPropertyPathName Name="CalendarOverviewSingleton" />
     <RootPropertyPathName Name="ActiveActivityList" />
     <RootPropertyPathName Name="DatesFromAndTo" />
     <RootPropertyPathName Name="Kommentar" />
     <RootPropertyPathName Name="Navn" />
+    <RootPropertyPathName Name="UserHandler" />
     <RootPropertyPathName Name="UserCatalogSingleton" />
     <RootPropertyPathName Name="LoginUser" />
     <RootPropertyPathName Name="MaNummer" />
@@ -236,6 +238,10 @@
       <RootMethod Name="GetAlignBottomWithPanel" />
       <RootMethod Name="SetAlignBottomWithPanel" />
     </RootType>
+    <RootType FullName="Microsoft.Xaml.Interactions.Core.CallMethodAction">
+      <RootProperty Name="MethodName" />
+      <RootProperty Name="TargetObject" />
+    </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension">
       <RootProperty Name="ResourceKey" />
     </RootType>
@@ -249,10 +255,6 @@
       <RootProperty Name="Height" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.Interactions.Core.CallMethodAction">
-      <RootProperty Name="TargetObject" />
-      <RootProperty Name="MethodName" />
     </RootType>
     <RootType FullName="KommandoBogApp.View.CalendarViewView" />
     <RootType FullName="KommandoBogApp.ViewModel.UserViewModel" />

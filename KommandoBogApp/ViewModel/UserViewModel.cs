@@ -31,7 +31,8 @@ namespace KommandoBogApp.ViewModel
 
         public string ViewPassword { get; set; }
 
-       
+        public string ViewMailMessage { get; set; }
+
 
 
 

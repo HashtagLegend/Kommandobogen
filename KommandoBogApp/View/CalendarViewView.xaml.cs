@@ -20,6 +20,7 @@ using KommandoBogApp.Model;
 using KommandoBogApp.Singleton;
 using KommandoBogApp.ViewModel;
 using Microsoft.Xaml.Interactions.Core;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -244,6 +245,11 @@ namespace KommandoBogApp.View
             {
                 LeavingPage(sender, e);
                 this.Frame.Navigate(typeof(KommandoBogApp.View.CreateUserView));
+            }
+            else
+            {
+                var dialog = new MessageDialog("Da du ikke har rettigheder som Admin er denne side lukket");
+                dialog.ShowAsync();
             }
         }
     }

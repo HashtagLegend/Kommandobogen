@@ -82,8 +82,14 @@
                         </Custom1:EventTriggerBehavior>
                     </Custom:Interaction.Behaviors>
                 </AppBarButton>
-                <AppBarButton x:Name="Arbejdstid" Label="Arbejdstid" Width="150" Icon="People" Height="65" RelativePanel.Below="HjemKnap"/>
-                <AppBarButton x:Name="Overblik" Label="Overblik" Width="150" Icon="Calendar" Height="65" RelativePanel.Below="Arbejdstid" Click="ClearIfSelectedOnLoad">
+                <AppBarButton x:Name="Arbejdstid" Label="Arbejdstid" Width="150" Icon="People" Height="65" RelativePanel.Below="HjemKnap">
+                    <Custom:Interaction.Behaviors>
+                        <Custom1:EventTriggerBehavior EventName="Click">
+                            <Custom1:CallMethodAction MethodName="ShowNothing" TargetObject="{Binding UserHandler}"/>
+                        </Custom1:EventTriggerBehavior>
+                    </Custom:Interaction.Behaviors>
+                </AppBarButton>
+                <AppBarButton x:Name="Overblik" Label="Overblik" Width="150" Icon="Calendar" Height="65" RelativePanel.Below="Arbejdstid">
                     <Custom:Interaction.Behaviors>
                         <Custom1:EventTriggerBehavior EventName="Click">
                             <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.HubTest"/>
@@ -92,8 +98,20 @@
                 </AppBarButton>
                 <AppBarButton x:Name="Hjælp" Label="Hjælp" Width="150" Icon="Help" Height="65" RelativePanel.Below="Overblik"/>
                 <TextBlock x:Name="Leder" TextWrapping="Wrap" Text="  Leder" Height="20" Width="150" RelativePanel.Below="Hjælp"/>
-                <AppBarButton x:Name="Merarbejde" Label="Merarbejde" Width="150" Height="65" Icon="Manage" RelativePanel.Below="Leder"/>
-                <AppBarButton x:Name="Statistik" Label="Statistik" Width="150" Icon="List" Height="65" RelativePanel.Below="Merarbejde"/>
+                <AppBarButton x:Name="Merarbejde" Label="Merarbejde" Width="150" Height="65" Icon="Manage" RelativePanel.Below="Leder">
+                    <Custom:Interaction.Behaviors>
+                        <Custom1:EventTriggerBehavior EventName="Click">
+                            <Custom1:CallMethodAction MethodName="ShowNothing" TargetObject="{Binding UserHandler}"/>
+                        </Custom1:EventTriggerBehavior>
+                    </Custom:Interaction.Behaviors>
+                </AppBarButton>
+                <AppBarButton x:Name="Statistik" Label="Statistik" Width="150" Icon="List" Height="65" RelativePanel.Below="Merarbejde">
+                    <Custom:Interaction.Behaviors>
+                        <Custom1:EventTriggerBehavior EventName="Click">
+                            <Custom1:CallMethodAction MethodName="ShowNothing" TargetObject="{Binding UserHandler}"/>
+                        </Custom1:EventTriggerBehavior>
+                    </Custom:Interaction.Behaviors>
+                </AppBarButton>
                 <TextBlock x:Name="Admin" TextWrapping="Wrap" Height="20" Width="150" Text="  Admin" RelativePanel.Below="Statistik"/>
                 <AppBarButton x:Name="Opret_bruger" Label="Opret Bruger" Width="150" Icon="AddFriend" Height="65" RelativePanel.Below="Admin">
                     <Custom:Interaction.Behaviors>
@@ -102,8 +120,14 @@
                         </Custom1:EventTriggerBehavior>
                     </Custom:Interaction.Behaviors>
                 </AppBarButton>
-                <AppBarButton x:Name="Rediger_bruger" Label="Rediger Bruger" Width="150" Icon="Edit" Height="65" RelativePanel.Below="Opret_bruger"/>
-                <AppBarButton x:Name="Logout" Label="Log Out" Width="150" Icon="GoToStart" Height="65" RelativePanel.AlignBottomWithPanel="True" Click="ClearIfSelectedOnLoad">
+                <AppBarButton x:Name="Rediger_bruger" Label="Rediger Bruger" Width="150" Icon="Edit" Height="65" RelativePanel.Below="Opret_bruger">
+                    <Custom:Interaction.Behaviors>
+                        <Custom1:EventTriggerBehavior EventName="Click">
+                            <Custom1:CallMethodAction MethodName="ShowNothing" TargetObject="{Binding UserHandler}"/>
+                        </Custom1:EventTriggerBehavior>
+                    </Custom:Interaction.Behaviors>
+                </AppBarButton>
+                <AppBarButton x:Name="Logout" Label="Log Out" Width="150" Icon="GoToStart" Height="65" RelativePanel.AlignBottomWithPanel="True">
                     <Custom:Interaction.Behaviors>
                         <Custom1:EventTriggerBehavior EventName="Click">
                             <Custom1:NavigateToPageAction TargetPage="KommandoBogApp.View.Login"/>
