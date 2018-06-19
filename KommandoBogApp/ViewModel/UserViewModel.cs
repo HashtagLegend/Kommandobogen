@@ -58,7 +58,13 @@ namespace KommandoBogApp.ViewModel
 
 
         private ICommand _deleteUser;
+        private ICommand _createUser;
 
+        public ICommand CreateUserCommand
+        {
+            get { return _createUser ?? (_createUser = new RelayCommand(UserHandler.CreateUser)); }
+            set { _createUser = value; }
+        }
 
         public ICommand DeleteUserCommand
         {

@@ -15,6 +15,7 @@
     <RootPropertyPathName Name="MaNummer" />
     <RootPropertyPathName Name="ViewSearch" />
     <RootPropertyPathName Name="DeleteUserCommand" />
+    <RootPropertyPathName Name="CreateUserCommand" />
     <RootPropertyPathName Name="SelectedUser" />
     <RootPropertyPathName Name="UserList" />
     <RootPropertyPathName Name="UserType" />

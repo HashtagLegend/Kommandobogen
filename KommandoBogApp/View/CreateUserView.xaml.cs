@@ -127,7 +127,7 @@ namespace KommandoBogApp.View
             }
         }
 
-        public void ClearIfSelectedOnLoad()
+        public void ClearIfSelectedOnLoad(object sender, RoutedEventArgs e)
         {
             MA_Nummer.Background = new SolidColorBrush(Colors.Transparent);
             MA_Nummer.IsReadOnly = false;
@@ -152,12 +152,14 @@ namespace KommandoBogApp.View
             }
             else
             {
-                var DoesExist = UserHandler.UserVM.UserHandler.CreateUser();
-                if (DoesExist)
+                foreach (var user in UserCatalogSingleton.Instance.UserList)
                 {
-                    MaNummerError.Text = "En Bruger med dette Ma Nummer eksisterer allerede";
-                    await Task.Delay(TimeSpan.FromSeconds(5));
-                    MaNummerError.Text = "";
+                    if (user.MaNummer == MA_Nummer.Text)
+                    {
+                        MaNummerError.Text = "En Bruger med dette Ma Nummer eksisterer allerede";
+                        await Task.Delay(TimeSpan.FromSeconds(5));
+                        MaNummerError.Text = "";
+                    }
                 }
             }
         }

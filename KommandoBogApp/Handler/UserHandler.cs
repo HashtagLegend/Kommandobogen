@@ -26,7 +26,7 @@ namespace KommandoBogApp.Handler
             UserVM = uSW;
         }
         //Opretter bruger alt efter hvilken type
-        public bool CreateUser()
+        public void CreateUser()
         {
             bool userExists = false;
 
@@ -35,9 +35,11 @@ namespace KommandoBogApp.Handler
                 if (user.MaNummer == UserVM.ViewMaNr)
                 {
                     userExists = true;
-                    return true;
                 }
             }
+
+            
+
             if (userExists != true)
             {
                 if (UserVM.Type == "Admin")
@@ -47,7 +49,7 @@ namespace KommandoBogApp.Handler
                     admin.AfdId = UserVM.Afdeling.AfdId.ToString();
                     UserVM.UserCatalogSingleton.AddUser(admin);
                     AddUserToAfdeling(admin);
-                    return false;
+                    
                 }
                 else if (UserVM.Type == "Leader")
                 {
@@ -56,9 +58,7 @@ namespace KommandoBogApp.Handler
                     leader.AfdId = UserVM.Afdeling.AfdId.ToString();
                     UserVM.UserCatalogSingleton.AddUser(leader);
                     AddUserToAfdeling(leader);
-                    return false;
-
-
+                    
                 }
                 else if (UserVM.Type == "Regular")
                 {
@@ -67,11 +67,9 @@ namespace KommandoBogApp.Handler
                     regular.AfdId = UserVM.Afdeling.AfdId.ToString();
                     UserVM.UserCatalogSingleton.AddUser(regular);
                     AddUserToAfdeling(regular);
-                    return false;
+                    
                 }
             }
-            return false;
-
         }
 
        
