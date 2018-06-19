@@ -1,1 +1,0 @@
-C:\Users\Jesper\source\repos\Kommandobogen\KommandoBogApp\KommandoBogApp.csproj;x86
