@@ -14,7 +14,7 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="MaNummerError" HorizontalAlignment="Left" Margin="160,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Foreground="Red"/>
+        <TextBlock x:Name="MaNummerError" HorizontalAlignment="Left" Margin="160,148,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Foreground="Red"/>
         <TextBox x:Name="MA_Nummer" HorizontalAlignment="Left" Margin="160,183,0,0" Text="{Binding ViewMaNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="41" Width="286" PlaceholderText="MA-nummer"/>
         <TextBox x:Name="Navn" HorizontalAlignment="Left" Margin="160,254,0,0" Text="{Binding ViewNavn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Navn"/>
         <TextBox x:Name="Telefon_Nummer" HorizontalAlignment="Left" Margin="160,320,0,0" Text="{Binding ViewTlf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="286" PlaceholderText="Tlf_nummer"/>
