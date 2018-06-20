@@ -218,7 +218,7 @@ namespace KommandoBogApp.View
                     await Task.Delay(TimeSpan.FromSeconds(1.5 + i));
                 }
                 if (i > 1)
-                    await Task.Delay(TimeSpan.FromSeconds(1.5 + 1.5 * i));
+                    await Task.Delay(TimeSpan.FromSeconds(1.5 + 2 * i));
                 Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
             }
 
