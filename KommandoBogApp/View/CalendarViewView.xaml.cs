@@ -179,6 +179,9 @@ namespace KommandoBogApp.View
 
         private async void Opret_OnClick(object sender, RoutedEventArgs e)
         {
+            if (ActivityViewModel.ViewKommentar != null && ActivityViewModel.ViewNavn != null && ActivityViewModel.ViewKommentar != "" && ActivityViewModel.ViewNavn != "")
+            {
+
             UILoading = false;
             if (SetActivity.SelectionBoxItem != null)
             {
@@ -217,6 +220,8 @@ namespace KommandoBogApp.View
                 if (i > 1)
                     await Task.Delay(TimeSpan.FromSeconds(1.5 + 1.5 * i));
                 Frame.Navigate(typeof(KommandoBogApp.View.CalendarViewView));
+            }
+
             }
         }
 
