@@ -68,6 +68,10 @@ namespace KommandoBogApp.Handler
 
         public async void CreateActivity(Color color)
         {
+            if (ActivityViewModel.ViewKommentar != null && ActivityViewModel.ViewNavn != null && ActivityViewModel.ViewKommentar != "" && ActivityViewModel.ViewNavn != "")
+            {
+                
+            
             CalendarViewView.UILoading = false;
             int i = 1;
             Activity newActivity = new Activity(CurrentDatesToActivity(), ActivityViewModel.ViewKommentar,
@@ -118,6 +122,7 @@ namespace KommandoBogApp.Handler
             });
 
             CalendarViewView.UILoading = true;
+            }
         }
 
         public List<DateTimeOffset> CurrentDatesToActivity()

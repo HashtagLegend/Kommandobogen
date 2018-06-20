@@ -144,7 +144,6 @@
                     <interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="KommandoBogApp.View.Login"/>
-                            <Core:CallMethodAction MethodName="ClearAllList" TargetObject="{Binding Handler}"/>
                         </Core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </AppBarButton>
